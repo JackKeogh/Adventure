@@ -10,7 +10,7 @@ public:
 	~Renderer();
 
 	// initialiser
-	bool init(std::string t, int x = 0, int y = 0, int w = 1080, int h = 720);
+	bool initialise(std::string t, int x = 0, int y = 0, int w = 1080, int h = 720);
 
 	// clear window
 	void clear();

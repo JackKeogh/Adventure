@@ -13,7 +13,7 @@ Renderer::~Renderer() {
 	delete m_render;
 }
 
-bool Renderer::init(std::string t, int x, int y, int w, int h) {
+bool Renderer::initialise(std::string t, int x, int y, int w, int h) {
 	if (x == 0 && y == 0)
 	{
 		m_window = SDL_CreateWindow(t.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, NULL);
