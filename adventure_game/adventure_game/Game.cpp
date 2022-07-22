@@ -86,6 +86,12 @@ void Game::SDLInitialise() {
 		std::cout << "Failed to initialise SDL..." << std::endl;
 		exit(-1);
 	}
+
+	// initialise image
+	if (IMG_Init(IMG_INIT_PNG) < 0)
+	{
+		std::cout << "Failed to initialise Image..." << std::endl;
+	}
 }
 
 void Game::run() {

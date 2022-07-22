@@ -43,3 +43,8 @@ void Renderer::draw(SDL_Texture* t, SDL_Rect src, SDL_Rect dest, float r)
 {
 	SDL_RenderCopy(m_render, t, &src, &dest);
 }
+
+SDL_Renderer* Renderer::getRenderer()
+{
+	return m_render;
+}
