@@ -18,6 +18,9 @@ public:
 	// present window
 	void display();
 
+	// draw object
+	void draw(SDL_Texture* t, SDL_Rect src, SDL_Rect dest, float r = 0);
+
 private:
 	static SDL_Window* m_window;
 	static SDL_Renderer* m_render;

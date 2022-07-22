@@ -38,3 +38,8 @@ void Renderer::clear() {
 void Renderer::display() {
 	SDL_RenderPresent(m_render);
 }
+
+void Renderer::draw(SDL_Texture* t, SDL_Rect src, SDL_Rect dest, float r)
+{
+	SDL_RenderCopy(m_render, t, &src, &dest);
+}
