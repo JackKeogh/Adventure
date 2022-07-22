@@ -11,7 +11,8 @@ Overworld::~Overworld() {
 void Overworld::initialise(Renderer* r) {
 	m_running = true;
 	m_state = OverworldState::Inside;
-	obj = new Object(r, "assets/34024.png", { 4,4,36,36 }, { 0,0,72,72 });
+	obj = new Sprite(r, "assets/littleroot.png", { 0,0,480,416 }, { 0,0,960,832 });
+	player = new Sprite(r, "assets/34024.png", { 9,40,22,27 }, { 0,0,22,27 });
 }
 
 void Overworld::events(SDL_Event* e) {
@@ -53,6 +54,7 @@ void Overworld::update(float dt) {
 
 void Overworld::render(Renderer* r) {
 	obj->Render(r);
+	player->Render(r);
 }
 
 void Overworld::setRunning() {

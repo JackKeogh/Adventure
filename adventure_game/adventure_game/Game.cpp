@@ -67,7 +67,7 @@ Game::Game() {
 
 	// Initialise Renderer
 	m_renderer = new Renderer();
-	m_renderer->initialise("The Legend of Lugh: The Trials of Tara");
+	m_renderer->initialise("The Legend of Lugh: The Trials of Tara",0,0,960,832);
 
 	// Initialise World
 	m_world = new Overworld();

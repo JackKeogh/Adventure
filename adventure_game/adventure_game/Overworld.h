@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "OverworldState.h"
 #include "RenderingSystem.h"
-#include "Object.h"
+#include "Sprite.h"
 
 class Overworld {
 public:
@@ -30,5 +30,6 @@ private:
 	bool m_running;
 	OverworldState m_state;
 	OverworldState m_oldState;
-	Object* obj;
+	Sprite* obj;
+	Sprite* player;
 };
