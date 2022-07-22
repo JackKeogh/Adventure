@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "RenderingSystem.h"
+#include "World.h"
 
 class GameLoopController {
 public:
@@ -13,6 +14,7 @@ public:
 	void calculateDT();
 	void delayFrame();
 	void printDT();
+	float getDT();
 	
 private:
 	int FRAMES_PER_SECOND;
@@ -33,8 +35,17 @@ public:
 
 	void run();
 
+	void events();
+
+	void update();
+
+	void render();
+
+	bool getRunning();
+
 private:
 	bool m_running;
 	GameLoopController* m_controller;
 	Renderer* m_renderer;
+	World* m_world;
 };

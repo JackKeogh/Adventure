@@ -46,6 +46,14 @@ void GameLoopController::printDT() {
 	std::cout << DELTA_TIME << std::endl;
 }
 
+float GameLoopController::getDT() {
+	return DELTA_TIME;
+}
+
+/// <summary>
+/// Game class below
+/// </summary>
+
 Game::Game() {
 	// Game Loop Controller
 	m_controller = new GameLoopController();
@@ -60,10 +68,15 @@ Game::Game() {
 	// Initialise Renderer
 	m_renderer = new Renderer();
 	m_renderer->initialise("The Legend of Lugh: The Trials of Tara");
+
+	// Initialise World
+	m_world = new World();
 }
 
 Game::~Game() {
-
+	delete m_renderer;
+	delete m_controller;
+	delete m_world;
 }
 
 void Game::SDLInitialise() {
@@ -81,17 +94,52 @@ void Game::run() {
 
 	while (m_running)
 	{
+		if (!getRunning())
+		{
+			break;
+		}
+
 		m_controller->updateOldTime();
 		m_controller->updateCurrentTime();
 		m_controller->calculateDT();
 
 		////////////////////////////////////
-		m_renderer->clear();
-
-		m_renderer->display();
+		events();
+		update();
+		render();
 		////////////////////////////////////
 
 		m_controller->updateFrameTime();
 		m_controller->delayFrame();
 	}
+}
+
+void Game::events() {
+	SDL_Event* e = new SDL_Event();
+
+	while (SDL_PollEvent(e))
+	{
+		if (e->type == SDL_QUIT)
+		{
+			m_running = false;
+		}
+
+		m_world->events(e);
+	}
+}
+
+void Game::update() {
+	m_world->update(m_controller->getDT());
+}
+
+void Game::render() {
+	m_renderer->clear();
+
+	m_world->render(m_renderer);
+
+	m_renderer->display();
+}
+
+bool Game::getRunning() {
+	return m_running = m_world->getRunning();
 }
