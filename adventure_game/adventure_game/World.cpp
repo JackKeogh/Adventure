@@ -1,16 +1,17 @@
 #include "World.h"
 
-World::World() {
+World::World(Renderer* renderer) {
 	initialise();
 }
 
 World::~World() {
-
+	delete obj;
 }
 
-void World::initialise() {
+void World::initialise(Renderer* r) {
 	m_running = true;
 	m_state = OverworldState::Inside;
+	obj = new Object(r, "assets/34024.png", { 4,4,36,36 }, { 0,0,72,72 });
 }
 
 void World::events(SDL_Event* e) {
@@ -51,7 +52,7 @@ void World::update(float dt) {
 }
 
 void World::render(Renderer* r) {
-
+	obj->Render(r);
 }
 
 void World::setRunning() {

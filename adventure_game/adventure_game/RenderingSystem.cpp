@@ -9,8 +9,8 @@ Renderer::Renderer() {
 }
 
 Renderer::~Renderer() {
-	delete m_window;
-	delete m_render;
+	SDL_DestroyWindow(m_window);
+	SDL_DestroyRenderer(m_render);
 }
 
 bool Renderer::initialise(std::string t, int x, int y, int w, int h) {

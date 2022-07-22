@@ -2,14 +2,15 @@
 #include "stdafx.h"
 #include "OverworldState.h"
 #include "RenderingSystem.h"
+#include "Object.h"
 
 class World {
 public:
-	World();
+	World(Renderer* r = nullptr);
 
 	~World();
 
-	void initialise();
+	void initialise(Renderer* r = nullptr);
 
 	void events(SDL_Event* e);
 
@@ -29,4 +30,5 @@ private:
 	bool m_running;
 	OverworldState m_state;
 	OverworldState m_oldState;
+	Object* obj;
 };

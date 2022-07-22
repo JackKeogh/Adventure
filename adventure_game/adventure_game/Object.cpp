@@ -18,7 +18,7 @@ Object::Object(Renderer* renderer, std::string path, SDL_Rect s, SDL_Rect d)
 }
 
 Object::~Object() {
-
+	SDL_DestroyTexture(m_texture);
 }
 
 void Object::Update(float dt) {
