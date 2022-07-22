@@ -1,13 +1,6 @@
 ﻿  Game.cpp
 D:\Projects\Adventure\Adventure\adventure_game\adventure_game\Game.cpp(19,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Object.cpp
-  RenderingSystem.cpp
-D:\Projects\Adventure\Adventure\adventure_game\adventure_game\RenderingSystem.cpp(12,17): warning C4150: deletion of pointer to incomplete type 'SDL_Window'; no destructor called
-D:\Development\Frameworks\SDL2-2.0.22\include\SDL_video.h(95): message : see declaration of 'SDL_Window'
-D:\Projects\Adventure\Adventure\adventure_game\adventure_game\RenderingSystem.cpp(13,17): warning C4150: deletion of pointer to incomplete type 'SDL_Renderer'; no destructor called
-D:\Development\Frameworks\SDL2-2.0.22\include\SDL_render.h(141): message : see declaration of 'SDL_Renderer'
-  World.cpp
+  Overworld.cpp
   main.cpp
   Generating Code...
-D:\Projects\Adventure\Adventure\adventure_game\adventure_game\RenderingSystem.cpp(32): warning C4715: 'Renderer::initialise': not all control paths return a value
   adventure_game.vcxproj -> D:\Projects\Adventure\Adventure\adventure_game\x64\Debug\adventure_game.exe

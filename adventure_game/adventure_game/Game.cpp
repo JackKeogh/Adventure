@@ -70,7 +70,7 @@ Game::Game() {
 	m_renderer->initialise("The Legend of Lugh: The Trials of Tara");
 
 	// Initialise World
-	m_world = new World();
+	m_world = new Overworld();
 }
 
 Game::~Game() {

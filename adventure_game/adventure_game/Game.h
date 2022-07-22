@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "RenderingSystem.h"
-#include "World.h"
+#include "Overworld.h"
 
 class GameLoopController {
 public:
@@ -47,5 +47,5 @@ private:
 	bool m_running;
 	GameLoopController* m_controller;
 	Renderer* m_renderer;
-	World* m_world;
+	Overworld* m_world;
 };
