@@ -12,6 +12,8 @@ void Overworld::initialise(Renderer* r) {
 	m_running = true;
 	m_state = OverworldState::Inside;
 	obj = new LittleRoot(r);
+	obj->addConnection(LocationName::Route101, new Route101(r));
+	obj->getLocation(LocationName::Route101)->addConnection(obj->getCurrentLocation(), obj);
 	player = new Sprite(r, "assets/34024.png", { 9,40,22,27 }, { 0,0,22,27 });
 }
 
@@ -39,13 +41,14 @@ void Overworld::update(float dt) {
 	switch (m_state)
 	{
 		case OverworldState::Overworld:
-			std::cout << "Overworld" << std::endl;
+			//std::cout << "Overworld" << std::endl;
 			break;
 		case OverworldState::Inside:
-			std::cout << "Inside" << std::endl;
+			//std::cout << "Inside" << std::endl;
 			break;
 		case OverworldState::Paused:
-			std::cout << "Paused" << std::endl;
+			//std::cout << "Paused" << std::endl;
+			break;
 		default:
 			//should not reach here
 			break;

@@ -34,3 +34,9 @@ class LittleRoot : public Location
 public:
 	LittleRoot(Renderer* r);
 };
+
+class Route101 : public Location
+{
+public:
+	Route101(Renderer* r);
+};

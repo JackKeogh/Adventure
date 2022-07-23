@@ -80,3 +80,12 @@ LittleRoot::LittleRoot(Renderer* r)
 	m_sprite = new Sprite(r, "assets/littleroot.png", { 0,0,480,416 }, { 0,0,960,832 });
 	m_name = LocationName::LittleRoot;
 }
+
+////////////////////////////////////////////////////////////////////////////
+// Route 101
+////////////////////////////////////////////////////////////////////////////
+Route101::Route101(Renderer* r)
+{
+	m_sprite = new Sprite(r, "assets/route101.png", { 0,0,480,416 }, { 0,0,960,832 });
+	m_name = LocationName::Route101;
+}
