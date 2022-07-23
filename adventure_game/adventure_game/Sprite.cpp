@@ -21,8 +21,10 @@ Sprite::~Sprite() {
 	SDL_DestroyTexture(m_texture);
 }
 
-void Sprite::Update(float dt) {
-
+void Sprite::updatePosition(int x, int y)
+{
+	m_destRect.x += x;
+	m_destRect.y += y;
 }
 
 void Sprite::Render(Renderer* renderer) {
