@@ -5,6 +5,7 @@
 #include <string>
 #include <stdlib.h>
 #include <SDL_image.h>
+#include <map>
 
 #pragma once
 #define ONE_SECOND_MS 1000.f

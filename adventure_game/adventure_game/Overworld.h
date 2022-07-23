@@ -3,6 +3,7 @@
 #include "OverworldState.h"
 #include "RenderingSystem.h"
 #include "Sprite.h"
+#include "Location.h"
 
 class Overworld {
 public:
@@ -30,6 +31,6 @@ private:
 	bool m_running;
 	OverworldState m_state;
 	OverworldState m_oldState;
-	Sprite* obj;
+	Location* obj;
 	Sprite* player;
 };
