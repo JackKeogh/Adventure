@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "Sprite.h"
+#include "Collider.h"
 
 struct Movement
 {
@@ -40,8 +41,11 @@ public:
 
 	void render(Renderer* r);
 
+	Collider* getCollider();
+
 protected:
 	Sprite* m_sprite;
 	Movement* m_movement;
+	Collider* m_collider;
 };
 

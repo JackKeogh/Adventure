@@ -30,3 +30,8 @@ void Sprite::updatePosition(int x, int y)
 void Sprite::Render(Renderer* renderer) {
 	renderer->draw(m_texture, m_srcRect, m_destRect);
 }
+
+SDL_Rect Sprite::getPosition()
+{
+	return m_destRect;
+}
