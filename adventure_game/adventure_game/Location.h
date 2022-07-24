@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "Sprite.h"
 #include "LocationName.h"
+#include "Collider.h"
 
 class Location
 {
@@ -22,11 +23,13 @@ public:
 
 	LocationName getCurrentLocation();
 	
+	std::vector<Collider*> getColliders();
 
 protected:
 	Sprite* m_sprite;
 	LocationName m_name;
 	std::map<LocationName, Location*> m_connections;
+	std::vector<Collider*> m_colliders;
 };
 
 class LittleRoot : public Location
