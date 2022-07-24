@@ -4,6 +4,7 @@
 #include "RenderingSystem.h"
 #include "Sprite.h"
 #include "Location.h"
+#include "Character.h"
 
 class Overworld {
 public:
@@ -32,5 +33,5 @@ private:
 	OverworldState m_state;
 	OverworldState m_oldState;
 	Location* obj;
-	Sprite* player;
+	Character* player;
 };

@@ -14,7 +14,7 @@ void Overworld::initialise(Renderer* r) {
 	obj = new LittleRoot(r);
 	obj->addConnection(LocationName::Route101, new Route101(r));
 	obj->getLocation(LocationName::Route101)->addConnection(obj->getCurrentLocation(), obj);
-	player = new Sprite(r, "assets/34024.png", { 9,40,22,27 }, { 0,0,22,27 });
+	player = new Character(r, "assets/34024.png", { 9,40,22,27 }, { 0,0,22,27 });
 }
 
 void Overworld::events(SDL_Event* e) {
@@ -34,6 +34,43 @@ void Overworld::events(SDL_Event* e) {
 				break;
 			}
 		}
+
+		if (e->key.keysym.sym == SDLK_w)
+		{
+			player->moveUp();
+		}
+		else if (e->key.keysym.sym == SDLK_s)
+		{
+			player->moveDown();
+		}
+		if (e->key.keysym.sym == SDLK_a)
+		{
+			player->moveLeft();
+		}
+		else if (e->key.keysym.sym == SDLK_d)
+		{
+			player->moveRight();
+		}
+	}
+
+	if (e->type == SDL_KEYUP)
+	{
+		if (e->key.keysym.sym == SDLK_w)
+		{
+			player->resetMovement("up");
+		}
+		if (e->key.keysym.sym == SDLK_s)
+		{
+			player->resetMovement("down");
+		}
+		if (e->key.keysym.sym == SDLK_a)
+		{
+			player->resetMovement("left");
+		}
+		if (e->key.keysym.sym == SDLK_d)
+		{
+			player->resetMovement("right");
+		}
 	}
 }
 
@@ -41,10 +78,8 @@ void Overworld::update(float dt) {
 	switch (m_state)
 	{
 		case OverworldState::Overworld:
-			//std::cout << "Overworld" << std::endl;
-			break;
 		case OverworldState::Inside:
-			//std::cout << "Inside" << std::endl;
+			player->update(dt);
 			break;
 		case OverworldState::Paused:
 			//std::cout << "Paused" << std::endl;
@@ -57,7 +92,7 @@ void Overworld::update(float dt) {
 
 void Overworld::render(Renderer* r) {
 	obj->render(r);
-	player->Render(r);
+	player->render(r);
 }
 
 void Overworld::setRunning() {

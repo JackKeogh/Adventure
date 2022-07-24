@@ -2,6 +2,21 @@
 #include "stdafx.h"
 #include "Sprite.h"
 
+struct Movement
+{
+	float m_speed;
+	bool m_left;
+	bool m_right;
+	bool m_up;
+	bool m_down;
+
+	Movement()
+	{
+		m_left = m_up = m_down = m_right = false;
+		m_speed = 1.f;
+	}
+};
+
 class Character
 {
 public:
@@ -17,7 +32,16 @@ public:
 
 	virtual void moveDown();
 
+	virtual void update(float dt);
+
+	void resetMovement(std::string m);
+
+	void updatePosition();
+
+	void render(Renderer* r);
+
 protected:
 	Sprite* m_sprite;
+	Movement* m_movement;
 };
 
