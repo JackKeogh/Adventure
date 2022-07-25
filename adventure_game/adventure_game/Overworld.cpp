@@ -10,11 +10,11 @@ Overworld::~Overworld() {
 
 void Overworld::initialise(Renderer* r) {
 	m_running = true;
-	m_state = OverworldState::Inside;
+	m_state = OverworldState::Overworld;
 	obj = new LittleRoot(r);
 	obj->addConnection(LocationName::Route101, new Route101(r));
 	obj->getLocation(LocationName::Route101)->addConnection(obj->getCurrentLocation(), obj);
-	player = new Character(r, "assets/34024.png", { 9,40,22,27 }, { 0,0,22,27 });
+	player = new Character(r, "assets/34024.png", { 9,40,22,27 }, { 200,200,22,27 });
 }
 
 void Overworld::events(SDL_Event* e) {
@@ -78,6 +78,9 @@ void Overworld::update(float dt) {
 	switch (m_state)
 	{
 		case OverworldState::Overworld:
+			CollisionSystem::LocationCollision(player, obj);
+			player->update(dt);
+			break;
 		case OverworldState::Inside:
 			player->update(dt);
 			break;

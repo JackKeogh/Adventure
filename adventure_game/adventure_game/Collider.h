@@ -29,7 +29,7 @@ public:
 
 	ColliderState getState();
 
-	void setState(std::string s);
+	void setState(std::string s, bool b);
 
 private:
 	SDL_Rect m_collider;

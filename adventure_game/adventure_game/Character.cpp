@@ -64,20 +64,20 @@ void Character::resetMovement(std::string m)
 
 void Character::updatePosition()
 {
-	if (m_movement->m_up && !m_movement->m_down)
+	if (m_movement->m_up && !m_movement->m_down && !m_collider->getState().up)
 	{
 		m_sprite->updatePosition(0, -m_movement->m_speed);
 	}
-	else if (m_movement->m_down && !m_movement->m_up)
+	else if (m_movement->m_down && !m_movement->m_up && !m_collider->getState().down)
 	{
 		m_sprite->updatePosition(0, m_movement->m_speed);
 	}
 
-	if (m_movement->m_left && !m_movement->m_right)
+	if (m_movement->m_left && !m_movement->m_right && !m_collider->getState().left)
 	{
 		m_sprite->updatePosition(-m_movement->m_speed);
 	}
-	else if (m_movement->m_right && !m_movement->m_left)
+	else if (m_movement->m_right && !m_movement->m_left && !m_collider->getState().right)
 	{
 		m_sprite->updatePosition(m_movement->m_speed);
 	}

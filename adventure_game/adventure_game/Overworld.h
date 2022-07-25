@@ -5,6 +5,7 @@
 #include "Sprite.h"
 #include "Location.h"
 #include "Character.h"
+#include "CollisionSystem.h"
 
 class Overworld {
 public:

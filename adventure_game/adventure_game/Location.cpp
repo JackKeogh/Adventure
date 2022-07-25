@@ -86,15 +86,15 @@ LittleRoot::LittleRoot(Renderer* r)
 	m_name = LocationName::LittleRoot;
 
 	// add colliders
-	m_colliders.push_back(new Collider(0, 0, 80, 416));
-	m_colliders.push_back(new Collider(400, 0, 80, 416));
-	m_colliders.push_back(new Collider(0, 0, 240, 54));
-	m_colliders.push_back(new Collider(272, 0, 208, 54));
-	m_colliders.push_back(new Collider(0, 340, 480, 76));
-	m_colliders.push_back(new Collider(336, 308, 144, 108));
-	m_colliders.push_back(new Collider(0, 308, 112, 108));
-	m_colliders.push_back(new Collider(0, 0, 112, 86));
-	m_colliders.push_back(new Collider(368, 0, 112, 86));
+	m_colliders.push_back(new Collider(0, 0, 160, 832));
+	m_colliders.push_back(new Collider(800, 0, 160, 832));
+	m_colliders.push_back(new Collider(0, 0, 480, 108));
+	m_colliders.push_back(new Collider(544, 0, 416, 108));
+	m_colliders.push_back(new Collider(0, 680, 960, 152));
+	m_colliders.push_back(new Collider(672, 616, 288, 216));
+	m_colliders.push_back(new Collider(0, 616, 224, 216));
+	m_colliders.push_back(new Collider(0, 0, 224, 172));
+	m_colliders.push_back(new Collider(736, 0, 224, 172));
 }
 
 ////////////////////////////////////////////////////////////////////////////

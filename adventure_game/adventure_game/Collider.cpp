@@ -37,22 +37,22 @@ ColliderState Collider::getState()
 	return m_state;
 }
 
-void Collider::setState(std::string s)
+void Collider::setState(std::string s, bool b)
 {
 	if (s == "up")
 	{
-		m_state.up = false;
+		m_state.up = b;
 	}
 	if (s == "down")
 	{
-		m_state.down = false;
+		m_state.down = b;
 	}
 	if (s == "left")
 	{
-		m_state.left = false;
+		m_state.left = b;
 	}
 	if (s == "right")
 	{
-		m_state.right = false;
+		m_state.right = b;
 	}
 }
