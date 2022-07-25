@@ -1,6 +1,18 @@
 #pragma once
 #include "stdafx.h"
 
+struct ColliderState {
+	bool up;
+	bool down;
+	bool left;
+	bool right;
+
+	ColliderState()
+	{
+		up = down = left = right = false;
+	}
+};
+
 class Collider
 {
 public:
@@ -15,7 +27,12 @@ public:
 
 	void setCollider(SDL_Rect r);
 
+	ColliderState getState();
+
+	void setState(std::string s);
+
 private:
 	SDL_Rect m_collider;
+	ColliderState m_state;
 };
 
