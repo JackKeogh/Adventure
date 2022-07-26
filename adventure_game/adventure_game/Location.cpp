@@ -23,6 +23,18 @@ void Location::update(float dt)
 
 void Location::render(Renderer* r)
 {
+	
+
+	m_sprite->Render(r);
+	std::map<LocationName, Location*>::iterator it;
+	for (it = m_connections.begin(); it != m_connections.end(); it++)
+	{
+		it->second->renderMapOnly(r);
+	}
+}
+
+void Location::renderMapOnly(Renderer* r)
+{
 	m_sprite->Render(r);
 }
 
@@ -95,6 +107,7 @@ LittleRoot::LittleRoot(Renderer* r)
 	m_colliders.push_back(new Collider(0, 616, 224, 216));
 	m_colliders.push_back(new Collider(0, 0, 224, 172));
 	m_colliders.push_back(new Collider(736, 0, 224, 172));
+	m_colliders.push_back(new Collider(736, 552, 224, 280));
 }
 
 ////////////////////////////////////////////////////////////////////////////
@@ -102,6 +115,8 @@ LittleRoot::LittleRoot(Renderer* r)
 ////////////////////////////////////////////////////////////////////////////
 Route101::Route101(Renderer* r)
 {
-	m_sprite = new Sprite(r, "assets/route101.png", { 0,0,480,416 }, { 0,0,960,832 });
+	m_sprite = new Sprite(r, "assets/route101.png", { 0,0,480,416 }, { 0,-1664,1536,1664 });
 	m_name = LocationName::Route101;
+
+	m_colliders.push_back(new Collider(384, -448, 128, 188));
 }

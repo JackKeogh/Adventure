@@ -5,7 +5,8 @@
 
 struct Movement
 {
-	float m_speed;
+	float m_speedV;
+	float m_speedH;
 	bool m_left;
 	bool m_right;
 	bool m_up;
@@ -14,7 +15,8 @@ struct Movement
 	Movement()
 	{
 		m_left = m_up = m_down = m_right = false;
-		m_speed = 1.f;
+		m_speedV = 0.f;
+		m_speedH = 0.f;
 	}
 };
 
@@ -34,6 +36,10 @@ public:
 	virtual void moveDown();
 
 	virtual void update(float dt);
+
+	void pushBack(std::string d);
+
+	void stopMovement();
 
 	void resetMovement(std::string m);
 

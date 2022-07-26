@@ -13,6 +13,8 @@ public:
 
 	void render(Renderer* r);
 
+	void renderMapOnly(Renderer* r);
+
 	void addConnection(LocationName ref, Location* l);
 
 	std::map<LocationName, Location*> getConnections();

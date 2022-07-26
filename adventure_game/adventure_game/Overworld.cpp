@@ -78,8 +78,8 @@ void Overworld::update(float dt) {
 	switch (m_state)
 	{
 		case OverworldState::Overworld:
-			CollisionSystem::LocationCollision(player, obj);
 			player->update(dt);
+			CollisionSystem::LocationCollision(player, obj);
 			break;
 		case OverworldState::Inside:
 			player->update(dt);
