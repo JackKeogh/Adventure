@@ -2,6 +2,11 @@
 
 void CollisionSystem::LocationCollision(Character* player, Location* loc)
 {
+	BoundaryCollision(player, loc);
+}
+
+void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
+{
 	std::vector<Collider*> colliders = loc->getColliders();
 	Collider* pCollider = player->getCollider();
 
@@ -132,8 +137,12 @@ void CollisionSystem::LocationCollision(Character* player, Location* loc)
 			}
 		}
 	}
-		player->getCollider()->setState("left", left);
-		player->getCollider()->setState("up", up);
-		player->getCollider()->setState("down", down);
-		player->getCollider()->setState("right", right);
+	player->getCollider()->setState("left", left);
+	player->getCollider()->setState("up", up);
+	player->getCollider()->setState("down", down);
+	player->getCollider()->setState("right", right);
+}
+
+void CollisionSystem::TileCollision(Character* c, Location* loc)
+{
 }

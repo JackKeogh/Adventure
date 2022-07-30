@@ -7,5 +7,7 @@ class CollisionSystem
 {
 public:
 	static void LocationCollision(Character* c, Location* loc);
+	static void BoundaryCollision(Character* c, Location* loc);
+	static void TileCollision(Character* c, Location* loc);
 };
 
