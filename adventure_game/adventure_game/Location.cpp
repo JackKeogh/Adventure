@@ -99,30 +99,35 @@ std::vector<Collider*> Location::getColliders()
 	return m_colliders;
 }
 
+std::vector<Tile*> Location::getTiles()
+{
+	return m_tiles;
+}
+
 ////////////////////////////////////////////////////////////////////////////
 // Little Root Town
 ////////////////////////////////////////////////////////////////////////////
 
 LittleRoot::LittleRoot(Renderer* r)
 {
-	m_foreground = new Sprite(r, "assets/littleroot_BackGround.png", { 0,0,383,359 }, { 0,0,766,718 });
-	m_background = new Sprite(r, "assets/littleroot_foreground.png", { 0,0,480,416 }, { 0,0,766,718 });
+	m_foreground = new Sprite(r, "assets/littleroot_BackGround.png", { 0,0,480,416 }, { 0,0,960,832 });
+	m_background = new Sprite(r, "assets/littleroot_foreground.png", { 0,0,480,416 }, { 0,0,960,832 });
 	m_name = LocationName::LittleRoot;
 
 	// add colliders
-	m_colliders.push_back(new Collider(0, 0, 160, 832));
-	m_colliders.push_back(new Collider(800, 0, 160, 832));
-	m_colliders.push_back(new Collider(0, 0, 480, 108));
-	m_colliders.push_back(new Collider(544, 0, 416, 108));
-	m_colliders.push_back(new Collider(0, 680, 960, 152));
-	m_colliders.push_back(new Collider(672, 616, 288, 216));
-	m_colliders.push_back(new Collider(0, 616, 224, 216));
-	m_colliders.push_back(new Collider(0, 0, 224, 172));
-	m_colliders.push_back(new Collider(736, 0, 224, 172));
-	m_colliders.push_back(new Collider(736, 552, 224, 280));
+	m_colliders.push_back(new Collider(0, 0, 384, 112));
+	m_colliders.push_back(new Collider(512, 0, 448, 112));
+	m_colliders.push_back(new Collider(0, 0, 128, 832));
+	m_colliders.push_back(new Collider(128, 0, 64, 168));
+	m_colliders.push_back(new Collider(128, 692, 64, 140));
+	m_colliders.push_back(new Collider(192, 750, 512, 80));
+	m_colliders.push_back(new Collider(704, 692, 64, 140));
+	m_colliders.push_back(new Collider(768, 634, 64, 198));
+	m_colliders.push_back(new Collider(832, 0, 128, 832));
+	m_colliders.push_back(new Collider(768, 0, 64, 168));
 
 	// set camera coords
-	Camera::setActive(true);
+	Camera::setActive(false);
 	Camera::update({ 0,0,0,0 });
 }
 

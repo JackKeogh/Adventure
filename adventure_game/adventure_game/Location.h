@@ -4,6 +4,7 @@
 #include "LocationName.h"
 #include "Collider.h"
 #include "Camera.h"
+#include "Tile.h"
 
 class Location
 {
@@ -30,12 +31,15 @@ public:
 	
 	std::vector<Collider*> getColliders();
 
+	std::vector<Tile*> getTiles();
+
 protected:
 	Sprite* m_foreground;
 	Sprite* m_background;
 	LocationName m_name;
 	std::map<LocationName, Location*> m_connections;
 	std::vector<Collider*> m_colliders;
+	std::vector<Tile*> m_tiles;
 };
 
 class LittleRoot : public Location
