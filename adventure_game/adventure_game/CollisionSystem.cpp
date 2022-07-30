@@ -26,7 +26,6 @@ void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
 					(pCollider->getCollider().y + pCollider->getCollider().h > colliders[i]->getCollider().y &&
 						pCollider->getCollider().y + pCollider->getCollider().h < colliders[i]->getCollider().y + colliders[i]->getCollider().h))
 				{
-					std::cout << "Colliding Left" << std::endl;
 					player->pushBack("left");
 					left = true;
 				}
@@ -40,7 +39,6 @@ void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
 					(pCollider->getCollider().y + pCollider->getCollider().h > colliders[i]->getCollider().y &&
 						pCollider->getCollider().y + pCollider->getCollider().h < colliders[i]->getCollider().y + colliders[i]->getCollider().h)))
 				{
-					std::cout << "No Collision Left" << std::endl;
 					left = false;
 				}
 			}
@@ -56,7 +54,6 @@ void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
 					(pCollider->getCollider().y + pCollider->getCollider().h > colliders[i]->getCollider().y &&
 						pCollider->getCollider().y + pCollider->getCollider().h < colliders[i]->getCollider().y + colliders[i]->getCollider().h))
 				{
-					std::cout << "Colliding Right" << std::endl;
 					player->pushBack("right");
 					right = true;
 				}
@@ -71,7 +68,6 @@ void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
 					(pCollider->getCollider().y + pCollider->getCollider().h > colliders[i]->getCollider().y &&
 						pCollider->getCollider().y + pCollider->getCollider().h < colliders[i]->getCollider().y + colliders[i]->getCollider().h)))
 				{
-					std::cout << "No Collision Right" << std::endl;
 					right = false;
 				}
 			}
@@ -86,7 +82,6 @@ void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
 					(pCollider->getCollider().x + pCollider->getCollider().w > colliders[i]->getCollider().x &&
 						pCollider->getCollider().x + pCollider->getCollider().w < colliders[i]->getCollider().x + colliders[i]->getCollider().w))
 				{
-					std::cout << "Colliding Up" << std::endl;
 					player->pushBack("up");
 					up = true;
 				}
@@ -100,7 +95,6 @@ void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
 					(pCollider->getCollider().x + pCollider->getCollider().w > colliders[i]->getCollider().x &&
 						pCollider->getCollider().x + pCollider->getCollider().w < colliders[i]->getCollider().x + colliders[i]->getCollider().w)))
 				{
-					std::cout << "No Collision Up" << std::endl;
 					up = false;
 				}
 			}
@@ -116,7 +110,6 @@ void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
 					(pCollider->getCollider().x + pCollider->getCollider().w > colliders[i]->getCollider().x &&
 						pCollider->getCollider().x + pCollider->getCollider().w < colliders[i]->getCollider().x + colliders[i]->getCollider().w))
 				{
-					std::cout << "Colliding Down" << std::endl;
 					player->pushBack("down");
 					down = true;
 				}
@@ -131,7 +124,6 @@ void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
 					(pCollider->getCollider().x + pCollider->getCollider().w > colliders[i]->getCollider().x &&
 						pCollider->getCollider().x + pCollider->getCollider().w < colliders[i]->getCollider().x + colliders[i]->getCollider().w)))
 				{
-					std::cout << "No Collision Down" << std::endl;
 					down = false;
 				}
 			}
