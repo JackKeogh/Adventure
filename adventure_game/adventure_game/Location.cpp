@@ -126,8 +126,11 @@ LittleRoot::LittleRoot(Renderer* r)
 	m_colliders.push_back(new Collider(832, 0, 128, 832));
 	m_colliders.push_back(new Collider(768, 0, 64, 168));
 
+	// add tiles
+	m_tiles.push_back(new Tile({ 384,0,128,52 }));
+
 	// set camera coords
-	Camera::setActive(false);
+	Camera::setActive(true);
 	Camera::update({ 0,0,0,0 });
 }
 
@@ -139,5 +142,6 @@ Route101::Route101(Renderer* r)
 	m_foreground = new Sprite(r, "assets/route101.png", { 0,0,383,318 }, { 0,-718,766,718 });
 	m_name = LocationName::Route101;
 
-	m_colliders.push_back(new Collider(384, -448, 128, 188));
+	m_colliders.push_back(new Collider(512, -112, 448, 112));
+	m_colliders.push_back(new Collider(0, -112, 384, 112));
 }
