@@ -5,7 +5,7 @@
 class Tile
 {
 public:
-	Tile();
+	Tile(SDL_Rect c = {0,0,0,0});
 
 	~Tile();
 

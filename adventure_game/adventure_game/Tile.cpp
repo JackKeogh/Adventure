@@ -1,9 +1,9 @@
 #include "Tile.h"
 
-Tile::Tile() 
+Tile::Tile(SDL_Rect c) 
 {
 	m_active = false;
-	m_collider = new Collider({ 0, 0, 64,32 });
+	m_collider = new Collider(c);
 }
 
 Tile::~Tile()
