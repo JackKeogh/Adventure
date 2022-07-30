@@ -4,7 +4,7 @@ Character::Character(Renderer* r, std::string path, SDL_Rect src, SDL_Rect pos)
 {
 	m_sprite = new Sprite(r, path, src, pos);
 	m_movement = new Movement();
-	m_collider = new Collider(pos.x, pos.y, 22, 30);
+	m_collider = new Collider(pos.x, pos.y, pos.w, pos.h);
 }
 
 Character::~Character()
@@ -129,4 +129,9 @@ void Character::render(Renderer* r)
 Collider* Character::getCollider()
 {
 	return m_collider;
+}
+
+Sprite* Character::getSprite()
+{
+	return m_sprite;
 }

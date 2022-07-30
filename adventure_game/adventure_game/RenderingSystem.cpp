@@ -29,6 +29,8 @@ bool Renderer::initialise(std::string t, int x, int y, int w, int h) {
 
 	if (m_render == nullptr)
 		return false;
+
+	Camera::Camera();
 }
 
 void Renderer::clear() {
@@ -41,6 +43,8 @@ void Renderer::display() {
 
 void Renderer::draw(SDL_Texture* t, SDL_Rect src, SDL_Rect dest, float r)
 {
+	dest.x -= Camera::getX();
+	dest.y -= Camera::getY();
 	SDL_RenderCopy(m_render, t, &src, &dest);
 }
 

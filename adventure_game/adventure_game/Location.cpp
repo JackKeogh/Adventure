@@ -14,18 +14,17 @@ std::string toString(LocationName ref) {
 
 Location::~Location()
 {
-	delete m_sprite;
+	delete m_foreground;
+	delete m_background;
 }
 
 void Location::update(float dt)
 {
 }
 
-void Location::render(Renderer* r)
+void Location::renderBackground(Renderer* r)
 {
-	
-
-	m_sprite->Render(r);
+	m_foreground->Render(r);
 	std::map<LocationName, Location*>::iterator it;
 	for (it = m_connections.begin(); it != m_connections.end(); it++)
 	{
@@ -33,9 +32,21 @@ void Location::render(Renderer* r)
 	}
 }
 
+void Location::renderForeground(Renderer* r)
+{
+	if (m_background != nullptr)
+	{
+		m_background->Render(r);
+	}
+}
+
 void Location::renderMapOnly(Renderer* r)
 {
-	m_sprite->Render(r);
+	m_foreground->Render(r);
+	if (m_background != nullptr)
+	{
+		m_background->Render(r);
+	}
 }
 
 void Location::addConnection(LocationName ref, Location* l)
@@ -94,7 +105,8 @@ std::vector<Collider*> Location::getColliders()
 
 LittleRoot::LittleRoot(Renderer* r)
 {
-	m_sprite = new Sprite(r, "assets/littleroot.png", { 0,0,480,416 }, { 0,0,960,832 });
+	m_foreground = new Sprite(r, "assets/littleroot_BackGround.png", { 0,0,383,359 }, { 0,0,766,718 });
+	m_background = new Sprite(r, "assets/littleroot_foreground.png", { 0,0,480,416 }, { 0,0,766,718 });
 	m_name = LocationName::LittleRoot;
 
 	// add colliders
@@ -108,6 +120,10 @@ LittleRoot::LittleRoot(Renderer* r)
 	m_colliders.push_back(new Collider(0, 0, 224, 172));
 	m_colliders.push_back(new Collider(736, 0, 224, 172));
 	m_colliders.push_back(new Collider(736, 552, 224, 280));
+
+	// set camera coords
+	Camera::setActive(true);
+	Camera::update({ 0,0,0,0 });
 }
 
 ////////////////////////////////////////////////////////////////////////////
@@ -115,7 +131,7 @@ LittleRoot::LittleRoot(Renderer* r)
 ////////////////////////////////////////////////////////////////////////////
 Route101::Route101(Renderer* r)
 {
-	m_sprite = new Sprite(r, "assets/route101.png", { 0,0,480,416 }, { 0,-1664,1536,1664 });
+	m_foreground = new Sprite(r, "assets/route101.png", { 0,0,383,318 }, { 0,-718,766,718 });
 	m_name = LocationName::Route101;
 
 	m_colliders.push_back(new Collider(384, -448, 128, 188));

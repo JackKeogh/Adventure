@@ -3,6 +3,7 @@
 #include "Sprite.h"
 #include "LocationName.h"
 #include "Collider.h"
+#include "Camera.h"
 
 class Location
 {
@@ -11,7 +12,9 @@ public:
 
 	virtual void update(float dt);
 
-	void render(Renderer* r);
+	void renderBackground(Renderer* r);
+
+	void renderForeground(Renderer* r);
 
 	void renderMapOnly(Renderer* r);
 
@@ -28,7 +31,8 @@ public:
 	std::vector<Collider*> getColliders();
 
 protected:
-	Sprite* m_sprite;
+	Sprite* m_foreground;
+	Sprite* m_background;
 	LocationName m_name;
 	std::map<LocationName, Location*> m_connections;
 	std::vector<Collider*> m_colliders;

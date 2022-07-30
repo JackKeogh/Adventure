@@ -11,3 +11,5 @@
 #pragma once
 #define ONE_SECOND_MS 1000.f
 #define FPS 60
+#define SCREEN_WIDTH 960
+#define SCREEN_HEIGHT 832

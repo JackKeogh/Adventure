@@ -15,6 +15,7 @@ void Overworld::initialise(Renderer* r) {
 	obj->addConnection(LocationName::Route101, new Route101(r));
 	obj->getLocation(LocationName::Route101)->addConnection(obj->getCurrentLocation(), obj);
 	player = new Character(r, "assets/34024.png", { 9,40,22,27 }, { 200,200,22,27 });
+	Camera::initialise(player->getSprite()->getPosition());
 }
 
 void Overworld::events(SDL_Event* e) {
@@ -80,6 +81,7 @@ void Overworld::update(float dt) {
 		case OverworldState::Overworld:
 			player->update(dt);
 			CollisionSystem::LocationCollision(player, obj);
+			Camera::update(player->getSprite()->getPosition());
 			break;
 		case OverworldState::Inside:
 			player->update(dt);
@@ -94,8 +96,9 @@ void Overworld::update(float dt) {
 }
 
 void Overworld::render(Renderer* r) {
-	obj->render(r);
+	obj->renderBackground(r);
 	player->render(r);
+	obj->renderForeground(r);
 }
 
 void Overworld::setRunning() {

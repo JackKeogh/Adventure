@@ -49,6 +49,8 @@ public:
 
 	Collider* getCollider();
 
+	Sprite* getSprite();
+
 protected:
 	Sprite* m_sprite;
 	Movement* m_movement;
