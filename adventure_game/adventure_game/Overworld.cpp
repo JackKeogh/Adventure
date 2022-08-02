@@ -5,15 +5,13 @@ Overworld::Overworld(Renderer* renderer) {
 }
 
 Overworld::~Overworld() {
-	delete obj;
+	delete m_locManager;
 }
 
 void Overworld::initialise(Renderer* r) {
 	m_running = true;
 	m_state = OverworldState::Overworld;
-	obj = new LittleRoot(r);
-	obj->addConnection(LocationName::Route101, new Route101(r));
-	obj->getLocation(LocationName::Route101)->addConnection(obj->getCurrentLocation(), obj);
+	m_locManager = new LocationManager(r);
 	player = new Character(r, "assets/34024.png", { 9,40,22,27 }, { 200,200,22,27 });
 	Camera::initialise(player->getSprite()->getPosition());
 }
@@ -80,7 +78,7 @@ void Overworld::update(float dt) {
 	{
 		case OverworldState::Overworld:
 			player->update(dt);
-			CollisionSystem::LocationCollision(player, obj);
+			CollisionSystem::LocationCollision(player, m_locManager);
 			Camera::update(player->getSprite()->getPosition());
 			break;
 		case OverworldState::Inside:
@@ -96,9 +94,9 @@ void Overworld::update(float dt) {
 }
 
 void Overworld::render(Renderer* r) {
-	obj->renderBackground(r);
+	m_locManager->getLocation()->renderBackground(r);
 	player->render(r);
-	obj->renderForeground(r);
+	m_locManager->getLocation()->renderForeground(r);
 }
 
 void Overworld::setRunning() {

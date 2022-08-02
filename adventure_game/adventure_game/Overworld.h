@@ -3,7 +3,7 @@
 #include "OverworldState.h"
 #include "RenderingSystem.h"
 #include "Sprite.h"
-#include "Location.h"
+#include "LocationManager.h"
 #include "Character.h"
 #include "CollisionSystem.h"
 
@@ -33,6 +33,6 @@ private:
 	bool m_running;
 	OverworldState m_state;
 	OverworldState m_oldState;
-	Location* obj;
+	LocationManager* m_locManager;
 	Character* player;
 };

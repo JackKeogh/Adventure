@@ -1,14 +1,14 @@
 #include "CollisionSystem.h"
 
-void CollisionSystem::LocationCollision(Character* player, Location* loc)
+void CollisionSystem::LocationCollision(Character* player, LocationManager* loc)
 {
 	BoundaryCollision(player, loc);
 	TileCollision(player, loc);
 }
 
-void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
+void CollisionSystem::BoundaryCollision(Character* player, LocationManager* loc)
 {
-	std::vector<Collider*> colliders = loc->getColliders();
+	std::vector<Collider*> colliders = loc->getLocation()->getColliders();
 	Collider* pCollider = player->getCollider();
 
 	bool left = pCollider->getState().left,
@@ -136,11 +136,11 @@ void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
 	player->getCollider()->setState("right", right);
 }
 
-void CollisionSystem::TileCollision(Character* player, Location* loc)
+void CollisionSystem::TileCollision(Character* player, LocationManager* loc)
 {
 	Collider* pCollider = player->getCollider();
 
-	for (Tile* t : loc->getTiles())
+	for (Tile* t : loc->getLocation()->getTiles())
 	{
 		Collider* tCollider = t->getCollider();
 
@@ -169,7 +169,7 @@ void CollisionSystem::TileCollision(Character* player, Location* loc)
 			// Exit up
 			if (pCollider->getCollider().y < tCollider->getCollider().y)
 			{
-				loc = loc->getLocation(LocationName::Route101);
+				loc->changeLocation(LocationName::Route101);
 				std::cout << "Up" << std::endl;
 				t->setIsColliding(false);
 			}
