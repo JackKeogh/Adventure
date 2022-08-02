@@ -3,6 +3,7 @@
 void CollisionSystem::LocationCollision(Character* player, Location* loc)
 {
 	BoundaryCollision(player, loc);
+	TileCollision(player, loc);
 }
 
 void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
@@ -135,6 +136,43 @@ void CollisionSystem::BoundaryCollision(Character* player, Location* loc)
 	player->getCollider()->setState("right", right);
 }
 
-void CollisionSystem::TileCollision(Character* c, Location* loc)
+void CollisionSystem::TileCollision(Character* player, Location* loc)
 {
+	Collider* pCollider = player->getCollider();
+
+	for (Tile* t : loc->getTiles())
+	{
+		Collider* tCollider = t->getCollider();
+
+		// Up
+		if (!t->getIsColliding())
+		{
+			if (pCollider->getCollider().y > tCollider->getCollider().y  && pCollider->getCollider().y <= tCollider->getCollider().y + tCollider->getCollider().h)
+			{
+				if ((pCollider->getCollider().x > tCollider->getCollider().x && pCollider->getCollider().x < tCollider->getCollider().x + tCollider->getCollider().w) ||
+					(pCollider->getCollider().x + pCollider->getCollider().w > tCollider->getCollider().x &&
+						pCollider->getCollider().x + pCollider->getCollider().w < tCollider->getCollider().x + tCollider->getCollider().w))
+				{
+					std::cout << "entered" << std::endl;
+					t->setIsColliding(true);
+				}
+			}
+		}
+		else
+		{	// Exit down
+			if (pCollider->getCollider().y > tCollider->getCollider().y + tCollider->getCollider().h)
+			{
+				std::cout << "Down" << std::endl;
+				t->setIsColliding(false);
+			}
+
+			// Exit up
+			if (pCollider->getCollider().y < tCollider->getCollider().y)
+			{
+				loc = loc->getLocation(LocationName::Route101);
+				std::cout << "Up" << std::endl;
+				t->setIsColliding(false);
+			}
+		}
+	}
 }

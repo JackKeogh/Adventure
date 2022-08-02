@@ -13,8 +13,13 @@ public:
 
 	void setActive(bool s);
 
+	void setIsColliding(bool s);
+
+	bool getIsColliding();
+
 private:
 	Collider* m_collider;
 	bool m_active;
+	bool m_isColliding;
 };
 
