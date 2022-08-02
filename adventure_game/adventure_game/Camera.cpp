@@ -6,6 +6,7 @@ bool Camera::m_active = false;
 Camera::Camera()
 {
 	m_camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
+	m_scale = 2;
 }
 
 void Camera::initialise(SDL_Rect p)

@@ -136,19 +136,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Location.cpp" />
+    <ClCompile Include="LocationManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="RenderingSystem.cpp" />
     <ClCompile Include="Overworld.cpp" />
+    <ClCompile Include="Tile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="Collider.h" />
+    <ClInclude Include="CollisionSystem.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Location.h" />
+    <ClInclude Include="LocationManager.h" />
+    <ClInclude Include="LocationName.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="OverworldState.h" />
     <ClInclude Include="RenderingSystem.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Overworld.h" />
+    <ClInclude Include="Tile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,8 +2,9 @@
 
 void CollisionSystem::LocationCollision(Character* player, LocationManager* loc)
 {
-	BoundaryCollision(player, loc);
 	TileCollision(player, loc);
+	BoundaryCollision(player, loc);
+	
 }
 
 void CollisionSystem::BoundaryCollision(Character* player, LocationManager* loc)
@@ -143,6 +144,8 @@ void CollisionSystem::TileCollision(Character* player, LocationManager* loc)
 	for (Tile* t : loc->getLocation()->getTiles())
 	{
 		Collider* tCollider = t->getCollider();
+		bool exit = false;
+		bool entry = false;
 
 		// Up
 		if (!t->getIsColliding())
@@ -153,25 +156,54 @@ void CollisionSystem::TileCollision(Character* player, LocationManager* loc)
 					(pCollider->getCollider().x + pCollider->getCollider().w > tCollider->getCollider().x &&
 						pCollider->getCollider().x + pCollider->getCollider().w < tCollider->getCollider().x + tCollider->getCollider().w))
 				{
-					std::cout << "entered" << std::endl;
+					entry = true;
 					t->setIsColliding(true);
+					if (t->getCollisionType() == CollisionType::On_Entry_Up)
+					{
+						return;
+					}
 				}
+			}
+
+			if (entry && t->getCollisionType() == CollisionType::On_Entry)
+			{
+				return;			
 			}
 		}
 		else
 		{	// Exit down
 			if (pCollider->getCollider().y > tCollider->getCollider().y + tCollider->getCollider().h)
 			{
-				std::cout << "Down" << std::endl;
+				exit = true;
 				t->setIsColliding(false);
+				if (t->getCollisionType() == CollisionType::On_Exit_Down)
+				{
+					if (t->getTileType() == TileType::locationChange)
+					{
+						loc->changeLocation(t->getLocationName());
+					}
+					return;
+				}
 			}
 
 			// Exit up
 			if (pCollider->getCollider().y < tCollider->getCollider().y)
 			{
-				loc->changeLocation(LocationName::Route101);
-				std::cout << "Up" << std::endl;
+				exit = true;
 				t->setIsColliding(false);
+				if (t->getCollisionType() == CollisionType::On_Exit_Up)
+				{
+					if (t->getTileType() == TileType::locationChange)
+					{
+						loc->changeLocation(t->getLocationName());
+					}
+					return;
+				}
+			}
+
+			if (exit && t->getCollisionType() == CollisionType::On_Exit)
+			{
+				return;
 			}
 		}
 	}

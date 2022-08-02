@@ -13,6 +13,8 @@ public:
 
 	Location* getLocation();
 
+	void displayName();
+
 private:
 	Location* m_location;
 };

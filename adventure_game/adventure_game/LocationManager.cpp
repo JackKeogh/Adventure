@@ -14,9 +14,15 @@ LocationManager::~LocationManager()
 void LocationManager::changeLocation(LocationName loc)
 {
 	m_location = m_location->getLocation(loc);
+	displayName();
 }
 
 Location* LocationManager::getLocation()
 {
 	return m_location;
+}
+
+void LocationManager::displayName()
+{
+	std::cout << m_location->getCurrentName() << std::endl;
 }

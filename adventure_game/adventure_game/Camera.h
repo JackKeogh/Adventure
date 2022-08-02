@@ -19,5 +19,6 @@ public:
 private:
 	static SDL_Rect m_camera;
 	static bool m_active;
+	static int m_scale;
 };
 
