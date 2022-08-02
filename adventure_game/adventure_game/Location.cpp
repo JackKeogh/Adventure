@@ -24,7 +24,7 @@ void Location::update(float dt)
 
 void Location::renderBackground(Renderer* r)
 {
-	m_foreground->Render(r);
+	m_background->Render(r);
 	std::map<LocationName, Location*>::iterator it;
 	for (it = m_connections.begin(); it != m_connections.end(); it++)
 	{
@@ -34,19 +34,16 @@ void Location::renderBackground(Renderer* r)
 
 void Location::renderForeground(Renderer* r)
 {
-	if (m_background != nullptr)
+	if (m_foreground != nullptr)
 	{
-		m_background->Render(r);
+		m_foreground->Render(r);
 	}
 }
 
 void Location::renderMapOnly(Renderer* r)
 {
+	m_background->Render(r);
 	m_foreground->Render(r);
-	if (m_background != nullptr)
-	{
-		m_background->Render(r);
-	}
 }
 
 void Location::addConnection(LocationName ref, Location* l)
@@ -110,8 +107,8 @@ std::vector<Tile*> Location::getTiles()
 
 LittleRoot::LittleRoot(Renderer* r)
 {
-	m_foreground = new Sprite(r, "assets/littleroot_BackGround.png", { 0,0,480,416 }, { 0,0,960,832 });
-	m_background = new Sprite(r, "assets/littleroot_foreground.png", { 0,0,480,416 }, { 0,0,960,832 });
+	m_foreground = new Sprite(r, "assets/littleroot_foreground.png", { 0,0,480,416 }, { 0,0,960,832 });
+	m_background = new Sprite(r, "assets/littleroot_BackGround.png", { 0,0,480,416 }, { 0,0,960,832 });
 	m_name = LocationName::LittleRoot;
 
 	// add colliders
@@ -139,7 +136,8 @@ LittleRoot::LittleRoot(Renderer* r)
 ////////////////////////////////////////////////////////////////////////////
 Route101::Route101(Renderer* r)
 {
-	m_foreground = new Sprite(r, "assets/route101.png", { 0,0,383,318 }, { 0,-718,766,718 });
+	m_foreground = new Sprite(r, "assets/route101_foreground.png", { 0,0,480,416 }, { 0,-832,960,832 });
+	m_background = new Sprite(r, "assets/littleroot_BackGround.png", { 0,0,480,416 }, { 0,-832,960,832 });
 	m_name = LocationName::Route101;
 
 	m_colliders.push_back(new Collider(512, -112, 448, 112));
