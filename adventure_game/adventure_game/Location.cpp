@@ -107,13 +107,13 @@ std::vector<Tile*> Location::getTiles()
 
 LittleRoot::LittleRoot(Renderer* r)
 {
-	m_foreground = new Sprite(r, "assets/littleroot_foreground.png", { 0,0,480,416 }, { 0,0,960,832 });
-	m_background = new Sprite(r, "assets/littleroot_BackGround.png", { 0,0,480,416 }, { 0,0,960,832 });
+	m_foreground = new Sprite(r, "assets/littleroot/littleroot_foreground.png", { 0,0,480,416 }, { 0,0,960,832 });
+	m_background = new Sprite(r, "assets/littleroot/littleroot_BackGround.png", { 0,0,480,416 }, { 0,0,960,832 });
 	m_name = LocationName::LittleRoot;
 
 	// add colliders
-	m_colliders.push_back(new Collider(0, 0, 384, 112));
-	m_colliders.push_back(new Collider(512, 0, 448, 112));
+	m_colliders.push_back(new Collider(0, -112, 384, 224));
+	m_colliders.push_back(new Collider(512, -112, 448, 224));
 	m_colliders.push_back(new Collider(0, 0, 128, 832));
 	m_colliders.push_back(new Collider(128, 0, 64, 168));
 	m_colliders.push_back(new Collider(128, 692, 64, 140));
@@ -137,12 +137,12 @@ LittleRoot::LittleRoot(Renderer* r)
 Route101::Route101(Renderer* r)
 {
 	m_foreground = new Sprite(r, "assets/route101_foreground.png", { 0,0,480,416 }, { 0,-832,960,832 });
-	m_background = new Sprite(r, "assets/littleroot_BackGround.png", { 0,0,480,416 }, { 0,-832,960,832 });
+	m_background = new Sprite(r, "assets/littleroot/littleroot_BackGround.png", { 0,0,480,416 }, { 0,-832,960,832 });
 	m_name = LocationName::Route101;
 
 	// add colliders
-	m_colliders.push_back(new Collider(512, -112, 448, 112));
-	m_colliders.push_back(new Collider(0, -112, 384, 112));
+	m_colliders.push_back(new Collider(512, -112, 448, 224));
+	m_colliders.push_back(new Collider(0, -112, 384, 224));
 	m_colliders.push_back(new Collider(384, -242, 128, 72));
 
 	// add tiles
