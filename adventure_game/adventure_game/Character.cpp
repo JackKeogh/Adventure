@@ -5,6 +5,7 @@ Character::Character(Renderer* r, std::string path, SDL_Rect src, SDL_Rect pos)
 	m_sprite = new Sprite(r, path, src, pos);
 	m_movement = new Movement();
 	m_collider = new Collider(pos.x, pos.y, pos.w, pos.h);
+	m_animator = new Animator(m_sprite);
 }
 
 Character::~Character()
@@ -44,25 +45,27 @@ void Character::moveDown()
 void Character::update(float dt)
 {
 	updatePosition();
+	updateAnimation();
+	m_animator->update();
 }
 
 void Character::pushBack(std::string d)
 {
 	if (d == "up")
 	{
-		m_sprite->updatePosition(0, 1);
+		updateSpritePos(0, 1);
 	}
 	if (d == "down")
 	{
-		m_sprite->updatePosition(0, -1);
+		updateSpritePos(0, -1);
 	}
 	if (d == "left")
 	{
-		m_sprite->updatePosition(1, 0);
+		updateSpritePos(1, 0);
 	}
 	if (d == "right")
 	{
-		m_sprite->updatePosition(-1, 0);
+		updateSpritePos(-1, 0);
 	}
 
 	m_collider->setCollider(m_sprite->getPosition());
@@ -79,18 +82,26 @@ void Character::resetMovement(std::string m)
 	if (m == "up")
 	{
 		m_movement->m_up = false;
+		m_movement->m_speedV = 0;
+		m_animator->changeState(Animations::idleUp);
 	}
 	if (m == "down")
 	{
 		m_movement->m_down = false;
+		m_movement->m_speedV = 0;
+		m_animator->changeState(Animations::idleDown);
 	}
 	if (m == "left")
 	{
 		m_movement->m_left = false;
+		m_movement->m_speedH = 0;
+		m_animator->changeState(Animations::idleLeft);
 	}
 	if (m == "right")
 	{
 		m_movement->m_right = false;
+		m_movement->m_speedH = 0;
+		m_animator->changeState(Animations::idleRight);
 	}
 }
 
@@ -98,27 +109,47 @@ void Character::updatePosition()
 {
 	if (m_movement->m_up && !m_movement->m_down && !m_collider->getState().up)
 	{
-		m_sprite->updatePosition(0, m_movement->m_speedV);
+		updateSpritePos(0, m_movement->m_speedV);
 		m_collider->setState("down", false);
 	}
 	else if (m_movement->m_down && !m_movement->m_up && !m_collider->getState().down)
 	{
-		m_sprite->updatePosition(0, m_movement->m_speedV);
+		updateSpritePos(0, m_movement->m_speedV);
 		m_collider->setState("up", false);
 	}
 
 	if (m_movement->m_left && !m_movement->m_right && !m_collider->getState().left)
 	{
-		m_sprite->updatePosition(m_movement->m_speedH);
+		updateSpritePos(m_movement->m_speedH);
 		m_collider->setState("right", false);
 	}
 	else if (m_movement->m_right && !m_movement->m_left && !m_collider->getState().right)
 	{
-		m_sprite->updatePosition(m_movement->m_speedH);
+		updateSpritePos(m_movement->m_speedH);
 		m_collider->setState("left", false);
 	}
 
 	m_collider->setCollider(m_sprite->getPosition());
+}
+
+void Character::updateAnimation()
+{
+	if (m_movement->m_speedV > 0)
+	{
+		m_animator->changeState(Animations::walkDown);
+	}
+	else if (m_movement->m_speedV < 0)
+	{
+		m_animator->changeState(Animations::walkUp);
+	}
+	else if (m_movement->m_speedH > 0)
+	{
+		m_animator->changeState(Animations::walkRight);
+	}
+	else if (m_movement->m_speedH < 0)
+	{
+		m_animator->changeState(Animations::walkLeft);
+	}
 }
 
 void Character::render(Renderer* r)
@@ -134,4 +165,14 @@ Collider* Character::getCollider()
 Sprite* Character::getSprite()
 {
 	return m_sprite;
+}
+
+void Character::updateSpritePos(int x, int y)
+{
+	SDL_Rect Current = m_sprite->getPosition();
+
+	Current.x += x;
+	Current.y += y;
+
+	m_sprite->updatePosition(Current.x, Current.y);
 }

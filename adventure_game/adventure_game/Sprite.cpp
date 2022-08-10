@@ -23,12 +23,17 @@ Sprite::~Sprite() {
 
 void Sprite::updatePosition(int x, int y)
 {
-	m_destRect.x += x;
-	m_destRect.y += y;
+	m_destRect.x = x;
+	m_destRect.y = y;
 }
 
 void Sprite::Render(Renderer* renderer) {
 	renderer->draw(m_texture, m_srcRect, m_destRect);
+}
+
+void Sprite::setSource(SDL_Rect r)
+{
+	m_srcRect = r;
 }
 
 SDL_Rect Sprite::getPosition()

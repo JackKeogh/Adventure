@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "Sprite.h"
 #include "Collider.h"
+#include "Animator.h"
 
 struct Movement
 {
@@ -45,6 +46,8 @@ public:
 
 	void updatePosition();
 
+	void updateAnimation();
+
 	void render(Renderer* r);
 
 	Collider* getCollider();
@@ -55,5 +58,8 @@ protected:
 	Sprite* m_sprite;
 	Movement* m_movement;
 	Collider* m_collider;
+	Animator* m_animator;
+
+	void updateSpritePos(int x = 0, int y = 0);
 };
 

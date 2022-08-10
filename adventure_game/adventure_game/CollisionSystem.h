@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "Character.h"
 #include "LocationManager.h"
+#include "LocationDisplay.h"
 
 class CollisionSystem
 {

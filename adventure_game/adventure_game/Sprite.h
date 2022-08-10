@@ -15,6 +15,8 @@ public:
 
 	void Render(Renderer* renderer);
 
+	void setSource(SDL_Rect r);
+
 	SDL_Rect getPosition();
 
 private:

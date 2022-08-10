@@ -6,6 +6,7 @@
 #include "LocationManager.h"
 #include "Character.h"
 #include "CollisionSystem.h"
+#include "LocationDisplay.h"
 
 class Overworld {
 public:

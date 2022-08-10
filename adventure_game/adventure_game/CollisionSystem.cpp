@@ -181,6 +181,8 @@ void CollisionSystem::TileCollision(Character* player, LocationManager* loc)
 					if (t->getTileType() == TileType::locationChange)
 					{
 						loc->changeLocation(t->getLocationName());
+						LocationDisplay::setCurrent(loc->getLocation()->getCurrentLocation());
+						LocationDisplay::startTransition();
 					}
 					return;
 				}
@@ -196,6 +198,8 @@ void CollisionSystem::TileCollision(Character* player, LocationManager* loc)
 					if (t->getTileType() == TileType::locationChange)
 					{
 						loc->changeLocation(t->getLocationName());
+						LocationDisplay::setCurrent(loc->getLocation()->getCurrentLocation());
+						LocationDisplay::startTransition();
 					}
 					return;
 				}
