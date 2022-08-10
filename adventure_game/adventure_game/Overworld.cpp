@@ -99,6 +99,7 @@ void Overworld::render(Renderer* r) {
 	m_locManager->getLocation()->renderBackground(r);
 	player->render(r);
 	m_locManager->getLocation()->renderForeground(r);
+	m_locManager->getLocation()->renderObjects(r);
 	LocationDisplay::render(r);
 }
 

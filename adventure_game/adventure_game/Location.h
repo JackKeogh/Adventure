@@ -18,6 +18,8 @@ public:
 
 	void renderForeground(Renderer* r);
 
+	void renderObjects(Renderer* r);
+
 	void renderMapOnly(Renderer* r);
 
 	void addConnection(LocationName ref, Location* l);

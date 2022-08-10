@@ -15,10 +15,10 @@ public:
 
 	void addCollider(SDL_Rect c);
 
-	std::vector<Collider*>* getColliders();
+	std::vector<Collider*> getColliders();
 
 private:
 	Sprite* m_sprite;
-	std::vector<Collider*>* m_colliders;
+	std::vector<Collider*> m_colliders;
 };
 

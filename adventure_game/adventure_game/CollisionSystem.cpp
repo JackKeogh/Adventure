@@ -10,6 +10,15 @@ void CollisionSystem::LocationCollision(Character* player, LocationManager* loc)
 void CollisionSystem::BoundaryCollision(Character* player, LocationManager* loc)
 {
 	std::vector<Collider*> colliders = loc->getLocation()->getColliders();
+
+	for (Object* o : loc->getLocation()->getObjects())
+	{
+		for (int i = 0; i < o->getColliders().size(); i++)
+		{
+			colliders.push_back(o->getColliders()[i]);
+		}
+	}
+
 	Collider* pCollider = player->getCollider();
 
 	bool left = pCollider->getState().left,
