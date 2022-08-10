@@ -5,6 +5,7 @@
 #include "Collider.h"
 #include "Camera.h"
 #include "Tile.h"
+#include "Object.h"
 
 class Location
 {
@@ -33,6 +34,8 @@ public:
 
 	std::vector<Tile*> getTiles();
 
+	std::vector<Object*> getObjects();
+
 protected:
 	Sprite* m_foreground;
 	Sprite* m_background;
@@ -40,6 +43,7 @@ protected:
 	std::map<LocationName, Location*> m_connections;
 	std::vector<Collider*> m_colliders;
 	std::vector<Tile*> m_tiles;
+	std::vector<Object*> m_objects;
 };
 
 class LittleRoot : public Location
