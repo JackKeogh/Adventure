@@ -20,6 +20,8 @@ public:
 
 	void update(float dt);
 
+	void changeState();
+
 	void render(Renderer* r);
 
 	void setRunning();

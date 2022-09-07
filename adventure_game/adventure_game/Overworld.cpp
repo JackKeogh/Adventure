@@ -82,6 +82,7 @@ void Overworld::update(float dt) {
 			CollisionSystem::LocationCollision(player, m_locManager);
 			Camera::update(player->getSprite()->getPosition());
 			LocationDisplay::update(dt);
+			changeState();
 			break;
 		case OverworldState::Inside:
 			player->update(dt);
@@ -92,6 +93,15 @@ void Overworld::update(float dt) {
 		default:
 			//should not reach here
 			break;
+	}
+}
+
+void Overworld::changeState()
+{
+	if (CollisionSystem::Warp != OverworldState::null)
+	{
+		m_state = CollisionSystem::Warp;
+		CollisionSystem::Warp = OverworldState::null;
 	}
 }
 

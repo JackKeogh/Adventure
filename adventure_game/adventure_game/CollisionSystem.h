@@ -3,11 +3,12 @@
 #include "Character.h"
 #include "LocationManager.h"
 #include "LocationDisplay.h"
+#include "OverworldState.h"
 
 class CollisionSystem
 {
 public:
-	static bool Warp;
+	static OverworldState Warp;
 	static void LocationCollision(Character* c, LocationManager* loc);
 	static void BoundaryCollision(Character* c, LocationManager* loc);
 	static void TileCollision(Character* c, LocationManager* loc);

@@ -1,6 +1,6 @@
 #include "CollisionSystem.h"
 
-bool CollisionSystem::Warp = false;
+OverworldState CollisionSystem::Warp = OverworldState::null;
 
 void CollisionSystem::LocationCollision(Character* player, LocationManager* loc)
 {
@@ -255,7 +255,7 @@ void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* lo
 						switch (o->getTile()->getTileType())
 						{
 							case TileType::warp:
-								Warp = true;
+								Warp = OverworldState::Transition_Inside;
 								player->getSprite()->updatePosition(o->getTile()->getWarpPoint().x, o->getTile()->getWarpPoint().y);
 								player->resetMovement("all", player->getAnimator()->getAnimation());
 								o->animate();
