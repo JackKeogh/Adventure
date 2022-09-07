@@ -4,7 +4,7 @@ void CollisionSystem::LocationCollision(Character* player, LocationManager* loc)
 {
 	TileCollision(player, loc);
 	BoundaryCollision(player, loc);
-	
+	ObjectTileCollision(player, loc);
 }
 
 void CollisionSystem::BoundaryCollision(Character* player, LocationManager* loc)
@@ -156,7 +156,7 @@ void CollisionSystem::TileCollision(Character* player, LocationManager* loc)
 		bool exit = false;
 		bool entry = false;
 
-		// Up
+		// Entry Up
 		if (!t->getIsColliding())
 		{
 			if (pCollider->getCollider().y > tCollider->getCollider().y  && pCollider->getCollider().y <= tCollider->getCollider().y + tCollider->getCollider().h)
@@ -215,6 +215,95 @@ void CollisionSystem::TileCollision(Character* player, LocationManager* loc)
 			}
 
 			if (exit && t->getCollisionType() == CollisionType::On_Exit)
+			{
+				return;
+			}
+		}
+	}
+}
+
+void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* loc)
+{
+	Collider* pCollider = player->getCollider();
+
+	for (Object* o : loc->getLocation()->getObjects())
+	{
+		if (o->getTile() == nullptr)
+		{
+			break;
+		}
+
+		Collider* tCollider = o->getTile()->getCollider();
+		bool exit = false;
+		bool entry = false;
+
+		// Entry Up
+		if (!o->getTile()->getIsColliding())
+		{
+			if (pCollider->getCollider().y > tCollider->getCollider().y && pCollider->getCollider().y <= tCollider->getCollider().y + tCollider->getCollider().h)
+			{
+				if ((pCollider->getCollider().x > tCollider->getCollider().x && pCollider->getCollider().x < tCollider->getCollider().x + tCollider->getCollider().w) ||
+					(pCollider->getCollider().x + pCollider->getCollider().w > tCollider->getCollider().x &&
+						pCollider->getCollider().x + pCollider->getCollider().w < tCollider->getCollider().x + tCollider->getCollider().w))
+				{
+					entry = true;
+					o->getTile()->setIsColliding(true);
+					if (o->getTile()->getCollisionType() == CollisionType::On_Entry_Up)
+					{
+						switch (o->getTile()->getTileType())
+						{
+							case TileType::warp:
+								std::cout << "Colliding" << std::endl;
+								o->animate();
+								break;
+						}
+
+						return;
+					}
+				}
+			}
+
+			if (entry && o->getTile()->getCollisionType() == CollisionType::On_Entry)
+			{
+				return;
+			}
+		}
+		else
+		{	// Exit down
+			if (pCollider->getCollider().y > tCollider->getCollider().y + tCollider->getCollider().h)
+			{
+				exit = true;
+				o->getTile()->setIsColliding(false);
+				if (o->getTile()->getCollisionType() == CollisionType::On_Exit_Down || o->getTile()->getCollisionType() == CollisionType::On_Entry_Up)
+				{
+					if (o->getTile()->getTileType() == TileType::locationChange)
+					{
+						loc->changeLocation(o->getTile()->getLocationName());
+						LocationDisplay::setCurrent(loc->getLocation()->getCurrentLocation());
+						LocationDisplay::startTransition();
+					}
+					return;
+				}
+			}
+
+			// Exit up
+			if (pCollider->getCollider().y < tCollider->getCollider().y)
+			{
+				exit = true;
+				o->getTile()->setIsColliding(false);
+				if (o->getTile()->getCollisionType() == CollisionType::On_Exit_Up)
+				{
+					if (o->getTile()->getTileType() == TileType::locationChange)
+					{
+						loc->changeLocation(o->getTile()->getLocationName());
+						LocationDisplay::setCurrent(loc->getLocation()->getCurrentLocation());
+						LocationDisplay::startTransition();
+					}
+					return;
+				}
+			}
+
+			if (exit && o->getTile()->getCollisionType() == CollisionType::On_Exit)
 			{
 				return;
 			}
