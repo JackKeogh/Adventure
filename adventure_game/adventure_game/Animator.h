@@ -10,7 +10,9 @@ enum class Animations {
 	walkLeft,
 	walkRight,
 	walkUp,
-	walkDown
+	walkDown,
+	Hospital_Closed,
+	Hospital_Open
 };
 
 class AnimatorState;
@@ -18,13 +20,15 @@ class AnimatorState;
 class Animator
 {
 public:
-	Animator(Sprite* s = nullptr);
+	Animator(Sprite* s = nullptr, Animations def = Animations::Hospital_Closed);
 
 	~Animator();
 
 	void update();
 
 	void changeState(Animations state);
+
+	Animations getAnimation();
 
 	void loadState();
 
@@ -93,6 +97,18 @@ public:
 };
 
 class WalkLeftState : public AnimatorState
+{
+public:
+	void animate(Sprite* s) override;
+};
+
+class HospitalOpen : public AnimatorState
+{
+public:
+	void animate(Sprite* s) override;
+};
+
+class HospitalClosed : public AnimatorState
 {
 public:
 	void animate(Sprite* s) override;

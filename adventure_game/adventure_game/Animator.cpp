@@ -1,9 +1,10 @@
 #include "Animator.h"
 
-Animator::Animator(Sprite* s)
+Animator::Animator(Sprite* s, Animations def)
 {
 	m_sprite = s;
-	m_animation = Animations::idleDown;
+	m_animation = def;
+	m_state = nullptr;
 	loadState();
 }
 
@@ -29,9 +30,17 @@ void Animator::changeState(Animations state)
 	}
 }
 
+Animations Animator::getAnimation()
+{
+	return m_animation;
+}
+
 void Animator::loadState()
 {
-	delete m_state;
+	if (m_state != nullptr)
+	{
+		delete m_state;
+	}
 
 	switch (m_animation)
 	{
@@ -78,6 +87,14 @@ void Animator::loadState()
 			m_state->addFrame({ 40,72,22,27 });
 			m_state->addFrame({ 8,72,22,27 });
 			m_state->addFrame({ 72,72,22,27 });
+			break;
+		case Animations::Hospital_Open:
+			m_state = new HospitalOpen;
+			m_state->addFrame({ 16,0,16,19 });
+			break;
+		case Animations::Hospital_Closed:
+			m_state = new HospitalClosed;
+			m_state->addFrame({ 0,0,16,19 });
 			break;
 	}
 }
@@ -235,4 +252,23 @@ void WalkLeftState::animate(Sprite* s)
 		s->setSource(m_frames->at(m_current));
 		m_timer = 0.0f;
 	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+//					HOSPITAL OPEN STATE
+////////////////////////////////////////////////////////////////////////////////////
+
+void HospitalOpen::animate(Sprite* s)
+{
+	s->setSource(m_frames->at(0));
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+//					HOSPITAL CLOSED STATE
+////////////////////////////////////////////////////////////////////////////////////
+
+
+void HospitalClosed::animate(Sprite* s)
+{
+	s->setSource(m_frames->at(0));
 }
