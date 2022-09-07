@@ -84,6 +84,8 @@ void Overworld::update(float dt) {
 			LocationDisplay::update(dt);
 			changeState();
 			break;
+		case OverworldState::Transition_Inside:
+			break;
 		case OverworldState::Inside:
 			player->update(dt);
 			break;
