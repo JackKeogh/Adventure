@@ -3,6 +3,8 @@
 #include "RenderingSystem.h"
 #include "Sprite.h"
 #include "Collider.h"
+#include "Animator.h"
+#include "Tile.h"
 
 class Object
 {
@@ -11,13 +13,19 @@ public:
 	~Object();
 
 	void update(float dt);
-	void render(Renderer* r);
+	virtual void render(Renderer* r);
 
 	void addCollider(SDL_Rect c);
 
+	virtual void changeAnimation(Animations a);
+
+	virtual void animate();
+
+	virtual Tile* getTile();
+
 	std::vector<Collider*> getColliders();
 
-private:
+protected:
 	Sprite* m_sprite;
 	std::vector<Collider*> m_colliders;
 };

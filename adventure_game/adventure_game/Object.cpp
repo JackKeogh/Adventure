@@ -24,6 +24,7 @@ Object::~Object()
 
 void Object::update(float dt)
 {
+
 }
 
 void Object::render(Renderer* r)
@@ -37,6 +38,20 @@ void Object::render(Renderer* r)
 void Object::addCollider(SDL_Rect c)
 {
 	m_colliders.push_back(new Collider(c));
+}
+
+void Object::changeAnimation(Animations a)
+{
+}
+
+void Object::animate()
+{
+	return;
+}
+
+Tile* Object::getTile()
+{
+	return nullptr;
 }
 
 std::vector<Collider*> Object::getColliders()
