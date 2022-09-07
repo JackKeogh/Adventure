@@ -5,7 +5,7 @@ Character::Character(Renderer* r, std::string path, SDL_Rect src, SDL_Rect pos)
 	m_sprite = new Sprite(r, path, src, pos);
 	m_movement = new Movement();
 	m_collider = new Collider(pos.x, pos.y, pos.w, pos.h);
-	m_animator = new Animator(m_sprite);
+	m_animator = new Animator(m_sprite, Animations::idleDown);
 }
 
 Character::~Character()
