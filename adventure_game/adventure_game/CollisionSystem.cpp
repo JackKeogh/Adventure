@@ -230,11 +230,13 @@ void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* lo
 
 	for (Object* o : loc->getLocation()->getObjects())
 	{
-		if (o->getTile() == nullptr)
+		Tile* tile = o->getTile();
+
+		if (tile == nullptr)
 		{
 			break;
 		}
-
+		
 		Collider* tCollider = o->getTile()->getCollider();
 		bool exit = false;
 		bool entry = false;
@@ -249,14 +251,14 @@ void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* lo
 						pCollider->getCollider().x + pCollider->getCollider().w < tCollider->getCollider().x + tCollider->getCollider().w))
 				{
 					entry = true;
-					o->getTile()->setIsColliding(true);
-					if (o->getTile()->getCollisionType() == CollisionType::On_Entry_Up)
+					tile->setIsColliding(true);
+					if (tile->getCollisionType() == CollisionType::On_Entry_Up)
 					{
-						switch (o->getTile()->getTileType())
+						switch (tile->getTileType())
 						{
 							case TileType::warp:
-								Warp = OverworldState::Transition_Inside;
-								player->getSprite()->updatePosition(o->getTile()->getWarpPoint().x, o->getTile()->getWarpPoint().y);
+								Warp = tile->getOWState();
+								player->getSprite()->updatePosition(tile->getWarpPoint().x, tile->getWarpPoint().y);
 								player->resetMovement("all", player->getAnimator()->getAnimation());
 								o->animate();
 								break;

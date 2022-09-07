@@ -1,6 +1,6 @@
 #include "Tile.h"
 
-Tile::Tile(SDL_Rect c, TileType tt, CollisionType ct, LocationName name, SDL_Rect warp) 
+Tile::Tile(SDL_Rect c, TileType tt, CollisionType ct, LocationName name, SDL_Rect warp, OverworldState ow) 
 {
 	m_active = false;
 	m_collider = new Collider(c);
@@ -9,6 +9,7 @@ Tile::Tile(SDL_Rect c, TileType tt, CollisionType ct, LocationName name, SDL_Rec
 	m_collType = ct;
 	m_locChange = name;
 	m_warp = warp;
+	m_owState = ow;
 }
 
 Tile::~Tile()
@@ -54,4 +55,9 @@ LocationName Tile::getLocationName()
 SDL_Rect Tile::getWarpPoint()
 {
 	return m_warp;
+}
+
+OverworldState Tile::getOWState()
+{
+	return m_owState;
 }
