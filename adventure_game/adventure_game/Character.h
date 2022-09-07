@@ -42,13 +42,15 @@ public:
 
 	void stopMovement();
 
-	void resetMovement(std::string m);
+	void resetMovement(std::string m, Animations a = Animations::null);
 
 	void updatePosition();
 
 	void updateAnimation();
 
 	void render(Renderer* r);
+
+	Animator* getAnimator();
 
 	Collider* getCollider();
 

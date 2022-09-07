@@ -77,32 +77,41 @@ void Character::stopMovement()
 	m_movement->m_speedV = 0;
 }
 
-void Character::resetMovement(std::string m)
+void Character::resetMovement(std::string m, Animations a)
 {
-	if (m == "up")
+	Animations anim;
+
+	if (m == "up" || m == "all")
 	{
 		m_movement->m_up = false;
 		m_movement->m_speedV = 0;
-		m_animator->changeState(Animations::idleUp);
+		anim = Animations::idleUp;
 	}
-	if (m == "down")
+	if (m == "down" || m == "all")
 	{
 		m_movement->m_down = false;
 		m_movement->m_speedV = 0;
-		m_animator->changeState(Animations::idleDown);
+		anim = Animations::idleDown;
 	}
-	if (m == "left")
+	if (m == "left" || m == "all")
 	{
 		m_movement->m_left = false;
 		m_movement->m_speedH = 0;
-		m_animator->changeState(Animations::idleLeft);
+		anim = Animations::idleLeft;
 	}
-	if (m == "right")
+	if (m == "right" || m == "all")
 	{
 		m_movement->m_right = false;
 		m_movement->m_speedH = 0;
-		m_animator->changeState(Animations::idleRight);
+		anim = Animations::idleRight;
 	}
+
+	if (a != Animations::null)
+	{
+		anim = a;
+	}
+
+	m_animator->changeState(anim);
 }
 
 void Character::updatePosition()
@@ -155,6 +164,11 @@ void Character::updateAnimation()
 void Character::render(Renderer* r)
 {
 	m_sprite->Render(r);
+}
+
+Animator* Character::getAnimator()
+{
+	return m_animator;
 }
 
 Collider* Character::getCollider()

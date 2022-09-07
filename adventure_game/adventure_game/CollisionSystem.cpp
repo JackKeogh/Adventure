@@ -254,6 +254,8 @@ void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* lo
 						{
 							case TileType::warp:
 								std::cout << "Colliding" << std::endl;
+								player->getSprite()->updatePosition(o->getTile()->getWarpPoint().x, o->getTile()->getWarpPoint().y);
+								player->resetMovement("all", player->getAnimator()->getAnimation());
 								o->animate();
 								break;
 						}

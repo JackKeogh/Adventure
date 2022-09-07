@@ -3,6 +3,7 @@
 #include "Sprite.h"
 
 enum class Animations {
+	null,
 	idleLeft,
 	idleRight,
 	idleUp,
