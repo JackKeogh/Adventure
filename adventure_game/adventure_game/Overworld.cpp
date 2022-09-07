@@ -97,9 +97,9 @@ void Overworld::update(float dt) {
 
 void Overworld::render(Renderer* r) {
 	m_locManager->getLocation()->renderBackground(r);
+	m_locManager->getLocation()->renderObjects(r);
 	player->render(r);
 	m_locManager->getLocation()->renderForeground(r);
-	m_locManager->getLocation()->renderObjects(r);
 	LocationDisplay::render(r);
 }
 
