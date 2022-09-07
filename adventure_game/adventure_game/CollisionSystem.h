@@ -7,6 +7,7 @@
 class CollisionSystem
 {
 public:
+	static bool Warp;
 	static void LocationCollision(Character* c, LocationManager* loc);
 	static void BoundaryCollision(Character* c, LocationManager* loc);
 	static void TileCollision(Character* c, LocationManager* loc);
