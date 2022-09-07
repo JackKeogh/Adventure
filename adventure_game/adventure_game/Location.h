@@ -6,6 +6,7 @@
 #include "Camera.h"
 #include "Tile.h"
 #include "Object.h"
+#include "Hospital.h"
 
 class Location
 {

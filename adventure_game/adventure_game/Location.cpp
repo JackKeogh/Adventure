@@ -55,6 +55,7 @@ void Location::renderMapOnly(Renderer* r)
 {
 	m_background->Render(r);
 	m_foreground->Render(r);
+	renderObjects(r);
 }
 
 void Location::addConnection(LocationName ref, Location* l)
@@ -128,15 +129,15 @@ LittleRoot::LittleRoot(Renderer* r)
 	m_name = LocationName::LittleRoot;
 
 	// add objects
-	m_objects.push_back(new Object(r, "assets/buildings/pokecentre.png", { 0,0,64,63 }, { 220,240,128,126 }));
-	m_objects[0]->addCollider({ 220,280,32,86 });
-	m_objects[0]->addCollider({ 220,280,128,48 });
-	m_objects[0]->addCollider({ 284,280,64,86 });
+	m_objects.push_back(new Hospital(r, { 220,240,128,110 }));
+	m_objects[0]->addCollider({ 220,240,32,94 });
+	m_objects[0]->addCollider({ 220,240,128,72 });
+	m_objects[0]->addCollider({ 284,240,64,94 });
 
-	m_objects.push_back(new Object(r, "assets/buildings/pokecentre.png", { 0,0,64,63 }, { 400,240,128,126 }));
-	m_objects[0]->addCollider({ 400,280,32,86 });
-	m_objects[0]->addCollider({ 400,280,128,48 });
-	m_objects[0]->addCollider({ 464,280,64,86 });
+	m_objects.push_back(new Object(r, "assets/buildings/pokecentre.png", { 0,0,64,55 }, { 400,240,128,110 }));
+	m_objects[0]->addCollider({ 400,240,32,94 });
+	m_objects[0]->addCollider({ 400,240,128,72 });
+	m_objects[0]->addCollider({ 464,240,64,94 });
 
 	// add colliders
 	m_colliders.push_back(new Collider(0, -112, 384, 224));
