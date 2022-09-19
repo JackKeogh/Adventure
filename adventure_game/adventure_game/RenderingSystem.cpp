@@ -37,6 +37,11 @@ void Renderer::clear() {
 	SDL_RenderClear(m_render);
 }
 
+void Renderer::setRenderColor(SDL_Color c)
+{
+	SDL_SetRenderDrawColor(m_render, c.r, c.g, c.b, c.a);
+}
+
 void Renderer::display() {
 	SDL_RenderPresent(m_render);
 }
@@ -46,6 +51,12 @@ void Renderer::draw(SDL_Texture* t, SDL_Rect src, SDL_Rect dest, float r)
 	dest.x -= Camera::getX();
 	dest.y -= Camera::getY();
 	SDL_RenderCopy(m_render, t, &src, &dest);
+}
+
+void Renderer::draw(SDL_Rect r, SDL_Color c)
+{
+	setRenderColor(c);
+	SDL_RenderDrawRect(m_render, &r);
 }
 
 SDL_Renderer* Renderer::getRenderer()

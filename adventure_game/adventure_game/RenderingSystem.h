@@ -16,11 +16,17 @@ public:
 	// clear window
 	void clear();
 
+	// Set render color
+	void setRenderColor(SDL_Color c);
+
 	// present window
 	void display();
 
 	// draw object
 	void draw(SDL_Texture* t, SDL_Rect src, SDL_Rect dest, float r = 0);
+
+	// draw square
+	void draw(SDL_Rect r, SDL_Color c);
 
 	SDL_Renderer* getRenderer();
 
