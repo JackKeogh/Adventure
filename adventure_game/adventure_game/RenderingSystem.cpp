@@ -53,10 +53,10 @@ void Renderer::draw(SDL_Texture* t, SDL_Rect src, SDL_Rect dest, float r)
 	SDL_RenderCopy(m_render, t, &src, &dest);
 }
 
-void Renderer::draw(SDL_Rect r, SDL_Color c)
+void Renderer::draw(Rectangle r)
 {
-	setRenderColor(c);
-	SDL_RenderDrawRect(m_render, &r);
+	setRenderColor(r.color);
+	SDL_RenderDrawRect(m_render, &r.rect);
 }
 
 SDL_Renderer* Renderer::getRenderer()
