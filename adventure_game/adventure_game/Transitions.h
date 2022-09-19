@@ -1,5 +1,6 @@
 #pragma once
 #include "RenderingSystem.h"
+#include "Sprite.h"
 
 enum class TransitionType
 {
@@ -17,29 +18,26 @@ public:
 
 	~Transitions();
 
-	void update();
+	static void update();
 
-	void render(Renderer* r);
+	static void render(Renderer* r);
 
-	void changeTransition(TransitionType t);
+	static void changeTransition(TransitionType t);
 
 private:
-	TransitionState* m_state;
+	static TransitionState* m_state;
 };
 
 class TransitionState
 {
 public:
-	TransitionState(Transitions* t = nullptr);
+	TransitionState();
 
 	virtual void update() = 0;
 
 	virtual void render(Renderer* r) = 0;
 
 	void changeState(TransitionType t);
-
-protected:
-	Transitions* m_transitionSystem;
 };
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -48,7 +46,7 @@ protected:
 class NullTransition : public TransitionState
 {
 public:
-	NullTransition(Transitions* t);
+	NullTransition();
 	void update() override;
 	void render(Renderer* r) override;
 };
@@ -59,10 +57,10 @@ public:
 class FadeOut : public TransitionState
 {
 public:
-	FadeOut(Transitions* t);
+	FadeOut();
 	void update() override;
 	void render(Renderer* r) override;
 private:
-	Rectangle m_rect;
+	Sprite* m_sprite;
 	float m_time;
 };
