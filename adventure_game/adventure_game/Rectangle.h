@@ -6,9 +6,9 @@ struct Rectangle
 	SDL_Rect rect;
 	SDL_Color color;
 
-	Rectangle()
+	Rectangle(SDL_Rect r = { 0,0,0,0 }, SDL_Color c = { 0,0,0,0 })
 	{
-		rect = SDL_Rect{ 0,0,0,0 };
-		color = SDL_Color{ 0,0,0,0 };
+		rect = r;
+		color = c;
 	}
 };
