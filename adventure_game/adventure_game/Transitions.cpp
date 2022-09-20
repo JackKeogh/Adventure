@@ -81,6 +81,7 @@ FadeOut::FadeOut()
 {
 	m_sprite = new Sprite(Renderer::Render(), "assets/Primitives/square.png", { 9,40,27,27 }, { 0, 0,SCREEN_WIDTH,SCREEN_HEIGHT });
 	m_sprite->setAlpha(0);
+	m_timer = 0.f;
 }
 
 void FadeOut::update()
@@ -94,6 +95,11 @@ void FadeOut::update()
 	else
 	{
 		m_sprite->setAlpha(SDL_ALPHA_OPAQUE);
+		m_timer += 1.f / FPS;
+	}
+
+	if (m_timer >= 1.5f)
+	{
 		Transitions::changeTransition(TransitionType::fade_in, m_sprite);
 	}
 }

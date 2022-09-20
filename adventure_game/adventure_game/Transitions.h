@@ -37,7 +37,7 @@ public:
 
 	virtual void render(Renderer* r) = 0;
 
-	void changeState(TransitionType t);
+	virtual void changeState(TransitionType t);
 
 	bool isCompleted();
 
