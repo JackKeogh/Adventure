@@ -10,3 +10,14 @@ enum class OverworldState {
 	Event,
 	Dialog
 };
+
+class OverworldStateController
+{
+public:
+	static void changeState(OverworldState s);
+
+	static OverworldState getState();
+
+private:
+	static OverworldState m_state;
+};

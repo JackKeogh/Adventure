@@ -5,6 +5,8 @@
 #include "LocationDisplay.h"
 #include "OverworldState.h"
 #include "Transitions.h"
+#include "Event.h"
+#include "ChangeOverworldState.h"
 
 class CollisionSystem
 {

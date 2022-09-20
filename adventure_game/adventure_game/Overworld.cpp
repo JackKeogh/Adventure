@@ -10,7 +10,6 @@ Overworld::~Overworld() {
 
 void Overworld::initialise(Renderer* r) {
 	m_running = true;
-	m_state = OverworldState::Overworld;
 	m_locManager = new LocationManager(r);
 	player = new Character(r, "assets/34024.png", { 9,40,22,27 }, { 200,200,22,27 });
 	Camera::initialise(player->getSprite()->getPosition());
@@ -22,15 +21,12 @@ void Overworld::events(SDL_Event* e) {
 	{
 		if (e->key.keysym.sym == SDLK_ESCAPE)
 		{
-			switch (m_state)
+			switch (OverworldStateController::getState())
 			{
 			case OverworldState::Overworld:
 			case OverworldState::Inside:
-				captureState();
-				setState(OverworldState::Paused);
 				break;
 			case OverworldState::Paused:
-				setState(m_oldState);
 				break;
 			}
 		}
@@ -75,17 +71,17 @@ void Overworld::events(SDL_Event* e) {
 }
 
 void Overworld::update(float dt) {
-	switch (m_state)
+	switch (OverworldStateController::getState())
 	{
 		case OverworldState::Overworld:
 			player->update(dt);
 			CollisionSystem::LocationCollision(player, m_locManager);
 			Camera::update(player->getSprite()->getPosition());
 			LocationDisplay::update(dt);
-			changeState();
+			Event::update();
 			break;
 		case OverworldState::Transition_Inside:
-			Transitions::update();
+			Event::update();
 			break;
 		case OverworldState::Inside:
 			player->update(dt);
@@ -99,22 +95,25 @@ void Overworld::update(float dt) {
 	}
 }
 
-void Overworld::changeState()
-{
-	if (CollisionSystem::Warp != OverworldState::null)
-	{
-		m_state = CollisionSystem::Warp;
-		CollisionSystem::Warp = OverworldState::null;
-	}
-}
-
 void Overworld::render(Renderer* r) {
-	m_locManager->getLocation()->renderBackground(r);
-	m_locManager->getLocation()->renderObjects(r);
-	player->render(r);
-	m_locManager->getLocation()->renderForeground(r);
-	LocationDisplay::render(r);
-	Transitions::render(r);
+	switch (OverworldStateController::getState())
+	{
+		case OverworldState::Overworld:
+			m_locManager->getLocation()->renderBackground(r);
+			m_locManager->getLocation()->renderObjects(r);
+			player->render(r);
+			m_locManager->getLocation()->renderForeground(r);
+			LocationDisplay::render(r);
+			break;
+		case OverworldState::Transition_Inside:
+			m_locManager->getLocation()->renderBackground(r);
+			m_locManager->getLocation()->renderObjects(r);
+			player->render(r);
+			m_locManager->getLocation()->renderForeground(r);
+			LocationDisplay::render(r);
+			Event::render(r);
+			break;
+	}
 }
 
 void Overworld::setRunning() {
@@ -123,12 +122,4 @@ void Overworld::setRunning() {
 
 bool Overworld::getRunning() {
 	return m_running;
-}
-
-void Overworld::setState(OverworldState os) {
-	m_state = os;
-}
-
-void Overworld::captureState() {
-	m_oldState = m_state;
 }

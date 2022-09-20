@@ -8,6 +8,7 @@
 #include "CollisionSystem.h"
 #include "LocationDisplay.h"
 #include "Transitions.h"
+#include "Event.h"
 
 class Overworld {
 public:
@@ -21,22 +22,14 @@ public:
 
 	void update(float dt);
 
-	void changeState();
-
 	void render(Renderer* r);
 
 	void setRunning();
 
 	bool getRunning();
 
-	void setState(OverworldState os);
-
-	void captureState();
-
 private:
 	bool m_running;
-	OverworldState m_state;
-	OverworldState m_oldState;
 	LocationManager* m_locManager;
 	Character* player;
 };

@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Buildings">
+      <UniqueIdentifier>{e884b007-fb58-45a0-854a-4bf6b9404e82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Basic Commands">
+      <UniqueIdentifier>{d962fdbc-b077-4fdc-8ecd-a360a47b669e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Basic Commands">
+      <UniqueIdentifier>{656caf40-7817-4313-ac71-c19ced9c8a41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -49,6 +58,33 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LocationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LocationDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hospital.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transitions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeOverworldState.cpp">
+      <Filter>Source Files\Basic Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="OverworldState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -94,6 +130,30 @@
     </ClInclude>
     <ClInclude Include="LocationManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LocationDisplay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transitions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hospital.h">
+      <Filter>Header Files\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeOverworldState.h">
+      <Filter>Header Files\Basic Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

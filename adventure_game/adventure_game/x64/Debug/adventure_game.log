@@ -1,7 +1,2 @@
-﻿  RenderingSystem.cpp
-D:\Projects\Adventure\Adventure\adventure_game\adventure_game\RenderingSystem.cpp(47,50): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
-D:\Projects\Adventure\Adventure\adventure_game\adventure_game\RenderingSystem.cpp(48,50): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
-D:\Projects\Adventure\Adventure\adventure_game\adventure_game\RenderingSystem.cpp(49,31): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
-D:\Projects\Adventure\Adventure\adventure_game\adventure_game\RenderingSystem.cpp(51,2): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
-D:\Projects\Adventure\Adventure\adventure_game\adventure_game\RenderingSystem.cpp(34): warning C4715: 'Renderer::initialise': not all control paths return a value
+﻿  CollisionSystem.cpp
   adventure_game.vcxproj -> D:\Projects\Adventure\Adventure\adventure_game\x64\Debug\adventure_game.exe
