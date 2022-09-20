@@ -261,6 +261,7 @@ void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* lo
 								player->getSprite()->updatePosition(tile->getWarpPoint().x, tile->getWarpPoint().y);
 								player->resetMovement("all", player->getAnimator()->getAnimation());
 								o->animate();
+								Transitions::changeTransition(TransitionType::fade_out);
 								break;
 						}
 

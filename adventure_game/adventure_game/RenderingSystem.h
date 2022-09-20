@@ -25,8 +25,8 @@ public:
 	// draw object
 	void draw(SDL_Texture* t, SDL_Rect src, SDL_Rect dest, float r = 0);
 
-	// draw square
-	void draw(Rectangle r);
+	// get Renderer
+	static SDL_Renderer* Render();
 
 	SDL_Renderer* getRenderer();
 

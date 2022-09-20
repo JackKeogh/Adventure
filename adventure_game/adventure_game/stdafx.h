@@ -7,7 +7,6 @@
 #include <SDL_image.h>
 #include <map>
 #include <vector>
-#include "Primitives.h"
 
 #pragma once
 #define ONE_SECOND_MS 1000.f

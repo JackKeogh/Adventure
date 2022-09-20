@@ -22,7 +22,7 @@ public:
 
 	static void render(Renderer* r);
 
-	static void changeTransition(TransitionType t);
+	static void changeTransition(TransitionType t, Sprite* s = nullptr);
 
 private:
 	static TransitionState* m_state;
@@ -38,6 +38,11 @@ public:
 	virtual void render(Renderer* r) = 0;
 
 	void changeState(TransitionType t);
+
+	bool isCompleted();
+
+protected:
+	bool m_complete;
 };
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -62,5 +67,19 @@ public:
 	void render(Renderer* r) override;
 private:
 	Sprite* m_sprite;
-	float m_time;
+	float m_timer;
+};
+
+////////////////////////////////////////////////////////////////////////////////////
+//					FADE IN
+////////////////////////////////////////////////////////////////////////////////////
+class FadeIn : public TransitionState
+{
+public:
+	FadeIn(Sprite* s = nullptr);
+	~FadeIn();
+	void update() override;
+	void render(Renderer* r) override;
+private:
+	Sprite* m_sprite;
 };

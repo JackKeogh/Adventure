@@ -39,6 +39,7 @@ void Renderer::clear() {
 
 void Renderer::setRenderColor(SDL_Color c)
 {
+	std::cout << std::to_string(c.a) << std::endl;
 	SDL_SetRenderDrawColor(m_render, c.r, c.g, c.b, c.a);
 }
 
@@ -53,10 +54,9 @@ void Renderer::draw(SDL_Texture* t, SDL_Rect src, SDL_Rect dest, float r)
 	SDL_RenderCopy(m_render, t, &src, &dest);
 }
 
-void Renderer::draw(Rectangle r)
+SDL_Renderer* Renderer::Render()
 {
-	setRenderColor(r.color);
-	SDL_RenderDrawRect(m_render, &r.rect);
+	return m_render;
 }
 
 SDL_Renderer* Renderer::getRenderer()

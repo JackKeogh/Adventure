@@ -4,6 +4,7 @@
 #include "LocationManager.h"
 #include "LocationDisplay.h"
 #include "OverworldState.h"
+#include "Transitions.h"
 
 class CollisionSystem
 {

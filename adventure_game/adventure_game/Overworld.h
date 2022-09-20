@@ -7,6 +7,7 @@
 #include "Character.h"
 #include "CollisionSystem.h"
 #include "LocationDisplay.h"
+#include "Transitions.h"
 
 class Overworld {
 public:
