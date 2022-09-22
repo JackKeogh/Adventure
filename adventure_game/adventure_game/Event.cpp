@@ -1,12 +1,11 @@
 #include "Event.h"
 
-std::vector<EventCommand*> Event::m_commands = std::vector<EventCommand*>();
-int Event::m_current = 0;
-int Event::m_events = 0;
-
 Event::Event()
 {
-
+	OverworldStateController::changeState(OverworldState::Transition_Inside);
+	m_complete = false;
+	m_events = 0;
+	m_current = 0;
 }
 
 Event::~Event()
@@ -65,4 +64,9 @@ void Event::render(Renderer* r)
 	{
 		m_commands[m_current]->render(r);
 	}
+}
+
+bool Event::isComplete()
+{
+	return m_complete;
 }

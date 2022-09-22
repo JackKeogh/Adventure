@@ -8,7 +8,7 @@
 #include "CollisionSystem.h"
 #include "LocationDisplay.h"
 #include "Transitions.h"
-#include "Event.h"
+#include "EventSystem.h"
 
 class Overworld {
 public:

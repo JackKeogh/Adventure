@@ -261,10 +261,7 @@ void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* lo
 								player->getSprite()->updatePosition(tile->getWarpPoint().x, tile->getWarpPoint().y);
 								player->resetMovement("all", player->getAnimator()->getAnimation());
 								o->animate();
-								Event::addCommand(new ChangeOverworldState(OverworldState::Transition_Inside));
-								Event::addCommand(new FadeOut());
-								Event::addCommand(new ChangeOverworldState(OverworldState::Overworld));
-								Event::addCommand(new FadeIn());
+								EventSystem::setEvent(new WarpEvent());
 								break;
 						}
 

@@ -78,10 +78,10 @@ void Overworld::update(float dt) {
 			CollisionSystem::LocationCollision(player, m_locManager);
 			Camera::update(player->getSprite()->getPosition());
 			LocationDisplay::update(dt);
-			Event::update();
+			EventSystem::update();
 			break;
 		case OverworldState::Transition_Inside:
-			Event::update();
+			EventSystem::update();
 			break;
 		case OverworldState::Inside:
 			player->update(dt);
@@ -111,7 +111,7 @@ void Overworld::render(Renderer* r) {
 			player->render(r);
 			m_locManager->getLocation()->renderForeground(r);
 			LocationDisplay::render(r);
-			Event::render(r);
+			EventSystem::render(r);
 			break;
 	}
 }

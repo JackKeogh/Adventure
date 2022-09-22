@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
-#include "RenderingSystem.h"
 #include "EventCommand.h"
+#include "OverworldState.h"
 
 class Event
 {
@@ -9,23 +9,25 @@ public:
 	Event();
 	~Event();
 
-	static void reset();
+	void reset();
 
-	static void removeCommands();
+	void removeCommands();
 
-	static void addCommand(EventCommand* e);
+	void addCommand(EventCommand* e);
 
-	static void update();
+	void update();
 
-	static void checkComplete();
-	
-	static void checkOutOfRange();
+	void checkComplete();
 
-	static void render(Renderer* r);
+	void checkOutOfRange();
 
-private:
-	static std::vector<EventCommand*> m_commands;
-	static int m_current;
-	static int m_events;
+	void render(Renderer* r);
+
+	bool isComplete();
+
+protected:
+	std::vector<EventCommand*> m_commands;
+	int m_current;
+	int m_events;
+	bool m_complete;
 };
-

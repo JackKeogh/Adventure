@@ -26,7 +26,7 @@ public:
 class FadeOut : public TransitionState
 {
 public:
-	FadeOut();
+	FadeOut(Sprite* s = nullptr);
 	void update() override;
 	void render(Renderer* r) override;
 private:
@@ -40,7 +40,7 @@ private:
 class FadeIn : public TransitionState
 {
 public:
-	FadeIn();
+	FadeIn(Sprite* s = nullptr);
 	~FadeIn();
 	void update() override;
 	void render(Renderer* r) override;

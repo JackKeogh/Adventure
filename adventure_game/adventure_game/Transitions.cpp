@@ -27,9 +27,16 @@ void NullTransition::render(Renderer* r)
 //					FADE OUT
 ////////////////////////////////////////////////////////////////////////////////////
 
-FadeOut::FadeOut()
+FadeOut::FadeOut(Sprite* s)
 {
-	m_sprite = new Sprite(Renderer::Render(), "assets/Primitives/square.png", { 9,40,27,27 }, { 0, 0,SCREEN_WIDTH,SCREEN_HEIGHT });
+	if (s == nullptr)
+	{
+		m_sprite = new Sprite(Renderer::Render(), "assets/Primitives/square.png", { 9,40,27,27 }, { 0, 0,SCREEN_WIDTH,SCREEN_HEIGHT });
+	}
+	else
+	{
+		m_sprite = s;
+	}
 	m_sprite->setAlpha(0);
 	m_timer = 0.f;
 }
@@ -62,10 +69,16 @@ void FadeOut::render(Renderer* r)
 ////////////////////////////////////////////////////////////////////////////////////
 //					FADE IN
 ////////////////////////////////////////////////////////////////////////////////////
-FadeIn::FadeIn()
+FadeIn::FadeIn(Sprite* s)
 {
-	m_sprite = new Sprite(Renderer::Render(), "assets/Primitives/square.png", { 9,40,27,27 }, { 0, 0,SCREEN_WIDTH,SCREEN_HEIGHT });
-	m_sprite->setAlpha(SDL_ALPHA_OPAQUE);
+	if (s == nullptr)
+	{
+		m_sprite = new Sprite(Renderer::Render(), "assets/Primitives/square.png", { 9,40,27,27 }, { 0, 0,SCREEN_WIDTH,SCREEN_HEIGHT });
+	}
+	else
+	{
+		m_sprite = s;
+	}
 	m_timer = 0.f;
 }
 
