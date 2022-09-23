@@ -134,7 +134,7 @@ LittleRoot::LittleRoot(Renderer* r)
 	m_objects[0]->addCollider({ 220,240,128,72 });
 	m_objects[0]->addCollider({ 284,240,64,94 });
 
-	m_objects.push_back(new Object(r, "assets/buildings/pokecentre.png", { 0,0,64,55 }, { 400,240,128,110 }));
+	m_objects.push_back(new Hospital(r, { 400,240,128,110 }));
 	m_objects[0]->addCollider({ 400,240,32,94 });
 	m_objects[0]->addCollider({ 400,240,128,72 });
 	m_objects[0]->addCollider({ 464,240,64,94 });
