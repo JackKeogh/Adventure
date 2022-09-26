@@ -231,7 +231,7 @@ void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* lo
 
 	for (Object* o : loc->getLocation()->getObjects())
 	{
-		Tile* tile = o->getTile();
+		WarpTile* tile = TileCasting::WarpTileCast(o->getTile());
 
 		if (tile == nullptr)
 		{
@@ -259,8 +259,7 @@ void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* lo
 						{
 							case TileType::warp:
 								player->resetMovement("all", player->getAnimator()->getAnimation());
-								o->animate();
-								EventSystem::setEvent(new WarpEvent());
+								EventSystem::setEvent(tile->getWarp());
 								break;
 						}
 
