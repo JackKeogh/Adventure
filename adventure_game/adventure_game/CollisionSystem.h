@@ -7,6 +7,7 @@
 #include "Transitions.h"
 #include "EventSystem.h"
 #include "WarpEvent.h"
+#include "TileCasting.h"
 
 class CollisionSystem
 {

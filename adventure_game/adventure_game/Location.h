@@ -4,7 +4,7 @@
 #include "LocationName.h"
 #include "Collider.h"
 #include "Camera.h"
-#include "Tile.h"
+#include "ChangeLocationTile.h"
 #include "Object.h"
 #include "Hospital.h"
 

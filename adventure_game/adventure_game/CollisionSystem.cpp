@@ -154,6 +154,7 @@ void CollisionSystem::TileCollision(Character* player, LocationManager* loc)
 
 	for (Tile* t : loc->getLocation()->getTiles())
 	{
+		ChangeLocationTile* clt = TileCasting::ChangeLocationTileCast(t);
 		Collider* tCollider = t->getCollider();
 		bool exit = false;
 		bool entry = false;
@@ -191,7 +192,7 @@ void CollisionSystem::TileCollision(Character* player, LocationManager* loc)
 				{
 					if (t->getTileType() == TileType::locationChange)
 					{
-						loc->changeLocation(t->getLocationName());
+						loc->changeLocation(clt->getLocationName());
 						LocationDisplay::setCurrent(loc->getLocation()->getCurrentLocation());
 						LocationDisplay::startTransition();
 					}
@@ -208,7 +209,7 @@ void CollisionSystem::TileCollision(Character* player, LocationManager* loc)
 				{
 					if (t->getTileType() == TileType::locationChange)
 					{
-						loc->changeLocation(t->getLocationName());
+						loc->changeLocation(clt->getLocationName());
 						LocationDisplay::setCurrent(loc->getLocation()->getCurrentLocation());
 						LocationDisplay::startTransition();
 					}
@@ -283,9 +284,9 @@ void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* lo
 				{
 					if (o->getTile()->getTileType() == TileType::locationChange)
 					{
-						loc->changeLocation(o->getTile()->getLocationName());
+						/*loc->changeLocation(o->getTile()->getLocationName());
 						LocationDisplay::setCurrent(loc->getLocation()->getCurrentLocation());
-						LocationDisplay::startTransition();
+						LocationDisplay::startTransition();*/
 					}
 					return;
 				}
@@ -300,9 +301,9 @@ void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* lo
 				{
 					if (o->getTile()->getTileType() == TileType::locationChange)
 					{
-						loc->changeLocation(o->getTile()->getLocationName());
+						/*loc->changeLocation(o->getTile()->getLocationName());
 						LocationDisplay::setCurrent(loc->getLocation()->getCurrentLocation());
-						LocationDisplay::startTransition();
+						LocationDisplay::startTransition();*/
 					}
 					return;
 				}

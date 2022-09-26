@@ -29,7 +29,7 @@ class Tile
 public:
 	Tile(SDL_Rect c = { 0,0,0,0 }, TileType tt = TileType::locationChange, CollisionType ct = CollisionType::On_Entry);
 
-	~Tile();
+	virtual ~Tile();
 
 	Collider* getCollider();
 

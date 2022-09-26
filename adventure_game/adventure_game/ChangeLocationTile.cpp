@@ -8,6 +8,7 @@ ChangeLocationTile::ChangeLocationTile(SDL_Rect c, CollisionType ct, LocationNam
 
 ChangeLocationTile::~ChangeLocationTile()
 {
+	delete m_collider;
 }
 
 LocationName ChangeLocationTile::getLocationName()
