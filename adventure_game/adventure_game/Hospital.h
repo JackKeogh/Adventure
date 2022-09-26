@@ -1,5 +1,6 @@
 #pragma once
 #include "Object.h"
+#include "WarpTile.h"
 
 class Hospital : public Object
 {

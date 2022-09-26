@@ -2,7 +2,6 @@
 
 Event::Event()
 {
-	OverworldStateController::changeState(OverworldState::Transition_Inside);
 	m_complete = false;
 	m_events = 0;
 	m_current = 0;
