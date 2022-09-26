@@ -27,8 +27,7 @@ enum class CollisionType {
 class Tile
 {
 public:
-	Tile(SDL_Rect c = { 0,0,0,0 }, TileType tt = TileType::locationChange, CollisionType ct = CollisionType::On_Entry,
-		LocationName ln = LocationName::NULL_Location, SDL_Rect w = { 0,0,0,0 }, OverworldState owState = OverworldState::null);
+	Tile(SDL_Rect c = { 0,0,0,0 }, TileType tt = TileType::locationChange, CollisionType ct = CollisionType::On_Entry);
 
 	~Tile();
 
@@ -44,20 +43,11 @@ public:
 
 	CollisionType getCollisionType();
 
-	LocationName getLocationName();
-
-	SDL_Rect getWarpPoint();
-
-	OverworldState getOWState();
-
-private:
+protected:
 	Collider* m_collider;
 	bool m_active;
 	bool m_isColliding;
 	TileType m_tileType;
 	CollisionType m_collType;
-	LocationName m_locChange;
-	SDL_Rect m_warp;
-	OverworldState m_owState;
 };
 

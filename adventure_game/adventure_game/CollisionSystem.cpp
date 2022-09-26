@@ -257,8 +257,6 @@ void CollisionSystem::ObjectTileCollision(Character* player, LocationManager* lo
 						switch (tile->getTileType())
 						{
 							case TileType::warp:
-								Warp = tile->getOWState();
-								player->getSprite()->updatePosition(tile->getWarpPoint().x, tile->getWarpPoint().y);
 								player->resetMovement("all", player->getAnimator()->getAnimation());
 								o->animate();
 								EventSystem::setEvent(new WarpEvent());
