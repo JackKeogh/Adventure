@@ -17,7 +17,7 @@ public:
 
 	Tile* getTile() override;
 
-private:
+protected:
 	Sprite* m_animatedSprite;
 	Tile* m_tile;
 	Animator* m_animator;

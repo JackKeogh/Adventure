@@ -129,15 +129,7 @@ LittleRoot::LittleRoot(Renderer* r)
 	m_name = LocationName::LittleRoot;
 
 	// add objects
-	m_objects.push_back(new Hospital(r, { 220,240,128,110 }));
-	m_objects[0]->addCollider({ 220,240,32,94 });
-	m_objects[0]->addCollider({ 220,240,128,72 });
-	m_objects[0]->addCollider({ 284,240,64,94 });
-
-	m_objects.push_back(new Hospital(r, { 400,240,128,110 }));
-	m_objects[0]->addCollider({ 400,240,32,94 });
-	m_objects[0]->addCollider({ 400,240,128,72 });
-	m_objects[0]->addCollider({ 464,240,64,94 });
+	m_objects.push_back(new Test_Hospital_Exterior(r));
 
 	// add colliders
 	m_colliders.push_back(new Collider(0, -112, 384, 224));

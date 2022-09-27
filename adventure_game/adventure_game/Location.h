@@ -7,6 +7,7 @@
 #include "ChangeLocationTile.h"
 #include "Object.h"
 #include "Hospital.h"
+#include "Test_Hospital_Exterior.h"
 
 class Location
 {
