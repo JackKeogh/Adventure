@@ -49,15 +49,3 @@ protected:
 	std::vector<Tile*> m_tiles;
 	std::vector<Object*> m_objects;
 };
-
-class LittleRoot : public Location
-{
-public:
-	LittleRoot(Renderer* r);
-};
-
-class Route101 : public Location
-{
-public:
-	Route101(Renderer* r);
-};

@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-#include "Location.h"
+#include "location_include.h"
 
 class LocationManager
 {
