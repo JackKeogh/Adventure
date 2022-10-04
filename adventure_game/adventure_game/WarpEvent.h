@@ -15,6 +15,8 @@ public:
 
 	SDL_Point getPoint();
 
+	void setPoint(SDL_Rect r);
+
 private:
 	Sprite* m_sprite;
 	Sublocation_List m_sub;

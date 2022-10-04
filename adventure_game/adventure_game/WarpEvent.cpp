@@ -27,3 +27,9 @@ SDL_Point WarpEvent::getPoint()
 {
 	return m_point;
 }
+
+void WarpEvent::setPoint(SDL_Rect r)
+{
+	m_point.x = r.x;
+	m_point.y = r.y;
+}
