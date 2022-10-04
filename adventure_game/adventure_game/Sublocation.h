@@ -13,6 +13,10 @@ public:
 
 	virtual void render(Renderer* r);
 
+	void setPosition(SDL_Point p);
+
+	SDL_Rect getPosition();
+
 	std::vector<Object*> getObjects();
 
 	std::vector<Collider*> getColliders();

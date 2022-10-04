@@ -31,6 +31,16 @@ void Sublocation::render(Renderer* r) {
 	m_area->Render(r);
 }
 
+void Sublocation::setPosition(SDL_Point p)
+{
+	m_area->updatePosition(p.x, p.y);
+}
+
+SDL_Rect Sublocation::getPosition()
+{
+	return m_area->getPosition();
+}
+
 std::vector<Object*> Sublocation::getObjects() {
 	return m_objects;
 }
