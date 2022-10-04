@@ -33,6 +33,8 @@ void Sublocation::render(Renderer* r) {
 
 void Sublocation::setPosition(SDL_Point p)
 {
+	p.x -= m_offset.x;
+	p.y -= m_offset.y;
 	m_area->updatePosition(p.x, p.y);
 }
 

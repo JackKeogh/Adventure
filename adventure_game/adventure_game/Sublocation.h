@@ -24,5 +24,6 @@ public:
 protected:
 	std::vector<Object*> m_objects;
 	std::vector<Collider*> m_colliders;
+	SDL_Point m_offset;
 	Sprite* m_area;
 };
