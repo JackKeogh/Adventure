@@ -8,13 +8,16 @@
 class WarpEvent : public Event
 {
 public:
-	WarpEvent(Sublocation_List sl = Sublocation_List::Null);
+	WarpEvent(Sublocation_List sl = Sublocation_List::Null, SDL_Point p = { 0,0 });
 	~WarpEvent();
 
 	Sublocation_List getSubLocation();
 
+	SDL_Point getPoint();
+
 private:
 	Sprite* m_sprite;
 	Sublocation_List m_sub;
+	SDL_Point m_point;
 };
 
