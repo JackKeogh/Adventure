@@ -25,6 +25,9 @@ void LocationManager::updateSubLocation(Event* e)
 	{
 		m_location->setSubLocation(sll);
 	}
+
+	SDL_Point p = warp->getPoint();
+	m_location->getSubLocation()->setPosition(p);
 }
 
 void LocationManager::changeLocation(LocationName loc)
