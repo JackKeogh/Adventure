@@ -11,6 +11,22 @@ LocationManager::~LocationManager()
 {
 }
 
+void LocationManager::updateSubLocation(Event* e)
+{
+	WarpEvent* warp = EventCasting::WarpEventCast(e);
+
+	Sublocation_List sll = warp->getSubLocation();
+
+	if (!m_location->subLocationExist(sll))
+	{
+		std::cout << "SUB LOCATION DOES NOT EXIST" << std::endl;
+	}
+	else
+	{
+		m_location->setSubLocation(sll);
+	}
+}
+
 void LocationManager::changeLocation(LocationName loc)
 {
 	m_location = m_location->getLocation(loc);

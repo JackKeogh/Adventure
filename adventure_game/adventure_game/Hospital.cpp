@@ -1,13 +1,13 @@
 #include "Hospital.h"
 
-Hospital::Hospital(Renderer* r, SDL_Rect pos) :
+Hospital::Hospital(Renderer* r, SDL_Rect pos, Sublocation_List sl) :
 	Object(r, "assets/buildings/pokecentre.png", { 0,0,64,55 }, pos)
 {
 	int w = 32, h = 38;
 	int x = w + pos.x, y = 72 + pos.y;
 	m_animatedSprite = new Sprite(r, "assets/buildings/pokecentre_door.png", { 0,0,16,19 }, { x, y, w, h });
 	m_animator = new Animator(m_animatedSprite, Animations::Hospital_Closed);
-	m_tile = new WarpTile({ x, y, w, 16 }, CollisionType::On_Entry_Up, new WarpEvent());
+	m_tile = new WarpTile({ x, y, w, 16 }, CollisionType::On_Entry_Up, new WarpEvent(sl));
 }
 
 Hospital::~Hospital()

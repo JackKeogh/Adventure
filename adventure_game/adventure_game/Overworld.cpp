@@ -80,8 +80,11 @@ void Overworld::update(float dt) {
 			LocationDisplay::update(dt);
 			EventSystem::update();
 			break;
-		case OverworldState::Transition_Inside_FadeOut:
 		case OverworldState::Transition_Inside_ChangeWorld:
+			m_locManager->updateSubLocation(EventSystem::getEvent());
+			EventSystem::update();
+			break;
+		case OverworldState::Transition_Inside_FadeOut:
 		case OverworldState::Transition_Inside_FadeIn:
 			EventSystem::update();
 			break;
@@ -114,6 +117,10 @@ void Overworld::render(Renderer* r) {
 			m_locManager->getLocation()->renderForeground(r);
 			LocationDisplay::render(r);
 			EventSystem::render(r);
+			break;
+		case OverworldState::Inside:
+			m_locManager->getLocation()->renderSubLocation(r);
+			player->render(r);
 			break;
 	}
 }

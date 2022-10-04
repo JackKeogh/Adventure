@@ -5,7 +5,7 @@
 class Hospital : public Object
 {
 public:
-	Hospital(Renderer* r, SDL_Rect pos = { 0,0,0,0 });
+	Hospital(Renderer* r, SDL_Rect pos = { 0,0,0,0 }, Sublocation_List sl = Sublocation_List::Null);
 
 	~Hospital();
 

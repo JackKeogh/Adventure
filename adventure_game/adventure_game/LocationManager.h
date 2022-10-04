@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "location_include.h"
+#include "EventCasting.h"
 
 class LocationManager
 {
@@ -8,6 +9,8 @@ public:
 	LocationManager(Renderer* r = nullptr);
 
 	~LocationManager();
+
+	void updateSubLocation(Event* e);
 
 	void changeLocation(LocationName loc);
 
