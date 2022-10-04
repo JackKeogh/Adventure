@@ -54,3 +54,8 @@ bool EventSystem::isNull()
 {
 	return m_event == nullptr ? true : false;
 }
+
+Event* EventSystem::getEvent()
+{
+	return m_event;
+}

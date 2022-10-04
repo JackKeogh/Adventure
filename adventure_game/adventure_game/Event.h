@@ -15,7 +15,7 @@ public:
 
 	void addCommand(EventCommand* e);
 
-	void update();
+	virtual void update();
 
 	void checkComplete();
 

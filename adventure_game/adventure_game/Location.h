@@ -5,8 +5,6 @@
 #include "Collider.h"
 #include "Camera.h"
 #include "ChangeLocationTile.h"
-#include "Object.h"
-#include "Hospital.h"
 #include "Test_Hospital_Exterior.h"
 #include "Sublocation_Include.h"
 

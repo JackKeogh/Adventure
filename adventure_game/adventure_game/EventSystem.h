@@ -19,6 +19,8 @@ public:
 
 	static bool isNull();
 
+	static Event* getEvent();
+
 private:
 	static Event* m_event;
 };
