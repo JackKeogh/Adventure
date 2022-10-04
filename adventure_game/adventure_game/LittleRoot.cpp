@@ -24,6 +24,10 @@ LittleRoot::LittleRoot(Renderer* r)
 	// add tiles
 	m_tiles.push_back(new ChangeLocationTile({ 384,0,128,52 }, CollisionType::On_Exit_Up, LocationName::Route101));
 
+	// add Sublocation
+	m_sub = Sublocation_List::Null;
+	m_sublocations.insert(std::pair<Sublocation_List, Sublocation*>(Sublocation_List::Test_Hospital_Interior, new Test_Hospital_Interior()));
+
 	// set camera coords
 	Camera::setActive(true);
 	Camera::update({ 0,0,0,0 });

@@ -20,6 +20,26 @@ Location::~Location()
 
 void Location::update(float dt)
 {
+	if (!inSubLocation())
+	{
+		for (Object* o : m_objects)
+		{
+			if (o != nullptr)
+			{
+				o->update(dt);
+			}
+		}
+	}
+	else
+	{
+		if (m_sublocations[m_sub] == nullptr)
+		{
+			std::cout << "Sub-Location Does Not Exist" << std::endl;
+			return;
+		}
+
+		m_sublocations[m_sub]->update();
+	}
 }
 
 void Location::renderBackground(Renderer* r)
@@ -56,6 +76,17 @@ void Location::renderMapOnly(Renderer* r)
 	m_background->Render(r);
 	m_foreground->Render(r);
 	renderObjects(r);
+}
+
+void Location::renderSubLocation(Renderer* r)
+{
+	if (m_sublocations[m_sub] == nullptr)
+	{
+		std::cout << "Sub-Location Does Not Exist" << std::endl;
+		return;
+	}
+
+	m_sublocations[m_sub]->render(r);
 }
 
 void Location::addConnection(LocationName ref, Location* l)
@@ -116,4 +147,19 @@ std::vector<Tile*> Location::getTiles()
 std::vector<Object*> Location::getObjects()
 {
 	return m_objects;
+}
+
+std::map<Sublocation_List, Sublocation*> Location::getSubLocations()
+{
+	return m_sublocations;
+}
+
+void Location::setSubLocation(Sublocation_List sl)
+{
+	m_sub = sl;
+}
+
+bool Location::inSubLocation()
+{
+	return m_sub != Sublocation_List::Null;
 }

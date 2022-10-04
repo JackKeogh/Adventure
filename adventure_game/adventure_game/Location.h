@@ -8,6 +8,7 @@
 #include "Object.h"
 #include "Hospital.h"
 #include "Test_Hospital_Exterior.h"
+#include "Sublocation_Include.h"
 
 class Location
 {
@@ -23,6 +24,8 @@ public:
 	void renderObjects(Renderer* r);
 
 	void renderMapOnly(Renderer* r);
+
+	void renderSubLocation(Renderer* r);
 
 	void addConnection(LocationName ref, Location* l);
 
@@ -40,12 +43,20 @@ public:
 
 	std::vector<Object*> getObjects();
 
+	std::map<Sublocation_List, Sublocation*> getSubLocations();
+
+	void setSubLocation(Sublocation_List sl);
+
+	bool inSubLocation();
+
 protected:
 	Sprite* m_foreground;
 	Sprite* m_background;
 	LocationName m_name;
+	Sublocation_List m_sub;
 	std::map<LocationName, Location*> m_connections;
 	std::vector<Collider*> m_colliders;
 	std::vector<Tile*> m_tiles;
 	std::vector<Object*> m_objects;
+	std::map<Sublocation_List, Sublocation*> m_sublocations;
 };
