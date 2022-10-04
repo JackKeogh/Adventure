@@ -154,6 +154,11 @@ std::map<Sublocation_List, Sublocation*> Location::getSubLocations()
 	return m_sublocations;
 }
 
+Sublocation* Location::getSubLocation()
+{
+	return m_sublocations[m_sub];
+}
+
 void Location::setSubLocation(Sublocation_List sl)
 {
 	m_sub = sl;

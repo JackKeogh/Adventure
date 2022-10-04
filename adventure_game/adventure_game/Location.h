@@ -43,6 +43,8 @@ public:
 
 	std::map<Sublocation_List, Sublocation*> getSubLocations();
 
+	Sublocation* getSubLocation();
+
 	void setSubLocation(Sublocation_List sl);
 
 	bool inSubLocation();
