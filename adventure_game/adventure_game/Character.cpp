@@ -79,7 +79,7 @@ void Character::stopMovement()
 
 void Character::resetMovement(std::string m, Animations a)
 {
-	Animations anim;
+	Animations anim = Animations::null;
 
 	if (m == "up" || m == "all")
 	{

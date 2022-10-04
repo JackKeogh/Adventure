@@ -5,12 +5,12 @@
 class WarpTile : public Tile
 {
 public:
-	WarpTile(SDL_Rect c = { 0,0,0,0 }, CollisionType ct = CollisionType::On_Entry_Up, WarpEvent* w = nullptr);
+	WarpTile(SDL_Rect c = { 0,0,0,0 }, CollisionType ct = CollisionType::On_Entry_Up, WarpEventInside* w = nullptr);
 	~WarpTile() override;
 
-	WarpEvent* getWarp();
+	WarpEventInside* getWarp();
 
 private:
-	WarpEvent* m_warp;
+	WarpEventInside* m_warp;
 };
 

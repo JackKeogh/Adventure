@@ -5,17 +5,19 @@
 #include "ChangeOverworldState.h"
 #include "Sublocation_Include.h"
 
-class WarpEvent : public Event
+class WarpEventInside : public Event
 {
 public:
-	WarpEvent(Sublocation_List sl = Sublocation_List::Null, SDL_Point p = { 0,0 });
-	~WarpEvent();
+	WarpEventInside(Sublocation_List sl = Sublocation_List::Null, SDL_Point p = { 0,0 });
+	~WarpEventInside();
 
 	Sublocation_List getSubLocation();
 
 	SDL_Point getPoint();
 
 	void setPoint(SDL_Rect r);
+
+	void render(Renderer* r) override;
 
 private:
 	Sprite* m_sprite;

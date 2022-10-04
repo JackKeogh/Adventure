@@ -1,6 +1,6 @@
 #include "WarpTile.h"
 
-WarpTile::WarpTile(SDL_Rect c, CollisionType ct, WarpEvent* w) :
+WarpTile::WarpTile(SDL_Rect c, CollisionType ct, WarpEventInside* w) :
 	Tile(c, TileType::warp, ct)
 {
 	if (w == nullptr)
@@ -18,7 +18,7 @@ WarpTile::~WarpTile()
 	delete m_warp;
 }
 
-WarpEvent* WarpTile::getWarp()
+WarpEventInside* WarpTile::getWarp()
 {
 	return m_warp;
 }

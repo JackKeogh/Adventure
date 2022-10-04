@@ -13,7 +13,7 @@ LocationManager::~LocationManager()
 
 void LocationManager::updateSubLocation(Event* e)
 {
-	WarpEvent* warp = EventCasting::WarpEventCast(e);
+	WarpEventInside* warp = EventCasting::WarpEventCast(e);
 
 	Sublocation_List sll = warp->getSubLocation();
 

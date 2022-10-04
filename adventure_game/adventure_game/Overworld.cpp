@@ -118,6 +118,14 @@ void Overworld::render(Renderer* r) {
 			LocationDisplay::render(r);
 			EventSystem::render(r);
 			break;
+		case OverworldState::Transition_Inside_ChangeWorld:
+			EventSystem::render(r);
+			break;
+		case OverworldState::Transition_Inside_FadeIn:
+			m_locManager->getLocation()->renderSubLocation(r);
+			player->render(r);
+			EventSystem::render(r);
+			break;
 		case OverworldState::Inside:
 			m_locManager->getLocation()->renderSubLocation(r);
 			player->render(r);

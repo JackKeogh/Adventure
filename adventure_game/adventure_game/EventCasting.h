@@ -4,5 +4,5 @@
 class EventCasting
 {
 public:
-	static WarpEvent* WarpEventCast(Event* e);
+	static WarpEventInside* WarpEventCast(Event* e);
 };

@@ -1,8 +1,8 @@
 #include "EventCasting.h"
 
-WarpEvent* EventCasting::WarpEventCast(Event* e)
+WarpEventInside* EventCasting::WarpEventCast(Event* e)
 {
-	WarpEvent* ptr = dynamic_cast<WarpEvent*>(e);
+	WarpEventInside* ptr = dynamic_cast<WarpEventInside*>(e);
 
 	if (ptr == nullptr)
 	{

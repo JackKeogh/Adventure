@@ -7,7 +7,7 @@ Hospital::Hospital(Renderer* r, SDL_Rect pos, Sublocation_List sl) :
 	int x = w + pos.x, y = 72 + pos.y;
 	m_animatedSprite = new Sprite(r, "assets/buildings/pokecentre_door.png", { 0,0,16,19 }, { x, y, w, h });
 	m_animator = new Animator(m_animatedSprite, Animations::Hospital_Closed);
-	m_tile = new WarpTile({ x, y, w, 16 }, CollisionType::On_Entry_Up, new WarpEvent(sl, { x, y }));
+	m_tile = new WarpTile({ x, y, w, 16 }, CollisionType::On_Entry_Up, new WarpEventInside(sl, { x, y }));
 }
 
 Hospital::~Hospital()
