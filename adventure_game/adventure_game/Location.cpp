@@ -163,3 +163,8 @@ bool Location::inSubLocation()
 {
 	return m_sub != Sublocation_List::Null;
 }
+
+bool Location::subLocationExist(Sublocation_List sl)
+{
+	return m_sublocations[sl];
+}

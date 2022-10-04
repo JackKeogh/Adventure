@@ -49,6 +49,8 @@ public:
 
 	bool inSubLocation();
 
+	bool subLocationExist(Sublocation_List sl);
+
 protected:
 	Sprite* m_foreground;
 	Sprite* m_background;
