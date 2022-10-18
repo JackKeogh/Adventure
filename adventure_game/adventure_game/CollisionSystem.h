@@ -6,7 +6,7 @@
 #include "OverworldState.h"
 #include "Transitions.h"
 #include "EventSystem.h"
-#include "WarpEvent.h"
+#include "WarpEventInside.h"
 #include "TileCasting.h"
 
 class CollisionSystem
