@@ -91,6 +91,7 @@ void Overworld::update(float dt) {
 			EventSystem::update();
 			break;
 		case OverworldState::Inside:
+			m_locManager->update(dt);
 			player->update(dt);
 			break;
 		case OverworldState::Paused:

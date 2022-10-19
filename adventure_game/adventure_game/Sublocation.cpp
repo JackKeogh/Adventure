@@ -19,7 +19,7 @@ Sublocation::~Sublocation() {
 }
 
 void Sublocation::update() {
-
+	render();
 }
 
 void Sublocation::render() {
