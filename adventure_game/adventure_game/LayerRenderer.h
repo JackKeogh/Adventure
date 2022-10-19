@@ -7,12 +7,15 @@ enum class RenderLayer {
 	Background = 0,
 	Middleground,
 	Foreground,
-	Player
+	Player,
+	UI
 };
 
 class LayerRenderer
 {
 public:
+
+	static void initialise();
 
 	static void clear();
 

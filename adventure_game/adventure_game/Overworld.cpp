@@ -14,6 +14,7 @@ void Overworld::initialise(Renderer* r) {
 	player = new Character(r, "assets/34024.png", { 9,40,22,27 }, { 200,200,22,27 });
 	Camera::initialise(player->getSprite()->getPosition());
 	LocationDisplay::initialise(r);
+	LayerRenderer::initialise();
 }
 
 void Overworld::events(SDL_Event* e) {
