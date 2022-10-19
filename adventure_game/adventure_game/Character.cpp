@@ -47,6 +47,7 @@ void Character::update(float dt)
 	updatePosition();
 	updateAnimation();
 	m_animator->update();
+	render();
 }
 
 void Character::pushBack(std::string d)
@@ -161,9 +162,9 @@ void Character::updateAnimation()
 	}
 }
 
-void Character::render(Renderer* r)
+void Character::render()
 {
-	m_sprite->Render(r);
+	LayerRenderer::addSprite(RenderLayer::Player, m_sprite);
 }
 
 Animator* Character::getAnimator()

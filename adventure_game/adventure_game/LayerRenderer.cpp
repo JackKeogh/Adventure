@@ -9,6 +9,8 @@ void LayerRenderer::clear()
 		RenderLayer layer = (RenderLayer)i;
 		m_layers[layer].clear();
 	}
+
+	m_layers.clear();
 }
 
 void LayerRenderer::addSprite(RenderLayer l, Sprite* s)

@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "Sprite.h"
+#include "LayerRenderer.h"
 #include "Collider.h"
 #include "Animator.h"
 
@@ -48,7 +49,7 @@ public:
 
 	void updateAnimation();
 
-	void render(Renderer* r);
+	void render();
 
 	Animator* getAnimator();
 

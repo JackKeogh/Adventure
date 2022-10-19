@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "OverworldState.h"
-#include "RenderingSystem.h"
+#include "LayerRenderer.h"
 #include "Sprite.h"
 #include "LocationManager.h"
 #include "Character.h"

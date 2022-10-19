@@ -101,36 +101,7 @@ void Overworld::update(float dt) {
 }
 
 void Overworld::render(Renderer* r) {
-	switch (OverworldStateController::getState())
-	{
-		case OverworldState::Overworld:
-			m_locManager->getLocation()->renderBackground(r);
-			m_locManager->getLocation()->renderObjects(r);
-			player->render(r);
-			m_locManager->getLocation()->renderForeground(r);
-			LocationDisplay::render(r);
-			break;
-		case OverworldState::Transition_Inside_FadeOut:
-			m_locManager->getLocation()->renderBackground(r);
-			m_locManager->getLocation()->renderObjects(r);
-			player->render(r);
-			m_locManager->getLocation()->renderForeground(r);
-			LocationDisplay::render(r);
-			EventSystem::render(r);
-			break;
-		case OverworldState::Transition_Inside_ChangeWorld:
-			EventSystem::render(r);
-			break;
-		case OverworldState::Transition_Inside_FadeIn:
-			m_locManager->getLocation()->renderSubLocation(r);
-			player->render(r);
-			EventSystem::render(r);
-			break;
-		case OverworldState::Inside:
-			m_locManager->getLocation()->renderSubLocation(r);
-			player->render(r);
-			break;
-	}
+	LayerRenderer::render(r);
 }
 
 void Overworld::setRunning() {
