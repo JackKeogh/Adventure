@@ -76,6 +76,7 @@ void Overworld::update(float dt) {
 	{
 		case OverworldState::Overworld:
 			player->update(dt);
+			m_locManager->getLocation()->update(dt);
 			CollisionSystem::LocationCollision(player, m_locManager);
 			Camera::update(player->getSprite()->getPosition());
 			LocationDisplay::update(dt);

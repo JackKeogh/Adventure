@@ -19,7 +19,7 @@ public:
 
 	void renderForeground(Renderer* r);
 
-	void renderObjects(Renderer* r);
+	void renderObjects();
 
 	void renderMapOnly(Renderer* r);
 

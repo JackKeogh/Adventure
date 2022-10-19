@@ -29,10 +29,10 @@ void Hospital::animate()
 	m_animator->update();
 }
 
-void Hospital::render(Renderer* r)
+void Hospital::render()
 {
-	Object::render(r);
-	m_animatedSprite->Render(r);
+	Object::render();
+	LayerRenderer::addSprite(RenderLayer::Middleground,m_animatedSprite);
 }
 
 void Hospital::changeAnimation(Animations a)

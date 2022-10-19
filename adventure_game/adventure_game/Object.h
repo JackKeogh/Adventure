@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-#include "RenderingSystem.h"
+#include "LayerRenderer.h"
 #include "Sprite.h"
 #include "Collider.h"
 #include "Animator.h"
@@ -13,7 +13,7 @@ public:
 	~Object();
 
 	void update(float dt);
-	virtual void render(Renderer* r);
+	virtual void render();
 
 	void addCollider(SDL_Rect c);
 

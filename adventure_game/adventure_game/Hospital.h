@@ -11,7 +11,7 @@ public:
 
 	void animate() override;
 
-	void render(Renderer* r) override;
+	void render() override;
 
 	void changeAnimation(Animations a) override;
 

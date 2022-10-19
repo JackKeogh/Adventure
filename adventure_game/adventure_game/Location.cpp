@@ -40,6 +40,8 @@ void Location::update(float dt)
 
 		m_sublocations[m_sub]->update();
 	}
+
+	renderObjects();
 }
 
 void Location::renderBackground(Renderer* r)
@@ -60,13 +62,13 @@ void Location::renderForeground(Renderer* r)
 	}
 }
 
-void Location::renderObjects(Renderer* r)
+void Location::renderObjects()
 {
 	for (Object* o : m_objects)
 	{
 		if (o != nullptr)
 		{
-			o->render(r);
+			o->render();
 		}
 	}
 }
@@ -75,7 +77,7 @@ void Location::renderMapOnly(Renderer* r)
 {
 	m_background->Render(r);
 	m_foreground->Render(r);
-	renderObjects(r);
+	renderObjects();
 }
 
 void Location::renderSubLocation(Renderer* r)

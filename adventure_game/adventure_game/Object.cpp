@@ -27,11 +27,11 @@ void Object::update(float dt)
 
 }
 
-void Object::render(Renderer* r)
+void Object::render()
 {
 	if (m_sprite != nullptr)
 	{
-		m_sprite->Render(r);
+		LayerRenderer::addSprite(RenderLayer::Middleground, m_sprite);
 	}
 }
 
