@@ -41,24 +41,28 @@ void Location::update(float dt)
 		m_sublocations[m_sub]->update();
 	}
 
-	renderObjects();
+	render();
 }
 
-void Location::renderBackground(Renderer* r)
+void Location::render()
 {
-	m_background->Render(r);
-	std::map<LocationName, Location*>::iterator it;
-	for (it = m_connections.begin(); it != m_connections.end(); it++)
-	{
-		it->second->renderMapOnly(r);
-	}
+	renderBackground();
+	renderObjects();
+	renderConnections();
+	renderForeground();
 }
 
-void Location::renderForeground(Renderer* r)
+void Location::renderBackground()
+{
+	LayerRenderer::addSprite(RenderLayer::Background, m_background);
+	
+}
+
+void Location::renderForeground()
 {
 	if (m_foreground != nullptr)
 	{
-		m_foreground->Render(r);
+		LayerRenderer::addSprite(RenderLayer::Foreground, m_foreground);
 	}
 }
 
@@ -73,14 +77,23 @@ void Location::renderObjects()
 	}
 }
 
-void Location::renderMapOnly(Renderer* r)
+void Location::renderConnections()
 {
-	m_background->Render(r);
-	m_foreground->Render(r);
+	std::map<LocationName, Location*>::iterator it;
+	for (it = m_connections.begin(); it != m_connections.end(); it++)
+	{
+		it->second->renderMapOnly();
+	}
+}
+
+void Location::renderMapOnly()
+{
+	renderForeground();
+	renderBackground();
 	renderObjects();
 }
 
-void Location::renderSubLocation(Renderer* r)
+void Location::renderSubLocation()
 {
 	if (m_sublocations[m_sub] == nullptr)
 	{
@@ -88,7 +101,7 @@ void Location::renderSubLocation(Renderer* r)
 		return;
 	}
 
-	m_sublocations[m_sub]->render(r);
+	m_sublocations[m_sub]->render();
 }
 
 void Location::addConnection(LocationName ref, Location* l)

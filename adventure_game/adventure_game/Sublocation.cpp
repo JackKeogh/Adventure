@@ -22,13 +22,13 @@ void Sublocation::update() {
 
 }
 
-void Sublocation::render(Renderer* r) {
+void Sublocation::render() {
 	if (m_area == nullptr)
 	{
 		std::cout << "Sprite does not exist" << std::endl;
 	}
 
-	m_area->Render(r);
+	LayerRenderer::addSprite(RenderLayer::Background, m_area);
 }
 
 void Sublocation::setPosition(SDL_Point p)

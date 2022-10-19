@@ -11,7 +11,7 @@ public:
 
 	virtual void update();
 
-	virtual void render(Renderer* r);
+	virtual void render();
 
 	void setPosition(SDL_Point p);
 

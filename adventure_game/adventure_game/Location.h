@@ -15,15 +15,19 @@ public:
 
 	virtual void update(float dt);
 
-	void renderBackground(Renderer* r);
+	void render();
 
-	void renderForeground(Renderer* r);
+	void renderBackground();
+
+	void renderForeground();
 
 	void renderObjects();
 
-	void renderMapOnly(Renderer* r);
+	void renderConnections();
 
-	void renderSubLocation(Renderer* r);
+	void renderMapOnly();
+
+	void renderSubLocation();
 
 	void addConnection(LocationName ref, Location* l);
 
