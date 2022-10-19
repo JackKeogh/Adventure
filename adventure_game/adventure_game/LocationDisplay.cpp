@@ -21,11 +21,11 @@ void LocationDisplay::initialise(Renderer* r)
 	m_badges.insert(std::pair<LocationName, Sprite*>(LocationName::Route101, new Sprite(r, "assets/route101_badge.png", { 0,0,150,50 }, { 0,0,150,50 })));
 }
 
-void LocationDisplay::render(Renderer* r)
+void LocationDisplay::render()
 {
 	if (m_state != LDState::NoShow && m_current != nullptr)
 	{
-		m_current->Render(r);
+		LayerRenderer::addSprite(RenderLayer::UI, m_current);
 	}
 }
 
@@ -76,6 +76,8 @@ void LocationDisplay::update(float dt)
 			m_progress = 0;
 		}
 	}
+
+	render();
 }
 
 void LocationDisplay::setCurrent(LocationName loc)

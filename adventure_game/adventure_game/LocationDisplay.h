@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-#include "RenderingSystem.h"
+#include "LayerRenderer.h"
 #include "Sprite.h"
 #include "LocationName.h"
 
@@ -20,7 +20,7 @@ public:
 
 	static void initialise(Renderer* r);
 
-	static void render(Renderer* r);
+	static void render();
 
 	static void update(float dt);
 
