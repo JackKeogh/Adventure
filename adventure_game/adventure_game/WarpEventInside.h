@@ -17,7 +17,7 @@ public:
 
 	void setPoint(SDL_Rect r);
 
-	void render(Renderer* r) override;
+	void render() override;
 
 private:
 	Sprite* m_sprite;

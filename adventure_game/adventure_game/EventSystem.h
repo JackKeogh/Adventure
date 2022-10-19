@@ -15,7 +15,7 @@ public:
 
 	static void update();
 
-	static void render(Renderer* r);
+	static void render();
 
 	static bool isNull();
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "EventCommand.h"
-#include "RenderingSystem.h"
+#include "LayerRenderer.h"
 #include "Sprite.h"
 
 class TransitionState : public EventCommand
@@ -17,7 +17,7 @@ class NullTransition : public TransitionState
 public:
 	NullTransition();
 	void update() override;
-	void render(Renderer* r) override;
+	void render() override;
 };
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -28,7 +28,7 @@ class FadeOut : public TransitionState
 public:
 	FadeOut(Sprite* s = nullptr);
 	void update() override;
-	void render(Renderer* r) override;
+	void render() override;
 private:
 	Sprite* m_sprite;
 	float m_timer;
@@ -43,7 +43,7 @@ public:
 	FadeIn(Sprite* s = nullptr);
 	~FadeIn();
 	void update() override;
-	void render(Renderer* r) override;
+	void render() override;
 private:
 	Sprite* m_sprite;
 	float m_timer;

@@ -9,12 +9,14 @@ void LayerRenderer::initialise()
 	std::pair<RenderLayer, std::vector<Sprite*>> fg(RenderLayer::Foreground, std::vector<Sprite*>());
 	std::pair<RenderLayer, std::vector<Sprite*>> p(RenderLayer::Player, std::vector<Sprite*>());
 	std::pair<RenderLayer, std::vector<Sprite*>> ui(RenderLayer::UI, std::vector<Sprite*>());
+	std::pair<RenderLayer, std::vector<Sprite*>> t(RenderLayer::Transitions, std::vector<Sprite*>());
 
 	m_layers.insert(bg);
 	m_layers.insert(mg);
 	m_layers.insert(fg);
 	m_layers.insert(p);
 	m_layers.insert(ui);
+	m_layers.insert(t);
 }
 
 void LayerRenderer::clear()

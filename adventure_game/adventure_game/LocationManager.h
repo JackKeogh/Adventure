@@ -16,6 +16,8 @@ public:
 
 	void changeLocation(LocationName loc);
 
+	void render();
+
 	Location* getLocation();
 
 	void displayName();

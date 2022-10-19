@@ -88,6 +88,8 @@ void Overworld::update(float dt) {
 			break;
 		case OverworldState::Transition_Inside_FadeOut:
 		case OverworldState::Transition_Inside_FadeIn:
+			m_locManager->render();
+			player->render();
 			EventSystem::update();
 			break;
 		case OverworldState::Inside:

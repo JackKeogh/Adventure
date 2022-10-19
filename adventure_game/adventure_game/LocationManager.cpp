@@ -41,6 +41,11 @@ void LocationManager::changeLocation(LocationName loc)
 	displayName();
 }
 
+void LocationManager::render()
+{
+	m_location->render();
+}
+
 Location* LocationManager::getLocation()
 {
 	return m_location;

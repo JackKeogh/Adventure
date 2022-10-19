@@ -38,6 +38,7 @@ void Event::update()
 		m_commands[m_current]->update();
 		checkComplete();
 		checkOutOfRange();
+		render();
 	}
 }
 
@@ -57,11 +58,11 @@ void Event::checkOutOfRange()
 	}
 }
 
-void Event::render(Renderer* r)
+void Event::render()
 {
 	if (m_events != 0)
 	{
-		m_commands[m_current]->render(r);
+		m_commands[m_current]->render();
 	}
 }
 

@@ -21,7 +21,7 @@ public:
 
 	void checkOutOfRange();
 
-	virtual void render(Renderer* r);
+	virtual void render();
 
 	bool isComplete();
 

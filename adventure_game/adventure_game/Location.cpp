@@ -46,10 +46,17 @@ void Location::update(float dt)
 
 void Location::render()
 {
-	renderBackground();
-	renderObjects();
-	renderConnections();
-	renderForeground();
+	if (!inSubLocation())
+	{
+		renderBackground();
+		renderObjects();
+		renderConnections();
+		renderForeground();
+	}
+	else
+	{
+		m_sublocations[m_sub]->render();
+	}
 }
 
 void Location::renderBackground()

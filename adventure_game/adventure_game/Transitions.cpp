@@ -19,7 +19,7 @@ void NullTransition::update()
 {
 }
 
-void NullTransition::render(Renderer* r)
+void NullTransition::render()
 {
 }
 
@@ -61,9 +61,9 @@ void FadeOut::update()
 	}
 }
 
-void FadeOut::render(Renderer* r)
+void FadeOut::render()
 {
-	m_sprite->Render(r);
+	LayerRenderer::addSprite(RenderLayer::Transitions, m_sprite);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -110,7 +110,7 @@ void FadeIn::update()
 	}
 }
 
-void FadeIn::render(Renderer* r)
+void FadeIn::render()
 {
-	m_sprite->Render(r);
+	LayerRenderer::addSprite(RenderLayer::Transitions, m_sprite);
 }

@@ -9,7 +9,7 @@ void EventCommand::update()
 {
 }
 
-void EventCommand::render(Renderer* r)
+void EventCommand::render()
 {
 }
 

@@ -35,12 +35,12 @@ void WarpEventInside::setPoint(SDL_Rect r)
 	m_point.y = r.y;
 }
 
-void WarpEventInside::render(Renderer* r)
+void WarpEventInside::render()
 {
 	if (m_events != 0)
 	{
-		m_commands[m_current]->render(r);
+		m_commands[m_current]->render();
 	}
 
-	m_sprite->Render(r);
+	LayerRenderer::addSprite(RenderLayer::Transitions, m_sprite);
 }

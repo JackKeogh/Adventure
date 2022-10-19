@@ -42,11 +42,11 @@ void EventSystem::update()
 	}
 }
 
-void EventSystem::render(Renderer* r)
+void EventSystem::render()
 {
 	if (!isNull())
 	{
-		m_event->render(r);
+		m_event->render();
 	}
 }
 
