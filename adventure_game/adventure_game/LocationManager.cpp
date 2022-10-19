@@ -11,6 +11,11 @@ LocationManager::~LocationManager()
 {
 }
 
+void LocationManager::update(float dt)
+{
+	m_location->update(dt);
+}
+
 void LocationManager::updateSubLocation(Event* e)
 {
 	WarpEventInside* warp = EventCasting::WarpEventCast(e);

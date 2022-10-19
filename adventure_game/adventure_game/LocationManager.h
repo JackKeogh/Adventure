@@ -10,6 +10,8 @@ public:
 
 	~LocationManager();
 
+	void update(float dt);
+
 	void updateSubLocation(Event* e);
 
 	void changeLocation(LocationName loc);
