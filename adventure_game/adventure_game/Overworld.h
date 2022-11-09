@@ -9,6 +9,7 @@
 #include "LocationDisplay.h"
 #include "Transitions.h"
 #include "EventSystem.h"
+#include "MovementSystem.h"
 
 class Overworld {
 public:

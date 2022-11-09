@@ -6,8 +6,8 @@ void LayerRenderer::initialise()
 {
 	std::pair<RenderLayer, std::vector<Sprite*>> bg(RenderLayer::Background, std::vector<Sprite*>());
 	std::pair<RenderLayer, std::vector<Sprite*>> mg(RenderLayer::Middleground, std::vector<Sprite*>());
-	std::pair<RenderLayer, std::vector<Sprite*>> fg(RenderLayer::Foreground, std::vector<Sprite*>());
 	std::pair<RenderLayer, std::vector<Sprite*>> p(RenderLayer::Player, std::vector<Sprite*>());
+	std::pair<RenderLayer, std::vector<Sprite*>> fg(RenderLayer::Foreground, std::vector<Sprite*>());
 	std::pair<RenderLayer, std::vector<Sprite*>> ui(RenderLayer::UI, std::vector<Sprite*>());
 	std::pair<RenderLayer, std::vector<Sprite*>> t(RenderLayer::Transitions, std::vector<Sprite*>());
 

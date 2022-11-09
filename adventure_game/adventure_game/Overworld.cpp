@@ -11,7 +11,7 @@ Overworld::~Overworld() {
 void Overworld::initialise(Renderer* r) {
 	m_running = true;
 	m_locManager = new LocationManager(r);
-	player = new Character(r, "assets/34024.png", { 9,40,22,27 }, { 200,200,22,27 });
+	player = new Character(r, "assets/34024.png", { 9,40,22,27 }, { 256,208,NODE_WIDTH,NODE_HEIGHT });
 	Camera::initialise(player->getSprite()->getPosition());
 	LocationDisplay::initialise(r);
 	LayerRenderer::initialise();
@@ -34,19 +34,19 @@ void Overworld::events(SDL_Event* e) {
 
 		if (e->key.keysym.sym == SDLK_w)
 		{
-			player->moveUp();
+			MovementSystem::MoveUp(player, m_locManager);
 		}
 		else if (e->key.keysym.sym == SDLK_s)
 		{
-			player->moveDown();
+			MovementSystem::MoveDown(player, m_locManager);
 		}
 		if (e->key.keysym.sym == SDLK_a)
 		{
-			player->moveLeft();
+			MovementSystem::MoveLeft(player, m_locManager);
 		}
 		else if (e->key.keysym.sym == SDLK_d)
 		{
-			player->moveRight();
+			MovementSystem::MoveRight(player, m_locManager);
 		}
 	}
 
@@ -77,7 +77,6 @@ void Overworld::update(float dt) {
 		case OverworldState::Overworld:
 			player->update(dt);
 			m_locManager->update(dt);
-			CollisionSystem::LocationCollision(player, m_locManager);
 			Camera::update(player->getSprite()->getPosition());
 			LocationDisplay::update(dt);
 			EventSystem::update();

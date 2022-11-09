@@ -6,8 +6,8 @@
 enum class RenderLayer {
 	Background = 0,
 	Middleground,
-	Foreground,
 	Player,
+	Foreground,
 	UI,
 	Transitions
 };

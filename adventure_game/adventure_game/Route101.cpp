@@ -2,15 +2,27 @@
 
 Route101::Route101(Renderer* r)
 {
-	m_foreground = new Sprite(r, "assets/route101_foreground.png", { 0,0,480,416 }, { 0,-832,960,832 });
+	m_foreground = new Sprite(r, "assets/littleroot/littleroot_foreground.png", { 0,0,480,416 }, { 0,-832,960,832 });
+	m_middleGround = new Sprite(r, "assets/littleroot/littleroot_middleground.png", { 0,0,480,416 }, { 0,-832,960,832 });
 	m_background = new Sprite(r, "assets/littleroot/littleroot_BackGround.png", { 0,0,480,416 }, { 0,-832,960,832 });
 	m_name = LocationName::Route101;
 
-	// add colliders
-	m_colliders.push_back(new Collider(512, -112, 448, 224));
-	m_colliders.push_back(new Collider(0, -112, 384, 224));
-	m_colliders.push_back(new Collider(384, -242, 128, 72));
-
-	// add tiles
-	m_tiles.push_back(new ChangeLocationTile({ 384,-52,128,52 }, CollisionType::On_Exit_Down, LocationName::LittleRoot));
+	// Create the area
+	std::vector<std::vector<int>> nodes = { {1,1,1,1,1,1,0,0,1,1,1,1,1,1,1},
+											{1,1,1,1,1,1,0,0,1,1,1,1,1,1,1},
+											{1,1,1,0,0,0,0,0,0,0,0,0,0,1,1},
+											{1,1,0,0,0,0,0,0,0,0,0,0,0,1,1},
+											{1,1,0,0,0,0,0,0,0,0,0,0,0,1,1},
+											{1,1,0,0,0,0,0,0,0,0,0,0,0,1,1},
+											{1,1,0,0,0,0,0,0,0,0,0,0,0,1,1},
+											{1,1,0,0,0,0,0,0,0,0,0,0,0,1,1},
+											{1,1,0,0,0,0,0,0,0,0,0,0,0,1,1},
+											{1,1,0,0,0,0,0,0,0,0,0,0,0,1,1},
+											{1,1,0,0,0,0,0,0,0,0,0,0,0,1,1},
+											{1,1,0,0,0,0,0,0,0,0,0,0,0,1,1},
+											{1,1,0,0,0,0,0,0,0,0,0,0,1,1,1},
+											{1,1,1,0,0,0,0,0,0,0,0,1,1,1,1},
+											{1,1,1,1,1,1,0,0,1,1,1,1,1,1,1},
+											{1,1,1,1,1,1,0,0,1,1,1,1,1,1,1} };
+	m_nodes = new NodeArea(nodes, 0, -832);
 }

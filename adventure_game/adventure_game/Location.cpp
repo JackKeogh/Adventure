@@ -14,7 +14,7 @@ std::string toString(LocationName ref) {
 
 Location::~Location()
 {
-	delete m_foreground;
+	delete m_middleGround;
 	delete m_background;
 }
 
@@ -51,6 +51,7 @@ void Location::render()
 		renderBackground();
 		renderObjects();
 		renderConnections();
+		renderMiddleGround();
 		renderForeground();
 	}
 	else
@@ -63,6 +64,14 @@ void Location::renderBackground()
 {
 	LayerRenderer::addSprite(RenderLayer::Background, m_background);
 	
+}
+
+void Location::renderMiddleGround()
+{
+	if (m_middleGround != nullptr)
+	{
+		LayerRenderer::addSprite(RenderLayer::Middleground, m_middleGround);
+	}
 }
 
 void Location::renderForeground()
@@ -96,6 +105,7 @@ void Location::renderConnections()
 void Location::renderMapOnly()
 {
 	renderForeground();
+	renderMiddleGround();
 	renderBackground();
 	renderObjects();
 }
@@ -179,6 +189,11 @@ std::map<Sublocation_List, Sublocation*> Location::getSubLocations()
 Sublocation* Location::getSubLocation()
 {
 	return m_sublocations[m_sub];
+}
+
+NodeArea* Location::getNodeArea()
+{
+	return m_nodes;
 }
 
 void Location::setSubLocation(Sublocation_List sl)

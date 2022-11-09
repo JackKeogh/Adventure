@@ -7,6 +7,7 @@
 #include "ChangeLocationTile.h"
 #include "Test_Hospital_Exterior.h"
 #include "Sublocation_Include.h"
+#include "NodeArea.h"
 
 class Location
 {
@@ -18,6 +19,8 @@ public:
 	void render();
 
 	void renderBackground();
+
+	void renderMiddleGround();
 
 	void renderForeground();
 
@@ -49,6 +52,8 @@ public:
 
 	Sublocation* getSubLocation();
 
+	NodeArea* getNodeArea();
+
 	void setSubLocation(Sublocation_List sl);
 
 	bool inSubLocation();
@@ -57,9 +62,11 @@ public:
 
 protected:
 	Sprite* m_foreground;
+	Sprite* m_middleGround;
 	Sprite* m_background;
 	LocationName m_name;
 	Sublocation_List m_sub;
+	NodeArea* m_nodes;
 	std::map<LocationName, Location*> m_connections;
 	std::vector<Collider*> m_colliders;
 	std::vector<Tile*> m_tiles;
