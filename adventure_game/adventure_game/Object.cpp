@@ -11,6 +11,8 @@ Object::Object(Renderer* r, std::string path, SDL_Rect s, SDL_Rect d)
 	m_sprite = new Sprite(r, path, s, d);
 
 	m_colliders = std::vector<Collider*>();
+
+	m_collisionType = Collide_Types::BASIC;
 }
 
 Object::~Object()
@@ -22,9 +24,12 @@ Object::~Object()
 	}
 }
 
-void Object::update(float dt)
+void Object::update(float dt, NodeArea* area)
 {
-
+	if (area != nullptr)
+	{
+		area->updateNode(m_sprite->getPosition(), m_collisionType);
+	}
 }
 
 void Object::render()

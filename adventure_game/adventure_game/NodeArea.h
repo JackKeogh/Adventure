@@ -11,6 +11,8 @@ public:
 
 	Node* getNode(int x, int y);
 
+	void updateNode(SDL_Rect r, Collide_Types t);
+
 private:
 	std::vector<std::vector<Node*>> m_nodes;
 	int m_offsetX;

@@ -5,6 +5,7 @@
 #include "Collider.h"
 #include "Animator.h"
 #include "Tile.h"
+#include "NodeArea.h"
 
 class Object
 {
@@ -12,7 +13,7 @@ public:
 	Object(Renderer* r = nullptr, std::string path = "", SDL_Rect s = { 0,0,0,0 }, SDL_Rect d = { 0,0,0,0 });
 	~Object();
 
-	void update(float dt);
+	void update(float dt, NodeArea* area = nullptr);
 	virtual void render();
 
 	void addCollider(SDL_Rect c);
@@ -27,6 +28,7 @@ public:
 
 protected:
 	Sprite* m_sprite;
+	Collide_Types m_collisionType;
 	std::vector<Collider*> m_colliders;
 };
 

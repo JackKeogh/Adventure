@@ -43,3 +43,33 @@ Node* NodeArea::getNode(int c, int r)
 
 	return m_nodes[col][row];
 }
+
+void NodeArea::updateNode(SDL_Rect r, Collide_Types t)
+{
+	int numCols = r.w / NODE_WIDTH;
+	int numRows = r.h / NODE_HEIGHT;
+
+	int x = 0;
+	int y = 0;
+
+	std::vector<Node*> nodes;
+
+	for (int row = 0; row < numRows; row++)
+	{
+		y = r.y + (row * NODE_HEIGHT);
+		y /= NODE_HEIGHT;
+
+		for (int col = 0; col < numCols; col++)
+		{
+			x = r.x + (col * NODE_WIDTH);
+			x /= NODE_WIDTH;
+
+			Node* n = getNode(x, y);
+
+			if (n != nullptr)
+			{
+				n->m_collidable = t;
+			}
+		}
+	}
+}

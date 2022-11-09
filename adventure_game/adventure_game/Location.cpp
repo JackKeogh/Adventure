@@ -26,7 +26,7 @@ void Location::update(float dt)
 		{
 			if (o != nullptr)
 			{
-				o->update(dt);
+				o->update(dt, m_nodes);
 			}
 		}
 	}
