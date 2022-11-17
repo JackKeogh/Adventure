@@ -1,9 +1,33 @@
 #include "LittlerootNodeArea.h"
 
-LittlerootNodeArea::LittlerootNodeArea() :
-	NodeArea(initialise(), 0, 0)
+LittlerootNodeArea::LittlerootNodeArea()
 {
-	
+	std::vector<std::vector<int>> v = initialise();
+
+	int rows = v.size();
+	int cols = 0;
+
+	for (int i = 0; i < rows; i++)
+	{
+		m_nodes.push_back(std::vector<Node*>());
+		cols = v[i].size();
+
+		for (int j = 0; j < cols; j++)
+		{
+			Node* n = nullptr;
+			
+			if (v[i][j] < 2)
+			{
+				n = new Node(j - m_offsetX, i + m_offsetY, (Collide_Types)(v[i][j]));
+			}
+			else
+			{
+				n = new Node(j - m_offsetX, i + m_offsetY, Collide_Types::WARP);
+				n->m_warpID = LITTLEROOT_EXTERIOR_HOSPITAL_WARP;
+			}
+			m_nodes[i].push_back(n);
+		}
+	}
 }
 
 std::vector<std::vector<int>> LittlerootNodeArea::initialise()
@@ -17,9 +41,9 @@ std::vector<std::vector<int>> LittlerootNodeArea::initialise()
 				{1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
 				{1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
 				{1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
-				{1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
-				{1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
-				{1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
+				{1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
+				{1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
+				{1,1,1,1,0,0,0,0,0,0,0,0,1,2,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
 				{1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
 				{1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
 				{1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1},

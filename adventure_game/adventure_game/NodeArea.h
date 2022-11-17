@@ -17,7 +17,7 @@ public:
 
 	void updateNode(Object* o);
 
-private:
+protected:
 	std::vector<std::vector<Node*>> m_nodes;
 	int m_offsetX;
 	int m_offsetY;

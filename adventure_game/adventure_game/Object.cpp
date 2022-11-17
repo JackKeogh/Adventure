@@ -27,17 +27,17 @@ Object::~Object()
 
 void Object::update(float dt, NodeArea* area)
 {
-	if (area != nullptr)
+	/*if (area != nullptr)
 	{
 		area->updateNode(this);
-	}
+	}*/
 }
 
 void Object::render()
 {
 	if (m_sprite != nullptr)
 	{
-		LayerRenderer::addSprite(RenderLayer::Middleground, m_sprite);
+		LayerRenderer::addSprite(RenderLayer::Foreground, m_sprite);
 	}
 }
 

@@ -51,7 +51,7 @@ Node* NodeArea::getNode(int c, int r)
 
 void NodeArea::updateNode(Object* o)
 {
-	SDL_Rect r = o->getSprite()->getPosition();
+	/*SDL_Rect r = o->getSprite()->getPosition();
 
 	int numCols = r.w / NODE_WIDTH;
 	int numRows = r.h / NODE_HEIGHT;
@@ -86,5 +86,5 @@ void NodeArea::updateNode(Object* o)
 				}
 			}
 		}
-	}
+	}*/
 }
