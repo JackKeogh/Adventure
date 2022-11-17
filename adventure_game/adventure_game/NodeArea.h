@@ -1,17 +1,21 @@
 #pragma once
 #include "stdafx.h"
-#include "Node.h"
+#include "Object.h"
+
+class Object;
 
 class NodeArea
 {
 public:
-	NodeArea(std::vector<std::vector<int>> v, int offsetX = 0, int offsetY = 0);
+	NodeArea(std::vector<std::vector<int>> v = std::vector<std::vector<int>>(), int offsetX = 0, int offsetY = 0);
 
 	~NodeArea();
 
+	virtual std::vector<std::vector<int>> initialise();
+
 	Node* getNode(int x, int y);
 
-	void updateNode(SDL_Rect r, Collide_Types t);
+	void updateNode(Object* o);
 
 private:
 	std::vector<std::vector<Node*>> m_nodes;

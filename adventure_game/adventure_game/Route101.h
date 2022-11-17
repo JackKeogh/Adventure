@@ -1,5 +1,6 @@
 #pragma once
 #include "Location.h"
+#include "Route101NodeArea.h"
 
 class Route101 : public Location
 {

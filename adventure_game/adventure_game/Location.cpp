@@ -186,6 +186,11 @@ std::map<Sublocation_List, Sublocation*> Location::getSubLocations()
 	return m_sublocations;
 }
 
+Event* Location::getEvent(std::string s)
+{
+	return m_events[s];
+}
+
 Sublocation* Location::getSubLocation()
 {
 	return m_sublocations[m_sub];

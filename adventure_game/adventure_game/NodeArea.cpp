@@ -26,6 +26,11 @@ NodeArea::~NodeArea()
 
 }
 
+std::vector<std::vector<int>> NodeArea::initialise()
+{
+	return std::vector<std::vector<int>>();
+}
+
 Node* NodeArea::getNode(int c, int r)
 {
 	int col = c + std::abs(m_offsetY);
@@ -44,8 +49,10 @@ Node* NodeArea::getNode(int c, int r)
 	return m_nodes[col][row];
 }
 
-void NodeArea::updateNode(SDL_Rect r, Collide_Types t)
+void NodeArea::updateNode(Object* o)
 {
+	SDL_Rect r = o->getSprite()->getPosition();
+
 	int numCols = r.w / NODE_WIDTH;
 	int numRows = r.h / NODE_HEIGHT;
 
@@ -68,7 +75,15 @@ void NodeArea::updateNode(SDL_Rect r, Collide_Types t)
 
 			if (n != nullptr)
 			{
-				n->m_collidable = t;
+				if (o->getObjectType() == Object_Type::HOSPITAL && row == 1 && col == (numCols - 1))
+				{
+					n->m_collidable = Collide_Types::WARP;
+					n->m_warpID = o->getWarpID();
+				}
+				else
+				{
+					n->m_collidable = Collide_Types::BASIC;
+				}
 			}
 		}
 	}

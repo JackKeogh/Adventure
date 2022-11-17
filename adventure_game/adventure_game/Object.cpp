@@ -1,6 +1,7 @@
 #include "Object.h"
 
-Object::Object(Renderer* r, std::string path, SDL_Rect s, SDL_Rect d)
+Object::Object(Renderer* r, std::string path, SDL_Rect s, SDL_Rect d, Object_Type o) :
+	m_type(o)
 {
 	if (path.empty())
 	{
@@ -28,7 +29,7 @@ void Object::update(float dt, NodeArea* area)
 {
 	if (area != nullptr)
 	{
-		area->updateNode(m_sprite->getPosition(), m_collisionType);
+		area->updateNode(this);
 	}
 }
 
@@ -62,4 +63,24 @@ Tile* Object::getTile()
 std::vector<Collider*> Object::getColliders()
 {
 	return m_colliders;
+}
+
+Sprite* Object::getSprite()
+{
+	return m_sprite;
+}
+
+Collide_Types Object::getColliderType()
+{
+	return m_collisionType;
+}
+
+Object_Type Object::getObjectType()
+{
+	return m_type;
+}
+
+std::string Object::getWarpID()
+{
+	return m_warpID;
 }

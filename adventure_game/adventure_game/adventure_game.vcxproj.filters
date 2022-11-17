@@ -22,6 +22,93 @@
     <Filter Include="Source Files\Basic Commands">
       <UniqueIdentifier>{656caf40-7817-4313-ac71-c19ced9c8a41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Events">
+      <UniqueIdentifier>{a56be620-589a-4864-aad5-794958426705}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Events">
+      <UniqueIdentifier>{1a726f4f-68d1-4f01-a2d5-2da083c95ccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Buildings">
+      <UniqueIdentifier>{cbf82b8a-52cc-4bf2-9b6a-ef7821c4aebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TileType">
+      <UniqueIdentifier>{f5a80745-1395-4cff-8f52-966f300fb5c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TileTypes">
+      <UniqueIdentifier>{b9085c58-b558-4422-9208-7ec89936bf80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Buildings\Exterior">
+      <UniqueIdentifier>{26128f13-a974-46c4-9e17-2c172b372294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Buildings\Base">
+      <UniqueIdentifier>{5f24e5a0-0056-43cf-8a60-eea907527f52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Buildings\Exterior">
+      <UniqueIdentifier>{d17da255-3253-4f5c-9a14-043ae30c6397}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Buildings\Base">
+      <UniqueIdentifier>{8d869747-c48d-4365-897a-ced14b17a669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Location">
+      <UniqueIdentifier>{485626f8-f75b-4a38-962e-3bd27f6e6091}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Location">
+      <UniqueIdentifier>{704eb2d7-313e-4114-b855-bf8422181f7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Location\Towns">
+      <UniqueIdentifier>{085c4a60-f372-4aa6-946b-9fc924134c22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Location\Routes">
+      <UniqueIdentifier>{32f46b15-21ed-40aa-a3b1-49df27f087c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Location\Towns">
+      <UniqueIdentifier>{a93322ee-efeb-4c81-bf1d-e0a5b45df311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Location\Routes">
+      <UniqueIdentifier>{b9f0bf4a-0abb-4ae7-aa92-9b03515eff72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sub-Locations">
+      <UniqueIdentifier>{2dcd306e-2f36-4505-96a3-e05a8a87261a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sub-Locations\Littleroot">
+      <UniqueIdentifier>{c21b488c-00c8-4e05-847d-3608fc431c54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sub-Locations">
+      <UniqueIdentifier>{38bf7760-88fb-4e8b-8bd8-6565dbb0edc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sub-Locations\Littleroot">
+      <UniqueIdentifier>{ef89bff0-ae4e-47ab-b031-519a46c3cbaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Node">
+      <UniqueIdentifier>{e9bb17d6-a2b5-48ae-940a-2ca3966aaf22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Node">
+      <UniqueIdentifier>{95465d8d-e7a6-4a4a-ba9b-48833a248846}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Systems">
+      <UniqueIdentifier>{05fb119c-e428-4779-a833-05b60ac4fef2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Systems">
+      <UniqueIdentifier>{7cf6c282-6748-4fda-ad82-61ce41183274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Node\Locations">
+      <UniqueIdentifier>{a4b417e4-de04-4e76-83c0-72b599c03e86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Node\Locations\Towns">
+      <UniqueIdentifier>{07fcf97c-6532-49da-9dd6-61ef92540be9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Node\Locations">
+      <UniqueIdentifier>{d3ad4534-41b9-4a39-b20e-f6e6764d72f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Node\Locations\Towns">
+      <UniqueIdentifier>{a0e7a0e2-1565-4a06-a556-20cb4a93dd92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Node\Locations\Routes">
+      <UniqueIdentifier>{2c650d14-8e76-424e-b54a-25fe99f919eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Node\Locations\Routes">
+      <UniqueIdentifier>{8e2e0e89-2d4f-4a18-8f30-2350661ed81d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,9 +126,6 @@
     <ClCompile Include="Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Location.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Character.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -54,31 +138,10 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LocationManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LocationDisplay.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Animator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hospital.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Transitions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Event.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EventCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ChangeOverworldState.cpp">
@@ -86,6 +149,81 @@
     </ClCompile>
     <ClCompile Include="OverworldState.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="WarpEventInside.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="EventCommand.cpp">
+      <Filter>Source Files\Basic Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Transitions.cpp">
+      <Filter>Source Files\Basic Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Source Files\TileType</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeLocationTile.cpp">
+      <Filter>Source Files\TileType</Filter>
+    </ClCompile>
+    <ClCompile Include="TileCasting.cpp">
+      <Filter>Source Files\TileType</Filter>
+    </ClCompile>
+    <ClCompile Include="WarpTile.cpp">
+      <Filter>Source Files\TileType</Filter>
+    </ClCompile>
+    <ClCompile Include="Hospital.cpp">
+      <Filter>Source Files\Buildings\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_Hospital_Exterior.cpp">
+      <Filter>Source Files\Buildings\Exterior</Filter>
+    </ClCompile>
+    <ClCompile Include="LocationManager.cpp">
+      <Filter>Source Files\Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location.cpp">
+      <Filter>Source Files\Location</Filter>
+    </ClCompile>
+    <ClCompile Include="LocationDisplay.cpp">
+      <Filter>Source Files\Location</Filter>
+    </ClCompile>
+    <ClCompile Include="LittleRoot.cpp">
+      <Filter>Source Files\Location\Towns</Filter>
+    </ClCompile>
+    <ClCompile Include="Route101.cpp">
+      <Filter>Source Files\Location\Routes</Filter>
+    </ClCompile>
+    <ClCompile Include="Sublocation.cpp">
+      <Filter>Source Files\Sub-Locations</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_Hospital_Interior.cpp">
+      <Filter>Source Files\Sub-Locations\Littleroot</Filter>
+    </ClCompile>
+    <ClCompile Include="EventCasting.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Source Files\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeArea.cpp">
+      <Filter>Source Files\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="MovemenSystem.cpp">
+      <Filter>Source Files\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="LittlerootNodeArea.cpp">
+      <Filter>Source Files\Node\Locations\Towns</Filter>
+    </ClCompile>
+    <ClCompile Include="Route101NodeArea.cpp">
+      <Filter>Source Files\Node\Locations\Routes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,12 +245,6 @@
     <ClInclude Include="Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Location.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LocationName.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -125,35 +257,104 @@
     <ClInclude Include="Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LocationManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LocationDisplay.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Animator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Transitions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hospital.h">
-      <Filter>Header Files\Buildings</Filter>
-    </ClInclude>
-    <ClInclude Include="Event.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EventCommand.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ChangeOverworldState.h">
       <Filter>Header Files\Basic Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="WarpEventInside.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="EventCommand.h">
+      <Filter>Header Files\Basic Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Transitions.h">
+      <Filter>Header Files\Basic Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Header Files\TileTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeLocationTile.h">
+      <Filter>Header Files\TileTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="TileCasting.h">
+      <Filter>Header Files\TileTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="WarpTile.h">
+      <Filter>Header Files\TileTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Hospital.h">
+      <Filter>Header Files\Buildings\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_Hospital_Exterior.h">
+      <Filter>Header Files\Buildings\Exterior</Filter>
+    </ClInclude>
+    <ClInclude Include="LocationName.h">
+      <Filter>Header Files\Location</Filter>
+    </ClInclude>
+    <ClInclude Include="LocationDisplay.h">
+      <Filter>Header Files\Location</Filter>
+    </ClInclude>
+    <ClInclude Include="LocationManager.h">
+      <Filter>Header Files\Location</Filter>
+    </ClInclude>
+    <ClInclude Include="location_include.h">
+      <Filter>Header Files\Location</Filter>
+    </ClInclude>
+    <ClInclude Include="LittleRoot.h">
+      <Filter>Header Files\Location\Towns</Filter>
+    </ClInclude>
+    <ClInclude Include="Route101.h">
+      <Filter>Header Files\Location\Routes</Filter>
+    </ClInclude>
+    <ClInclude Include="Location.h">
+      <Filter>Header Files\Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_Hospital_Interior.h">
+      <Filter>Header Files\Sub-Locations\Littleroot</Filter>
+    </ClInclude>
+    <ClInclude Include="Sublocation.h">
+      <Filter>Header Files\Sub-Locations</Filter>
+    </ClInclude>
+    <ClInclude Include="Sublocation_List.h">
+      <Filter>Header Files\Sub-Locations</Filter>
+    </ClInclude>
+    <ClInclude Include="Sublocation_Include.h">
+      <Filter>Header Files\Sub-Locations</Filter>
+    </ClInclude>
+    <ClInclude Include="EventCasting.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Header Files\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeArea.h">
+      <Filter>Header Files\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="WarpIDs.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LittlerootNodeArea.h">
+      <Filter>Header Files\Node\Locations\Towns</Filter>
+    </ClInclude>
+    <ClInclude Include="Route101NodeArea.h">
+      <Filter>Header Files\Node\Locations\Routes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

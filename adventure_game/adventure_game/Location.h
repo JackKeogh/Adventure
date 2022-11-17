@@ -50,6 +50,8 @@ public:
 
 	std::map<Sublocation_List, Sublocation*> getSubLocations();
 
+	Event* getEvent(std::string s);
+
 	Sublocation* getSubLocation();
 
 	NodeArea* getNodeArea();
@@ -71,5 +73,6 @@ protected:
 	std::vector<Collider*> m_colliders;
 	std::vector<Tile*> m_tiles;
 	std::vector<Object*> m_objects;
+	std::map<std::string, Event*> m_events;
 	std::map<Sublocation_List, Sublocation*> m_sublocations;
 };
