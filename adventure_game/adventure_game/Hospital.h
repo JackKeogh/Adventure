@@ -1,8 +1,8 @@
 #pragma once
-#include "Object.h"
+#include "StaticObject.h"
 #include "WarpTile.h"
 
-class Hospital : public Object
+class Hospital : public StaticObject
 {
 public:
 	Hospital(Renderer* r, SDL_Rect pos = { 0,0,0,0 }, Sublocation_List sl = Sublocation_List::Null);
@@ -18,7 +18,6 @@ public:
 	Tile* getTile() override;
 
 protected:
-	Sprite* m_animatedSprite;
 	Tile* m_tile;
 	Animator* m_animator;
 };

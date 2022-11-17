@@ -12,6 +12,7 @@ class NodeArea;
 
 enum class Object_Type {
 	BASIC,
+	STATIC,
 	HOSPITAL
 };
 
@@ -22,9 +23,8 @@ public:
 	~Object();
 
 	void update(float dt, NodeArea* area = nullptr);
-	virtual void render();
 
-	void addCollider(SDL_Rect c);
+	virtual void render();
 
 	virtual void changeAnimation(Animations a);
 
@@ -32,21 +32,17 @@ public:
 
 	virtual Tile* getTile();
 
-	std::vector<Collider*> getColliders();
+	Sprite* getSprite(std::string key);
 
-	Sprite* getSprite();
-
-	Collide_Types getColliderType();
+	std::map<std::string, Sprite*> getSprites();
 
 	Object_Type getObjectType();
 
 	std::string getWarpID();
 
 protected:
-	Sprite* m_sprite;
-	Collide_Types m_collisionType;
+	std::map<std::string, Sprite*> m_sprites;
 	std::string m_warpID;
 	Object_Type m_type;
-	std::vector<Collider*> m_colliders;
 };
 
