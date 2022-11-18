@@ -47,7 +47,7 @@ public:
 
 	void addFrame(SDL_Rect r = { 0,0,0,0 });
 
-	virtual void animate(Sprite* s) = 0;
+	virtual void animate(Sprite* s, Animator* a = nullptr) = 0;
 
 protected:
 	std::vector<SDL_Rect>* m_frames;
@@ -58,60 +58,60 @@ protected:
 class IdleDownState : public AnimatorState
 {
 public:
-	void animate(Sprite * s) override;
+	void animate(Sprite * s, Animator* a = nullptr) override;
 };
 
 class WalkDownState : public AnimatorState
 {
 public:
-	void animate(Sprite* s) override;
+	void animate(Sprite* s, Animator* a = nullptr) override;
 };
 
 class IdleUpState : public AnimatorState
 {
 public:
-	void animate(Sprite* s) override;
+	void animate(Sprite* s, Animator* a = nullptr) override;
 };
 
 class WalkUpState : public AnimatorState
 {
 public:
-	void animate(Sprite* s) override;
+	void animate(Sprite* s, Animator* a = nullptr) override;
 };
 
 class IdleRightState : public AnimatorState
 {
 public:
-	void animate(Sprite* s) override;
+	void animate(Sprite* s, Animator* a = nullptr) override;
 };
 
 class WalkRightState : public AnimatorState
 {
 public:
-	void animate(Sprite* s) override;
+	void animate(Sprite* s, Animator* a = nullptr) override;
 };
 
 class IdleLeftState : public AnimatorState
 {
 public:
-	void animate(Sprite* s) override;
+	void animate(Sprite* s, Animator* a = nullptr) override;
 };
 
 class WalkLeftState : public AnimatorState
 {
 public:
-	void animate(Sprite* s) override;
+	void animate(Sprite* s, Animator* a = nullptr) override;
 };
 
 class HospitalOpen : public AnimatorState
 {
 public:
-	void animate(Sprite* s) override;
+	void animate(Sprite* s, Animator* a = nullptr) override;
 };
 
 class HospitalClosed : public AnimatorState
 {
 public:
-	void animate(Sprite* s) override;
+	void animate(Sprite* s, Animator* a = nullptr) override;
 };
 

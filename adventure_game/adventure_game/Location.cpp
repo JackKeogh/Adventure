@@ -26,7 +26,7 @@ void Location::update(float dt)
 		{
 			if (o != nullptr)
 			{
-				o->update(dt, m_nodes);
+				o->update(dt);
 			}
 		}
 	}
@@ -199,6 +199,27 @@ Sublocation* Location::getSubLocation()
 NodeArea* Location::getNodeArea()
 {
 	return m_nodes;
+}
+
+Object* Location::getObject(SDL_Rect r)
+{
+	return getObject(r.x, r.y);
+}
+
+Object* Location::getObject(int x, int y)
+{
+	for (Object* n : m_objects)
+	{
+		SDL_Rect pos = n->getPosition();
+
+		if ((x >= pos.x && x <= pos.x + pos.w) &&
+			(y >= pos.y && y <= pos.y + pos.h))
+		{
+			return n;
+		}
+	}
+
+	return nullptr;
 }
 
 void Location::setSubLocation(Sublocation_List sl)

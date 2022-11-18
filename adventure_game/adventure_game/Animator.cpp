@@ -17,7 +17,7 @@ void Animator::update()
 {
 	if (m_state != nullptr)
 	{
-		m_state->animate(m_sprite);
+		m_state->animate(m_sprite, this);
 	}
 }
 
@@ -117,7 +117,7 @@ void AnimatorState::addFrame(SDL_Rect r)
 ////////////////////////////////////////////////////////////////////////////////////
 //					IDLE DOWN STATE
 ////////////////////////////////////////////////////////////////////////////////////
-void IdleDownState::animate(Sprite* s)
+void IdleDownState::animate(Sprite* s, Animator* a)
 {
 	if (m_current < m_frames->size())
 	{
@@ -130,7 +130,7 @@ void IdleDownState::animate(Sprite* s)
 //					WALK DOWN STATE
 ////////////////////////////////////////////////////////////////////////////////////
 
-void WalkDownState::animate(Sprite* s)
+void WalkDownState::animate(Sprite* s, Animator* a)
 {
 	m_timer += 1.0f / FPS;
 
@@ -152,7 +152,7 @@ void WalkDownState::animate(Sprite* s)
 ////////////////////////////////////////////////////////////////////////////////////
 //					IDLE UP STATE
 ////////////////////////////////////////////////////////////////////////////////////
-void IdleUpState::animate(Sprite* s)
+void IdleUpState::animate(Sprite* s, Animator* a)
 {
 	if (m_current < (m_frames->size() - 1))
 	{
@@ -165,7 +165,7 @@ void IdleUpState::animate(Sprite* s)
 //					WALK UP STATE
 ////////////////////////////////////////////////////////////////////////////////////
 
-void WalkUpState::animate(Sprite* s)
+void WalkUpState::animate(Sprite* s, Animator* a)
 {
 	m_timer += 1.0f / FPS;
 
@@ -187,7 +187,7 @@ void WalkUpState::animate(Sprite* s)
 ////////////////////////////////////////////////////////////////////////////////////
 //					IDLE RIGHT STATE
 ////////////////////////////////////////////////////////////////////////////////////
-void IdleRightState::animate(Sprite* s)
+void IdleRightState::animate(Sprite* s, Animator* a)
 {
 	if (m_current < (m_frames->size() - 1))
 	{
@@ -200,7 +200,7 @@ void IdleRightState::animate(Sprite* s)
 //					WALK RIGHT STATE
 ////////////////////////////////////////////////////////////////////////////////////
 
-void WalkRightState::animate(Sprite* s)
+void WalkRightState::animate(Sprite* s, Animator* a)
 {
 	m_timer += 1.0f / FPS;
 
@@ -222,7 +222,7 @@ void WalkRightState::animate(Sprite* s)
 ////////////////////////////////////////////////////////////////////////////////////
 //					IDLE LEFT STATE
 ////////////////////////////////////////////////////////////////////////////////////
-void IdleLeftState::animate(Sprite* s)
+void IdleLeftState::animate(Sprite* s, Animator* a)
 {
 	if (m_current < (m_frames->size() - 1))
 	{
@@ -235,7 +235,7 @@ void IdleLeftState::animate(Sprite* s)
 //					WALK LEFT STATE
 ////////////////////////////////////////////////////////////////////////////////////
 
-void WalkLeftState::animate(Sprite* s)
+void WalkLeftState::animate(Sprite* s, Animator* a)
 {
 	m_timer += 1.0f / FPS;
 
@@ -258,8 +258,16 @@ void WalkLeftState::animate(Sprite* s)
 //					HOSPITAL OPEN STATE
 ////////////////////////////////////////////////////////////////////////////////////
 
-void HospitalOpen::animate(Sprite* s)
+void HospitalOpen::animate(Sprite* s, Animator* a)
 {
+	m_timer += 1.f / FPS;
+
+	if (m_timer >= 0.05f)
+	{
+		a->changeState(Animations::Hospital_Closed);
+		return;
+	}
+
 	s->setSource(m_frames->at(0));
 }
 
@@ -268,7 +276,7 @@ void HospitalOpen::animate(Sprite* s)
 ////////////////////////////////////////////////////////////////////////////////////
 
 
-void HospitalClosed::animate(Sprite* s)
+void HospitalClosed::animate(Sprite* s, Animator* a)
 {
 	s->setSource(m_frames->at(0));
 }

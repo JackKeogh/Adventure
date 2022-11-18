@@ -56,6 +56,10 @@ public:
 
 	NodeArea* getNodeArea();
 
+	Object* getObject(SDL_Rect r);
+
+	Object* getObject(int x, int y);
+
 	void setSubLocation(Sublocation_List sl);
 
 	bool inSubLocation();

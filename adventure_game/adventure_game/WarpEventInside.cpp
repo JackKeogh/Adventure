@@ -6,6 +6,8 @@ WarpEventInside::WarpEventInside(Sublocation_List sl, SDL_Point p)
 	m_sprite->setAlpha(0);
 	m_sub = sl;
 	m_point = p;
+	addCommand(new ChangeOverworldState(OverworldState::Event));
+	addCommand(new WaitCommand(0.5f));
 	addCommand(new ChangeOverworldState(OverworldState::Transition_Inside_FadeOut));
 	addCommand(new FadeOut(m_sprite));
 	addCommand(new ChangeOverworldState(OverworldState::Transition_Inside_ChangeWorld));
@@ -42,5 +44,8 @@ void WarpEventInside::render()
 		m_commands[m_current]->render();
 	}
 
-	LayerRenderer::addSprite(RenderLayer::Transitions, m_sprite);
+	if (m_sprite != nullptr)
+	{
+		LayerRenderer::addSprite(RenderLayer::Transitions, m_sprite);
+	}
 }

@@ -4,6 +4,7 @@
 #include "Transitions.h"
 #include "ChangeOverworldState.h"
 #include "Sublocation_Include.h"
+#include "WaitCommand.h"
 
 class WarpEventInside : public Event
 {

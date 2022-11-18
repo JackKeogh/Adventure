@@ -8,6 +8,8 @@ Object::Object(Renderer* r, std::string path, SDL_Rect s, SDL_Rect d, Object_Typ
 		std::cout << "failed to create object" << std::endl;
 		return;
 	}
+
+	m_position = d;
 }
 
 Object::~Object()
@@ -27,6 +29,10 @@ Object::~Object()
 }
 
 void Object::update(float dt, NodeArea* area)
+{
+}
+
+void Object::update(float dt)
 {
 }
 
@@ -75,4 +81,15 @@ Object_Type Object::getObjectType()
 std::string Object::getWarpID()
 {
 	return m_warpID;
+}
+
+void Object::setPosition(SDL_Rect r)
+{
+	m_position.x = r.x;
+	m_position.y = r.y;
+}
+
+SDL_Rect Object::getPosition()
+{
+	return m_position;
 }

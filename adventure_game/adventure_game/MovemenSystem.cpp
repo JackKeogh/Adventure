@@ -86,8 +86,23 @@ void MovementSystem::MoveUp(Character* c, LocationManager* manager)
 		return;
 	}
 
+	Location* location = manager->getLocation();
+
 	if (locNode->m_collidable != Collide_Types::BASIC)
 	{
+		if (locNode->m_collidable == Collide_Types::WARP)
+		{
+			Object* o = location->getObject(col * NODE_WIDTH, row * NODE_HEIGHT);
+
+			if (o != nullptr)
+			{
+				if (o->getSprite(ANIMATOR) != nullptr)
+				{
+					o->animate();
+				}
+			}
+		}
+
 		c->getSprite()->updatePosition(c->getSprite()->getPosition().x, c->getSprite()->getPosition().y - NODE_HEIGHT);
 	}
 }

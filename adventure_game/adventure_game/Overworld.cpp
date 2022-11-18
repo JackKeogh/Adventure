@@ -32,41 +32,25 @@ void Overworld::events(SDL_Event* e) {
 			}
 		}
 
-		if (e->key.keysym.sym == SDLK_w)
+		if (OverworldStateController::getState() == OverworldState::Overworld ||
+			OverworldStateController::getState() == OverworldState::Inside)
 		{
-			MovementSystem::MoveUp(player, m_locManager);
-		}
-		else if (e->key.keysym.sym == SDLK_s)
-		{
-			MovementSystem::MoveDown(player, m_locManager);
-		}
-		if (e->key.keysym.sym == SDLK_a)
-		{
-			MovementSystem::MoveLeft(player, m_locManager);
-		}
-		else if (e->key.keysym.sym == SDLK_d)
-		{
-			MovementSystem::MoveRight(player, m_locManager);
-		}
-	}
-
-	if (e->type == SDL_KEYUP)
-	{
-		if (e->key.keysym.sym == SDLK_w)
-		{
-			player->resetMovement("up");
-		}
-		if (e->key.keysym.sym == SDLK_s)
-		{
-			player->resetMovement("down");
-		}
-		if (e->key.keysym.sym == SDLK_a)
-		{
-			player->resetMovement("left");
-		}
-		if (e->key.keysym.sym == SDLK_d)
-		{
-			player->resetMovement("right");
+			if (e->key.keysym.sym == SDLK_w)
+			{
+				MovementSystem::MoveUp(player, m_locManager);
+			}
+			else if (e->key.keysym.sym == SDLK_s)
+			{
+				MovementSystem::MoveDown(player, m_locManager);
+			}
+			if (e->key.keysym.sym == SDLK_a)
+			{
+				MovementSystem::MoveLeft(player, m_locManager);
+			}
+			else if (e->key.keysym.sym == SDLK_d)
+			{
+				MovementSystem::MoveRight(player, m_locManager);
+			}
 		}
 	}
 }
@@ -80,6 +64,11 @@ void Overworld::update(float dt) {
 			Camera::update(player->getSprite()->getPosition());
 			CollisionSystem::Collision(player, m_locManager);
 			LocationDisplay::update(dt);
+			EventSystem::update();
+			break;
+		case OverworldState::Event:
+			player->update(dt);
+			m_locManager->update(dt);
 			EventSystem::update();
 			break;
 		case OverworldState::Transition_Inside_ChangeWorld:

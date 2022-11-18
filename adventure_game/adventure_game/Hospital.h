@@ -11,6 +11,8 @@ public:
 
 	void animate() override;
 
+	void update(float dt) override;
+
 	void render() override;
 
 	void changeAnimation(Animations a) override;
