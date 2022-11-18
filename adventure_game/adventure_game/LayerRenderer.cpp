@@ -33,6 +33,11 @@ void LayerRenderer::addSprite(RenderLayer l, Sprite* s)
 	m_layers[l].push_back(s);
 }
 
+void LayerRenderer::addSprite(SpriteComponent* s)
+{
+	m_layers[s->getLayer()].push_back(s);
+}
+
 void LayerRenderer::render(Renderer* r)
 {
 	for (int i = 0; i < m_layers.size(); i++)

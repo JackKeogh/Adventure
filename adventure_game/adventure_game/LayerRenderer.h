@@ -1,16 +1,8 @@
 #pragma once
 #include "stdafx.h"
 #include "RenderingSystem.h"
-#include "Sprite.h"
-
-enum class RenderLayer {
-	Background = 0,
-	Middleground,
-	Player,
-	Foreground,
-	UI,
-	Transitions
-};
+#include "SpriteComponent.h"
+#include "RenderLayer.h"
 
 class LayerRenderer
 {
@@ -21,6 +13,8 @@ public:
 	static void clear();
 
 	static void addSprite(RenderLayer l, Sprite* s);
+
+	static void addSprite(SpriteComponent* s);
 
 	static void render(Renderer* r);
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "LayerRenderer.h"
-#include "Sprite.h"
+#include "SpriteComponent.h"
 #include "Collider.h"
 #include "Animator.h"
 #include "Tile.h"
@@ -32,16 +32,16 @@ public:
 
 	virtual Tile* getTile();
 
-	Sprite* getSprite(std::string key);
+	SpriteComponent* getSprite(std::string key);
 
-	std::map<std::string, Sprite*> getSprites();
+	std::map<std::string, SpriteComponent*> getSprites();
 
 	Object_Type getObjectType();
 
 	std::string getWarpID();
 
 protected:
-	std::map<std::string, Sprite*> m_sprites;
+	std::map<std::string, SpriteComponent*> m_sprites;
 	std::string m_warpID;
 	Object_Type m_type;
 };

@@ -24,7 +24,7 @@ public:
 
 	SDL_Rect getPosition();
 
-private:
+protected:
 	SDL_Rect m_srcRect;
 	SDL_Rect m_destRect;
 	Uint8 m_alpha;
