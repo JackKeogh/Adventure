@@ -5,6 +5,7 @@ Animator::Animator(SpriteComponent* s, Animations def)
 	m_sprite = s;
 	m_animation = def;
 	m_state = nullptr;
+	m_type = Component_Type::ANIMATOR;
 	loadState();
 }
 

@@ -5,6 +5,8 @@ DynamicObject::DynamicObject(Renderer* r, std::string path, SDL_Rect s, SDL_Rect
 	m_components = std::vector<Component*>();
 	addComponent(new SpriteComponent(r, path, s, d, l));
 	addComponent(new MovementComponent(d));
+	addComponent(new Animator(ComponentCasting::SpriteCasting(getComponent(Component_Type::SPRITE)), Animations::idleDown));
+	m_position = d;
 }
 
 DynamicObject::~DynamicObject()
@@ -47,6 +49,7 @@ void DynamicObject::update(float dt)
 {
 	updatePosition();
 	syncSpriteMovement();
+	updateAnimator();
 
 	render();
 }
@@ -121,6 +124,7 @@ void DynamicObject::syncSpriteMovement()
 	if ((mc->getPosition().x != sc->getPosition().x) ||
 		(mc->getPosition().y != sc->getPosition().y))
 	{
+		m_position = mc->getPosition();
 		sc->updatePosition(mc->getPosition().x, mc->getPosition().y);
 	}
 }
@@ -151,9 +155,44 @@ void DynamicObject::updatePosition()
 
 		if (mc->getPosition().x == mc->getDestination().x && mc->getPosition().y == mc->getDestination().y)
 		{
+			Animator* a = ComponentCasting::AnimatorCasting(
+				getComponent(Component_Type::ANIMATOR)
+			);
+
+			if (a != nullptr)
+			{
+				switch (mc->getDirection())
+				{
+				case MovementDirection::Down:
+					a->changeState(Animations::idleDown);
+					break;
+				case MovementDirection::Up:
+					a->changeState(Animations::idleUp);
+					break;
+				case MovementDirection::Left:
+					a->changeState(Animations::idleLeft);
+					break;
+				case MovementDirection::Right:
+					a->changeState(Animations::idleRight);
+					break;
+				}
+			}
+
 			mc->setDirection(MovementDirection::None);
 			mc->setIsMoving(false);
 			mc->setDestination(0, 0);
 		}
+	}
+}
+
+void DynamicObject::updateAnimator()
+{
+	Animator* a = ComponentCasting::AnimatorCasting(
+		getComponent(Component_Type::ANIMATOR)
+	);
+
+	if (a != nullptr)
+	{
+		a->update();
 	}
 }

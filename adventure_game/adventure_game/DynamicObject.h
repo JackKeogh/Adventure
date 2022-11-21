@@ -34,6 +34,7 @@ private:
 	Component* checkForComponent(Component_Type ct);
 	void syncSpriteMovement();
 	void updatePosition();
+	void updateAnimator();
 
 protected:
 	std::vector<Component*> m_components;

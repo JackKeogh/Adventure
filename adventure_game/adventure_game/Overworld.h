@@ -33,6 +33,5 @@ public:
 private:
 	bool m_running;
 	LocationManager* m_locManager;
-	Character* player;
-	DynamicObject* test;
+	DynamicObject* player;
 };

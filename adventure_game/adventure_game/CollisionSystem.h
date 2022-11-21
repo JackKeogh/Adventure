@@ -8,12 +8,13 @@
 #include "EventSystem.h"
 #include "WarpEventInside.h"
 #include "TileCasting.h"
+#include "DynamicObject.h"
 
 class CollisionSystem
 {
 public:
 	static OverworldState Warp;
-	static void Collision(Character* c, LocationManager* loc);
-	static void WarpReaction(Character* c, LocationManager* loc, Node* n);
+	static void Collision(DynamicObject* c, LocationManager* loc);
+	static void WarpReaction(DynamicObject* c, LocationManager* loc, Node* n);
 };
 

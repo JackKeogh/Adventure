@@ -11,9 +11,8 @@ Overworld::~Overworld() {
 void Overworld::initialise(Renderer* r) {
 	m_running = true;
 	m_locManager = new LocationManager(r);
-	player = new Character(r, "assets/34024.png", { 9,40,22,27 }, { 256,208,NODE_WIDTH,NODE_HEIGHT });
-	test = new DynamicObject(r, "assets/34024.png", { 9,40,22,27 }, { 256,384,NODE_WIDTH,NODE_HEIGHT });
-	Camera::initialise(player->getSprite()->getPosition());
+	player = new DynamicObject(r, "assets/34024.png", { 9,40,22,27 }, { 256,192,NODE_WIDTH,NODE_HEIGHT });
+	Camera::initialise(player->getPosition());
 	LocationDisplay::initialise(r);
 	LayerRenderer::initialise();
 }
@@ -61,9 +60,8 @@ void Overworld::update(float dt) {
 	{
 		case OverworldState::Overworld:
 			player->update(dt);
-			test->update(dt);
 			m_locManager->update(dt);
-			Camera::update(player->getSprite()->getPosition());
+			Camera::update(player->getPosition());
 			CollisionSystem::Collision(player, m_locManager);
 			LocationDisplay::update(dt);
 			EventSystem::update();

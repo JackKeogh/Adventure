@@ -43,3 +43,25 @@ MovementComponent* ComponentCasting::MovementCasting(Component* c)
 
 	return nullptr;
 }
+
+Animator* ComponentCasting::AnimatorCasting(Component* c)
+{
+	if (c == nullptr)
+	{
+		return nullptr;
+	}
+
+	if (c->getType() == Component_Type::ANIMATOR)
+	{
+		Animator* a = dynamic_cast<Animator*>(c);
+
+		if (a == nullptr)
+		{
+			std::cout << ERROR_CASTING_FAILEDTOCAST << std::endl;
+		}
+
+		return a;
+	}
+
+	return nullptr;
+}

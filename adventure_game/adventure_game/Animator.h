@@ -1,6 +1,11 @@
 #pragma once
 #include "stdafx.h"
+#include "Component.h"
 #include "SpriteComponent.h"
+
+
+#ifndef ANIMATOR_HEADER
+#define ANIMATOR_HEADER
 
 enum class Animations {
 	null,
@@ -18,7 +23,7 @@ enum class Animations {
 
 class AnimatorState;
 
-class Animator
+class Animator : public Component
 {
 public:
 	Animator(SpriteComponent* s = nullptr, Animations def = Animations::Hospital_Closed);
@@ -115,3 +120,4 @@ public:
 	void animate(SpriteComponent* s, Animator* a = nullptr) override;
 };
 
+#endif // !ANIMATOR_HEADER

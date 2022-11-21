@@ -2,9 +2,23 @@
 
 OverworldState CollisionSystem::Warp = OverworldState::null;
 
-void CollisionSystem::Collision(Character* c, LocationManager* loc)
+void CollisionSystem::Collision(DynamicObject* c, LocationManager* loc)
 {
-	SDL_Rect r = c->getSprite()->getPosition();
+	MovementComponent* mc = ComponentCasting::MovementCasting(
+		c->getComponent(Component_Type::MOVEMENT)
+	);
+
+	SDL_Rect r;
+
+	if (mc->isMoving())
+	{
+		r = mc->getDestination();
+	}
+	else
+	{
+		r = mc->getPosition();
+	}
+
 	int x = r.x / NODE_WIDTH;
 	int y = r.y / NODE_HEIGHT;
 
@@ -24,11 +38,10 @@ void CollisionSystem::Collision(Character* c, LocationManager* loc)
 	}
 }
 
-void CollisionSystem::WarpReaction(Character* c, LocationManager* loc, Node* n)
+void CollisionSystem::WarpReaction(DynamicObject* c, LocationManager* loc, Node* n)
 {
 	if (n->m_warpID == LITTLEROOT_EXTERIOR_HOSPITAL_WARP)
 	{
-		c->resetMovement("all", c->getAnimator()->getAnimation());
 		EventSystem::setEvent(loc->getLocation()->getEvent(LITTLEROOT_EXTERIOR_HOSPITAL_WARP));
 	}
 }

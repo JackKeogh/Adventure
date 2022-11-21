@@ -52,97 +52,243 @@ Node* MovementSystem::CheckArea(LocationManager* manager, int r, int c)
 	return locNode;
 }
 
-void MovementSystem::MoveDown(Character* c, LocationManager* manager)
+void MovementSystem::MoveDown(DynamicObject* c, LocationManager* manager)
 {
-	// Get Destination Node location
-	Node* n = GetNode(c->getSprite()->getPosition().x, c->getSprite()->getPosition().y + NODE_HEIGHT);
-	int col = n->m_x, 
-		row = n->m_y;
+	MovementComponent* m = ComponentCasting::MovementCasting(
+		c->getComponent(Component_Type::MOVEMENT)
+	);
 
-	Node* locNode = CheckArea(manager, row, col);
+	Animator* a = ComponentCasting::AnimatorCasting(
+		c->getComponent(Component_Type::ANIMATOR)
+	);
 
-	if (locNode == nullptr)
+	if (!m->isMoving())
 	{
-		return;
-	}
+		// Get Destination Node location
+		Node* n = GetNode(m->getPosition().x, m->getPosition().y + NODE_HEIGHT);
+		int col = n->m_x,
+			row = n->m_y;
 
-	if (locNode->m_collidable != Collide_Types::BASIC)
-	{
-		c->getSprite()->updatePosition(c->getSprite()->getPosition().x, c->getSprite()->getPosition().y + NODE_HEIGHT);
-	}
-}
+		Node* locNode = CheckArea(manager, row, col);
 
-void MovementSystem::MoveUp(Character* c, LocationManager* manager)
-{
-	// Get Destination Node location
-	Node* n = GetNode(c->getSprite()->getPosition().x, c->getSprite()->getPosition().y - NODE_HEIGHT);
-	int col = n->m_x,
-		row = n->m_y;
-
-	Node* locNode = CheckArea(manager, row, col);
-
-	if (locNode == nullptr)
-	{
-		return;
-	}
-
-	Location* location = manager->getLocation();
-
-	if (locNode->m_collidable != Collide_Types::BASIC)
-	{
-		if (locNode->m_collidable == Collide_Types::WARP)
+		if (locNode == nullptr)
 		{
-			Object* o = location->getObject(col * NODE_WIDTH, row * NODE_HEIGHT);
-
-			if (o != nullptr)
-			{
-				if (o->getSprite(ANIMATOR) != nullptr)
-				{
-					o->animate();
-				}
-			}
+			return;
 		}
 
-		c->getSprite()->updatePosition(c->getSprite()->getPosition().x, c->getSprite()->getPosition().y - NODE_HEIGHT);
+		Location* location = manager->getLocation();
+
+		if (locNode->m_collidable != Collide_Types::BASIC)
+		{
+			if (locNode->m_collidable == Collide_Types::WARP)
+			{
+				Object* o = location->getObject(col * NODE_WIDTH, row * NODE_HEIGHT);
+
+				if (o != nullptr)
+				{
+					if (o->getSprite(ANIMATOR) != nullptr)
+					{
+						o->animate();
+					}
+				}
+			}
+
+			if (a != nullptr)
+			{
+				a->changeState(Animations::walkDown);
+			}
+
+			m->setDirection(MovementDirection::Down);
+			m->setIsMoving(true);
+			m->setDestination(m->getPosition().x, m->getPosition().y + NODE_HEIGHT);
+		}
+		else
+		{
+			if (a != nullptr)
+			{
+				a->changeState(Animations::idleDown);
+			}
+		}
 	}
 }
 
-void MovementSystem::MoveLeft(Character* c, LocationManager* manager)
+void MovementSystem::MoveUp(DynamicObject* c, LocationManager* manager)
 {
-	// Get Destination Node location
-	Node* n = GetNode(c->getSprite()->getPosition().x - NODE_WIDTH, c->getSprite()->getPosition().y);
-	int col = n->m_x,
-		row = n->m_y;
+	MovementComponent* m = ComponentCasting::MovementCasting(
+		c->getComponent(Component_Type::MOVEMENT)
+	);
 
-	Node* locNode = CheckArea(manager, row, col);
+	Animator* a = ComponentCasting::AnimatorCasting(
+		c->getComponent(Component_Type::ANIMATOR)
+	);
 
-	if (locNode == nullptr)
+	if (!m->isMoving())
 	{
-		return;
-	}
+		// Get Destination Node location
+		Node* n = GetNode(m->getPosition().x, m->getPosition().y - NODE_HEIGHT);
+		int col = n->m_x,
+			row = n->m_y;
 
-	if (locNode->m_collidable != Collide_Types::BASIC)
-	{
-		c->getSprite()->updatePosition(c->getSprite()->getPosition().x - NODE_WIDTH, c->getSprite()->getPosition().y);
+		Node* locNode = CheckArea(manager, row, col);
+
+		if (locNode == nullptr)
+		{
+			return;
+		}
+
+		Location* location = manager->getLocation();
+
+		if (locNode->m_collidable != Collide_Types::BASIC)
+		{
+			if (locNode->m_collidable == Collide_Types::WARP)
+			{
+				Object* o = location->getObject(col * NODE_WIDTH, row * NODE_HEIGHT);
+
+				if (o != nullptr)
+				{
+					if (o->getSprite(ANIMATOR) != nullptr)
+					{
+						o->animate();
+					}
+				}
+			}
+
+			if (a != nullptr)
+			{
+				a->changeState(Animations::walkUp);
+			}
+
+			m->setDirection(MovementDirection::Up);
+			m->setIsMoving(true);
+			m->setDestination(m->getPosition().x, m->getPosition().y - NODE_HEIGHT);
+		}
+		else
+		{
+			if (a != nullptr)
+			{
+				a->changeState(Animations::idleUp);
+			}
+		}
 	}
 }
 
-void MovementSystem::MoveRight(Character* c, LocationManager* manager)
+void MovementSystem::MoveLeft(DynamicObject* c, LocationManager* manager)
 {
-	// Get Destination Node location
-	Node* n = GetNode(c->getSprite()->getPosition().x + NODE_WIDTH, c->getSprite()->getPosition().y);
-	int col = n->m_x,
-		row = n->m_y;
+	MovementComponent* m = ComponentCasting::MovementCasting(
+		c->getComponent(Component_Type::MOVEMENT)
+	);
 
-	Node* locNode = CheckArea(manager, row, col);
+	Animator* a = ComponentCasting::AnimatorCasting(
+		c->getComponent(Component_Type::ANIMATOR)
+	);
 
-	if (locNode == nullptr)
+	if (!m->isMoving())
 	{
-		return;
+		// Get Destination Node location
+		Node* n = GetNode(m->getPosition().x - NODE_WIDTH, m->getPosition().y);
+		int col = n->m_x,
+			row = n->m_y;
+
+		Node* locNode = CheckArea(manager, row, col);
+
+		if (locNode == nullptr)
+		{
+			return;
+		}
+
+		Location* location = manager->getLocation();
+
+		if (locNode->m_collidable != Collide_Types::BASIC)
+		{
+			if (locNode->m_collidable == Collide_Types::WARP)
+			{
+				Object* o = location->getObject(col * NODE_WIDTH, row * NODE_HEIGHT);
+
+				if (o != nullptr)
+				{
+					if (o->getSprite(ANIMATOR) != nullptr)
+					{
+						o->animate();
+					}
+				}
+			}
+
+			if (a != nullptr)
+			{
+				a->changeState(Animations::walkLeft);
+			}
+
+			m->setDirection(MovementDirection::Left);
+			m->setIsMoving(true);
+			m->setDestination(m->getPosition().x - NODE_WIDTH, m->getPosition().y);
+		}
+		else
+		{
+			if (a != nullptr)
+			{
+				a->changeState(Animations::idleLeft);
+			}
+		}
 	}
+}
 
-	if (locNode->m_collidable != Collide_Types::BASIC)
+void MovementSystem::MoveRight(DynamicObject* c, LocationManager* manager)
+{
+	MovementComponent* m = ComponentCasting::MovementCasting(
+		c->getComponent(Component_Type::MOVEMENT)
+	);
+
+	Animator* a = ComponentCasting::AnimatorCasting(
+		c->getComponent(Component_Type::ANIMATOR)
+	);
+
+	if (!m->isMoving())
 	{
-		c->getSprite()->updatePosition(c->getSprite()->getPosition().x + NODE_WIDTH, c->getSprite()->getPosition().y);
+
+		// Get Destination Node location
+		Node* n = GetNode(m->getPosition().x + NODE_WIDTH, m->getPosition().y);
+		int col = n->m_x,
+			row = n->m_y;
+
+		Node* locNode = CheckArea(manager, row, col);
+
+		if (locNode == nullptr)
+		{
+			return;
+		}
+
+		Location* location = manager->getLocation();
+
+		if (locNode->m_collidable != Collide_Types::BASIC)
+		{
+			if (locNode->m_collidable == Collide_Types::WARP)
+			{
+				Object* o = location->getObject(col * NODE_WIDTH, row * NODE_HEIGHT);
+
+				if (o != nullptr)
+				{
+					if (o->getSprite(ANIMATOR) != nullptr)
+					{
+						o->animate();
+					}
+				}
+			}
+
+			if (a != nullptr)
+			{
+				a->changeState(Animations::walkRight);
+			}
+
+			m->setDirection(MovementDirection::Right);
+			m->setIsMoving(true);
+			m->setDestination(m->getPosition().x + NODE_WIDTH, m->getPosition().y);
+		}
+		else
+		{
+			if (a != nullptr)
+			{
+				a->changeState(Animations::idleRight);
+			}
+		}
 	}
 }
