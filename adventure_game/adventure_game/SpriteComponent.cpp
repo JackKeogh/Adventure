@@ -4,6 +4,7 @@ SpriteComponent::SpriteComponent(Renderer* renderer, std::string path, SDL_Rect 
 	Sprite(renderer, path, s, d)
 {
 	m_layer = l;
+	m_type = Component_Type::SPRITE;
 }
 
 SpriteComponent::~SpriteComponent()
