@@ -1,8 +1,10 @@
 #include "DynamicObject.h"
 
-DynamicObject::DynamicObject()
+DynamicObject::DynamicObject(Renderer* r, std::string path, SDL_Rect s, SDL_Rect d, Object_Type o, RenderLayer l)
 {
 	m_components = std::vector<Component*>();
+	addComponent(new SpriteComponent(r, path, s, d, l));
+	addComponent(new MovementComponent(d));
 }
 
 DynamicObject::~DynamicObject()
@@ -23,6 +25,22 @@ void DynamicObject::moveLeft()
 
 void DynamicObject::moveDown()
 {
+}
+
+void DynamicObject::update(float dt)
+{
+	syncSpriteMovement();
+
+	render();
+}
+
+void DynamicObject::render()
+{
+	SpriteComponent* sc = ComponentCasting::SpriteCasting(
+		getComponent(Component_Type::SPRITE)
+	);
+
+	LayerRenderer::addSprite(sc);
 }
 
 void DynamicObject::addComponent(Component* c)
@@ -52,7 +70,7 @@ Component* DynamicObject::getComponent(Component_Type ct)
 		std::cout << ERROR_DYANAMICOBJECT_COMPONENT_GET_DNEXISTS << std::endl;
 	}
 
-	return checkForComponent(ct);
+	return c;
 }
 
 std::vector<Component*> DynamicObject::getComponentList()
@@ -71,4 +89,21 @@ Component* DynamicObject::checkForComponent(Component_Type ct)
 	}
 
 	return nullptr;
+}
+
+void DynamicObject::syncSpriteMovement()
+{
+	MovementComponent* mc = ComponentCasting::MovementCasting(
+		getComponent(Component_Type::MOVEMENT)
+	);
+
+	SpriteComponent* sc = ComponentCasting::SpriteCasting(
+		getComponent(Component_Type::SPRITE)
+	);
+
+	if ((mc->getPosition().x != sc->getPosition().x) ||
+		(mc->getPosition().y != sc->getPosition().y))
+	{
+		sc->updatePosition(mc->getPosition().x, mc->getPosition().y);
+	}
 }

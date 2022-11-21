@@ -29,7 +29,7 @@ MovementComponent* ComponentCasting::MovementCasting(Component* c)
 		return nullptr;
 	}
 
-	if (c->getType() == Component_Type::SPRITE)
+	if (c->getType() == Component_Type::MOVEMENT)
 	{
 		MovementComponent* mc = dynamic_cast<MovementComponent*>(c);
 

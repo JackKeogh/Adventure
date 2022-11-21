@@ -2,6 +2,7 @@
 
 MovementComponent::MovementComponent(SDL_Rect r)
 {
+	m_type = Component_Type::MOVEMENT;
 	m_position = r;
 }
 

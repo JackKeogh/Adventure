@@ -6,7 +6,7 @@
 #ifndef SPRITECOMPONENT_HEADER
 #define SPRITECOMPONENT_HEADER
 
-class SpriteComponent : public Sprite, Component
+class SpriteComponent : public Sprite, public Component
 {
 public:
 	SpriteComponent(Renderer* renderer, std::string path, SDL_Rect s = { 0,0,0,0 }, SDL_Rect d = { 0,0,0,0 }, RenderLayer l = RenderLayer::Background);

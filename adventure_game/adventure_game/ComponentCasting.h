@@ -9,8 +9,8 @@
 class ComponentCasting
 {
 public:
-	SpriteComponent* SpriteCasting(Component* c);
-	MovementComponent* MovementCasting(Component* c);
+	static SpriteComponent* SpriteCasting(Component* c);
+	static MovementComponent* MovementCasting(Component* c);
 };
 
 #endif // !COMPONENTCASTING_HEADER

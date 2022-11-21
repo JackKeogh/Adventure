@@ -10,6 +10,7 @@
 #include "Transitions.h"
 #include "EventSystem.h"
 #include "MovementSystem.h"
+#include "DynamicObject.h"
 
 class Overworld {
 public:
@@ -33,4 +34,5 @@ private:
 	bool m_running;
 	LocationManager* m_locManager;
 	Character* player;
+	DynamicObject* test;
 };

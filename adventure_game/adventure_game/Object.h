@@ -13,6 +13,7 @@ class NodeArea;
 enum class Object_Type {
 	BASIC,
 	STATIC,
+	DYNAMIC,
 	HOSPITAL
 };
 
