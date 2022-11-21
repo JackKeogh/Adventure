@@ -5,7 +5,6 @@ Object::Object(Renderer* r, std::string path, SDL_Rect s, SDL_Rect d, Object_Typ
 {
 	if (path.empty())
 	{
-		std::cout << "failed to create object" << std::endl;
 		return;
 	}
 

@@ -16,7 +16,16 @@ public:
 	void setPosition(int x, int y);
 	void setPosition(SDL_Rect r);
 
+	SDL_Rect getDestination();
+	void setDestination(int x, int y);
+	void setDestination(SDL_Rect r);
+
+	bool isMoving();
+	void setIsMoving(bool m);
+
 protected:
 	SDL_Rect m_position;
+	SDL_Rect m_destination;
+	bool m_isMoving;
 };
 #endif
