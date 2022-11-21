@@ -11,24 +11,41 @@ DynamicObject::~DynamicObject()
 {
 }
 
-void DynamicObject::moveUp()
+void DynamicObject::moveUp(MovementComponent* m)
 {
+	SDL_Rect r = m->getPosition();
+	r.y -= 1;
+
+	m->setPosition(r);
 }
 
-void DynamicObject::moveRight()
+void DynamicObject::moveRight(MovementComponent* m)
 {
+	SDL_Rect r = m->getPosition();
+	r.x += 1;
+
+	m->setPosition(r);
 }
 
-void DynamicObject::moveLeft()
+void DynamicObject::moveLeft(MovementComponent* m)
 {
+	SDL_Rect r = m->getPosition();
+	r.x -= 1;
+
+	m->setPosition(r);
 }
 
-void DynamicObject::moveDown()
+void DynamicObject::moveDown(MovementComponent* m)
 {
+	SDL_Rect r = m->getPosition();
+	r.y += 1;
+
+	m->setPosition(r);
 }
 
 void DynamicObject::update(float dt)
 {
+	updatePosition();
 	syncSpriteMovement();
 
 	render();
@@ -105,5 +122,38 @@ void DynamicObject::syncSpriteMovement()
 		(mc->getPosition().y != sc->getPosition().y))
 	{
 		sc->updatePosition(mc->getPosition().x, mc->getPosition().y);
+	}
+}
+
+void DynamicObject::updatePosition()
+{
+	MovementComponent* mc = ComponentCasting::MovementCasting(
+		getComponent(Component_Type::MOVEMENT)
+	);
+
+	if (mc->isMoving())
+	{
+		switch (mc->getDirection())
+		{
+			case MovementDirection::Up:
+				moveUp(mc);
+				break;
+			case MovementDirection::Down:
+				moveDown(mc);
+				break;
+			case MovementDirection::Left:
+				moveLeft(mc);
+				break;
+			case MovementDirection::Right:
+				moveRight(mc);
+				break;
+		}
+
+		if (mc->getPosition().x == mc->getDestination().x && mc->getPosition().y == mc->getDestination().y)
+		{
+			mc->setDirection(MovementDirection::None);
+			mc->setIsMoving(false);
+			mc->setDestination(0, 0);
+		}
 	}
 }

@@ -4,6 +4,14 @@
 #ifndef MOVEMENTCOMPONENT_HEADER
 #define MOVEMENTCOMPONENT_HEADER
 
+enum class MovementDirection {
+	Up,
+	Down,
+	Left,
+	Right,
+	None
+};
+
 class MovementComponent : public Component
 {
 public:
@@ -20,12 +28,16 @@ public:
 	void setDestination(int x, int y);
 	void setDestination(SDL_Rect r);
 
+	MovementDirection getDirection();
+	void setDirection(MovementDirection d);
+
 	bool isMoving();
 	void setIsMoving(bool m);
 
 protected:
 	SDL_Rect m_position;
 	SDL_Rect m_destination;
+	MovementDirection m_direction;
 	bool m_isMoving;
 };
 #endif

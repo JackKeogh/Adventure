@@ -48,6 +48,16 @@ void MovementComponent::setDestination(SDL_Rect r)
 	setDestination(r.x, r.y);
 }
 
+MovementDirection MovementComponent::getDirection()
+{
+	return m_direction;
+}
+
+void MovementComponent::setDirection(MovementDirection d)
+{
+	m_direction = d;
+}
+
 bool MovementComponent::isMoving()
 {
 	return m_isMoving;

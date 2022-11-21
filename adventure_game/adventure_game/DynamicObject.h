@@ -16,10 +16,10 @@ public:
 	~DynamicObject();
 
 	// virtual methods
-	virtual void moveUp();
-	virtual void moveRight();
-	virtual void moveLeft();
-	virtual void moveDown();
+	virtual void moveUp(MovementComponent* m);
+	virtual void moveRight(MovementComponent* m);
+	virtual void moveLeft(MovementComponent* m);
+	virtual void moveDown(MovementComponent* m);
 
 	// override methods
 	void update(float dt = 0.f) override;
@@ -33,6 +33,7 @@ public:
 private:
 	Component* checkForComponent(Component_Type ct);
 	void syncSpriteMovement();
+	void updatePosition();
 
 protected:
 	std::vector<Component*> m_components;
