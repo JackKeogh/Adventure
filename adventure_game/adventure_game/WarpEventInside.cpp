@@ -7,7 +7,7 @@ WarpEventInside::WarpEventInside(Sublocation_List sl, SDL_Point p)
 	m_sub = sl;
 	m_point = p;
 	addCommand(new ChangeOverworldState(OverworldState::Event));
-	addCommand(new WaitCommand(0.5f));
+	addCommand(new WaitCommand(3.f));
 	addCommand(new ChangeOverworldState(OverworldState::Transition_Inside_FadeOut));
 	addCommand(new FadeOut(m_sprite));
 	addCommand(new ChangeOverworldState(OverworldState::Transition_Inside_ChangeWorld));

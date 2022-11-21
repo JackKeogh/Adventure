@@ -55,10 +55,10 @@ public:
 
 	Collider* getCollider();
 
-	Sprite* getSprite();
+	SpriteComponent* getSprite();
 
 protected:
-	Sprite* m_sprite;
+	SpriteComponent* m_sprite;
 	Movement* m_movement;
 	Collider* m_collider;
 	Animator* m_animator;

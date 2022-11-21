@@ -1,6 +1,6 @@
 #include "Animator.h"
 
-Animator::Animator(Sprite* s, Animations def)
+Animator::Animator(SpriteComponent* s, Animations def)
 {
 	m_sprite = s;
 	m_animation = def;
@@ -117,7 +117,7 @@ void AnimatorState::addFrame(SDL_Rect r)
 ////////////////////////////////////////////////////////////////////////////////////
 //					IDLE DOWN STATE
 ////////////////////////////////////////////////////////////////////////////////////
-void IdleDownState::animate(Sprite* s, Animator* a)
+void IdleDownState::animate(SpriteComponent* s, Animator* a)
 {
 	if (m_current < m_frames->size())
 	{
@@ -130,7 +130,7 @@ void IdleDownState::animate(Sprite* s, Animator* a)
 //					WALK DOWN STATE
 ////////////////////////////////////////////////////////////////////////////////////
 
-void WalkDownState::animate(Sprite* s, Animator* a)
+void WalkDownState::animate(SpriteComponent* s, Animator* a)
 {
 	m_timer += 1.0f / FPS;
 
@@ -152,7 +152,7 @@ void WalkDownState::animate(Sprite* s, Animator* a)
 ////////////////////////////////////////////////////////////////////////////////////
 //					IDLE UP STATE
 ////////////////////////////////////////////////////////////////////////////////////
-void IdleUpState::animate(Sprite* s, Animator* a)
+void IdleUpState::animate(SpriteComponent* s, Animator* a)
 {
 	if (m_current < (m_frames->size() - 1))
 	{
@@ -165,7 +165,7 @@ void IdleUpState::animate(Sprite* s, Animator* a)
 //					WALK UP STATE
 ////////////////////////////////////////////////////////////////////////////////////
 
-void WalkUpState::animate(Sprite* s, Animator* a)
+void WalkUpState::animate(SpriteComponent* s, Animator* a)
 {
 	m_timer += 1.0f / FPS;
 
@@ -187,7 +187,7 @@ void WalkUpState::animate(Sprite* s, Animator* a)
 ////////////////////////////////////////////////////////////////////////////////////
 //					IDLE RIGHT STATE
 ////////////////////////////////////////////////////////////////////////////////////
-void IdleRightState::animate(Sprite* s, Animator* a)
+void IdleRightState::animate(SpriteComponent* s, Animator* a)
 {
 	if (m_current < (m_frames->size() - 1))
 	{
@@ -200,7 +200,7 @@ void IdleRightState::animate(Sprite* s, Animator* a)
 //					WALK RIGHT STATE
 ////////////////////////////////////////////////////////////////////////////////////
 
-void WalkRightState::animate(Sprite* s, Animator* a)
+void WalkRightState::animate(SpriteComponent* s, Animator* a)
 {
 	m_timer += 1.0f / FPS;
 
@@ -222,7 +222,7 @@ void WalkRightState::animate(Sprite* s, Animator* a)
 ////////////////////////////////////////////////////////////////////////////////////
 //					IDLE LEFT STATE
 ////////////////////////////////////////////////////////////////////////////////////
-void IdleLeftState::animate(Sprite* s, Animator* a)
+void IdleLeftState::animate(SpriteComponent* s, Animator* a)
 {
 	if (m_current < (m_frames->size() - 1))
 	{
@@ -235,7 +235,7 @@ void IdleLeftState::animate(Sprite* s, Animator* a)
 //					WALK LEFT STATE
 ////////////////////////////////////////////////////////////////////////////////////
 
-void WalkLeftState::animate(Sprite* s, Animator* a)
+void WalkLeftState::animate(SpriteComponent* s, Animator* a)
 {
 	m_timer += 1.0f / FPS;
 
@@ -258,12 +258,13 @@ void WalkLeftState::animate(Sprite* s, Animator* a)
 //					HOSPITAL OPEN STATE
 ////////////////////////////////////////////////////////////////////////////////////
 
-void HospitalOpen::animate(Sprite* s, Animator* a)
+void HospitalOpen::animate(SpriteComponent* s, Animator* a)
 {
 	m_timer += 1.f / FPS;
 
-	if (m_timer >= 0.05f)
+	if (m_timer >= 1.f)
 	{
+		s->setLayer(RenderLayer::Foreground);
 		a->changeState(Animations::Hospital_Closed);
 		return;
 	}
@@ -276,7 +277,17 @@ void HospitalOpen::animate(Sprite* s, Animator* a)
 ////////////////////////////////////////////////////////////////////////////////////
 
 
-void HospitalClosed::animate(Sprite* s, Animator* a)
+void HospitalClosed::animate(SpriteComponent* s, Animator* a)
 {
+	if (s->getLayer() == RenderLayer::Foreground)
+	{
+		m_timer = 1.f;
+
+		if (m_timer >= 2.f)
+		{
+			s->setLayer(RenderLayer::Background);
+		}
+	}
+
 	s->setSource(m_frames->at(0));
 }

@@ -26,10 +26,7 @@ Hospital::~Hospital()
 }
 
 void Hospital::update(float dt) {
-	if (m_animator->getAnimation() == Animations::Hospital_Open)
-	{
-		m_animator->update();
-	}
+	m_animator->update();
 }
 
 void Hospital::animate()

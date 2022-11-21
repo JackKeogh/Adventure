@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-#include "Sprite.h"
+#include "SpriteComponent.h"
 
 enum class Animations {
 	null,
@@ -21,7 +21,7 @@ class AnimatorState;
 class Animator
 {
 public:
-	Animator(Sprite* s = nullptr, Animations def = Animations::Hospital_Closed);
+	Animator(SpriteComponent* s = nullptr, Animations def = Animations::Hospital_Closed);
 
 	~Animator();
 
@@ -36,7 +36,7 @@ public:
 protected:
 	AnimatorState* m_state;
 	Animations m_animation;
-	Sprite* m_sprite;
+	SpriteComponent* m_sprite;
 	std::map<Animations, AnimatorState*> m_animations;
 };
 
@@ -47,7 +47,7 @@ public:
 
 	void addFrame(SDL_Rect r = { 0,0,0,0 });
 
-	virtual void animate(Sprite* s, Animator* a = nullptr) = 0;
+	virtual void animate(SpriteComponent* s, Animator* a = nullptr) = 0;
 
 protected:
 	std::vector<SDL_Rect>* m_frames;
@@ -58,60 +58,60 @@ protected:
 class IdleDownState : public AnimatorState
 {
 public:
-	void animate(Sprite * s, Animator* a = nullptr) override;
+	void animate(SpriteComponent* s, Animator* a = nullptr) override;
 };
 
 class WalkDownState : public AnimatorState
 {
 public:
-	void animate(Sprite* s, Animator* a = nullptr) override;
+	void animate(SpriteComponent* s, Animator* a = nullptr) override;
 };
 
 class IdleUpState : public AnimatorState
 {
 public:
-	void animate(Sprite* s, Animator* a = nullptr) override;
+	void animate(SpriteComponent* s, Animator* a = nullptr) override;
 };
 
 class WalkUpState : public AnimatorState
 {
 public:
-	void animate(Sprite* s, Animator* a = nullptr) override;
+	void animate(SpriteComponent* s, Animator* a = nullptr) override;
 };
 
 class IdleRightState : public AnimatorState
 {
 public:
-	void animate(Sprite* s, Animator* a = nullptr) override;
+	void animate(SpriteComponent* s, Animator* a = nullptr) override;
 };
 
 class WalkRightState : public AnimatorState
 {
 public:
-	void animate(Sprite* s, Animator* a = nullptr) override;
+	void animate(SpriteComponent* s, Animator* a = nullptr) override;
 };
 
 class IdleLeftState : public AnimatorState
 {
 public:
-	void animate(Sprite* s, Animator* a = nullptr) override;
+	void animate(SpriteComponent* s, Animator* a = nullptr) override;
 };
 
 class WalkLeftState : public AnimatorState
 {
 public:
-	void animate(Sprite* s, Animator* a = nullptr) override;
+	void animate(SpriteComponent* s, Animator* a = nullptr) override;
 };
 
 class HospitalOpen : public AnimatorState
 {
 public:
-	void animate(Sprite* s, Animator* a = nullptr) override;
+	void animate(SpriteComponent* s, Animator* a = nullptr) override;
 };
 
 class HospitalClosed : public AnimatorState
 {
 public:
-	void animate(Sprite* s, Animator* a = nullptr) override;
+	void animate(SpriteComponent* s, Animator* a = nullptr) override;
 };
 
