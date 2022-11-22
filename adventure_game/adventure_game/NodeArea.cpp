@@ -1,6 +1,6 @@
 #include "NodeArea.h"
 
-NodeArea::NodeArea(std::vector<std::vector<int>> v, int offsetX, int offsetY)
+NodeArea::NodeArea(std::vector<std::vector<int>> v, int offsetX, int offsetY, bool s)
 {
 	m_offsetX = offsetX / NODE_WIDTH;
 	m_offsetY = offsetY / NODE_HEIGHT;
@@ -19,6 +19,8 @@ NodeArea::NodeArea(std::vector<std::vector<int>> v, int offsetX, int offsetY)
 			m_nodes[i].push_back(n);
 		}
 	}
+
+	m_subtract = s;
 }
 
 NodeArea::~NodeArea()
@@ -33,8 +35,20 @@ std::vector<std::vector<int>> NodeArea::initialise()
 
 Node* NodeArea::getNode(int c, int r)
 {
-	int col = c + std::abs(m_offsetY);
-	int row = r + std::abs(m_offsetX);
+	int col;
+	int row;
+
+	if (m_subtract)
+	{
+		col = c + (m_offsetY);
+		row = r + (m_offsetX);
+	}
+	else
+	{
+		col = c + std::abs(m_offsetY);
+		row = r + std::abs(m_offsetX);
+	}
+	
 
 	if (col >= m_nodes.size())
 	{

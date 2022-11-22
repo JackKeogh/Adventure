@@ -1,5 +1,6 @@
 #pragma once
 #include "Sublocation.h"
+#include "Test_Hospital_NodeArea.h"
 
 class Test_Hospital_Interior : public Sublocation
 {

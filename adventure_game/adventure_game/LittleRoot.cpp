@@ -17,7 +17,7 @@ LittleRoot::LittleRoot(Renderer* r)
 	m_sublocations.insert(std::pair<Sublocation_List, Sublocation*>(Sublocation_List::Test_Hospital_Interior, new Test_Hospital_Interior()));
 
 	// add events
-	m_events.insert(std::pair<std::string, Event*>(LITTLEROOT_EXTERIOR_HOSPITAL_WARP, new WarpEventInside(Sublocation_List::Test_Hospital_Interior, { 448, 456 })));
+	m_events.insert(std::pair<std::string, Event*>(LITTLEROOT_EXTERIOR_HOSPITAL_WARP, new WarpEventInside(Sublocation_List::Test_Hospital_Interior, { 448, 416 })));
 
 	// set camera coords
 	Camera::setActive(true);

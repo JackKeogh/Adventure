@@ -7,7 +7,7 @@ class Object;
 class NodeArea
 {
 public:
-	NodeArea(std::vector<std::vector<int>> v = std::vector<std::vector<int>>(), int offsetX = 0, int offsetY = 0);
+	NodeArea(std::vector<std::vector<int>> v = std::vector<std::vector<int>>(), int offsetX = 0, int offsetY = 0, bool subtract = false);
 
 	~NodeArea();
 
@@ -21,4 +21,5 @@ protected:
 	std::vector<std::vector<Node*>> m_nodes;
 	int m_offsetX;
 	int m_offsetY;
+	bool m_subtract;
 };

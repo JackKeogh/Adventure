@@ -11,7 +11,6 @@ Sublocation::Sublocation(std::string path, SDL_Rect src, SDL_Rect dst) {
 	}
 
 	m_objects = std::vector<Object*>();
-	m_colliders = std::vector<Collider*>();
 }
 
 Sublocation::~Sublocation() {
@@ -47,6 +46,7 @@ std::vector<Object*> Sublocation::getObjects() {
 	return m_objects;
 }
 
-std::vector<Collider*> Sublocation::getColliders() {
-	return m_colliders;
+NodeArea* Sublocation::getNodeArea()
+{
+	return m_nodes;
 }

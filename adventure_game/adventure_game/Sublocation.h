@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-#include "Collider.h"
+#include "NodeArea.h"
 #include "Object.h"
 
 class Sublocation
@@ -19,11 +19,11 @@ public:
 
 	std::vector<Object*> getObjects();
 
-	std::vector<Collider*> getColliders();
+	NodeArea* getNodeArea();
 
 protected:
 	std::vector<Object*> m_objects;
-	std::vector<Collider*> m_colliders;
 	SDL_Point m_offset;
+	NodeArea* m_nodes;
 	Sprite* m_area;
 };

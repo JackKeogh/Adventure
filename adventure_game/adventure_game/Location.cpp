@@ -198,7 +198,14 @@ Sublocation* Location::getSubLocation()
 
 NodeArea* Location::getNodeArea()
 {
-	return m_nodes;
+	if (!inSubLocation())
+	{
+		return m_nodes;
+	}
+	else
+	{
+		return m_sublocations[m_sub]->getNodeArea();
+	}
 }
 
 Object* Location::getObject(SDL_Rect r)
