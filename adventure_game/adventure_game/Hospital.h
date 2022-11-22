@@ -1,6 +1,6 @@
 #pragma once
 #include "StaticObject.h"
-#include "WarpTile.h"
+#include "Sublocation_List.h"
 
 class Hospital : public StaticObject
 {
@@ -17,10 +17,7 @@ public:
 
 	void changeAnimation(Animations a) override;
 
-	Tile* getTile() override;
-
 protected:
-	Tile* m_tile;
 	Animator* m_animator;
 };
 

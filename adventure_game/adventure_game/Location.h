@@ -2,12 +2,11 @@
 #include "stdafx.h"
 #include "Sprite.h"
 #include "LocationName.h"
-#include "Collider.h"
 #include "Camera.h"
-#include "ChangeLocationTile.h"
 #include "Test_Hospital_Exterior.h"
 #include "Sublocation_Include.h"
 #include "NodeArea.h"
+#include "EventIncludes.h"
 
 class Location
 {

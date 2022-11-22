@@ -86,7 +86,7 @@ void MovementSystem::MoveDown(DynamicObject* c, LocationManager* manager)
 
 				if (o != nullptr)
 				{
-					if (o->getSprite(ANIMATOR) != nullptr)
+					if (o->getSprite(ObjectTag::ANIMATOR) != nullptr)
 					{
 						o->animate();
 					}
@@ -146,7 +146,7 @@ void MovementSystem::MoveUp(DynamicObject* c, LocationManager* manager)
 
 				if (o != nullptr)
 				{
-					if (o->getSprite(ANIMATOR) != nullptr)
+					if (o->getSprite(ObjectTag::ANIMATOR) != nullptr)
 					{
 						o->animate();
 					}
@@ -206,7 +206,7 @@ void MovementSystem::MoveLeft(DynamicObject* c, LocationManager* manager)
 
 				if (o != nullptr)
 				{
-					if (o->getSprite(ANIMATOR) != nullptr)
+					if (o->getSprite(ObjectTag::ANIMATOR) != nullptr)
 					{
 						o->animate();
 					}
@@ -267,7 +267,7 @@ void MovementSystem::MoveRight(DynamicObject* c, LocationManager* manager)
 
 				if (o != nullptr)
 				{
-					if (o->getSprite(ANIMATOR) != nullptr)
+					if (o->getSprite(ObjectTag::ANIMATOR) != nullptr)
 					{
 						o->animate();
 					}

@@ -1,8 +1,8 @@
 #include "LocationManager.h"
 
-LocationManager::LocationManager(Renderer* r)
+LocationManager::LocationManager(Renderer* r, DynamicObject* d)
 {
-	m_location = new LittleRoot(r);
+	m_location = new LittleRoot(r, d);
 	m_location->addConnection(LocationName::Route101, new Route101(r));
 	m_location->getLocation(LocationName::Route101)->addConnection(m_location->getCurrentLocation(), m_location);
 }
@@ -18,7 +18,7 @@ void LocationManager::update(float dt)
 
 void LocationManager::updateSubLocation(Event* e)
 {
-	WarpEventInside* warp = EventCasting::WarpEventCast(e);
+	WarpEventInside* warp = EventCasting::WarpInsideEventCast(e);
 
 	Sublocation_List sll = warp->getSubLocation();
 
@@ -33,6 +33,11 @@ void LocationManager::updateSubLocation(Event* e)
 
 	SDL_Point p = warp->getPoint();
 	m_location->getSubLocation()->setPosition(p);
+}
+
+void LocationManager::exitSubLocation()
+{
+	m_location->setSubLocation(Sublocation_List::Null);
 }
 
 void LocationManager::changeLocation(LocationName loc)

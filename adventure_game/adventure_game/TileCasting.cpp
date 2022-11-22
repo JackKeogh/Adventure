@@ -6,7 +6,7 @@ ChangeLocationTile* TileCasting::ChangeLocationTileCast(Tile* p)
 
 	if (ptr == nullptr)
 	{
-		std::cout << ERROR_CASTING_FAILEDTOCAST << std::endl;
+		std::cout << Error::ERROR_CASTING_FAILEDTOCAST << std::endl;
 	}
 
 	return ptr;
@@ -18,7 +18,7 @@ WarpTile* TileCasting::WarpTileCast(Tile* p)
 
 	if (ptr == nullptr)
 	{
-		std::cout << ERROR_CASTING_FAILEDTOCAST << std::endl;
+		std::cout << Error::ERROR_CASTING_FAILEDTOCAST << std::endl;
 	}
 
 	return ptr;

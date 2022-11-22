@@ -6,5 +6,5 @@
 class LittleRoot : public Location
 {
 public:
-	LittleRoot(Renderer* r);
+	LittleRoot(Renderer* r, DynamicObject* d);
 };

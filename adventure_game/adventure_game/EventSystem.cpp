@@ -28,6 +28,7 @@ void EventSystem::setEvent(Event* e)
 void EventSystem::reset()
 {
 	delete m_event;
+	m_event = nullptr;
 }
 
 void EventSystem::update()
@@ -52,7 +53,21 @@ void EventSystem::render()
 
 bool EventSystem::isNull()
 {
-	return m_event == nullptr ? true : false;
+	if (m_event != nullptr)
+	{
+		if (m_event->hasEnded())
+		{
+			m_event->setHasEnded(false);
+			m_event = nullptr;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	return true;
 }
 
 Event* EventSystem::getEvent()

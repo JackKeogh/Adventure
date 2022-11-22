@@ -17,6 +17,8 @@ public:
 
 	virtual void update();
 
+	virtual void initialise();
+
 	void checkComplete();
 
 	void checkOutOfRange();
@@ -25,8 +27,13 @@ public:
 
 	bool isComplete();
 
+	bool hasEnded();
+
+	void setHasEnded(bool e);
+
 protected:
 	std::vector<EventCommand*> m_commands;
+	bool m_end;
 	int m_current;
 	int m_events;
 	bool m_complete;

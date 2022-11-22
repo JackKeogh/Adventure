@@ -10,8 +10,8 @@ Overworld::~Overworld() {
 
 void Overworld::initialise(Renderer* r) {
 	m_running = true;
-	m_locManager = new LocationManager(r);
 	player = new DynamicObject(r, "assets/34024.png", { 9,40,22,27 }, { 256,192,NODE_WIDTH,NODE_HEIGHT });
+	m_locManager = new LocationManager(r, player);
 	Camera::initialise(player->getPosition());
 	LocationDisplay::initialise(r);
 	LayerRenderer::initialise();
@@ -75,8 +75,12 @@ void Overworld::update(float dt) {
 			m_locManager->updateSubLocation(EventSystem::getEvent());
 			EventSystem::update();
 			break;
-		case OverworldState::Transition_Inside_FadeOut:
-		case OverworldState::Transition_Inside_FadeIn:
+		case OverworldState::Transition_Outside_ChangeWorld:
+			m_locManager->exitSubLocation();
+			EventSystem::update();
+			break;
+		case OverworldState::Transition_FadeOut:
+		case OverworldState::Transition_FadeIn:
 			m_locManager->render();
 			player->render();
 			EventSystem::update();
@@ -84,6 +88,9 @@ void Overworld::update(float dt) {
 		case OverworldState::Inside:
 			m_locManager->update(dt);
 			player->update(dt);
+			Camera::update(player->getPosition());
+			CollisionSystem::Collision(player, m_locManager);
+			EventSystem::update();
 			break;
 		case OverworldState::Paused:
 			//std::cout << "Paused" << std::endl;

@@ -63,11 +63,24 @@ void DynamicObject::render()
 	LayerRenderer::addSprite(sc);
 }
 
+void DynamicObject::setPosition(SDL_Point p)
+{
+	Object::setPosition(p);
+
+	MovementComponent* mc = ComponentCasting::MovementCasting(
+		getComponent(Component_Type::MOVEMENT)
+	);
+
+	mc->setPosition(p.x, p.y);
+
+	syncSpriteMovement();
+}
+
 void DynamicObject::addComponent(Component* c)
 {
 	if (c == nullptr)
 	{
-		std::cout << ERROR_DYANAMICOBJECT_COMPONENT_ADD << std::endl;
+		std::cout << Error::ERROR_DYANAMICOBJECT_COMPONENT_ADD << std::endl;
 		return;
 	}
 
@@ -77,7 +90,7 @@ void DynamicObject::addComponent(Component* c)
 	}
 	else
 	{
-		std::cout << ERROR_DYANAMICOBJECT_COMPONENT_ADD_EXISTS << std::endl;
+		std::cout << Error::ERROR_DYANAMICOBJECT_COMPONENT_ADD_EXISTS << std::endl;
 	}
 }
 
@@ -87,7 +100,7 @@ Component* DynamicObject::getComponent(Component_Type ct)
 
 	if (c == nullptr)
 	{
-		std::cout << ERROR_DYANAMICOBJECT_COMPONENT_GET_DNEXISTS << std::endl;
+		std::cout << Error::ERROR_DYANAMICOBJECT_COMPONENT_GET_DNEXISTS << std::endl;
 	}
 
 	return c;

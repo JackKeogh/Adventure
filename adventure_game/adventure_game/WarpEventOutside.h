@@ -5,16 +5,15 @@
 #include "ChangeOverworldState.h"
 #include "Sublocation_Include.h"
 #include "WaitCommand.h"
+#include "SetDynamicObjectPositionCommand.h"
 
-class WarpEventInside : public Event
+class WarpEventOutside : public Event
 {
 public:
-	WarpEventInside(Sublocation_List sl = Sublocation_List::Null, SDL_Point p = { 0,0 });
-	~WarpEventInside();
+	WarpEventOutside(SDL_Point p = { 0,0 }, DynamicObject* d = nullptr);
+	~WarpEventOutside();
 
 	void initialise() override;
-
-	Sublocation_List getSubLocation();
 
 	SDL_Point getPoint();
 
@@ -24,7 +23,7 @@ public:
 
 private:
 	Sprite* m_sprite;
-	Sublocation_List m_sub;
 	SDL_Point m_point;
+	DynamicObject* m_obj;
 };
 

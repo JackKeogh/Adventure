@@ -40,8 +40,12 @@ void CollisionSystem::Collision(DynamicObject* c, LocationManager* loc)
 
 void CollisionSystem::WarpReaction(DynamicObject* c, LocationManager* loc, Node* n)
 {
-	if (n->m_warpID == LITTLEROOT_EXTERIOR_HOSPITAL_WARP)
+	if (n->m_warpID == WarpID::LITTLEROOT_EXTERIOR_HOSPITAL_WARP)
 	{
-		EventSystem::setEvent(loc->getLocation()->getEvent(LITTLEROOT_EXTERIOR_HOSPITAL_WARP));
+		EventSystem::setEvent(loc->getLocation()->getEvent(WarpID::LITTLEROOT_EXTERIOR_HOSPITAL_WARP));
+	}
+	else if (n->m_warpID == WarpID::LITTLEROOT_INTERIOR_HOSPITAL_WARP_EXIT)
+	{
+		EventSystem::setEvent(loc->getLocation()->getEvent(WarpID::LITTLEROOT_INTERIOR_HOSPITAL_WARP_EXIT));
 	}
 }

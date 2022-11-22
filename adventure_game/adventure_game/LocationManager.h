@@ -6,13 +6,15 @@
 class LocationManager
 {
 public:
-	LocationManager(Renderer* r = nullptr);
+	LocationManager(Renderer* r = nullptr, DynamicObject* d = nullptr);
 
 	~LocationManager();
 
 	void update(float dt);
 
 	void updateSubLocation(Event* e);
+
+	void exitSubLocation();
 
 	void changeLocation(LocationName loc);
 

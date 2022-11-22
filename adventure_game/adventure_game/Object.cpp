@@ -82,6 +82,12 @@ std::string Object::getWarpID()
 	return m_warpID;
 }
 
+void Object::setPosition(SDL_Point p)
+{
+	m_position.x = p.x;
+	m_position.y = p.y;
+}
+
 void Object::setPosition(SDL_Rect r)
 {
 	m_position.x = r.x;

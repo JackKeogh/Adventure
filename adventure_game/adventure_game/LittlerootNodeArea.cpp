@@ -23,7 +23,7 @@ LittlerootNodeArea::LittlerootNodeArea()
 			else
 			{
 				n = new Node(j - m_offsetX, i + m_offsetY, Collide_Types::WARP);
-				n->m_warpID = LITTLEROOT_EXTERIOR_HOSPITAL_WARP;
+				n->m_warpID = WarpID::LITTLEROOT_EXTERIOR_HOSPITAL_WARP;
 			}
 			m_nodes[i].push_back(n);
 		}

@@ -2,6 +2,7 @@
 
 Event::Event()
 {
+	m_end = false;
 	m_complete = false;
 	m_events = 0;
 	m_current = 0;
@@ -17,6 +18,8 @@ void Event::reset()
 	removeCommands();
 	m_current = 0;
 	m_events = 0;
+
+	initialise();
 }
 
 void Event::removeCommands()
@@ -42,6 +45,10 @@ void Event::update()
 	}
 }
 
+void Event::initialise()
+{
+}
+
 void Event::checkComplete()
 {
 	if (m_commands[m_current]->isComplete())
@@ -54,6 +61,7 @@ void Event::checkOutOfRange()
 {
 	if (m_current >= m_events)
 	{
+		m_end = true;
 		reset();
 	}
 }
@@ -69,4 +77,14 @@ void Event::render()
 bool Event::isComplete()
 {
 	return m_complete;
+}
+
+bool Event::hasEnded()
+{
+	return m_end;
+}
+
+void Event::setHasEnded(bool e)
+{
+	m_end = e;
 }

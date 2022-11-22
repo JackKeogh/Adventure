@@ -10,15 +10,16 @@ Hospital::Hospital(Renderer* r, SDL_Rect pos, Sublocation_List sl) :
 	p2.y = p1.h + p1.y;
 	p2.h = NODE_HEIGHT / 2;
 
-	m_sprites.insert(std::pair<std::string, SpriteComponent*>(BACKGROUND, new SpriteComponent(r, "assets/buildings/pokecentre_background.png", { 0,0,64,8 }, p2, RenderLayer::Background)));
-	m_sprites.insert(std::pair<std::string, SpriteComponent*>(FOREGROUND, new SpriteComponent(r, "assets/buildings/pokecentre_foreground.png", { 0,0,64,47 }, p1, RenderLayer::Foreground)));
+	m_sprites.insert(std::pair<std::string, SpriteComponent*>(ObjectTag::BACKGROUND, new SpriteComponent(r, "assets/buildings/pokecentre_background.png",
+					{ 0,0,64,8 }, p2, RenderLayer::Background)));
+	m_sprites.insert(std::pair<std::string, SpriteComponent*>(ObjectTag::FOREGROUND, new SpriteComponent(r, "assets/buildings/pokecentre_foreground.png",
+					{ 0,0,64,47 }, p1, RenderLayer::Foreground)));
 
 	int w = NODE_WIDTH, h = NODE_HEIGHT * 1.5;
 	int x = w + pos.x, y = (NODE_HEIGHT * 2.5) + pos.y;
 
-	m_sprites.insert(std::pair<std::string, SpriteComponent*>(ANIMATOR, new SpriteComponent(r, "assets/buildings/pokecentre_door.png", { 0,0,16,19 }, { x, y, w, h })));
-	m_animator = new Animator(m_sprites[ANIMATOR], Animations::Hospital_Closed);
-	m_tile = new WarpTile({ x, y, w, 16 }, CollisionType::On_Entry_Up, new WarpEventInside(sl, { x, y }));
+	m_sprites.insert(std::pair<std::string, SpriteComponent*>(ObjectTag::ANIMATOR, new SpriteComponent(r, "assets/buildings/pokecentre_door.png", { 0,0,16,19 }, { x, y, w, h })));
+	m_animator = new Animator(m_sprites[ObjectTag::ANIMATOR], Animations::Hospital_Closed);
 }
 
 Hospital::~Hospital()
@@ -52,9 +53,4 @@ void Hospital::changeAnimation(Animations a)
 {
 	m_animator->changeState(a);
 	m_animator->update();
-}
-
-Tile* Hospital::getTile()
-{
-	return m_tile;
 }

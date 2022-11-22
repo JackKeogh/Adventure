@@ -13,7 +13,7 @@ SpriteComponent* ComponentCasting::SpriteCasting(Component* c)
 
 		if (sc == nullptr)
 		{
-			std::cout << ERROR_CASTING_FAILEDTOCAST << std::endl;
+			std::cout << Error::ERROR_CASTING_FAILEDTOCAST << std::endl;
 		}
 
 		return sc;
@@ -35,7 +35,7 @@ MovementComponent* ComponentCasting::MovementCasting(Component* c)
 
 		if (mc == nullptr)
 		{
-			std::cout << ERROR_CASTING_FAILEDTOCAST << std::endl;
+			std::cout << Error::ERROR_CASTING_FAILEDTOCAST << std::endl;
 		}
 
 		return mc;
@@ -57,7 +57,7 @@ Animator* ComponentCasting::AnimatorCasting(Component* c)
 
 		if (a == nullptr)
 		{
-			std::cout << ERROR_CASTING_FAILEDTOCAST << std::endl;
+			std::cout << Error::ERROR_CASTING_FAILEDTOCAST << std::endl;
 		}
 
 		return a;

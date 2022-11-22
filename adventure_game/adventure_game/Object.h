@@ -43,6 +43,8 @@ public:
 
 	std::string getWarpID();
 
+	virtual void setPosition(SDL_Point p);
+
 	void setPosition(SDL_Rect r);
 
 	SDL_Rect getPosition();
