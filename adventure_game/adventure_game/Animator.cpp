@@ -282,9 +282,9 @@ void HospitalClosed::animate(SpriteComponent* s, Animator* a)
 {
 	if (s->getLayer() == RenderLayer::Foreground)
 	{
-		m_timer = 1.f;
+		m_timer += 1.f / FPS;
 
-		if (m_timer >= 2.f)
+		if (m_timer >= 2.5f)
 		{
 			s->setLayer(RenderLayer::Background);
 		}

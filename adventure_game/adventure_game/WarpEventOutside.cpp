@@ -19,7 +19,7 @@ void WarpEventOutside::initialise()
 {
 	m_sprite->setAlpha(0);
 	addCommand(new ChangeOverworldState(OverworldState::Event));
-	addCommand(new WaitCommand(3.f));
+	addCommand(new WaitCommand(1.f));
 	addCommand(new ChangeOverworldState(OverworldState::Transition_FadeOut));
 	addCommand(new FadeOut(m_sprite));
 	addCommand(new ChangeOverworldState(OverworldState::Transition_Outside_ChangeWorld));
