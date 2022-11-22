@@ -4,7 +4,6 @@
 #include "LayerRenderer.h"
 #include "Sprite.h"
 #include "LocationManager.h"
-#include "Character.h"
 #include "CollisionSystem.h"
 #include "LocationDisplay.h"
 #include "Transitions.h"

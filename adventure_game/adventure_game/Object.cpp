@@ -57,11 +57,6 @@ void Object::animate()
 	return;
 }
 
-Tile* Object::getTile()
-{
-	return nullptr;
-}
-
 SpriteComponent* Object::getSprite(std::string key)
 {
 	return m_sprites[key];

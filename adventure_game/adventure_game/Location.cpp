@@ -166,16 +166,6 @@ LocationName Location::getCurrentLocation()
 	return m_name;
 }
 
-std::vector<Collider*> Location::getColliders()
-{
-	return m_colliders;
-}
-
-std::vector<Tile*> Location::getTiles()
-{
-	return m_tiles;
-}
-
 std::vector<Object*> Location::getObjects()
 {
 	return m_objects;

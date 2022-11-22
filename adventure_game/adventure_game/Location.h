@@ -40,10 +40,6 @@ public:
 	std::string getCurrentName();
 
 	LocationName getCurrentLocation();
-	
-	std::vector<Collider*> getColliders();
-
-	std::vector<Tile*> getTiles();
 
 	std::vector<Object*> getObjects();
 
@@ -73,8 +69,6 @@ protected:
 	Sublocation_List m_sub;
 	NodeArea* m_nodes;
 	std::map<LocationName, Location*> m_connections;
-	std::vector<Collider*> m_colliders;
-	std::vector<Tile*> m_tiles;
 	std::vector<Object*> m_objects;
 	std::map<std::string, Event*> m_events;
 	std::map<Sublocation_List, Sublocation*> m_sublocations;

@@ -2,9 +2,7 @@
 #include "stdafx.h"
 #include "LayerRenderer.h"
 #include "SpriteComponent.h"
-#include "Collider.h"
 #include "Animator.h"
-#include "Tile.h"
 #include "Node.h"
 #include "NodeArea.h"
 
@@ -32,8 +30,6 @@ public:
 	virtual void changeAnimation(Animations a);
 
 	virtual void animate();
-
-	virtual Tile* getTile();
 
 	SpriteComponent* getSprite(std::string key);
 
