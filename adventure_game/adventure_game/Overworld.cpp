@@ -69,6 +69,7 @@ void Overworld::update(float dt) {
 		case OverworldState::Event:
 			player->update(dt);
 			m_locManager->update(dt);
+			Camera::update(player->getPosition());
 			EventSystem::update();
 			break;
 		case OverworldState::Transition_Inside_ChangeWorld:
