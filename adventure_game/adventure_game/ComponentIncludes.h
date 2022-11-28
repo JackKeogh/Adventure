@@ -4,3 +4,4 @@
 #include "MovementComponent.h"
 #include "SpriteComponent.h"
 #include "Animator.h"
+#include "DialogueComponent.h"

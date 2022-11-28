@@ -65,3 +65,25 @@ Animator* ComponentCasting::AnimatorCasting(Component* c)
 
 	return nullptr;
 }
+
+DialogueComponent* ComponentCasting::DialogueCasting(Component* c)
+{
+	if (c == nullptr)
+	{
+		return nullptr;
+	}
+
+	if (c->getType() == Component_Type::DIALOGUE)
+	{
+		DialogueComponent* dc = dynamic_cast<DialogueComponent*>(c);
+
+		if (dc == nullptr)
+		{
+			std::cout << Error::ERROR_CASTING_FAILEDTOCAST << std::endl;
+		}
+
+		return dc;
+	}
+
+	return nullptr;
+}

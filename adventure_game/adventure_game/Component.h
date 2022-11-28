@@ -7,7 +7,8 @@ enum class Component_Type {
 	BASE,
 	MOVEMENT,
 	SPRITE,
-	ANIMATOR
+	ANIMATOR,
+	DIALOGUE
 };
 
 class Component
