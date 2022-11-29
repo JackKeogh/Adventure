@@ -5,6 +5,7 @@
 #include <string>
 #include <stdlib.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 #include <map>
 #include <vector>
 #include "Tags.h"

@@ -83,14 +83,19 @@ void Game::SDLInitialise() {
 	// Initialise Base SDL
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 	{
-		std::cout << "Failed to initialise SDL..." << std::endl;
+		std::cout << SDL_ERROR::SDL_ERROR_INITIALISE << std::endl;
 		exit(-1);
 	}
 
 	// initialise image
 	if (IMG_Init(IMG_INIT_PNG) < 0)
 	{
-		std::cout << "Failed to initialise Image..." << std::endl;
+		std::cout << SDL_ERROR::SDL_ERROR_IMAGE << std::endl;
+	}
+
+	if (TTF_Init() < 0)
+	{
+		std::cout << SDL_ERROR::SDL_ERROR_TEXT << std::endl;
 	}
 }
 

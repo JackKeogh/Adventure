@@ -1,8 +1,17 @@
 #pragma once
 #include <string>
 
+/*----- SDL Errors -----*/
+namespace SDL_ERROR
+{
+	const std::string SDL_ERROR_INITIALISE = "Failed to initialise SDL...";
+	const std::string SDL_ERROR_TEXT = "Failed to initialise Text...";
+	const std::string SDL_ERROR_IMAGE = "Failed to initialise Image...";
+}
+
 /*----- Warp Tags -----*/
-namespace WarpID {
+namespace WarpID 
+{
 	const std::string LITTLEROOT_EXTERIOR_HOSPITAL_WARP = "LITTLEROOT_EXTERIOR_HOSPITAL";
 	const std::string LITTLEROOT_INTERIOR_HOSPITAL_WARP_EXIT = "LITTLEROOT_INTERIOR_HOSPITAL_WARP_EXIT";
 }
