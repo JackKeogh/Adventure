@@ -7,6 +7,7 @@ namespace SDL_ERROR
 	const std::string SDL_ERROR_INITIALISE = "Failed to initialise SDL...";
 	const std::string SDL_ERROR_TEXT = "Failed to initialise Text...";
 	const std::string SDL_ERROR_IMAGE = "Failed to initialise Image...";
+	const std::string SDL_ERROR_FONT = "Failed to open font file...";
 }
 
 /*----- Warp Tags -----*/

@@ -69,6 +69,9 @@ Game::Game() {
 	m_renderer = new Renderer();
 	m_renderer->initialise("Pokemon: Remade",0,0,SCREEN_WIDTH,SCREEN_HEIGHT);
 
+	// Initialise Options
+	Options::initialise();
+
 	// Initialise World
 	m_world = new Overworld();
 }

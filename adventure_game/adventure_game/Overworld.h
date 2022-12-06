@@ -9,6 +9,7 @@
 #include "Transitions.h"
 #include "EventSystem.h"
 #include "MovementSystem.h"
+#include "DialogueSystem.h"
 #include "DynamicObject.h"
 
 class Overworld {

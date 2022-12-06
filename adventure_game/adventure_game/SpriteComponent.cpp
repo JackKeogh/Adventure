@@ -7,6 +7,20 @@ SpriteComponent::SpriteComponent(Renderer* renderer, std::string path, SDL_Rect 
 	m_type = Component_Type::SPRITE;
 }
 
+SpriteComponent::SpriteComponent(SDL_Renderer* renderer, std::string path, SDL_Rect s, SDL_Rect d, RenderLayer l) :
+	Sprite(renderer, path, s, d)
+{
+	m_layer = l;
+	m_type = Component_Type::SPRITE;
+}
+
+SpriteComponent::SpriteComponent(SDL_Texture* t, SDL_Rect d, RenderLayer l) :
+	Sprite(t, d)
+{
+	m_layer = l;
+	m_type = Component_Type::SPRITE;
+}
+
 SpriteComponent::~SpriteComponent()
 {
 

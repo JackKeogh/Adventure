@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "RenderingSystem.h"
+#include "Options.h"
 #include "Overworld.h"
 
 class GameLoopController {

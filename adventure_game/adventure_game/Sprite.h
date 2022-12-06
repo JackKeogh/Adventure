@@ -9,6 +9,7 @@ public:
 
 	Sprite(Renderer* renderer, std::string path, SDL_Rect s = { 0,0,0,0 }, SDL_Rect d = { 0,0,0,0 });
 	Sprite(SDL_Renderer* renderer, std::string path, SDL_Rect s = { 0,0,0,0 }, SDL_Rect d = { 0,0,0,0 });
+	Sprite(SDL_Texture* t, SDL_Rect d = { 0,0,0,0 });
 
 	~Sprite();
 
@@ -19,6 +20,10 @@ public:
 	void setSource(SDL_Rect r);
 
 	void setAlpha(Uint8 a);
+
+	void setTexture(SDL_Texture* t);
+
+	void setWidth(int width);
 
 	Uint8 getAlpha();
 

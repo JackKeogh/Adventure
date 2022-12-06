@@ -8,6 +8,7 @@ enum class RenderLayer {
 	Player,
 	Foreground,
 	UI,
+	Dialogue,
 	Transitions
 };
 

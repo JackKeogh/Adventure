@@ -32,6 +32,18 @@ Sprite::Sprite(SDL_Renderer* renderer, std::string path, SDL_Rect s, SDL_Rect d)
 	m_alpha = 255;
 }
 
+Sprite::Sprite(SDL_Texture* t, SDL_Rect d)
+{
+	m_texture = t;
+	m_destRect = d;
+
+	m_srcRect = { 0,0,0,0 };
+
+	SDL_QueryTexture(m_texture, NULL, NULL, &m_srcRect.w, &m_srcRect.h);
+
+	m_alpha = 255;
+}
+
 Sprite::~Sprite() {
 	SDL_DestroyTexture(m_texture);
 }
@@ -60,6 +72,17 @@ void Sprite::setAlpha(Uint8 a)
 {
 	m_alpha = a;
 	SDL_SetTextureAlphaMod(m_texture, m_alpha);
+}
+
+void Sprite::setTexture(SDL_Texture* t)
+{
+	m_texture = t;
+	SDL_QueryTexture(m_texture, NULL, NULL, &m_srcRect.w, &m_srcRect.h);
+}
+
+void Sprite::setWidth(int width)
+{
+	m_destRect.w = width;
 }
 
 Uint8 Sprite::getAlpha()
