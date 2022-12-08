@@ -85,6 +85,11 @@ void Sprite::setWidth(int width)
 	m_destRect.w = width;
 }
 
+void Sprite::setHeight(int height)
+{
+	m_destRect.h = height;
+}
+
 Uint8 Sprite::getAlpha()
 {
 	return m_alpha;

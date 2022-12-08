@@ -19,7 +19,7 @@ void Overworld::initialise(Renderer* r) {
 	OverworldStateController::changeState(OverworldState::Dialog);
 	DialogueSystem::initialise();
 	Options::setDialogueTextSpeed(TextSpeed::FAST);
-	DialogueSystem::setDialogText("the quick brown fox jumped over the lazy dog and ");
+	DialogueSystem::setDialogText("the quick brown fox jumped over the lazy dog and snuck through the fence. What are the fox's special powers and does he even eat or sleep?");
 }
 
 void Overworld::events(SDL_Event* e) {

@@ -25,6 +25,8 @@ public:
 
 	void setWidth(int width);
 
+	void setHeight(int height);
+
 	Uint8 getAlpha();
 
 	SDL_Rect getPosition();

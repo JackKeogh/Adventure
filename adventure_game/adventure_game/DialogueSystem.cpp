@@ -25,8 +25,6 @@ void DialogueSystem::update()
 		{
 			m_displayText = m_text.substr(0, m_count);
 
-			std::cout << m_displayText << std::endl;
-
 			createTexture();
 
 			m_count++;
@@ -71,28 +69,22 @@ void DialogueSystem::createTexture()
 
 	if (m_texture == nullptr)
 	{
-		SDL_Surface* surface = TTF_RenderText_Solid(Options::getFont(), m_displayText.c_str(), Options::getColor());
+		SDL_Surface* surface = TTF_RenderText_Solid_Wrapped(Options::getFont(), m_displayText.c_str(), Options::getColor(), CHARS_PER_LINE*16);
 
 		m_texture = SDL_CreateTextureFromSurface(Renderer::Render(), surface);
 
-		int width = 16 * m_count;
-
-		if ((Camera::getX() + 100 + width) > (Camera::getX() + SCREEN_WIDTH - 100))
-		{
-			std::cout << "Out of Bounds" << std::endl;
-		}
+		SDL_Rect dest = { Camera::getX() + 100, (Camera::getY() + SCREEN_HEIGHT - 190), 0, 0 };
+		SDL_QueryTexture(m_texture, NULL, NULL, &dest.w, &dest.h);
 
 		if (m_textSprite == nullptr)
 		{
-			SDL_Rect dest = { Camera::getX() + 100, (Camera::getY() + SCREEN_HEIGHT - 200), width, 0 };
-			SDL_QueryTexture(m_texture, NULL, NULL, NULL, &dest.h);
-
 			m_textSprite = new SpriteComponent(m_texture, dest, RenderLayer::Dialogue);
 		}
 		else
 		{
 			m_textSprite->setTexture(m_texture);
-			m_textSprite->setWidth(width);
+			m_textSprite->setWidth(dest.w);
+			m_textSprite->setHeight(dest.h);
 		}
 
 		SDL_FreeSurface(surface);
@@ -114,7 +106,7 @@ float DialogueSystem::getEndTime()
 	switch (Options::getDialogueTextSpeed())
 	{
 		case TextSpeed::FAST:
-			return 0.15f;
+			return 0.06f;
 		case TextSpeed::SLOW:
 			return 1.f;
 		default:
