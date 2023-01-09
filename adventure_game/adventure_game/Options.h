@@ -7,6 +7,8 @@
 #ifndef OPTIONS_H
 #define OPTIONS_H
 
+#define CHARS_PER_LINE 50
+
 enum class TextSpeed
 {
 	SLOW,

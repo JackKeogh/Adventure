@@ -1,5 +1,7 @@
 #pragma once
 #include "Component.h"
+#include "Dialogue.h"
+#include "Options.h"
 
 #ifndef DIALOGUECOMPONENT_HEADER
 #define DIALOGUECOMPONENT_HEADER
@@ -11,10 +13,13 @@ public:
 	~DialogueComponent();
 
 	void setDialogue(std::string s);
-	std::string getDialogue();
+	std::vector<Dialogue*> getDialogue();
 
 protected:
-	std::string m_dialogue;
+	std::vector<Dialogue*> m_dialogue;
+
+private:
+	void createDialogue(std::string d);
 };
 
 #endif // !DIALOGUECOMPONENT_HEADER

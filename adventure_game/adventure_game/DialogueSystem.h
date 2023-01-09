@@ -7,8 +7,6 @@
 #ifndef DIALOGUESYSTEM_HEADER
 #define DIALOGUESYSTEM_HEADER
 
-#define CHARS_PER_LINE 50
-
 class DialogueSystem 
 {
 public:
