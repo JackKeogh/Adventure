@@ -12,17 +12,12 @@ void Overworld::initialise(Renderer* r) {
 	m_running = true;
 	player = new DynamicObject(r, "assets/34024.png", { 9,40,22,27 }, { 256,192,NODE_WIDTH,NODE_HEIGHT });
 
-	player->addComponent(new DialogueComponent("the quick brown fox jumped over the lazy dog and snuck through the fence. What are the fox's special powers and does he even eat or sleep? This is a test this is a test this is a test"));
-
 	m_locManager = new LocationManager(r, player);
 	DialogueSystem::initialise();
 	Camera::initialise(player->getPosition());
 	LocationDisplay::initialise(r);
 	LayerRenderer::initialise();
-	OverworldStateController::changeState(OverworldState::Dialog);
 	DialogueSystem::initialise();
-	Options::setDialogueTextSpeed(TextSpeed::FAST);
-	DialogueSystem::setDialogText("the quick brown fox jumped over the lazy dog and snuck through the fence. What are the fox's special powers and does he even eat or sleep?");
 }
 
 void Overworld::events(SDL_Event* e) {
@@ -71,7 +66,6 @@ void Overworld::update(float dt) {
 			m_locManager->update(dt);
 			Camera::update(player->getPosition());
 			CollisionSystem::Collision(player, m_locManager);
-			DialogueSystem::update();
 			LocationDisplay::update(dt);
 			EventSystem::update();
 			break;
