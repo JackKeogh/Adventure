@@ -38,19 +38,19 @@ void Overworld::events(SDL_Event* e) {
 		if (OverworldStateController::getState() == OverworldState::Overworld ||
 			OverworldStateController::getState() == OverworldState::Inside)
 		{
-			if (e->key.keysym.sym == SDLK_w)
+			if (e->key.keysym.sym == Options::getKeyInputUp())
 			{
 				MovementSystem::MoveUp(player, m_locManager);
 			}
-			else if (e->key.keysym.sym == SDLK_s)
+			else if (e->key.keysym.sym == Options::getKeyInputDown())
 			{
 				MovementSystem::MoveDown(player, m_locManager);
 			}
-			if (e->key.keysym.sym == SDLK_a)
+			if (e->key.keysym.sym == Options::getKeyInputLeft())
 			{
 				MovementSystem::MoveLeft(player, m_locManager);
 			}
-			else if (e->key.keysym.sym == SDLK_d)
+			else if (e->key.keysym.sym == Options::getKeyInputRight())
 			{
 				MovementSystem::MoveRight(player, m_locManager);
 			}

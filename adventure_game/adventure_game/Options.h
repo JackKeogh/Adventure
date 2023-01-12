@@ -11,7 +11,7 @@
 
 enum class TextSpeed
 {
-	SLOW,
+	SLOW = 0,
 	NORMAL,
 	FAST
 };
@@ -28,6 +28,16 @@ struct DialogueOptions
 	void initialise();
 };
 
+struct KeyInputOptions
+{
+	SDL_KeyCode m_left;
+	SDL_KeyCode m_right;
+	SDL_KeyCode m_up;
+	SDL_KeyCode m_down;
+
+	void initialise();
+};
+
 class Options
 {
 public:
@@ -40,8 +50,18 @@ public:
 	static TTF_Font* getFont();
 	static SDL_Color getColor();
 
+	static SDL_KeyCode getKeyInputUp();
+	static void setKeyInputUp(SDL_KeyCode k);
+	static SDL_Keycode getKeyInputDown();
+	static void setKeyInputDown(SDL_KeyCode k);
+	static SDL_KeyCode getKeyInputLeft();
+	static void setKeyInputLeft(SDL_KeyCode k);
+	static SDL_KeyCode getKeyInputRight();
+	static void setKeyInputRight(SDL_KeyCode k);
+
 private:
 	static DialogueOptions m_dialogue;
+	static KeyInputOptions m_keyInputs;
 };
 
 #endif //OPTIONS_H
