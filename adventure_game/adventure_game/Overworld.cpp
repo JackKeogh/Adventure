@@ -17,7 +17,9 @@ void Overworld::initialise(Renderer* r) {
 	Camera::initialise(player->getPosition());
 	LocationDisplay::initialise(r);
 	LayerRenderer::initialise();
-	DialogueSystem::initialise();
+
+	Options::setKeyInputUp(SDLK_w);
+	Options::saveJSON();
 }
 
 void Overworld::events(SDL_Event* e) {

@@ -2,6 +2,9 @@
 #include <string>
 #include <SDL_ttf.h>
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <json/json.h>
 #include "Tags.h"
 
 #ifndef OPTIONS_H
@@ -43,6 +46,9 @@ class Options
 public:
 	static void initialise();
 
+	static void loadJSON();
+	static void saveJSON();
+
 	static float getDialogueTimer();
 	static void setDialogueTimer(float t);
 	static TextSpeed getDialogueTextSpeed();
@@ -62,6 +68,7 @@ public:
 private:
 	static DialogueOptions m_dialogue;
 	static KeyInputOptions m_keyInputs;
+	static std::string m_fileName;
 };
 
 #endif //OPTIONS_H

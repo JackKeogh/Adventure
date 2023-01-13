@@ -40,11 +40,66 @@ void DialogueOptions::initialise()
 
 DialogueOptions Options::m_dialogue = DialogueOptions();
 KeyInputOptions Options::m_keyInputs = KeyInputOptions();
+std::string Options::m_fileName = "GameData.json";
+
 
 void Options::initialise()
 {
 	m_dialogue.initialise();
 	m_keyInputs.initialise();
+
+	loadJSON();
+}
+
+void Options::loadJSON()
+{
+	std::ifstream file(m_fileName);
+
+	Json::Reader reader;
+	Json::Value data;
+
+	if (!reader.parse(file, data))
+	{
+		std::cout << "Failed to parse data" << std::endl;
+	}
+
+	Json::Value options = data["options"];
+	Json::Value dialogue = options["dialogue_options"];
+	Json::Value keyInput = options["keyinput_options"];
+
+	setDialogueTextSpeed(static_cast<TextSpeed>(dialogue["text_speed"].asInt()));
+
+	setKeyInputUp(static_cast<SDL_KeyCode>(keyInput["up"].asInt()));
+	setKeyInputDown(static_cast<SDL_KeyCode>(keyInput["down"].asInt()));
+	setKeyInputLeft(static_cast<SDL_KeyCode>(keyInput["left"].asInt()));
+	setKeyInputRight(static_cast<SDL_KeyCode>(keyInput["right"].asInt()));
+
+	file.close();
+}
+
+void Options::saveJSON()
+{
+	std::ofstream file(m_fileName);
+
+	Json::Value data;
+	Json::StyledStreamWriter writer;
+
+	if (file.is_open())
+	{
+		data["options"]["dialogue_options"]["text_speed"] = static_cast<int>(getDialogueTextSpeed());
+		data["options"]["keyinput_options"]["up"] = static_cast<int>(getKeyInputUp());
+		data["options"]["keyinput_options"]["down"] = static_cast<int>(getKeyInputDown());
+		data["options"]["keyinput_options"]["left"] = static_cast<int>(getKeyInputLeft());
+		data["options"]["keyinput_options"]["right"] = static_cast<int>(getKeyInputRight());
+
+		writer.write(file, data);
+
+		file.close();
+	}
+	else
+	{
+		std::cout << "Failed to save data" << std::endl;
+	}
 }
 
 float Options::getDialogueTimer()
