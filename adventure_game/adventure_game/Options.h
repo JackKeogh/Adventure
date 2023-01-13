@@ -1,11 +1,5 @@
 #pragma once
-#include <string>
-#include <SDL_ttf.h>
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <json/json.h>
-#include "Tags.h"
+#include "stdafx.h"
 
 #ifndef OPTIONS_H
 #define OPTIONS_H

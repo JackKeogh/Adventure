@@ -8,6 +8,8 @@
 #include <SDL_ttf.h>
 #include <map>
 #include <vector>
+#include <json/json.h>
+#include <fstream>
 #include "Tags.h"
 
 #pragma once

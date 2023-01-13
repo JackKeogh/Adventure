@@ -17,47 +17,11 @@ void Overworld::initialise(Renderer* r) {
 	Camera::initialise(player->getPosition());
 	LocationDisplay::initialise(r);
 	LayerRenderer::initialise();
-
-	Options::setKeyInputUp(SDLK_w);
-	Options::saveJSON();
 }
 
 void Overworld::events(SDL_Event* e) {
-	if (e->type == SDL_KEYDOWN)
-	{
-		if (e->key.keysym.sym == SDLK_ESCAPE)
-		{
-			switch (OverworldStateController::getState())
-			{
-			case OverworldState::Overworld:
-			case OverworldState::Inside:
-				break;
-			case OverworldState::Paused:
-				break;
-			}
-		}
 
-		if (OverworldStateController::getState() == OverworldState::Overworld ||
-			OverworldStateController::getState() == OverworldState::Inside)
-		{
-			if (e->key.keysym.sym == Options::getKeyInputUp())
-			{
-				MovementSystem::MoveUp(player, m_locManager);
-			}
-			else if (e->key.keysym.sym == Options::getKeyInputDown())
-			{
-				MovementSystem::MoveDown(player, m_locManager);
-			}
-			if (e->key.keysym.sym == Options::getKeyInputLeft())
-			{
-				MovementSystem::MoveLeft(player, m_locManager);
-			}
-			else if (e->key.keysym.sym == Options::getKeyInputRight())
-			{
-				MovementSystem::MoveRight(player, m_locManager);
-			}
-		}
-	}
+	KeyInputSystem::handleKeyInput(e, player, OverworldStateController::getState(), m_locManager);
 }
 
 void Overworld::update(float dt) {
