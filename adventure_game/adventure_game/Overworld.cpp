@@ -75,6 +75,13 @@ void Overworld::update(float dt) {
 }
 
 void Overworld::render(Renderer* r) {
+
+	if (OverworldStateController::getState() == OverworldState::Paused)
+	{
+		m_locManager->render();
+		player->render();
+	}
+
 	LayerRenderer::render(r);
 }
 

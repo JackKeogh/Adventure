@@ -60,4 +60,9 @@ void KeyInputSystem::handlePlayerInput(SDL_Keycode key, DynamicObject* p, Overwo
 	{
 		MovementSystem::MoveRight(p, lm);
 	}
+
+	if (key == SDLK_ESCAPE)
+	{
+		OverworldStateController::changeState(OverworldState::Paused);
+	}
 }
