@@ -5,3 +5,4 @@
 #include "SpriteComponent.h"
 #include "Animator.h"
 #include "DialogueComponent.h"
+#include "KeyComponent.h"

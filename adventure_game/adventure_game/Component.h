@@ -8,7 +8,8 @@ enum class Component_Type {
 	MOVEMENT,
 	SPRITE,
 	ANIMATOR,
-	DIALOGUE
+	DIALOGUE,
+	KEY
 };
 
 class Component

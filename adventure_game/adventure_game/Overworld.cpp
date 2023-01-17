@@ -11,6 +11,7 @@ Overworld::~Overworld() {
 void Overworld::initialise(Renderer* r) {
 	m_running = true;
 	player = new DynamicObject(r, "assets/34024.png", { 9,40,22,27 }, { 256,192,NODE_WIDTH,NODE_HEIGHT });
+	player->addComponent(new KeyComponent());
 
 	m_locManager = new LocationManager(r, player);
 	DialogueSystem::initialise();

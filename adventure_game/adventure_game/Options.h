@@ -31,6 +31,7 @@ struct KeyInputOptions
 	SDL_KeyCode m_right;
 	SDL_KeyCode m_up;
 	SDL_KeyCode m_down;
+	SDL_KeyCode m_pause;
 
 	void initialise();
 };
@@ -58,6 +59,9 @@ public:
 	static void setKeyInputLeft(SDL_KeyCode k);
 	static SDL_KeyCode getKeyInputRight();
 	static void setKeyInputRight(SDL_KeyCode k);
+	static SDL_KeyCode getKeyInputPause();
+	static void setKeyInputPause(SDL_KeyCode k);
+
 
 private:
 	static DialogueOptions m_dialogue;

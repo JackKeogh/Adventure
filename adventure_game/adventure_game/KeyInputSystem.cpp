@@ -41,28 +41,31 @@ void KeyInputSystem::handleKeyInput(SDL_Event* e, DynamicObject* p, OverworldSta
 
 void KeyInputSystem::handlePlayerInput(SDL_Keycode key, DynamicObject* p, OverworldState state, LocationManager* lm)
 {
-	if (key == Options::getKeyInputUp())
+	KeyComponent* kc = ComponentCasting::KeyCasting(p->getComponent(Component_Type::KEY));
+
+	if (kc == nullptr)
 	{
-		MovementSystem::MoveUp(p, lm);
+		return;
 	}
 
-	if (key == Options::getKeyInputDown())
-	{
-		MovementSystem::MoveDown(p, lm);
-	}
+	KeyAction ka = kc->getKey(key);
 
-	if (key == Options::getKeyInputLeft())
+	switch (ka)
 	{
-		MovementSystem::MoveLeft(p, lm);
-	}
-
-	if (key == Options::getKeyInputRight())
-	{
-		MovementSystem::MoveRight(p, lm);
-	}
-
-	if (key == SDLK_ESCAPE)
-	{
-		OverworldStateController::changeState(OverworldState::Paused);
+		case KeyAction::MoveUp:
+			MovementSystem::MoveUp(p, lm);
+			break;
+		case KeyAction::MoveDown:
+			MovementSystem::MoveDown(p, lm);
+			break;
+		case KeyAction::MoveLeft:
+			MovementSystem::MoveLeft(p, lm);
+			break;
+		case KeyAction::MoveRight:
+			MovementSystem::MoveRight(p, lm);
+			break;
+		case KeyAction::Pause:
+			OverworldStateController::changeState(OverworldState::Paused);
+			break;
 	}
 }

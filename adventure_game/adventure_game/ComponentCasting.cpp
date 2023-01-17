@@ -87,3 +87,25 @@ DialogueComponent* ComponentCasting::DialogueCasting(Component* c)
 
 	return nullptr;
 }
+
+KeyComponent* ComponentCasting::KeyCasting(Component* c)
+{
+	if (c == nullptr)
+	{
+		return nullptr;
+	}
+
+	if (c->getType() == Component_Type::KEY)
+	{
+		KeyComponent* kc = dynamic_cast<KeyComponent*>(c);
+
+		if (kc == nullptr)
+		{
+			std::cout << Error::ERROR_CASTING_FAILEDTOCAST << std::endl;
+		}
+
+		return kc;
+	}
+
+	return nullptr;
+}

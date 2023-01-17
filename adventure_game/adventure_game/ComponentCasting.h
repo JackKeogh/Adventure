@@ -4,6 +4,7 @@
 #include "MovementComponent.h"
 #include "Animator.h"
 #include "DialogueComponent.h"
+#include "KeyComponent.h"
 
 #ifndef COMPONENTCASTING_HEADER
 #define COMPONENTCASTING_HEADER
@@ -15,6 +16,7 @@ public:
 	static MovementComponent* MovementCasting(Component* c);
 	static Animator* AnimatorCasting(Component* c);
 	static DialogueComponent* DialogueCasting(Component* c);
+	static KeyComponent* KeyCasting(Component* c);
 };
 
 #endif // !COMPONENTCASTING_HEADER
