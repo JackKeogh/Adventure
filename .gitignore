@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Visual Studio
+.vs/
+Adventure/.vs
+Adventure/adventure_game/.vs
+adventure_game/.vs
