@@ -2,7 +2,7 @@
 
 KeyComponent::KeyComponent()
 {
-	m_actions = std::map<SDL_Keycode, KeyAction>();
+	m_actions = std::map<KeyAction, SDL_Keycode>();
 
 	m_type = Component_Type::KEY;
 
@@ -18,12 +18,40 @@ Json::Value KeyComponent::save()
 {
 	Json::Value data;
 
-	data["KeyComponent"]["up"] = static_cast<int>(Options::getKeyInputUp());
-	data["KeyComponent"]["down"] = static_cast<int>(Options::getKeyInputDown());
-	data["KeyComponent"]["left"] = static_cast<int>(Options::getKeyInputLeft());
-	data["KeyComponent"]["right"] = static_cast<int>(Options::getKeyInputRight());
+	std::map<KeyAction, SDL_Keycode>::iterator iter;
+
+	for (iter = m_actions.begin(); iter != m_actions.end(); iter++)
+	{
+		std::string str = std::to_string(static_cast<int>(iter->first));
+		data[str] = iter->second;
+	}
 
 	return data;
+}
+
+bool KeyComponent::load(Json::Value data, std::string character)
+{
+	bool loaded = false;
+	std::string str = "KEY";
+
+	try
+	{
+		std::map<KeyAction, SDL_Keycode>::iterator iter;
+
+		for (iter = m_actions.begin(); iter != m_actions.end(); iter++)
+		{
+			std::string key = std::to_string(static_cast<int>(iter->first));
+			m_actions[iter->first] = data[character][str][key].asInt();
+		}
+
+		loaded = true;
+	}
+	catch (std::exception ex)
+	{
+		std::cout << ex.what() << std::endl;
+	}
+
+	return loaded;
 }
 
 void KeyComponent::reload()
@@ -33,14 +61,26 @@ void KeyComponent::reload()
 		m_actions.clear();
 	}
 
-	m_actions.insert(std::pair<SDL_Keycode, KeyAction>(Options::getKeyInputDown(), KeyAction::MoveDown));
-	m_actions.insert(std::pair<SDL_Keycode, KeyAction>(Options::getKeyInputUp(), KeyAction::MoveUp));
-	m_actions.insert(std::pair<SDL_Keycode, KeyAction>(Options::getKeyInputLeft(), KeyAction::MoveLeft));
-	m_actions.insert(std::pair<SDL_Keycode, KeyAction>(Options::getKeyInputRight(), KeyAction::MoveRight));
-	m_actions.insert(std::pair<SDL_Keycode, KeyAction>(Options::getKeyInputPause(), KeyAction::Pause));
+	m_actions.insert(std::pair<KeyAction, SDL_Keycode>(KeyAction::MoveDown, Options::getKeyInputDown()));
+	m_actions.insert(std::pair<KeyAction, SDL_Keycode>(KeyAction::MoveUp, Options::getKeyInputUp()));
+	m_actions.insert(std::pair<KeyAction, SDL_Keycode>(KeyAction::MoveLeft, Options::getKeyInputLeft()));
+	m_actions.insert(std::pair<KeyAction, SDL_Keycode>(KeyAction::MoveRight, Options::getKeyInputRight()));
+	m_actions.insert(std::pair<KeyAction, SDL_Keycode>(KeyAction::Pause, Options::getKeyInputPause()));
 }
 
 KeyAction KeyComponent::getKey(SDL_Keycode key)
 {
-	return m_actions.find(key)->second;
+	std::map<KeyAction, SDL_Keycode>::iterator iter;
+	KeyAction ka = KeyAction::null;
+
+	for (iter = m_actions.begin(); iter != m_actions.end(); iter++)
+	{
+		if (iter->second == key)
+		{
+			ka = iter->first;
+			break;
+		}
+	}
+
+	return ka;
 }

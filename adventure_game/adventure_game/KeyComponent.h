@@ -6,6 +6,7 @@
 #define KEYCOMPONENT_H
 
 enum class KeyAction {
+	null = 0,
 	MoveUp,
 	MoveDown,
 	MoveLeft,
@@ -21,13 +22,14 @@ public:
 	~KeyComponent();
 
 	Json::Value save() override;
+	bool load(Json::Value data, std::string character) override;
 
 	void reload();
 
 	KeyAction getKey(SDL_Keycode key);
 
 protected:
-	std::map<SDL_Keycode, KeyAction> m_actions;
+	std::map<KeyAction, SDL_Keycode> m_actions;
 };
 
 #endif // !KEYCOMPONENT_H

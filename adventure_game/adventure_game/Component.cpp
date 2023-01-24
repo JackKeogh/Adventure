@@ -24,6 +24,11 @@ Json::Value Component::save()
 	return data;
 }
 
+bool Component::load(Json::Value data, std::string character)
+{
+	return false;
+}
+
 void Component::setType(Component_Type c)
 {
 	m_type = c;

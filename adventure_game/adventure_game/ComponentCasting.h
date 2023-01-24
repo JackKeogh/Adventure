@@ -17,6 +17,7 @@ public:
 	static Animator* AnimatorCasting(Component* c);
 	static DialogueComponent* DialogueCasting(Component* c);
 	static KeyComponent* KeyCasting(Component* c);
+	static std::string toString(Component* c);
 };
 
 #endif // !COMPONENTCASTING_HEADER

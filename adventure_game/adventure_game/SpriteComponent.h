@@ -20,6 +20,9 @@ public:
 	void setLayer(RenderLayer l);
 
 	Json::Value save() override;
+	bool load(Json::Value data, std::string character) override;
+
+	void loadTexture(std::string texture);
 
 	RenderLayer getLayer();
 

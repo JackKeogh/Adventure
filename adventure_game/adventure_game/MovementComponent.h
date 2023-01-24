@@ -35,6 +35,7 @@ public:
 	void setIsMoving(bool m);
 
 	Json::Value save() override;
+	bool load(Json::Value data, std::string character) override;
 
 protected:
 	SDL_Rect m_position;

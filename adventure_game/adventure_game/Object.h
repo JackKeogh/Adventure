@@ -33,6 +33,8 @@ public:
 
 	virtual Json::Value save();
 
+	virtual bool load(Json::Value data);
+
 	SpriteComponent* getSprite(std::string key);
 
 	std::map<std::string, SpriteComponent*> getSprites();

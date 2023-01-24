@@ -25,6 +25,7 @@ public:
 	void update(float dt = 0.f) override;
 	void render() override;
 	void setPosition(SDL_Point p) override;
+	bool load(Json::Value data) override;
 	Json::Value save() override;
 
 	// non-virtual methods

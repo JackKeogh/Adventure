@@ -1,56 +1,49 @@
 {
 	"Player" : 
-	[
+	{
+		"ANIMATOR" : 
 		{
-			"SpriteComponent" : 
+			"animation" : 4
+		},
+		"KEY" : 
+		{
+			"1" : 105,
+			"2" : 107,
+			"3" : 106,
+			"4" : 108,
+			"5" : 27
+		},
+		"MOVEMENT" : 
+		{
+			"direction" : 1,
+			"isMoving" : false,
+			"position" : 
 			{
-				"dimensions" : 
-				{
-					"h" : 32,
-					"w" : 32
-				},
-				"layer" : 1,
-				"path" : "assets/34024.png",
-				"position" : 
-				{
-					"x" : 256,
-					"y" : 192
-				},
-				"source" : 
-				{
-					"h" : 27,
-					"w" : 22,
-					"x" : 9,
-					"y" : 40
-				}
+				"x" : 256,
+				"y" : 192
 			}
 		},
+		"SPRITE" : 
 		{
-			"MovementComponent" : 
+			"dimensions" : 
 			{
-				"direction" : 1,
-				"isMoving" : false,
-				"position" : 
-				{
-					"x" : 256,
-					"y" : 192
-				}
-			}
-		},
-		{
-			"AnimatorComponent" : 
+				"h" : 32,
+				"w" : 32
+			},
+			"layer" : 1,
+			"path" : "assets/34024.png",
+			"position" : 
 			{
-				"animation" : 4
-			}
-		},
-		{
-			"KeyComponent" : 
+				"x" : 256,
+				"y" : 192
+			},
+			"source" : 
 			{
-				"down" : 115,
-				"left" : 97,
-				"right" : 100,
-				"up" : 119
+				"h" : 27,
+				"w" : 22,
+				"x" : 9,
+				"y" : 40
 			}
 		}
-	]
+	}
 }

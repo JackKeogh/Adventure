@@ -76,13 +76,25 @@ void DynamicObject::setPosition(SDL_Point p)
 	syncSpriteMovement();
 }
 
+bool DynamicObject::load(Json::Value data)
+{
+	bool loaded = false;
+
+	for (Component* c : m_components)
+	{
+		loaded = c->load(data, "Player");
+	}
+
+	return loaded;
+}
+
 Json::Value DynamicObject::save()
 {
 	Json::Value data;
 
 	for (Component* c : m_components)
 	{
-		data.append(c->save());
+		data[ComponentCasting::toString(c)] = c->save();
 	}
 
 	return data;

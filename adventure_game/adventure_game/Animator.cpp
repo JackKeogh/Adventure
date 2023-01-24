@@ -26,9 +26,29 @@ Json::Value Animator::save()
 {
 	Json::Value data;
 
-	data["AnimatorComponent"]["animation"] = static_cast<int>(m_animation);
+	data["animation"] = static_cast<int>(m_animation);
 
 	return data;
+}
+
+bool Animator::load(Json::Value data, std::string character)
+{
+	bool loaded = false;
+	std::string str = "ANIMATOR";
+
+	try
+	{
+		m_animation = static_cast<Animations>(data[character][str]["animation"].asInt());
+		loadState();
+
+		loaded = true;
+	}
+	catch (std::exception ex)
+	{
+		std::cout << ex.what() << std::endl;
+	}
+
+	return loaded;
 }
 
 void Animator::changeState(Animations state)

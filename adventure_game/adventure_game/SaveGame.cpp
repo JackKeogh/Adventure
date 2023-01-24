@@ -16,10 +16,7 @@ void SaveGame::SavePlayer(DynamicObject* player)
 
 	if (file.is_open())
 	{
-
-		Json::Value additionalData = player->save();
-
-		data["Player"] = additionalData;
+		data["Player"] = player->save();
 
 		writer.write(file, data);
 

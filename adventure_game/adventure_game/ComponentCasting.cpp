@@ -109,3 +109,33 @@ KeyComponent* ComponentCasting::KeyCasting(Component* c)
 
 	return nullptr;
 }
+
+std::string ComponentCasting::toString(Component* c)
+{
+	std::string str;
+
+	switch (c->getType())
+	{
+		case Component_Type::ANIMATOR:
+			str = "ANIMATOR";
+			break;
+		case Component_Type::DIALOGUE:
+			str = "DIALOGUE";
+			break;
+		case Component_Type::KEY:
+			str = "KEY";
+			break;
+		case Component_Type::MOVEMENT:
+			str = "MOVEMENT";
+			break;
+		case Component_Type::SPRITE:
+			str = "SPRITE";
+			break;
+		case Component_Type::BASE:
+		default:
+			str = "BASE";
+			break;
+	}
+
+	return str;
+}

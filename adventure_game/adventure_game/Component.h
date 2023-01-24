@@ -20,6 +20,7 @@ public:
 
 	virtual void update(float dt = 0.f);
 	virtual Json::Value save();
+	virtual bool load(Json::Value data, std::string character);
 
 	void setType(Component_Type c);
 	Component_Type getType();

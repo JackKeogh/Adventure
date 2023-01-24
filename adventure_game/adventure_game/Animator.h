@@ -33,6 +33,7 @@ public:
 	void update();
 
 	Json::Value save() override;
+	bool load(Json::Value data, std::string character) override;
 
 	void changeState(Animations state);
 

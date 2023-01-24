@@ -73,12 +73,34 @@ Json::Value MovementComponent::save()
 {
 	Json::Value data;
 
-	data["MovementComponent"]["direction"] = static_cast<int>(m_direction);
-	data["MovementComponent"]["isMoving"] = m_isMoving;
-	data["MovementComponent"]["position"]
+	data["direction"] = static_cast<int>(m_direction);
+	data["isMoving"] = m_isMoving;
+	data["position"]
 		["x"] = m_position.x;
-	data["MovementComponent"]["position"]
+	data["position"]
 		["y"] = m_position.y;
 
 	return data;
+}
+
+bool MovementComponent::load(Json::Value data, std::string character)
+{
+	bool loaded = false;
+	std::string str = "MOVEMENT";
+
+	try
+	{
+		m_direction = static_cast<MovementDirection>(data[character][str]["direction"].asInt());
+		m_isMoving = data[character][str]["isMoving"].asBool();
+		m_position.x = data[character][str]["position"]["x"].asInt();
+		m_position.y = data[character][str]["position"]["y"].asInt();
+
+		loaded = true;
+	}
+	catch (std::exception ex)
+	{
+		std::cout << ex.what() << std::endl;
+	}
+
+	return false;
 }
