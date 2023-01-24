@@ -8,7 +8,7 @@
 #define ANIMATOR_HEADER
 
 enum class Animations {
-	null,
+	null = 0,
 	idleLeft,
 	idleRight,
 	idleUp,
@@ -31,6 +31,8 @@ public:
 	~Animator();
 
 	void update();
+
+	Json::Value save() override;
 
 	void changeState(Animations state);
 

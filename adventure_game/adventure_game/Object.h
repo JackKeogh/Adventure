@@ -31,6 +31,8 @@ public:
 
 	virtual void animate();
 
+	virtual Json::Value save();
+
 	SpriteComponent* getSprite(std::string key);
 
 	std::map<std::string, SpriteComponent*> getSprites();

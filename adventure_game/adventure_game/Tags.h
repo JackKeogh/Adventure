@@ -35,4 +35,7 @@ namespace Error
 	const std::string ERROR_DYANAMICOBJECT_COMPONENT_GET_DNEXISTS = "The component you tried to get does not exist";
 
 	const std::string ERROR_CASTING_FAILEDTOCAST = "Could not cast object";
+
+	const std::string ERROR_SAVING_FAILED = "Failed to save data";
+	const std::string ERROR_LOADING_FAILED = "Failed to load data";
 }

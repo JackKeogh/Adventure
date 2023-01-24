@@ -19,6 +19,8 @@ public:
 
 	void setLayer(RenderLayer l);
 
+	Json::Value save() override;
+
 	RenderLayer getLayer();
 
 protected:

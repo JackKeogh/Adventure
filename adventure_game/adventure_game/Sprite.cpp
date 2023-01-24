@@ -4,10 +4,13 @@ Sprite::Sprite() {
 	m_destRect = { 0,0,0,0 };
 	m_srcRect = { 0,0,0,0 };
 	m_texture = nullptr;
+	m_path = "";
 }
 
 Sprite::Sprite(Renderer* renderer, std::string path, SDL_Rect s, SDL_Rect d)
 {
+	m_path = path;
+
 	if (!(m_texture = IMG_LoadTexture(renderer->getRenderer(), path.c_str())))
 	{
 		std::cout << "Failed to load image: " << IMG_GetError << std::endl;
@@ -63,9 +66,19 @@ void Sprite::setSource(SDL_Rect r)
 	m_srcRect = r;
 }
 
+SDL_Rect Sprite::getSource()
+{
+	return m_srcRect;
+}
+
 SDL_Rect Sprite::getPosition()
 {
 	return m_destRect;
+}
+
+std::string Sprite::getPath()
+{
+	return m_path;
 }
 
 void Sprite::setAlpha(Uint8 a)

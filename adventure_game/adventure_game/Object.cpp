@@ -57,6 +57,11 @@ void Object::animate()
 	return;
 }
 
+Json::Value Object::save()
+{
+	return Json::Value();
+}
+
 SpriteComponent* Object::getSprite(std::string key)
 {
 	return m_sprites[key];

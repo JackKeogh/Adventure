@@ -3,6 +3,7 @@
 #include "DynamicObject.h"
 #include "OverworldState.h"
 #include "MovementSystem.h"
+#include "SaveGame.h"
 
 #ifndef KEYINPUTSYSTEM_H
 #define KEYINPUTSYSTEM_H

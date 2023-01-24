@@ -20,6 +20,8 @@ public:
 	KeyComponent();
 	~KeyComponent();
 
+	Json::Value save() override;
+
 	void reload();
 
 	KeyAction getKey(SDL_Keycode key);

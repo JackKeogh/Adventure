@@ -14,6 +14,18 @@ KeyComponent::~KeyComponent()
 
 }
 
+Json::Value KeyComponent::save()
+{
+	Json::Value data;
+
+	data["KeyComponent"]["up"] = static_cast<int>(Options::getKeyInputUp());
+	data["KeyComponent"]["down"] = static_cast<int>(Options::getKeyInputDown());
+	data["KeyComponent"]["left"] = static_cast<int>(Options::getKeyInputLeft());
+	data["KeyComponent"]["right"] = static_cast<int>(Options::getKeyInputRight());
+
+	return data;
+}
+
 void KeyComponent::reload()
 {
 	if (m_actions.size() > 0)

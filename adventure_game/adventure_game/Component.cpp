@@ -15,6 +15,15 @@ void Component::update(float dt)
 
 }
 
+Json::Value Component::save()
+{
+	Json::Value data;
+
+	data["Component"] = "test";
+
+	return data;
+}
+
 void Component::setType(Component_Type c)
 {
 	m_type = c;

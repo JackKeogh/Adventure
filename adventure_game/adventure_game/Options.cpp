@@ -60,7 +60,7 @@ void Options::loadJSON()
 
 	if (!reader.parse(file, data))
 	{
-		std::cout << "Failed to parse data" << std::endl;
+		std::cout << Error::ERROR_LOADING_FAILED << std::endl;
 	}
 
 	Json::Value options = data["options"];
@@ -99,7 +99,7 @@ void Options::saveJSON()
 	}
 	else
 	{
-		std::cout << "Failed to save data" << std::endl;
+		std::cout << Error::ERROR_SAVING_FAILED << std::endl;
 	}
 }
 

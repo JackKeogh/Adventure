@@ -6,6 +6,7 @@ MovementComponent::MovementComponent(SDL_Rect r)
 	m_position = r;
 	m_destination = { 0,0,0,0 };
 	m_isMoving = false;
+	m_direction = MovementDirection::Down;
 }
 
 MovementComponent::~MovementComponent()
@@ -66,4 +67,18 @@ bool MovementComponent::isMoving()
 void MovementComponent::setIsMoving(bool m)
 {
 	m_isMoving = m;
+}
+
+Json::Value MovementComponent::save()
+{
+	Json::Value data;
+
+	data["MovementComponent"]["direction"] = static_cast<int>(m_direction);
+	data["MovementComponent"]["isMoving"] = m_isMoving;
+	data["MovementComponent"]["position"]
+		["x"] = m_position.x;
+	data["MovementComponent"]["position"]
+		["y"] = m_position.y;
+
+	return data;
 }

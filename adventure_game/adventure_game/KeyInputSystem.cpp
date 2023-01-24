@@ -65,7 +65,8 @@ void KeyInputSystem::handlePlayerInput(SDL_Keycode key, DynamicObject* p, Overwo
 			MovementSystem::MoveRight(p, lm);
 			break;
 		case KeyAction::Pause:
-			OverworldStateController::changeState(OverworldState::Paused);
+			SaveGame::Save(p);
+			//OverworldStateController::changeState(OverworldState::Paused);
 			break;
 	}
 }

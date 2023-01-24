@@ -34,6 +34,8 @@ public:
 	bool isMoving();
 	void setIsMoving(bool m);
 
+	Json::Value save() override;
+
 protected:
 	SDL_Rect m_position;
 	SDL_Rect m_destination;

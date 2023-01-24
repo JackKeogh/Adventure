@@ -19,6 +19,8 @@ public:
 
 	void setSource(SDL_Rect r);
 
+	SDL_Rect getSource();
+
 	void setAlpha(Uint8 a);
 
 	void setTexture(SDL_Texture* t);
@@ -31,10 +33,13 @@ public:
 
 	SDL_Rect getPosition();
 
+	std::string getPath();
+
 protected:
 	SDL_Rect m_srcRect;
 	SDL_Rect m_destRect;
 	Uint8 m_alpha;
 	SDL_Texture* m_texture;
+	std::string m_path;
 };
 

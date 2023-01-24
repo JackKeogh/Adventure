@@ -31,6 +31,34 @@ void SpriteComponent::setLayer(RenderLayer l)
 	m_layer = l;
 }
 
+Json::Value SpriteComponent::save()
+{
+	Json::Value data;
+
+	data["SpriteComponent"]
+		["path"] = getPath();
+	data["SpriteComponent"]
+		["layer"] = static_cast<int>(getLayer());
+	data["SpriteComponent"]
+		["position"]["x"] = getPosition().x;
+	data["SpriteComponent"]
+		["position"]["y"] = getPosition().y;
+	data["SpriteComponent"]
+		["dimensions"]["w"] = getPosition().w;
+	data["SpriteComponent"]
+		["dimensions"]["h"] = getPosition().h;
+	data["SpriteComponent"]
+		["source"]["x"] = getSource().x;
+	data["SpriteComponent"]
+		["source"]["y"] = getSource().y;
+	data["SpriteComponent"]
+		["source"]["w"] = getSource().w;
+	data["SpriteComponent"]
+		["source"]["h"] = getSource().h;
+
+	return data;
+}
+
 RenderLayer SpriteComponent::getLayer()
 {
 	return m_layer;

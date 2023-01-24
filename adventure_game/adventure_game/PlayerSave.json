@@ -1,0 +1,56 @@
+{
+	"Player" : 
+	[
+		{
+			"SpriteComponent" : 
+			{
+				"dimensions" : 
+				{
+					"h" : 32,
+					"w" : 32
+				},
+				"layer" : 1,
+				"path" : "assets/34024.png",
+				"position" : 
+				{
+					"x" : 256,
+					"y" : 192
+				},
+				"source" : 
+				{
+					"h" : 27,
+					"w" : 22,
+					"x" : 9,
+					"y" : 40
+				}
+			}
+		},
+		{
+			"MovementComponent" : 
+			{
+				"direction" : 1,
+				"isMoving" : false,
+				"position" : 
+				{
+					"x" : 256,
+					"y" : 192
+				}
+			}
+		},
+		{
+			"AnimatorComponent" : 
+			{
+				"animation" : 4
+			}
+		},
+		{
+			"KeyComponent" : 
+			{
+				"down" : 115,
+				"left" : 97,
+				"right" : 100,
+				"up" : 119
+			}
+		}
+	]
+}

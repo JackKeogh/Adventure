@@ -19,6 +19,7 @@ public:
 	~Component();
 
 	virtual void update(float dt = 0.f);
+	virtual Json::Value save();
 
 	void setType(Component_Type c);
 	Component_Type getType();

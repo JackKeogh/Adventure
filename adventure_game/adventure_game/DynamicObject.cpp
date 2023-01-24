@@ -76,6 +76,18 @@ void DynamicObject::setPosition(SDL_Point p)
 	syncSpriteMovement();
 }
 
+Json::Value DynamicObject::save()
+{
+	Json::Value data;
+
+	for (Component* c : m_components)
+	{
+		data.append(c->save());
+	}
+
+	return data;
+}
+
 void DynamicObject::addComponent(Component* c)
 {
 	if (c == nullptr)

@@ -22,6 +22,15 @@ void Animator::update()
 	}
 }
 
+Json::Value Animator::save()
+{
+	Json::Value data;
+
+	data["AnimatorComponent"]["animation"] = static_cast<int>(m_animation);
+
+	return data;
+}
+
 void Animator::changeState(Animations state)
 {
 	if (m_animation != state)
