@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Development\Frameworks\SDL2-2.0.22;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Projects\Adventure\Adventure\adventure_game\adventure_game\JSON\include;D:\Development\Frameworks\SDL2-2.0.22;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Development\Frameworks\SDL2-2.0.22\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -94,12 +94,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Development\Frameworks\SDL2-2.0.22\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Projects\Adventure\Adventure\adventure_game\adventure_game\JSON\include;D:\Development\Frameworks\SDL2-2.0.22\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>D:\Development\Frameworks\SDL2-2.0.22\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -138,59 +138,90 @@
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="ChangeLocationTile.cpp" />
     <ClCompile Include="ChangeOverworldState.cpp" />
-    <ClCompile Include="Character.cpp" />
-    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionSystem.cpp" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="ComponentCasting.cpp" />
+    <ClCompile Include="Dialogue.cpp" />
+    <ClCompile Include="DialogueComponent.cpp" />
+    <ClCompile Include="DialogueSystem.cpp" />
+    <ClCompile Include="DynamicObject.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventCasting.cpp" />
     <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="EventCommand.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hospital.cpp" />
+    <ClCompile Include="jsoncpp.cpp" />
+    <ClCompile Include="KeyComponent.cpp" />
+    <ClCompile Include="KeyInputSystem.cpp" />
     <ClCompile Include="LayerRenderer.cpp" />
     <ClCompile Include="LittleRoot.cpp" />
     <ClCompile Include="LittlerootNodeArea.cpp" />
+    <ClCompile Include="LoadGame.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="LocationDisplay.cpp" />
     <ClCompile Include="LocationManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeArea.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Options.cpp" />
     <ClCompile Include="OverworldState.cpp" />
     <ClCompile Include="Route101.cpp" />
     <ClCompile Include="MovemenSystem.cpp" />
     <ClCompile Include="Route101NodeArea.cpp" />
+    <ClCompile Include="SaveGame.cpp" />
+    <ClCompile Include="SetDynamicObjectPositionCommand.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="RenderingSystem.cpp" />
     <ClCompile Include="Overworld.cpp" />
+    <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="StaticObject.cpp" />
     <ClCompile Include="Sublocation.cpp" />
     <ClCompile Include="Test_Hospital_Exterior.cpp" />
     <ClCompile Include="Test_Hospital_Interior.cpp" />
-    <ClCompile Include="Tile.cpp" />
-    <ClCompile Include="TileCasting.cpp" />
+    <ClCompile Include="Test_Hospital_NodeArea.cpp" />
     <ClCompile Include="Transitions.cpp" />
+    <ClCompile Include="WaitCommand.cpp" />
     <ClCompile Include="WarpEventInside.cpp" />
-    <ClCompile Include="WarpTile.cpp" />
+    <ClCompile Include="WarpEventOutside.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="ChangeLocationTile.h" />
     <ClInclude Include="ChangeOverworldState.h" />
-    <ClInclude Include="Character.h" />
-    <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionSystem.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="ComponentCasting.h" />
+    <ClInclude Include="ComponentIncludes.h" />
+    <ClInclude Include="Dialogue.h" />
+    <ClInclude Include="DialogueComponent.h" />
+    <ClInclude Include="DialogueSystem.h" />
+    <ClInclude Include="DynamicObject.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventCasting.h" />
+    <ClInclude Include="EventIncludes.h" />
     <ClInclude Include="EventSystem.h" />
     <ClInclude Include="EventCommand.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="json-forwards.h" />
+    <ClInclude Include="json.h" />
+    <ClInclude Include="KeyComponent.h" />
+    <ClInclude Include="KeyInputSystem.h" />
     <ClInclude Include="LittlerootNodeArea.h" />
+    <ClInclude Include="LoadGame.h" />
+    <ClInclude Include="MovementComponent.h" />
+    <ClInclude Include="NPC.h" />
+    <ClInclude Include="Options.h" />
+    <ClInclude Include="RenderLayer.h" />
     <ClInclude Include="Route101NodeArea.h" />
-    <ClInclude Include="WarpIDs.h" />
+    <ClInclude Include="SaveGame.h" />
+    <ClInclude Include="SetDynamicObjectPositionCommand.h" />
+    <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="StaticObject.h" />
+    <ClInclude Include="Tags.h" />
     <ClInclude Include="Hospital.h" />
     <ClInclude Include="LayerRenderer.h" />
     <ClInclude Include="LittleRoot.h" />
@@ -214,11 +245,15 @@
     <ClInclude Include="Sublocation_List.h" />
     <ClInclude Include="Test_Hospital_Exterior.h" />
     <ClInclude Include="Test_Hospital_Interior.h" />
-    <ClInclude Include="Tile.h" />
-    <ClInclude Include="TileCasting.h" />
+    <ClInclude Include="Test_Hospital_NodeArea.h" />
     <ClInclude Include="Transitions.h" />
+    <ClInclude Include="WaitCommand.h" />
     <ClInclude Include="WarpEventInside.h" />
-    <ClInclude Include="WarpTile.h" />
+    <ClInclude Include="WarpEventOutside.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData.json" />
+    <None Include="PlayerSave.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

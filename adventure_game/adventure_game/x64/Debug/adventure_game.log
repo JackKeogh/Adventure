@@ -1,2 +1,70 @@
-﻿  Route101NodeArea.cpp
+﻿  Animator.cpp
+  Camera.cpp
+  ChangeOverworldState.cpp
+  CollisionSystem.cpp
+  Component.cpp
+  ComponentCasting.cpp
+  Dialogue.cpp
+  DialogueComponent.cpp
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\DialogueComponent.cpp(26,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\DialogueComponent.cpp(53,17): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  DialogueSystem.cpp
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\DialogueSystem.cpp(19,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  DynamicObject.cpp
+  Event.cpp
+  EventCasting.cpp
+  EventSystem.cpp
+  EventCommand.cpp
+  Game.cpp
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\Game.cpp(19,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Hospital.cpp
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\Hospital.cpp(18,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\Hospital.cpp(19,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  jsoncpp.cpp
+  KeyComponent.cpp
+  KeyInputSystem.cpp
+  LayerRenderer.cpp
+  Generating Code...
+  Compiling...
+  LittleRoot.cpp
+  LittlerootNodeArea.cpp
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\LittlerootNodeArea.cpp(7,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\LittlerootNodeArea.cpp(13,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  LoadGame.cpp
+  Location.cpp
+  LocationDisplay.cpp
+  LocationManager.cpp
+  main.cpp
+  MovementComponent.cpp
+  Node.cpp
+  NodeArea.cpp
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\NodeArea.cpp(8,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\NodeArea.cpp(14,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Object.cpp
+  Options.cpp
+  OverworldState.cpp
+  Route101.cpp
+  MovemenSystem.cpp
+  Route101NodeArea.cpp
+  SaveGame.cpp
+  SetDynamicObjectPositionCommand.cpp
+  Sprite.cpp
+  RenderingSystem.cpp
+  Generating Code...
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\RenderingSystem.cpp(34): warning C4715: 'Renderer::initialise': not all control paths return a value
+  Compiling...
+  Overworld.cpp
+  SpriteComponent.cpp
+  StaticObject.cpp
+  Sublocation.cpp
+  Test_Hospital_Exterior.cpp
+  Test_Hospital_Interior.cpp
+  Test_Hospital_NodeArea.cpp
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\Test_Hospital_NodeArea.cpp(10,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\Test_Hospital_NodeArea.cpp(16,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Transitions.cpp
+  WaitCommand.cpp
+  WarpEventInside.cpp
+  WarpEventOutside.cpp
+  Generating Code...
   adventure_game.vcxproj -> D:\Projects\Adventure\Adventure\adventure_game\x64\Debug\adventure_game.exe
