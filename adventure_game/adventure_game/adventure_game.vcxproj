@@ -150,6 +150,7 @@
     <ClCompile Include="EventCasting.cpp" />
     <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="EventCommand.cpp" />
+    <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hospital.cpp" />
     <ClCompile Include="jsoncpp.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeArea.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjectCasting.cpp" />
     <ClCompile Include="Options.cpp" />
     <ClCompile Include="OverworldState.cpp" />
     <ClCompile Include="Route101.cpp" />
@@ -205,7 +207,9 @@
     <ClInclude Include="EventIncludes.h" />
     <ClInclude Include="EventSystem.h" />
     <ClInclude Include="EventCommand.h" />
+    <ClInclude Include="Factory.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="json-forwards.h" />
     <ClInclude Include="json.h" />
     <ClInclude Include="KeyComponent.h" />
@@ -214,6 +218,8 @@
     <ClInclude Include="LoadGame.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="NPC.h" />
+    <ClInclude Include="ObjectCasting.h" />
+    <ClInclude Include="ObjectIncludes.h" />
     <ClInclude Include="Options.h" />
     <ClInclude Include="RenderLayer.h" />
     <ClInclude Include="Route101NodeArea.h" />

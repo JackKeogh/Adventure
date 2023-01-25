@@ -163,6 +163,12 @@
     <Filter Include="Source Files\FileHandling">
       <UniqueIdentifier>{594aa61e-5968-4ec3-9182-1eec13b51712}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Factory">
+      <UniqueIdentifier>{c9f647b8-8aea-4e9b-aa4c-c78f5e6c7fcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Factory">
+      <UniqueIdentifier>{a76edc62-9003-4c06-99f5-abe3fb732c78}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -317,6 +323,12 @@
     </ClCompile>
     <ClCompile Include="SaveGame.cpp">
       <Filter>Source Files\FileHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>Source Files\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectCasting.cpp">
+      <Filter>Source Files\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -502,6 +514,18 @@
     </ClInclude>
     <ClInclude Include="LoadGame.h">
       <Filter>Header Files\FileHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectIncludes.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectCasting.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
