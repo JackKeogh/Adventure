@@ -4,6 +4,15 @@
 #include "Options.h"
 #include "Overworld.h"
 
+#ifndef GAME_H
+#define GAME_H
+
+enum class GameState : int {
+	MENU = 0,
+	NEW,
+	LOAD 
+};
+
 class GameLoopController {
 public:
 	GameLoopController();
@@ -16,7 +25,7 @@ public:
 	void delayFrame();
 	void printDT();
 	float getDT();
-	
+
 private:
 	int FRAMES_PER_SECOND;
 	int FRAME_DELAY;
@@ -46,7 +55,10 @@ public:
 
 private:
 	bool m_running;
+	GameState m_state;
 	GameLoopController* m_controller;
 	Renderer* m_renderer;
 	Overworld* m_world;
 };
+
+#endif // !GAME_H

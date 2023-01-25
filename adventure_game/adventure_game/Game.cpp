@@ -62,6 +62,9 @@ Game::Game() {
 	// Set the game to running
 	m_running = true;
 
+	// Initialise the game state
+	m_state = GameState::NEW;
+
 	// Initialise SDL
 	SDLInitialise();
 
@@ -138,18 +141,51 @@ void Game::events() {
 			m_running = false;
 		}
 
-		m_world->events(e);
+		switch (m_state)
+		{
+			case GameState::MENU:
+				std::cout << "MENU" << std::endl;
+				break;
+			case GameState::NEW:
+				m_world->events(e);
+				break;
+			case GameState::LOAD:
+				std::cout << "LOAD" << std::endl;
+				break;
+		}
 	}
 }
 
 void Game::update() {
-	m_world->update(m_controller->getDT());
+	switch (m_state)
+	{
+	case GameState::MENU:
+		std::cout << "MENU" << std::endl;
+		break;
+	case GameState::NEW:
+		m_world->update(m_controller->getDT());
+		break;
+	case GameState::LOAD:
+		std::cout << "LOAD" << std::endl;
+		break;
+	}
 }
 
 void Game::render() {
 	m_renderer->clear();
 
-	m_world->render(m_renderer);
+	switch (m_state)
+	{
+	case GameState::MENU:
+		std::cout << "MENU" << std::endl;
+		break;
+	case GameState::NEW:
+		m_world->render(m_renderer);
+		break;
+	case GameState::LOAD:
+		std::cout << "LOAD" << std::endl;
+		break;
+	}
 
 	m_renderer->display();
 }
