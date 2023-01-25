@@ -1,7 +1,7 @@
 #include "Hospital.h"
 
 Hospital::Hospital(Renderer* r, SDL_Rect pos, Sublocation_List sl) :
-	StaticObject(r, "assets/buildings/pokecentre.png", { 0,0,64,55 }, pos, Object_Type::HOSPITAL)
+	StaticObject(r, "assets/buildings/pokecentre.png", { 0,0,64,55 }, pos, Object_Type::STATIC)
 {
 	SDL_Rect p1 = pos;
 	p1.h = pos.h - (47 - NODE_HEIGHT);
