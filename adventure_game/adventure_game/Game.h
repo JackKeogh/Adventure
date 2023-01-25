@@ -3,15 +3,10 @@
 #include "RenderingSystem.h"
 #include "Options.h"
 #include "Overworld.h"
+#include "GameState.h"
 
 #ifndef GAME_H
 #define GAME_H
-
-enum class GameState : int {
-	MENU = 0,
-	NEW,
-	LOAD 
-};
 
 class GameLoopController {
 public:
