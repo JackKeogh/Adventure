@@ -12,6 +12,7 @@
 #include "DialogueSystem.h"
 #include "KeyInputSystem.h"
 #include "DynamicObject.h"
+#include "Factory.h"
 
 class Overworld {
 public:

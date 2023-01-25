@@ -13,6 +13,7 @@ class DynamicObject : public Object
 {
 public:
 	DynamicObject(Renderer* r = nullptr, std::string path = "", SDL_Rect s = { 0,0,0,0 }, SDL_Rect d = { 0,0,0,0 }, Object_Type o = Object_Type::DYNAMIC, RenderLayer l = RenderLayer::Middleground);
+	DynamicObject(SDL_Renderer* r = nullptr, std::string path = "", SDL_Rect s = { 0,0,0,0 }, SDL_Rect d = { 0,0,0,0 }, Object_Type o = Object_Type::DYNAMIC, RenderLayer l = RenderLayer::Middleground);
 	~DynamicObject();
 
 	// virtual methods

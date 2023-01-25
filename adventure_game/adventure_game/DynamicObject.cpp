@@ -9,6 +9,15 @@ DynamicObject::DynamicObject(Renderer* r, std::string path, SDL_Rect s, SDL_Rect
 	m_position = d;
 }
 
+DynamicObject::DynamicObject(SDL_Renderer* r, std::string path, SDL_Rect s, SDL_Rect d, Object_Type o, RenderLayer l)
+{
+	m_components = std::vector<Component*>();
+	addComponent(new SpriteComponent(r, path, s, d, l));
+	addComponent(new MovementComponent(d));
+	addComponent(new Animator(ComponentCasting::SpriteCasting(getComponent(Component_Type::SPRITE)), Animations::idleDown));
+	m_position = d;
+}
+
 DynamicObject::~DynamicObject()
 {
 }

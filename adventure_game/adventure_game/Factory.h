@@ -5,12 +5,10 @@
 #ifndef FACTORY_H
 #define FACTORY_H
 
-class Factory
+struct Factory
 {
-public:
-	
-
-private:
+	static DynamicObject* createPlayer();
 };
+
 #endif // FACTORY_H
 
