@@ -17,7 +17,10 @@ public:
 	void clear();
 
 	// Set render color
-	void setRenderColor(SDL_Color c);
+	static void setRenderColor(SDL_Color c);
+
+	// Set render color
+	static void setRenderColor(Color::Color c);
 
 	// present window
 	void display();

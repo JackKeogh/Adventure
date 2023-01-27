@@ -43,6 +43,11 @@ void Renderer::setRenderColor(SDL_Color c)
 	SDL_SetRenderDrawColor(m_render, c.r, c.g, c.b, c.a);
 }
 
+void Renderer::setRenderColor(Color::Color c)
+{
+	SDL_SetRenderDrawColor(m_render, c.r, c.g, c.b, c.a);
+}
+
 void Renderer::display() {
 	SDL_RenderPresent(m_render);
 }

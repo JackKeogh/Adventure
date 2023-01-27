@@ -14,7 +14,6 @@ void Overworld::initialise(Renderer* r) {
 
 	m_locManager = new LocationManager(r, player);
 	DialogueSystem::initialise();
-	Camera::initialise(player->getPosition());
 	LocationDisplay::initialise(r);
 	LayerRenderer::initialise();
 }

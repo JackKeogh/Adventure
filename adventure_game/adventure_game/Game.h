@@ -4,6 +4,7 @@
 #include "Options.h"
 #include "Overworld.h"
 #include "GameState.h"
+#include "LaunchMenu.h"
 
 #ifndef GAME_H
 #define GAME_H
@@ -54,6 +55,7 @@ private:
 	GameLoopController* m_controller;
 	Renderer* m_renderer;
 	Overworld* m_world;
+	LaunchMenu* m_menu;
 };
 
 #endif // !GAME_H

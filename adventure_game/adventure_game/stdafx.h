@@ -11,6 +11,7 @@
 #include <json/json.h>
 #include <fstream>
 #include "Tags.h"
+#include "Colors.h"
 
 #pragma once
 #define ONE_SECOND_MS 1000.f

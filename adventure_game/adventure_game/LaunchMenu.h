@@ -13,7 +13,7 @@ public:
 
 	void initialise();
 
-	void render();
+	void render(Renderer* r);
 
 private:
 	std::vector<UI_Base*> m_objects;

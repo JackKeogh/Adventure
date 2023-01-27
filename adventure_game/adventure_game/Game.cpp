@@ -63,7 +63,7 @@ Game::Game() {
 	m_running = true;
 
 	// Initialise the game state
-	m_state = GameState::NEW;
+	m_state = GameState::MENU;
 
 	// Initialise SDL
 	SDLInitialise();
@@ -74,6 +74,10 @@ Game::Game() {
 
 	// Initialise Options
 	Options::initialise();
+
+	// Initialise Menu
+	m_menu = new LaunchMenu();
+	m_menu->initialise();
 
 	// Initialise World
 	m_world = new Overworld();
@@ -144,7 +148,7 @@ void Game::events() {
 		switch (m_state)
 		{
 			case GameState::MENU:
-				std::cout << "MENU" << std::endl;
+				//std::cout << "MENU" << std::endl;
 				break;
 			case GameState::NEW:
 				m_world->events(e);
@@ -160,7 +164,7 @@ void Game::update() {
 	switch (m_state)
 	{
 	case GameState::MENU:
-		std::cout << "MENU" << std::endl;
+		Camera::initialise({ 0,0 });
 		break;
 	case GameState::NEW:
 		m_world->update(m_controller->getDT());
@@ -177,7 +181,7 @@ void Game::render() {
 	switch (m_state)
 	{
 	case GameState::MENU:
-		std::cout << "MENU" << std::endl;
+		m_menu->render(m_renderer);
 		break;
 	case GameState::NEW:
 		m_world->render(m_renderer);
