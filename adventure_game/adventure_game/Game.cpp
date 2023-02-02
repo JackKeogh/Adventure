@@ -79,7 +79,7 @@ Game::Game() {
 	m_menu = new LaunchMenu();
 	m_menu->initialise();
 
-	m_menu->getOrderedUIIteractables();
+	m_menu->getOrderedUiIteractables();
 
 	// Initialise World
 	m_world = new Overworld();

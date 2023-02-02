@@ -87,6 +87,11 @@ void Sprite::setAlpha(Uint8 a)
 	SDL_SetTextureAlphaMod(m_texture, m_alpha);
 }
 
+void Sprite::setColor(Color::Color c)
+{
+	SDL_SetTextureColorMod(m_texture, c.r, c.g, c.b);
+}
+
 void Sprite::setTexture(SDL_Texture* t)
 {
 	m_texture = t;

@@ -23,6 +23,8 @@ public:
 
 	void setAlpha(Uint8 a);
 
+	void setColor(Color::Color c);
+
 	void setTexture(SDL_Texture* t);
 
 	void setWidth(int width);

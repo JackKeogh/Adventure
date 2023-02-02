@@ -10,8 +10,13 @@ public:
 	UI_Button(std::string path, SDL_Rect src, SDL_Rect pos, RenderLayer layer, int order);
 	~UI_Button();
 
-private:
+	void highlight(bool h) override;
 
+	void setColor();
+
+private:
+	Color::Color m_highlightColor;
+	Color::Color m_originalColor;
 };
 
 #endif // !1

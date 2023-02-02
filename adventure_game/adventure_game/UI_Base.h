@@ -24,6 +24,8 @@ public:
 
 	bool isHighlighted();
 
+	virtual void highlight(bool h);
+
 	int getOrder() const;
 
 	UI_Type getType();

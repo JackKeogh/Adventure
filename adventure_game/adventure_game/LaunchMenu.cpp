@@ -19,18 +19,17 @@ void LaunchMenu::initialise()
 	f.open("PlayerSave.json");
 	if (f)
 	{
+		m_objects.push_back(new UI_Button("assets/UI/continue.png", { 0,0,128,64 }, { 416,234,128,64 }, RenderLayer::UI, 1));
+		m_objects.push_back(new UI_Button("assets/UI/new_game.png", { 0,0,128,64 }, { 416,384,128,64 }, RenderLayer::UI, 2));
+		m_objects.push_back(new UI_Button("assets/UI/exit.png", { 0,0,128,64 }, { 416,534,128,64 }, RenderLayer::UI, 3));
 		f.close();
-		std::cout << "File Exists" << std::endl;
 	}
 	else
 	{
-		std::cout << "file does not exist" << std::endl;
+		m_objects.push_back(new UI_Button("assets/UI/new_game.png", { 0,0,128,64 }, { 416,284,128,64 }, RenderLayer::UI, 1));
+		m_objects.push_back(new UI_Button("assets/UI/exit.png", { 0,0,128,64 }, { 416,484,128,64 }, RenderLayer::UI, 2));
 	}
 
-
-	m_objects.push_back(new UI_Button("assets/UI/new_game.png", { 0,0,128,64 }, { 416,234,128,64 }, RenderLayer::UI, 3));
-	m_objects.push_back(new UI_Button("assets/UI/test.png", { 0,0,128,64 }, { 416,384,128,64 }, RenderLayer::UI, 2));
-	m_objects.push_back(new UI_Button("assets/UI/test.png", { 0,0,128,64 }, { 416,534,128,64 }, RenderLayer::UI, 1));
 	Renderer::setRenderColor(Color::Lapis);
 }
 
@@ -44,7 +43,7 @@ void LaunchMenu::render(Renderer* r)
 	LayerRenderer::render(r);
 }
 
-std::vector<UI_Base*> LaunchMenu::getOrderedUIIteractables()
+std::vector<UI_Base*> LaunchMenu::getOrderedUiIteractables()
 {
 	std::vector<UI_Base*> interactables;
 
@@ -59,4 +58,20 @@ std::vector<UI_Base*> LaunchMenu::getOrderedUIIteractables()
 	std::sort(interactables.begin(), interactables.end(), less_than_key());
 
 	return interactables;
+}
+
+UI_Base* LaunchMenu::getUiItemByOrder(int o)
+{
+	UI_Base* item = nullptr;
+
+	for (UI_Base* ui : m_objects)
+	{
+		if (ui->getOrder() == o)
+		{
+			item = ui;
+			break;
+		}
+	}
+
+	return item;
 }

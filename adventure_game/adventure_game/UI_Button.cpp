@@ -6,8 +6,29 @@ UI_Button::UI_Button(std::string path, SDL_Rect src, SDL_Rect pos, RenderLayer l
 	m_order = order;
 	m_type = UI_Type::INTERACTABLE;
 	m_highlighted = false;
+	m_highlightColor = Color::LightGreen;
+	m_originalColor = Color::White;
 }
 
 UI_Button::~UI_Button()
 {
+}
+
+void UI_Button::highlight(bool h)
+{
+	m_highlighted = h;
+
+	setColor();
+}
+
+void UI_Button::setColor()
+{
+	if (m_highlighted)
+	{
+		m_sprite->setColor(m_highlightColor);
+	}
+	else
+	{
+		m_sprite->setColor(m_originalColor);
+	}
 }
