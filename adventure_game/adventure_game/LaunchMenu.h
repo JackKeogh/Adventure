@@ -1,26 +1,20 @@
 #pragma once
 #include "stdafx.h"
-#include "UIObjectsInclude.h"
+#include "Menu.h"
 
 #ifndef LAUNCHMENU_H
 #define LAUNCHMENU_H
 
-class LaunchMenu
+class LaunchMenu : public Menu
 {
 public:
 	LaunchMenu();
 	~LaunchMenu();
 
-	void initialise();
-
-	void render(Renderer* r);
-
-	std::vector<UI_Base*> getOrderedUiIteractables();
-
-	UI_Base* getUiItemByOrder(int o);
+	void initialise() override;
 
 private:
-	std::vector<UI_Base*> m_objects;
+
 };
 
 #endif // !LAUNCHMENU_H
