@@ -27,7 +27,7 @@ bool UI_Base::isHighlighted()
 	return m_highlighted;
 }
 
-int UI_Base::getOrder()
+int UI_Base::getOrder() const
 {
 	return m_order;
 }

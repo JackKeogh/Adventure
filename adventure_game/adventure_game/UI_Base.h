@@ -24,7 +24,7 @@ public:
 
 	bool isHighlighted();
 
-	int getOrder();
+	int getOrder() const;
 
 	UI_Type getType();
 
@@ -33,6 +33,14 @@ protected:
 	UI_Type m_type;
 	bool m_highlighted;
 	int m_order;
+};
+
+struct less_than_key
+{
+	inline bool operator() (const UI_Base* left, const UI_Base* right)
+	{
+		return (left->getOrder() < right->getOrder());
+	}
 };
 
 #endif

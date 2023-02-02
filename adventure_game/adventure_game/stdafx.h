@@ -10,6 +10,7 @@
 #include <vector>
 #include <json/json.h>
 #include <fstream>
+#include <algorithm>
 #include "Tags.h"
 #include "Colors.h"
 

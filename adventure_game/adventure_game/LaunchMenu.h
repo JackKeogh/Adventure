@@ -15,6 +15,8 @@ public:
 
 	void render(Renderer* r);
 
+	std::vector<UI_Base*> getOrderedUIIteractables();
+
 private:
 	std::vector<UI_Base*> m_objects;
 };
