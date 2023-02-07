@@ -11,7 +11,7 @@ public:
 	LaunchMenu();
 	~LaunchMenu();
 
-	void initialise() override;
+	void initialise(bool& state) override;
 
 private:
 

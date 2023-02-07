@@ -13,6 +13,10 @@ void Menu::initialise()
 {
 }
 
+void Menu::initialise(bool& state)
+{
+}
+
 void Menu::render(Renderer* r)
 {
 	for (UI_Base* ui : m_objects)

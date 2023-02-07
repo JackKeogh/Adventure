@@ -77,7 +77,7 @@ Game::Game() {
 
 	// Initialise Menu
 	m_menu = new LaunchMenu();
-	m_menu->initialise();
+	m_menu->initialise(m_running);
 
 	m_menu->getOrderedUiIteractables();
 

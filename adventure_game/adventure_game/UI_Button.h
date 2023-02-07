@@ -7,6 +7,7 @@
 class UI_Button : public UI_Base
 {
 public:
+	UI_Button();
 	UI_Button(std::string path, SDL_Rect src, SDL_Rect pos, RenderLayer layer, int order);
 	~UI_Button();
 
@@ -14,7 +15,7 @@ public:
 
 	void setColor();
 
-private:
+protected:
 	Color::Color m_highlightColor;
 	Color::Color m_originalColor;
 };

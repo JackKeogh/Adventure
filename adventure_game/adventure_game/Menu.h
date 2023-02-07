@@ -13,6 +13,8 @@ public:
 
 	virtual void initialise();
 
+	virtual void initialise(bool& state);
+
 	void render(Renderer* r);
 
 	std::vector<UI_Base*> getOrderedUiIteractables();
