@@ -74,6 +74,7 @@ void Options::loadJSON()
 	setKeyInputLeft(static_cast<SDL_KeyCode>(keyInput["left"].asInt()));
 	setKeyInputRight(static_cast<SDL_KeyCode>(keyInput["right"].asInt()));
 	setKeyInputPause(static_cast<SDL_KeyCode>(keyInput["pause"].asInt()));
+	setKeyInputAction(static_cast<SDL_KeyCode>(keyInput["action"].asInt()));
 
 	file.close();
 }
@@ -92,6 +93,8 @@ void Options::saveJSON()
 		data["options"]["keyinput_options"]["down"] = static_cast<int>(getKeyInputDown());
 		data["options"]["keyinput_options"]["left"] = static_cast<int>(getKeyInputLeft());
 		data["options"]["keyinput_options"]["right"] = static_cast<int>(getKeyInputRight());
+		data["options"]["keyinput_options"]["pause"] = static_cast<int>(getKeyInputPause());
+		data["options"]["keyinput_options"]["action"] = static_cast<int>(getKeyInputAction());
 
 		writer.write(file, data);
 
@@ -195,6 +198,16 @@ void Options::setKeyInputPause(SDL_KeyCode k)
 	m_keyInputs.m_pause = k;
 }
 
+SDL_KeyCode Options::getKeyInputAction()
+{
+	return m_keyInputs.m_action;
+}
+
+void Options::setKeyInputAction(SDL_KeyCode k)
+{
+	m_keyInputs.m_action = k;
+}
+
 /// <summary>
 /// Key Input Options
 /// </summary>
@@ -206,4 +219,5 @@ void KeyInputOptions::initialise()
 	m_up = SDLK_w;
 	m_down = SDLK_s;
 	m_pause = SDLK_ESCAPE;
+	m_action = SDLK_SPACE;
 }

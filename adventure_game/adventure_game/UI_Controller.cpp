@@ -41,6 +41,37 @@ void UI_Controller::addMenu(Menu* m)
 	}
 }
 
+void UI_Controller::launchMenuUpdate(SDL_Event* e, GameState& gs)
+{
+	if (e->type == SDL_KEYDOWN)
+	{
+		SDL_Keycode keyPressed = static_cast<SDL_Keycode>(e->key.keysym.sym);
+
+		if (keyPressed == Options::getKeyInputUp())
+		{
+			if (m_current > m_min)
+			{
+				m_current--;
+				updateIndicatorPosition();
+			}
+		}
+		else if (keyPressed == Options::getKeyInputDown())
+		{
+			if (m_current < m_max)
+			{
+				m_current++;
+				updateIndicatorPosition();
+			}
+		}
+		else if (keyPressed == Options::getKeyInputAction())
+		{
+			int vpos = m_current - 1;
+			std::string str = m_items[vpos]->execute();
+		}
+	}
+
+}
+
 void UI_Controller::render(Renderer* r)
 {
 	if (m_enabled)

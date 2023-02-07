@@ -10,7 +10,7 @@ UI_Button::UI_Button()
 	m_originalColor = Color::White;
 }
 
-UI_Button::UI_Button(std::string path, SDL_Rect src, SDL_Rect pos, RenderLayer layer, int order)
+UI_Button::UI_Button(std::string path, SDL_Rect src, SDL_Rect pos, RenderLayer layer, int order, std::string action)
 {
 	m_sprite = new SpriteComponent(Renderer::Render(), path, src, pos, layer);
 	m_order = order;
@@ -18,10 +18,17 @@ UI_Button::UI_Button(std::string path, SDL_Rect src, SDL_Rect pos, RenderLayer l
 	m_highlighted = false;
 	m_highlightColor = Color::LightGreen;
 	m_originalColor = Color::White;
+
+	m_action = action;
 }
 
 UI_Button::~UI_Button()
 {
+}
+
+std::string UI_Button::execute()
+{
+	return m_action;
 }
 
 void UI_Button::highlight(bool h)

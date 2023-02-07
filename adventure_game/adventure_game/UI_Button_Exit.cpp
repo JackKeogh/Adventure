@@ -6,7 +6,7 @@ UI_Button_Exit::UI_Button_Exit()
 }
 
 UI_Button_Exit::UI_Button_Exit(std::string path, SDL_Rect src, SDL_Rect pos, RenderLayer layer, int order, bool& running) :
-	UI_Button(path, src, pos, layer, order)
+	UI_Button(path, src, pos, layer, order, "exit")
 {
 	m_running = &running;
 }

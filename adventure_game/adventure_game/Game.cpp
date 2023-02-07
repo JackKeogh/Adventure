@@ -154,7 +154,7 @@ void Game::events() {
 		switch (m_state)
 		{
 			case GameState::MENU:
-				//std::cout << "MENU" << std::endl;
+				UI_Controller::launchMenuUpdate(e, m_state);
 				break;
 			case GameState::NEW:
 				m_world->events(e);
