@@ -4,8 +4,8 @@
 #include "Options.h"
 #include "Overworld.h"
 #include "GameState.h"
-#include "Menu.h"
-#include "LaunchMenu.h"
+#include "MenuIncludes.h"
+#include "UI_Controller.h"
 
 #ifndef GAME_H
 #define GAME_H

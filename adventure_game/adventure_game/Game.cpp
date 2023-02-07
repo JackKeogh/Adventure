@@ -83,6 +83,10 @@ Game::Game() {
 
 	// Initialise World
 	m_world = new Overworld();
+
+	// Initialise UI Controller
+	UI_Controller::initialise();
+	UI_Controller::addMenu(m_menu);
 }
 
 Game::~Game() {
@@ -183,7 +187,7 @@ void Game::render() {
 	switch (m_state)
 	{
 	case GameState::MENU:
-		m_menu->render(m_renderer);
+		UI_Controller::render(m_renderer);
 		break;
 	case GameState::NEW:
 		m_world->render(m_renderer);

@@ -8,7 +8,9 @@ void LayerRenderer::initialise()
 	std::pair<RenderLayer, std::vector<Sprite*>> mg(RenderLayer::Middleground, std::vector<Sprite*>());
 	std::pair<RenderLayer, std::vector<Sprite*>> p(RenderLayer::Player, std::vector<Sprite*>());
 	std::pair<RenderLayer, std::vector<Sprite*>> fg(RenderLayer::Foreground, std::vector<Sprite*>());
-	std::pair<RenderLayer, std::vector<Sprite*>> ui(RenderLayer::UI, std::vector<Sprite*>());
+	std::pair<RenderLayer, std::vector<Sprite*>> uib(RenderLayer::UI_Background, std::vector<Sprite*>());
+	std::pair<RenderLayer, std::vector<Sprite*>> uim(RenderLayer::UI_Middleground, std::vector<Sprite*>());
+	std::pair<RenderLayer, std::vector<Sprite*>> uif(RenderLayer::UI_Foreground, std::vector<Sprite*>());
 	std::pair<RenderLayer, std::vector<Sprite*>> di(RenderLayer::Dialogue, std::vector<Sprite*>());
 	std::pair<RenderLayer, std::vector<Sprite*>> t(RenderLayer::Transitions, std::vector<Sprite*>());
 
@@ -16,7 +18,9 @@ void LayerRenderer::initialise()
 	m_layers.insert(mg);
 	m_layers.insert(fg);
 	m_layers.insert(p);
-	m_layers.insert(ui);
+	m_layers.insert(uib);
+	m_layers.insert(uim);
+	m_layers.insert(uif);
 	m_layers.insert(di);
 	m_layers.insert(t);
 }

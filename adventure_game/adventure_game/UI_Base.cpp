@@ -13,8 +13,9 @@ UI_Base::~UI_Base()
 
 }
 
-void UI_Base::execute()
+std::string UI_Base::execute()
 {
+	return std::string();
 }
 
 void UI_Base::render()
@@ -40,4 +41,13 @@ int UI_Base::getOrder() const
 UI_Type UI_Base::getType()
 {
 	return m_type;
+}
+
+SDL_Point UI_Base::getCoords()
+{
+	SDL_Rect r = m_sprite->getPosition();
+
+	SDL_Point p = { r.x, r.y };
+
+	return p;
 }

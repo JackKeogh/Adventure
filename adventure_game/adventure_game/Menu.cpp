@@ -3,6 +3,7 @@
 Menu::Menu()
 {
 	m_objects = std::vector<UI_Base*>();
+	m_type = MenuType::BASE;
 }
 
 Menu::~Menu()

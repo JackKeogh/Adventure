@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+#include "MenuType.h"
 #include "UIObjectsInclude.h"
 
 #ifndef MENU_H
@@ -23,6 +24,7 @@ public:
 
 protected:
 	std::vector<UI_Base*> m_objects;
+	MenuType m_type;
 };
 
 #endif // !MENU_H

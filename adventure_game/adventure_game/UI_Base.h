@@ -18,7 +18,7 @@ public:
 	UI_Base();
 	~UI_Base();
 
-	virtual void execute();
+	virtual std::string execute();
 
 	virtual void render();
 
@@ -29,6 +29,8 @@ public:
 	int getOrder() const;
 
 	UI_Type getType();
+
+	SDL_Point getCoords();
 
 protected:
 	SpriteComponent* m_sprite;

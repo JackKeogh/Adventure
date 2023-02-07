@@ -16,7 +16,10 @@ UI_Button_Exit::~UI_Button_Exit()
 	delete m_running;
 }
 
-void UI_Button_Exit::execute()
+std::string UI_Button_Exit::execute()
 {
 	*m_running = false;
+	std::string str = "exit";
+
+	return str;
 }

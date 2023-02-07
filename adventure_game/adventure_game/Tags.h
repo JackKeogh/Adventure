@@ -38,4 +38,7 @@ namespace Error
 
 	const std::string ERROR_SAVING_FAILED = "Failed to save data";
 	const std::string ERROR_LOADING_FAILED = "Failed to load data";
+
+	const std::string ERROR_MENU_FAILEDTOADD = "Failed to add menu to UI Controller";
+	const std::string ERROR_MENU_FAILEDTORESET = "Failed to reset UI Controller";
 }

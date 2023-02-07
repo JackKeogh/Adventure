@@ -7,7 +7,9 @@ enum class RenderLayer {
 	Middleground,
 	Player,
 	Foreground,
-	UI,
+	UI_Background,
+	UI_Middleground,
+	UI_Foreground,
 	Dialogue,
 	Transitions
 };

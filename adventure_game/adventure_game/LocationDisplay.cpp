@@ -25,7 +25,7 @@ void LocationDisplay::render()
 {
 	if (m_state != LDState::NoShow && m_current != nullptr)
 	{
-		LayerRenderer::addSprite(RenderLayer::UI, m_current);
+		LayerRenderer::addSprite(RenderLayer::UI_Foreground, m_current);
 	}
 }
 

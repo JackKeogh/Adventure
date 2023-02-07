@@ -11,7 +11,7 @@ public:
 	UI_Button_Exit(std::string path, SDL_Rect src, SDL_Rect pos, RenderLayer layer, int order, bool& running);
 	~UI_Button_Exit();
 
-	void execute() override;
+	std::string execute() override;
 
 private:
 	bool* m_running;
