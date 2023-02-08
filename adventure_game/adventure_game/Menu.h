@@ -22,6 +22,8 @@ public:
 
 	UI_Base* getUiItemByOrder(int o);
 
+	MenuType getType() const;
+
 protected:
 	std::vector<UI_Base*> m_objects;
 	MenuType m_type;

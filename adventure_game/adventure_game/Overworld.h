@@ -13,6 +13,7 @@
 #include "KeyInputSystem.h"
 #include "DynamicObject.h"
 #include "Factory.h"
+#include "MenuIncludes.h"
 
 class Overworld {
 public:
@@ -36,4 +37,5 @@ private:
 	bool m_running;
 	LocationManager* m_locManager;
 	DynamicObject* player;
+	Menu* m_pauseMenu;
 };

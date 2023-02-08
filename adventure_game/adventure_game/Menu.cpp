@@ -60,3 +60,8 @@ UI_Base* Menu::getUiItemByOrder(int o)
 
 	return item;
 }
+
+MenuType Menu::getType() const
+{
+	return m_type;
+}

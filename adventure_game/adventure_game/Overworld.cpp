@@ -21,6 +21,12 @@ void Overworld::initialise(Renderer* r) {
 		m_locManager = new LocationManager(r, player);
 	}
 
+	if (m_pauseMenu == nullptr)
+	{
+		m_pauseMenu = new PauseMenu();
+		m_pauseMenu->initialise();
+	}
+
 	DialogueSystem::initialise();
 	LocationDisplay::initialise(r);
 	LayerRenderer::initialise();
@@ -28,7 +34,7 @@ void Overworld::initialise(Renderer* r) {
 
 void Overworld::events(SDL_Event* e) {
 
-	KeyInputSystem::handleKeyInput(e, player, OverworldStateController::getState(), m_locManager);
+	KeyInputSystem::handleKeyInput(e, player, OverworldStateController::getState(), m_locManager, m_pauseMenu);
 }
 
 void Overworld::update(float dt) {
@@ -73,7 +79,7 @@ void Overworld::update(float dt) {
 			DialogueSystem::update();
 			break;
 		case OverworldState::Paused:
-			//std::cout << "Paused" << std::endl;
+			
 			break;
 		default:
 			//should not reach here
@@ -87,6 +93,7 @@ void Overworld::render(Renderer* r) {
 	{
 		m_locManager->render();
 		player->render();
+		UI_Controller::render(r);
 	}
 
 	LayerRenderer::render(r);

@@ -19,6 +19,6 @@ void PauseMenu::initialise()
 	if (!(m_objects.size() > 0))
 	{
 		// card background
-		m_objects.push_back(new UI_Card({ x, y, SCREEN_WIDTH / 4, SCREEN_HEIGHT }, RenderLayer::UI_Background));
+		m_objects.push_back(new UI_Card({ 200, 200, SCREEN_WIDTH / 4, SCREEN_HEIGHT }, RenderLayer::UI_Background));
 	}
 }

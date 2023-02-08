@@ -3,6 +3,7 @@
 #include "MenuIncludes.h"
 #include "GameState.h"
 #include "Options.h"
+#include "DynamicObject.h"
 
 #ifndef UI_CONTROLLER_H
 #define UI_CONTROLLER_H
@@ -13,11 +14,14 @@ public:
 	static void initialise();
 	static void addMenu(Menu* m);
 	static void launchMenuUpdate(SDL_Event* e, GameState& gs);
+	static void pauseMenuUpdate(SDL_Keycode kc, DynamicObject* obj);
 	static void render(Renderer* r);
 	static void reset();
 
-	static bool scroll(SDL_Keycode k);
+	static bool scroll(SDL_Keycode k, DynamicObject* obj = nullptr);
 	static void updateIndicatorPosition();
+
+	static bool isEnabled();
 
 private:
 	static SpriteComponent* m_indicator;

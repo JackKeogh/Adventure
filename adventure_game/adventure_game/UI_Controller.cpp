@@ -30,15 +30,18 @@ void UI_Controller::addMenu(Menu* m)
 
 		m_items = m_menu->getOrderedUiIteractables();
 
-		m_min = m_items.at(0)->getOrder();
-		m_max = m_items.back()->getOrder();
+		if (m_items.size() > 0)
+		{
+			m_min = m_items.at(0)->getOrder();
+			m_max = m_items.back()->getOrder();
 
-		m_current = m_min;
+			m_current = m_min;
 
-		int vpos = m_current - 1;
-		m_items[vpos]->highlight(true);
+			int vpos = m_current - 1;
+			m_items[vpos]->highlight(true);
 
-		updateIndicatorPosition();
+			updateIndicatorPosition();
+		}
 
 		m_enabled = true;
 	}
@@ -69,6 +72,14 @@ void UI_Controller::launchMenuUpdate(SDL_Event* e, GameState& gs)
 				}
 			}
 		}
+	}
+}
+
+void UI_Controller::pauseMenuUpdate(SDL_Keycode ka, DynamicObject* obj)
+{
+	if (!(scroll(ka, obj)))
+	{
+
 	}
 }
 
@@ -110,11 +121,20 @@ void UI_Controller::reset()
 	}
 }
 
-bool UI_Controller::scroll(SDL_Keycode k)
+bool UI_Controller::scroll(SDL_Keycode k, DynamicObject* obj)
 {
 	bool scrolled = false;
 
-	if (k == Options::getKeyInputUp())
+	KeyComponent* comp = nullptr;
+	KeyAction ka = KeyAction::null;
+	if (obj != nullptr)
+	{
+		comp = ComponentCasting::KeyCasting(obj->getComponent(Component_Type::KEY));
+		ka = comp->getKey(k);
+	}
+
+	if ((k == Options::getKeyInputUp() && m_menu->getType() == MenuType::LAUNCH) ||
+		(obj != nullptr && m_menu->getType() == MenuType::PAUSE && ka == KeyAction::MoveUp))
 	{
 		if (m_current > m_min)
 		{
@@ -131,7 +151,8 @@ bool UI_Controller::scroll(SDL_Keycode k)
 			scrolled = true;
 		}
 	}
-	else if (k == Options::getKeyInputDown())
+	else if ((k == Options::getKeyInputDown() && m_menu->getType() == MenuType::LAUNCH) ||
+			(obj != nullptr && m_menu->getType() == MenuType::PAUSE && ka == KeyAction::MoveDown))
 	{
 		if (m_current < m_max)
 		{
@@ -162,4 +183,9 @@ void UI_Controller::updateIndicatorPosition()
 
 		m_indicator->updatePosition(x, y);
 	}
+}
+
+bool UI_Controller::isEnabled()
+{
+	return m_enabled;
 }

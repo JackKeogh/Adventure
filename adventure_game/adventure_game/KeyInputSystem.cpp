@@ -1,6 +1,6 @@
 #include "KeyInputSystem.h"
 
-void KeyInputSystem::handleKeyInput(SDL_Event* e, DynamicObject* p, OverworldState state, LocationManager* lm)
+void KeyInputSystem::handleKeyInput(SDL_Event* e, DynamicObject* p, OverworldState state, LocationManager* lm, Menu* m)
 {
 	// Check if key is pressed
 	if (e->type == SDL_KEYDOWN)
@@ -20,7 +20,7 @@ void KeyInputSystem::handleKeyInput(SDL_Event* e, DynamicObject* p, OverworldSta
 
 			case OverworldState::Overworld:
 			case OverworldState::Inside:
-				handlePlayerInput(keyPressed, p, state, lm);
+				handlePlayerInput(keyPressed, p, state, lm, m);
 				break;
 
 			case OverworldState::Battle:
@@ -28,7 +28,7 @@ void KeyInputSystem::handleKeyInput(SDL_Event* e, DynamicObject* p, OverworldSta
 				break;
 
 			case OverworldState::Paused:
-				// handle pause input
+				handlePauseInput(keyPressed, p, state, m);
 				break;
 
 			case OverworldState::Dialog:
@@ -39,7 +39,7 @@ void KeyInputSystem::handleKeyInput(SDL_Event* e, DynamicObject* p, OverworldSta
 	}
 }
 
-void KeyInputSystem::handlePlayerInput(SDL_Keycode key, DynamicObject* p, OverworldState state, LocationManager* lm)
+void KeyInputSystem::handlePlayerInput(SDL_Keycode key, DynamicObject* p, OverworldState state, LocationManager* lm, Menu* m)
 {
 	KeyComponent* kc = ComponentCasting::KeyCasting(p->getComponent(Component_Type::KEY));
 
@@ -65,7 +65,21 @@ void KeyInputSystem::handlePlayerInput(SDL_Keycode key, DynamicObject* p, Overwo
 			MovementSystem::MoveRight(p, lm);
 			break;
 		case KeyAction::Pause:
-			OverworldStateController::changeState(OverworldState::Paused);
+			if (UI_Controller::isEnabled())
+			{
+				OverworldStateController::changeState(OverworldState::Overworld);
+				UI_Controller::reset();
+			}
+			else
+			{
+				OverworldStateController::changeState(OverworldState::Paused);
+				UI_Controller::addMenu(m);
+			}
 			break;
 	}
+}
+
+void KeyInputSystem::handlePauseInput(SDL_Keycode key, DynamicObject* p, OverworldState state, Menu* m)
+{
+	UI_Controller::pauseMenuUpdate(key, p);
 }
