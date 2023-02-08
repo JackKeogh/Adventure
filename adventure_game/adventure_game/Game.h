@@ -47,6 +47,10 @@ public:
 	void update();
 
 	void render();
+	
+	void createNewGame();
+
+	void loadGame();
 
 	bool getRunning();
 
