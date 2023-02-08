@@ -32,6 +32,8 @@ public:
 
 	SDL_Point getCoords();
 
+	void setCoords(int x, int y);
+
 protected:
 	SpriteComponent* m_sprite;
 	UI_Type m_type;

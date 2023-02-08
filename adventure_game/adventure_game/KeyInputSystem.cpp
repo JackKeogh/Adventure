@@ -72,6 +72,7 @@ void KeyInputSystem::handlePlayerInput(SDL_Keycode key, DynamicObject* p, Overwo
 			}
 			else
 			{
+				m->updateLocation();
 				OverworldStateController::changeState(OverworldState::Paused);
 				UI_Controller::addMenu(m);
 			}

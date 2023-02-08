@@ -45,6 +45,10 @@ std::vector<UI_Base*> Menu::getOrderedUiIteractables()
 	return interactables;
 }
 
+void Menu::updateLocation()
+{
+}
+
 UI_Base* Menu::getUiItemByOrder(int o)
 {
 	UI_Base* item = nullptr;

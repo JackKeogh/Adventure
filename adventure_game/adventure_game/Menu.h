@@ -20,6 +20,8 @@ public:
 
 	std::vector<UI_Base*> getOrderedUiIteractables();
 
+	virtual void updateLocation();
+
 	UI_Base* getUiItemByOrder(int o);
 
 	MenuType getType() const;

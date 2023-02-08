@@ -51,3 +51,8 @@ SDL_Point UI_Base::getCoords()
 
 	return p;
 }
+
+void UI_Base::setCoords(int x, int y)
+{
+	m_sprite->updatePosition(x, y);
+}

@@ -13,6 +13,8 @@ public:
 
 	void initialise() override;
 
+	void updateLocation() override;
+
 private:
 
 };
