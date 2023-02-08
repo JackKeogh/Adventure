@@ -9,7 +9,11 @@ std::string DialogueSystem::m_displayText = "";
 
 void DialogueSystem::initialise()
 {
-	m_textbox = new SpriteComponent(Renderer::Render(), "assets/Dialogue/DialogueBox_Style_01.png", { 0,0,1080,256 }, { 0,576,SCREEN_WIDTH,256 }, RenderLayer::UI_Background);
+	if (m_textbox == nullptr)
+	{
+		m_textbox = new SpriteComponent(Renderer::Render(), "assets/Dialogue/DialogueBox_Style_01.png", { 0,0,1080,256 }, { 0,576,SCREEN_WIDTH,256 }, RenderLayer::UI_Background);
+	}
+
 	reset();
 }
 

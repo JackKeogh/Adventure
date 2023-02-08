@@ -17,8 +17,11 @@ LocationDisplay::~LocationDisplay()
 
 void LocationDisplay::initialise(Renderer* r)
 {
-	m_badges.insert(std::pair<LocationName, Sprite*>(LocationName::LittleRoot, new Sprite(r, "assets/littleroot/littleroot_badge.png", { 0,0,150,50 }, { 0,0,150,50 })));
-	m_badges.insert(std::pair<LocationName, Sprite*>(LocationName::Route101, new Sprite(r, "assets/route101_badge.png", { 0,0,150,50 }, { 0,0,150,50 })));
+	if (!(m_badges.size() > 0))
+	{
+		m_badges.insert(std::pair<LocationName, Sprite*>(LocationName::LittleRoot, new Sprite(r, "assets/littleroot/littleroot_badge.png", { 0,0,150,50 }, { 0,0,150,50 })));
+		m_badges.insert(std::pair<LocationName, Sprite*>(LocationName::Route101, new Sprite(r, "assets/route101_badge.png", { 0,0,150,50 }, { 0,0,150,50 })));
+	}
 }
 
 void LocationDisplay::render()

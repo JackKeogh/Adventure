@@ -87,6 +87,9 @@ Game::Game() {
 	// Initialise UI Controller
 	UI_Controller::initialise();
 	UI_Controller::addMenu(m_menu);
+
+	// Initialise timer
+	m_timer = 0.f;
 }
 
 Game::~Game() {
@@ -176,10 +179,10 @@ void Game::update() {
 			Camera::initialise({ 0,0 });
 			break;
 		case GameState::NEW:
-			
+			createNewGame();
 			break;
 		case GameState::LOAD:
-			std::cout << "LOAD" << std::endl;
+			loadGame();
 			break;
 		case GameState::RUN:
 			m_world->update(m_controller->getDT());
@@ -196,10 +199,10 @@ void Game::render() {
 			UI_Controller::render(m_renderer);
 			break;
 		case GameState::NEW:
-			
+			renderBlank();
 			break;
 		case GameState::LOAD:
-			std::cout << "LOAD" << std::endl;
+			renderBlank();
 			break;
 		case GameState::RUN:
 			m_world->render(m_renderer);
@@ -211,10 +214,25 @@ void Game::render() {
 
 void Game::createNewGame()
 {
+	m_timer += 1.f / FPS;
+
+	m_world->initialise(m_renderer);
+
+	if (m_timer > 1.f)
+	{
+		m_timer = 0;
+		m_state = GameState::RUN;
+	}
 }
 
 void Game::loadGame()
 {
+	//m_state = GameState::RUN;
+}
+
+void Game::renderBlank()
+{
+	m_renderer->setRenderColor(Color::Black);
 }
 
 bool Game::getRunning() {

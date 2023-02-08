@@ -52,6 +52,8 @@ public:
 
 	void loadGame();
 
+	void renderBlank();
+
 	bool getRunning();
 
 private:
@@ -61,6 +63,7 @@ private:
 	Renderer* m_renderer;
 	Overworld* m_world;
 	Menu* m_menu;
+	float m_timer;
 };
 
 #endif // !GAME_H

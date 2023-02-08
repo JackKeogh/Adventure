@@ -10,9 +10,17 @@ Overworld::~Overworld() {
 
 void Overworld::initialise(Renderer* r) {
 	m_running = true;
-	player = Factory::createPlayer();
 
-	m_locManager = new LocationManager(r, player);
+	if (player == nullptr)
+	{
+		player = Factory::createPlayer();
+	}
+	
+	if (m_locManager == nullptr)
+	{
+		m_locManager = new LocationManager(r, player);
+	}
+
 	DialogueSystem::initialise();
 	LocationDisplay::initialise(r);
 	LayerRenderer::initialise();

@@ -60,10 +60,12 @@ void UI_Controller::launchMenuUpdate(SDL_Event* e, GameState& gs)
 				if (str == "new")
 				{
 					gs = GameState::NEW;
+					reset();
 				}
 				else if (str == "load")
 				{
 					gs = GameState::LOAD;
+					reset();
 				}
 			}
 		}
