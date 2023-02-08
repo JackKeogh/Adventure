@@ -16,6 +16,7 @@ public:
 	static void render(Renderer* r);
 	static void reset();
 
+	static bool scroll(SDL_Keycode k);
 	static void updateIndicatorPosition();
 
 private:

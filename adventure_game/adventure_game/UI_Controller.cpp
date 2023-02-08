@@ -50,52 +50,24 @@ void UI_Controller::launchMenuUpdate(SDL_Event* e, GameState& gs)
 	{
 		SDL_Keycode keyPressed = static_cast<SDL_Keycode>(e->key.keysym.sym);
 
-		if (keyPressed == Options::getKeyInputUp())
+		if (!(scroll(keyPressed)))
 		{
-			if (m_current > m_min)
+			if (keyPressed == Options::getKeyInputAction())
 			{
 				int vpos = m_current - 1;
+				std::string str = m_items[vpos]->execute();
 
-				m_items[vpos]->highlight(false);
-
-				m_current--;
-				updateIndicatorPosition();
-
-				vpos = m_current - 1;
-				m_items[vpos]->highlight(true);
-			}
-		}
-		else if (keyPressed == Options::getKeyInputDown())
-		{
-			if (m_current < m_max)
-			{
-				int vpos = m_current - 1;
-
-				m_items[vpos]->highlight(false);
-
-				m_current++;
-				updateIndicatorPosition();
-
-				vpos = m_current - 1;
-				m_items[vpos]->highlight(true);
-			}
-		}
-		else if (keyPressed == Options::getKeyInputAction())
-		{
-			int vpos = m_current - 1;
-			std::string str = m_items[vpos]->execute();
-
-			if (str == "new")
-			{
-				gs = GameState::NEW;
-			}
-			else if (str == "load")
-			{
-				gs = GameState::LOAD;
+				if (str == "new")
+				{
+					gs = GameState::NEW;
+				}
+				else if (str == "load")
+				{
+					gs = GameState::LOAD;
+				}
 			}
 		}
 	}
-
 }
 
 void UI_Controller::render(Renderer* r)
@@ -134,6 +106,48 @@ void UI_Controller::reset()
 
 		m_enabled = false;
 	}
+}
+
+bool UI_Controller::scroll(SDL_Keycode k)
+{
+	bool scrolled = false;
+
+	if (k == Options::getKeyInputUp())
+	{
+		if (m_current > m_min)
+		{
+			int vpos = m_current - 1;
+
+			m_items[vpos]->highlight(false);
+
+			m_current--;
+			updateIndicatorPosition();
+
+			vpos = m_current - 1;
+			m_items[vpos]->highlight(true);
+
+			scrolled = true;
+		}
+	}
+	else if (k == Options::getKeyInputDown())
+	{
+		if (m_current < m_max)
+		{
+			int vpos = m_current - 1;
+
+			m_items[vpos]->highlight(false);
+
+			m_current++;
+			updateIndicatorPosition();
+
+			vpos = m_current - 1;
+			m_items[vpos]->highlight(true);
+
+			scrolled = true;
+		}
+	}
+
+	return scrolled;
 }
 
 void UI_Controller::updateIndicatorPosition()
