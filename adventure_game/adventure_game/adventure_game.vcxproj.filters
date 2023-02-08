@@ -169,6 +169,30 @@
     <Filter Include="Source Files\Factory">
       <UniqueIdentifier>{a76edc62-9003-4c06-99f5-abe3fb732c78}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{24e64087-c63e-4cc0-8dd0-c418686cc177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{94d090ad-4f8c-41ff-8f03-050c84652153}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\UI Objects">
+      <UniqueIdentifier>{33adee7d-9a08-4db5-a5d3-f6a57ef0f6c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\UI Objects">
+      <UniqueIdentifier>{a47a0a33-1e00-41c4-9f22-66d86a6e9d72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\UI Objects\UI Buttons">
+      <UniqueIdentifier>{67cbae6f-b7da-478a-9084-443770481d19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\UI Objects\UI Buttons">
+      <UniqueIdentifier>{dd14c50a-ecff-413d-8253-37ca9fb4cb1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\Menus">
+      <UniqueIdentifier>{128063d2-3dea-4024-ab0b-b9dbea7fd59a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\Menus">
+      <UniqueIdentifier>{10af2233-94a9-480f-930a-8cab136fa022}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -329,6 +353,30 @@
     </ClCompile>
     <ClCompile Include="ObjectCasting.cpp">
       <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Base.cpp">
+      <Filter>Source Files\UI\UI Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Image.cpp">
+      <Filter>Source Files\UI\UI Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Card.cpp">
+      <Filter>Source Files\UI\UI Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Button.cpp">
+      <Filter>Source Files\UI\UI Objects\UI Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Button_Exit.cpp">
+      <Filter>Source Files\UI\UI Objects\UI Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\UI\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="LaunchMenu.cpp">
+      <Filter>Source Files\UI\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Controller.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -526,6 +574,45 @@
     </ClInclude>
     <ClInclude Include="GameState.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Base.h">
+      <Filter>Header Files\UI\UI Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="UIObjectsInclude.h">
+      <Filter>Header Files\UI\UI Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Image.h">
+      <Filter>Header Files\UI\UI Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Colors.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Card.h">
+      <Filter>Header Files\UI\UI Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Button.h">
+      <Filter>Header Files\UI\UI Objects\UI Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Button_Exit.h">
+      <Filter>Header Files\UI\UI Objects\UI Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="UIButtonsInclude.h">
+      <Filter>Header Files\UI\UI Objects\UI Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Controller.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\UI\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="LaunchMenu.h">
+      <Filter>Header Files\UI\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuIncludes.h">
+      <Filter>Header Files\UI\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuType.h">
+      <Filter>Header Files\UI\Menus</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

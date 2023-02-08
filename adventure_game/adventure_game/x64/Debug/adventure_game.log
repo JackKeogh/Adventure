@@ -1,5 +1,6 @@
 ﻿  Game.cpp
 D:\Projects\Adventure\Adventure\adventure_game\adventure_game\Game.cpp(19,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  UI_Controller.cpp
   main.cpp
   Generating Code...
   adventure_game.vcxproj -> D:\Projects\Adventure\Adventure\adventure_game\x64\Debug\adventure_game.exe

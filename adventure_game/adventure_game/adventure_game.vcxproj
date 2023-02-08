@@ -156,6 +156,7 @@
     <ClCompile Include="jsoncpp.cpp" />
     <ClCompile Include="KeyComponent.cpp" />
     <ClCompile Include="KeyInputSystem.cpp" />
+    <ClCompile Include="LaunchMenu.cpp" />
     <ClCompile Include="LayerRenderer.cpp" />
     <ClCompile Include="LittleRoot.cpp" />
     <ClCompile Include="LittlerootNodeArea.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="LocationDisplay.cpp" />
     <ClCompile Include="LocationManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeArea.cpp" />
@@ -186,6 +188,12 @@
     <ClCompile Include="Test_Hospital_Interior.cpp" />
     <ClCompile Include="Test_Hospital_NodeArea.cpp" />
     <ClCompile Include="Transitions.cpp" />
+    <ClCompile Include="UI_Base.cpp" />
+    <ClCompile Include="UI_Button.cpp" />
+    <ClCompile Include="UI_Button_Exit.cpp" />
+    <ClCompile Include="UI_Card.cpp" />
+    <ClCompile Include="UI_Controller.cpp" />
+    <ClCompile Include="UI_Image.cpp" />
     <ClCompile Include="WaitCommand.cpp" />
     <ClCompile Include="WarpEventInside.cpp" />
     <ClCompile Include="WarpEventOutside.cpp" />
@@ -195,6 +203,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ChangeOverworldState.h" />
     <ClInclude Include="CollisionSystem.h" />
+    <ClInclude Include="Colors.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentCasting.h" />
     <ClInclude Include="ComponentIncludes.h" />
@@ -214,8 +223,12 @@
     <ClInclude Include="json.h" />
     <ClInclude Include="KeyComponent.h" />
     <ClInclude Include="KeyInputSystem.h" />
+    <ClInclude Include="LaunchMenu.h" />
     <ClInclude Include="LittlerootNodeArea.h" />
     <ClInclude Include="LoadGame.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuIncludes.h" />
+    <ClInclude Include="MenuType.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="ObjectCasting.h" />
@@ -253,6 +266,14 @@
     <ClInclude Include="Test_Hospital_Interior.h" />
     <ClInclude Include="Test_Hospital_NodeArea.h" />
     <ClInclude Include="Transitions.h" />
+    <ClInclude Include="UIButtonsInclude.h" />
+    <ClInclude Include="UIObjectsInclude.h" />
+    <ClInclude Include="UI_Base.h" />
+    <ClInclude Include="UI_Button.h" />
+    <ClInclude Include="UI_Button_Exit.h" />
+    <ClInclude Include="UI_Card.h" />
+    <ClInclude Include="UI_Controller.h" />
+    <ClInclude Include="UI_Image.h" />
     <ClInclude Include="WaitCommand.h" />
     <ClInclude Include="WarpEventInside.h" />
     <ClInclude Include="WarpEventOutside.h" />

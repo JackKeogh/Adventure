@@ -157,10 +157,13 @@ void Game::events() {
 				UI_Controller::launchMenuUpdate(e, m_state);
 				break;
 			case GameState::NEW:
-				m_world->events(e);
+				
 				break;
 			case GameState::LOAD:
 				std::cout << "LOAD" << std::endl;
+				break;
+			case GameState::RUN:
+				m_world->events(e);
 				break;
 		}
 	}
@@ -169,15 +172,18 @@ void Game::events() {
 void Game::update() {
 	switch (m_state)
 	{
-	case GameState::MENU:
-		Camera::initialise({ 0,0 });
-		break;
-	case GameState::NEW:
-		m_world->update(m_controller->getDT());
-		break;
-	case GameState::LOAD:
-		std::cout << "LOAD" << std::endl;
-		break;
+		case GameState::MENU:
+			Camera::initialise({ 0,0 });
+			break;
+		case GameState::NEW:
+			
+			break;
+		case GameState::LOAD:
+			std::cout << "LOAD" << std::endl;
+			break;
+		case GameState::RUN:
+			m_world->update(m_controller->getDT());
+			break;
 	}
 }
 
@@ -186,18 +192,29 @@ void Game::render() {
 
 	switch (m_state)
 	{
-	case GameState::MENU:
-		UI_Controller::render(m_renderer);
-		break;
-	case GameState::NEW:
-		m_world->render(m_renderer);
-		break;
-	case GameState::LOAD:
-		std::cout << "LOAD" << std::endl;
-		break;
+		case GameState::MENU:
+			UI_Controller::render(m_renderer);
+			break;
+		case GameState::NEW:
+			
+			break;
+		case GameState::LOAD:
+			std::cout << "LOAD" << std::endl;
+			break;
+		case GameState::RUN:
+			m_world->render(m_renderer);
+			break;
 	}
 
 	m_renderer->display();
+}
+
+void Game::createNewGame()
+{
+}
+
+void Game::loadGame()
+{
 }
 
 bool Game::getRunning() {

@@ -6,7 +6,8 @@
 enum class GameState : int {
 	MENU = 0,
 	NEW,
-	LOAD
+	LOAD,
+	RUN
 };
 
 #endif // !GAMESTATE_H
