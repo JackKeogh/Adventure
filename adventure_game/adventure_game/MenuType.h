@@ -5,7 +5,8 @@
 
 enum class MenuType : int {
 	BASE = 0,
-	LAUNCH
+	LAUNCH,
+	PAUSE
 };
 
 #endif // !MENUTYPE_H
