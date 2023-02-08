@@ -35,6 +35,9 @@ void UI_Controller::addMenu(Menu* m)
 
 		m_current = m_min;
 
+		int vpos = m_current - 1;
+		m_items[vpos]->highlight(true);
+
 		updateIndicatorPosition();
 
 		m_enabled = true;
@@ -51,22 +54,45 @@ void UI_Controller::launchMenuUpdate(SDL_Event* e, GameState& gs)
 		{
 			if (m_current > m_min)
 			{
+				int vpos = m_current - 1;
+
+				m_items[vpos]->highlight(false);
+
 				m_current--;
 				updateIndicatorPosition();
+
+				vpos = m_current - 1;
+				m_items[vpos]->highlight(true);
 			}
 		}
 		else if (keyPressed == Options::getKeyInputDown())
 		{
 			if (m_current < m_max)
 			{
+				int vpos = m_current - 1;
+
+				m_items[vpos]->highlight(false);
+
 				m_current++;
 				updateIndicatorPosition();
+
+				vpos = m_current - 1;
+				m_items[vpos]->highlight(true);
 			}
 		}
 		else if (keyPressed == Options::getKeyInputAction())
 		{
 			int vpos = m_current - 1;
 			std::string str = m_items[vpos]->execute();
+
+			if (str == "new")
+			{
+				gs = GameState::NEW;
+			}
+			else if (str == "load")
+			{
+				gs = GameState::LOAD;
+			}
 		}
 	}
 
