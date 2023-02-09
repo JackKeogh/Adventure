@@ -121,15 +121,9 @@ void Game::SDLInitialise() {
 void Game::run() {
 	
 	m_controller->updateCurrentTime();
-
-	_CrtMemState sOld;
-	_CrtMemState sNew;
-	_CrtMemState sDiff;
 	
 	while (m_running)
 	{
-		_CrtMemCheckpoint(&sOld);
-
 		if (!getRunning())
 		{
 			break;
@@ -147,16 +141,6 @@ void Game::run() {
 
 		m_controller->updateFrameTime();
 		m_controller->delayFrame();
-		_CrtMemCheckpoint(&sNew);
-		if (_CrtMemDifference(&sDiff, &sOld, &sNew)) // if there is a difference
-		{
-			OutputDebugStringA("-----------_CrtMemDumpStatistics ---------");
-			_CrtMemDumpStatistics(&sDiff);
-			OutputDebugStringA("-----------_CrtMemDumpAllObjectsSince ---------");
-			_CrtMemDumpAllObjectsSince(&sOld);
-			OutputDebugStringA("-----------_CrtDumpMemoryLeaks ---------");
-			_CrtDumpMemoryLeaks();
-		}
 	}
 }
 

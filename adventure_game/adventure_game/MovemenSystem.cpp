@@ -69,6 +69,8 @@ void MovementSystem::MoveDown(DynamicObject* c, LocationManager* manager)
 		int col = n->m_x,
 			row = n->m_y;
 
+		delete n;
+
 		Node* locNode = CheckArea(manager, row, col);
 
 		if (locNode == nullptr)
