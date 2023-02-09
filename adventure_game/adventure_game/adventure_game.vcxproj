@@ -173,6 +173,7 @@
     <ClCompile Include="ObjectCasting.cpp" />
     <ClCompile Include="Options.cpp" />
     <ClCompile Include="OverworldState.cpp" />
+    <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="Route101.cpp" />
     <ClCompile Include="MovemenSystem.cpp" />
     <ClCompile Include="Route101NodeArea.cpp" />
@@ -234,6 +235,7 @@
     <ClInclude Include="ObjectCasting.h" />
     <ClInclude Include="ObjectIncludes.h" />
     <ClInclude Include="Options.h" />
+    <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="RenderLayer.h" />
     <ClInclude Include="Route101NodeArea.h" />
     <ClInclude Include="SaveGame.h" />

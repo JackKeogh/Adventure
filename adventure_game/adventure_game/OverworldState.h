@@ -19,8 +19,10 @@ class OverworldStateController
 public:
 	static void changeState(OverworldState s);
 
-	static OverworldState getState();
+	static OverworldState getCurrentState();
+	static OverworldState getLastState();
 
 private:
 	static OverworldState m_state;
+	static OverworldState m_lastState;
 };

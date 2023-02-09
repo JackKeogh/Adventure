@@ -66,6 +66,7 @@ void KeyComponent::reload()
 	m_actions.insert(std::pair<KeyAction, SDL_Keycode>(KeyAction::MoveLeft, Options::getKeyInputLeft()));
 	m_actions.insert(std::pair<KeyAction, SDL_Keycode>(KeyAction::MoveRight, Options::getKeyInputRight()));
 	m_actions.insert(std::pair<KeyAction, SDL_Keycode>(KeyAction::Pause, Options::getKeyInputPause()));
+	m_actions.insert(std::pair<KeyAction, SDL_Keycode>(KeyAction::Action, Options::getKeyInputAction()));
 }
 
 KeyAction KeyComponent::getKey(SDL_Keycode key)

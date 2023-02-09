@@ -6,6 +6,8 @@ Overworld::Overworld(Renderer* renderer) {
 
 Overworld::~Overworld() {
 	delete m_locManager;
+	delete player;
+	delete m_pauseMenu;
 }
 
 void Overworld::initialise(Renderer* r) {
@@ -34,11 +36,11 @@ void Overworld::initialise(Renderer* r) {
 
 void Overworld::events(SDL_Event* e) {
 
-	KeyInputSystem::handleKeyInput(e, player, OverworldStateController::getState(), m_locManager, m_pauseMenu);
+	KeyInputSystem::handleKeyInput(e, player, OverworldStateController::getCurrentState(), m_locManager, m_pauseMenu);
 }
 
 void Overworld::update(float dt) {
-	switch (OverworldStateController::getState())
+	switch (OverworldStateController::getCurrentState())
 	{
 		case OverworldState::Overworld:
 			player->update(dt);
@@ -89,7 +91,7 @@ void Overworld::update(float dt) {
 
 void Overworld::render(Renderer* r) {
 
-	if (OverworldStateController::getState() == OverworldState::Paused)
+	if (OverworldStateController::getCurrentState() == OverworldState::Paused)
 	{
 		m_locManager->render();
 		player->render();

@@ -24,7 +24,7 @@ void PauseMenu::initialise()
 
 		m_objects.push_back(new UI_Button("assets/UI/continue.png", { 0,0,128,64 }, { 416,234,128,64 }, RenderLayer::UI_Foreground, 1, "pokedex"));
 		m_objects.push_back(new UI_Button("assets/UI/new_game.png", {0,0,128,64}, {416,234,128,64}, RenderLayer::UI_Foreground, 2, "test"));
-		m_objects.push_back(new UI_Button("assets/UI/new_game.png", { 0,0,128,64 }, { 416,234,128,64 }, RenderLayer::UI_Foreground, 3, "test"));
+		m_objects.push_back(new UI_Button("assets/UI/exit.png", { 0,0,128,64 }, { 416,234,128,64 }, RenderLayer::UI_Foreground, 3, "return"));
 	}
 }
 

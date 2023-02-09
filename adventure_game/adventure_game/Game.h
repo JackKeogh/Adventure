@@ -9,6 +9,7 @@
 
 #ifndef GAME_H
 #define GAME_H
+#include <Windows.h>
 
 class GameLoopController {
 public:

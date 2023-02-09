@@ -14,11 +14,11 @@ public:
 	static void initialise();
 	static void addMenu(Menu* m);
 	static void launchMenuUpdate(SDL_Event* e, GameState& gs);
-	static void pauseMenuUpdate(SDL_Keycode kc, DynamicObject* obj);
+	static std::string pauseMenuUpdate(SDL_Keycode kc, DynamicObject* obj);
 	static void render(Renderer* r);
 	static void reset();
 
-	static bool scroll(SDL_Keycode k, DynamicObject* obj = nullptr);
+	static bool scroll(SDL_Keycode k, KeyAction ka = KeyAction::null);
 	static void updateIndicatorPosition();
 
 	static bool isEnabled();

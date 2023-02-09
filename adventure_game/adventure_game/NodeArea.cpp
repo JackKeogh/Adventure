@@ -17,6 +17,7 @@ NodeArea::NodeArea(std::vector<std::vector<int>> v, int offsetX, int offsetY, bo
 		{
 			Node* n = new Node(j - m_offsetX, i + m_offsetY, (Collide_Types)(v[i][j]));
 			m_nodes[i].push_back(n);
+			delete n;
 		}
 	}
 

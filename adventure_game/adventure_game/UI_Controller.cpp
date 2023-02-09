@@ -75,12 +75,32 @@ void UI_Controller::launchMenuUpdate(SDL_Event* e, GameState& gs)
 	}
 }
 
-void UI_Controller::pauseMenuUpdate(SDL_Keycode ka, DynamicObject* obj)
+std::string UI_Controller::pauseMenuUpdate(SDL_Keycode ka, DynamicObject* obj)
 {
-	if (!(scroll(ka, obj)))
-	{
+	std::string str = "";
 
+	KeyComponent* comp = nullptr;
+	KeyAction action = KeyAction::null;
+	if (obj != nullptr)
+	{
+		comp = ComponentCasting::KeyCasting(obj->getComponent(Component_Type::KEY));
+		action = comp->getKey(ka);
 	}
+
+	if (!(scroll(ka, action)))
+	{
+		if (action == KeyAction::Action)
+		{
+			int vpos = m_current - 1;
+			str = m_items[vpos]->execute();
+		}
+		else if (action == KeyAction::Pause)
+		{
+			str = "return";
+		}
+	}
+
+	return str;
 }
 
 void UI_Controller::render(Renderer* r)
@@ -110,6 +130,7 @@ void UI_Controller::reset()
 
 		while (m_items.size() > 0)
 		{
+			m_items.back()->highlight(false);
 			m_items.pop_back();
 		}
 
@@ -121,20 +142,12 @@ void UI_Controller::reset()
 	}
 }
 
-bool UI_Controller::scroll(SDL_Keycode k, DynamicObject* obj)
+bool UI_Controller::scroll(SDL_Keycode k, KeyAction ka)
 {
 	bool scrolled = false;
 
-	KeyComponent* comp = nullptr;
-	KeyAction ka = KeyAction::null;
-	if (obj != nullptr)
-	{
-		comp = ComponentCasting::KeyCasting(obj->getComponent(Component_Type::KEY));
-		ka = comp->getKey(k);
-	}
-
 	if ((k == Options::getKeyInputUp() && m_menu->getType() == MenuType::LAUNCH) ||
-		(obj != nullptr && m_menu->getType() == MenuType::PAUSE && ka == KeyAction::MoveUp))
+		(m_menu->getType() == MenuType::PAUSE && ka == KeyAction::MoveUp))
 	{
 		if (m_current > m_min)
 		{
@@ -152,7 +165,7 @@ bool UI_Controller::scroll(SDL_Keycode k, DynamicObject* obj)
 		}
 	}
 	else if ((k == Options::getKeyInputDown() && m_menu->getType() == MenuType::LAUNCH) ||
-			(obj != nullptr && m_menu->getType() == MenuType::PAUSE && ka == KeyAction::MoveDown))
+			(m_menu->getType() == MenuType::PAUSE && ka == KeyAction::MoveDown))
 	{
 		if (m_current < m_max)
 		{

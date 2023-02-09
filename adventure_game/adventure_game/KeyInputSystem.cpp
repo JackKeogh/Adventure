@@ -5,7 +5,7 @@ void KeyInputSystem::handleKeyInput(SDL_Event* e, DynamicObject* p, OverworldSta
 	// Check if key is pressed
 	if (e->type == SDL_KEYDOWN)
 	{
-		SDL_KeyCode keyPressed = static_cast<SDL_KeyCode>(e->key.keysym.sym);
+		SDL_Keycode keyPressed = static_cast<SDL_Keycode>(e->key.keysym.sym);
 
 		switch (state)
 		{
@@ -65,12 +65,9 @@ void KeyInputSystem::handlePlayerInput(SDL_Keycode key, DynamicObject* p, Overwo
 			MovementSystem::MoveRight(p, lm);
 			break;
 		case KeyAction::Pause:
-			if (UI_Controller::isEnabled())
-			{
-				OverworldStateController::changeState(OverworldState::Overworld);
-				UI_Controller::reset();
-			}
-			else
+			MovementComponent* mc = ComponentCasting::MovementCasting(p->getComponent(Component_Type::MOVEMENT));
+
+			if (!(mc->isMoving()))
 			{
 				m->updateLocation();
 				OverworldStateController::changeState(OverworldState::Paused);
@@ -82,5 +79,12 @@ void KeyInputSystem::handlePlayerInput(SDL_Keycode key, DynamicObject* p, Overwo
 
 void KeyInputSystem::handlePauseInput(SDL_Keycode key, DynamicObject* p, OverworldState state, Menu* m)
 {
-	UI_Controller::pauseMenuUpdate(key, p);
+	std::string str = UI_Controller::pauseMenuUpdate(key, p);
+
+	if (str == "return" && m->getType() == MenuType::PAUSE)
+	{
+		OverworldStateController::changeState(OverworldStateController::getLastState());
+		UI_Controller::reset();
+	}
+
 }
