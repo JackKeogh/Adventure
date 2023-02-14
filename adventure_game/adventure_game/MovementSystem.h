@@ -19,4 +19,5 @@ public:
 	static void MoveUp(DynamicObject* c, LocationManager* manager);
 	static void MoveLeft(DynamicObject* c, LocationManager* manager);
 	static void MoveRight(DynamicObject* c, LocationManager* manager);
+	static void Move(LocationManager* manager, Node* locNode, Animator* a, MovementComponent* m, SDL_Point rc, SDL_Point dest, Animations a_dir, MovementDirection m_dir);
 };

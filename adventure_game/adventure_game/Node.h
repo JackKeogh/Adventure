@@ -7,7 +7,8 @@
 enum class Collide_Types {
 	NONE = 0,
 	BASIC = 1,
-	WARP
+	WARP,
+	GRASS
 };
 
 struct Node

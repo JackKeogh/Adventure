@@ -66,51 +66,20 @@ void MovementSystem::MoveDown(DynamicObject* c, LocationManager* manager)
 	{
 		// Get Destination Node location
 		Node* n = GetNode(m->getPosition().x, m->getPosition().y + NODE_HEIGHT);
-		int col = n->m_x,
-			row = n->m_y;
+		SDL_Point rc = { n->m_y, n->m_x };
 
 		delete n;
 
-		Node* locNode = CheckArea(manager, row, col);
+		Node* locNode = CheckArea(manager, rc.x, rc.y);
 
 		if (locNode == nullptr)
 		{
 			return;
 		}
 
-		Location* location = manager->getLocation();
+		SDL_Point dest = { m->getPosition().x, m->getPosition().y + NODE_HEIGHT };
 
-		if (locNode->m_collidable != Collide_Types::BASIC)
-		{
-			if (locNode->m_collidable == Collide_Types::WARP)
-			{
-				Object* o = location->getObject(col * NODE_WIDTH, row * NODE_HEIGHT);
-
-				if (o != nullptr)
-				{
-					if (o->getSprite(ObjectTag::ANIMATOR) != nullptr)
-					{
-						o->animate();
-					}
-				}
-			}
-
-			if (a != nullptr)
-			{
-				a->changeState(Animations::walkDown);
-			}
-
-			m->setDirection(MovementDirection::Down);
-			m->setIsMoving(true);
-			m->setDestination(m->getPosition().x, m->getPosition().y + NODE_HEIGHT);
-		}
-		else
-		{
-			if (a != nullptr)
-			{
-				a->changeState(Animations::idleDown);
-			}
-		}
+		Move(manager, locNode, a, m, rc, dest, Animations::walkDown, MovementDirection::Down);
 	}
 }
 
@@ -128,49 +97,18 @@ void MovementSystem::MoveUp(DynamicObject* c, LocationManager* manager)
 	{
 		// Get Destination Node location
 		Node* n = GetNode(m->getPosition().x, m->getPosition().y - NODE_HEIGHT);
-		int col = n->m_x,
-			row = n->m_y;
+		SDL_Point rc = { n->m_y, n->m_x };
 
-		Node* locNode = CheckArea(manager, row, col);
+		Node* locNode = CheckArea(manager, rc.x, rc.y);
 
 		if (locNode == nullptr)
 		{
 			return;
 		}
 
-		Location* location = manager->getLocation();
+		SDL_Point dest = { m->getPosition().x, m->getPosition().y - NODE_HEIGHT };
 
-		if (locNode->m_collidable != Collide_Types::BASIC)
-		{
-			if (locNode->m_collidable == Collide_Types::WARP)
-			{
-				Object* o = location->getObject(col * NODE_WIDTH, row * NODE_HEIGHT);
-
-				if (o != nullptr)
-				{
-					if (o->getSprite(ObjectTag::ANIMATOR) != nullptr)
-					{
-						o->animate();
-					}
-				}
-			}
-
-			if (a != nullptr)
-			{
-				a->changeState(Animations::walkUp);
-			}
-
-			m->setDirection(MovementDirection::Up);
-			m->setIsMoving(true);
-			m->setDestination(m->getPosition().x, m->getPosition().y - NODE_HEIGHT);
-		}
-		else
-		{
-			if (a != nullptr)
-			{
-				a->changeState(Animations::idleUp);
-			}
-		}
+		Move(manager, locNode, a, m, rc, dest, Animations::walkUp, MovementDirection::Up);
 	}
 }
 
@@ -188,49 +126,18 @@ void MovementSystem::MoveLeft(DynamicObject* c, LocationManager* manager)
 	{
 		// Get Destination Node location
 		Node* n = GetNode(m->getPosition().x - NODE_WIDTH, m->getPosition().y);
-		int col = n->m_x,
-			row = n->m_y;
+		SDL_Point rc = { n->m_y, n->m_x };
 
-		Node* locNode = CheckArea(manager, row, col);
+		Node* locNode = CheckArea(manager, rc.x, rc.y);
 
 		if (locNode == nullptr)
 		{
 			return;
 		}
 
-		Location* location = manager->getLocation();
+		SDL_Point dest = { m->getPosition().x - NODE_WIDTH, m->getPosition().y };
 
-		if (locNode->m_collidable != Collide_Types::BASIC)
-		{
-			if (locNode->m_collidable == Collide_Types::WARP)
-			{
-				Object* o = location->getObject(col * NODE_WIDTH, row * NODE_HEIGHT);
-
-				if (o != nullptr)
-				{
-					if (o->getSprite(ObjectTag::ANIMATOR) != nullptr)
-					{
-						o->animate();
-					}
-				}
-			}
-
-			if (a != nullptr)
-			{
-				a->changeState(Animations::walkLeft);
-			}
-
-			m->setDirection(MovementDirection::Left);
-			m->setIsMoving(true);
-			m->setDestination(m->getPosition().x - NODE_WIDTH, m->getPosition().y);
-		}
-		else
-		{
-			if (a != nullptr)
-			{
-				a->changeState(Animations::idleLeft);
-			}
-		}
+		Move(manager, locNode, a, m, rc, dest, Animations::walkLeft, MovementDirection::Left);
 	}
 }
 
@@ -249,47 +156,67 @@ void MovementSystem::MoveRight(DynamicObject* c, LocationManager* manager)
 
 		// Get Destination Node location
 		Node* n = GetNode(m->getPosition().x + NODE_WIDTH, m->getPosition().y);
-		int col = n->m_x,
-			row = n->m_y;
+		SDL_Point rc = { n->m_y, n->m_x };
 
-		Node* locNode = CheckArea(manager, row, col);
+		Node* locNode = CheckArea(manager, rc.x, rc.y);
 
 		if (locNode == nullptr)
 		{
 			return;
 		}
 
-		Location* location = manager->getLocation();
+		SDL_Point dest = { m->getPosition().x + NODE_WIDTH, m->getPosition().y };
 
-		if (locNode->m_collidable != Collide_Types::BASIC)
+		Move(manager, locNode, a, m, rc, dest, Animations::walkRight, MovementDirection::Right);
+	}
+}
+
+void MovementSystem::Move(LocationManager* manager, Node* locNode, Animator* a, MovementComponent* m, SDL_Point rc, SDL_Point dest, Animations a_dir, MovementDirection m_dir)
+{
+	Location* location = manager->getLocation();
+
+	if (locNode->m_collidable != Collide_Types::BASIC)
+	{
+		if (locNode->m_collidable == Collide_Types::WARP)
 		{
-			if (locNode->m_collidable == Collide_Types::WARP)
-			{
-				Object* o = location->getObject(col * NODE_WIDTH, row * NODE_HEIGHT);
+			Object* o = location->getObject(rc.x * NODE_WIDTH, rc.y * NODE_HEIGHT);
 
-				if (o != nullptr)
+			if (o != nullptr)
+			{
+				if (o->getSprite(ObjectTag::ANIMATOR) != nullptr)
 				{
-					if (o->getSprite(ObjectTag::ANIMATOR) != nullptr)
-					{
-						o->animate();
-					}
+					o->animate();
 				}
 			}
-
-			if (a != nullptr)
-			{
-				a->changeState(Animations::walkRight);
-			}
-
-			m->setDirection(MovementDirection::Right);
-			m->setIsMoving(true);
-			m->setDestination(m->getPosition().x + NODE_WIDTH, m->getPosition().y);
 		}
-		else
+
+		if (a != nullptr)
 		{
-			if (a != nullptr)
+			a->changeState(a_dir);
+		}
+
+		m->setDirection(m_dir);
+		m->setIsMoving(true);
+		m->setDestination(dest.x, dest.y);
+	}
+	else
+	{
+		if (a != nullptr)
+		{
+			switch (a_dir)
 			{
-				a->changeState(Animations::idleRight);
+				case Animations::walkDown:
+					a->changeState(Animations::idleDown);
+					break;
+				case Animations::walkUp:
+					a->changeState(Animations::idleUp);
+					break;
+				case Animations::walkLeft:
+					a->changeState(Animations::idleLeft);
+					break;
+				case Animations::walkRight:
+					a->changeState(Animations::idleRight);
+					break;
 			}
 		}
 	}
