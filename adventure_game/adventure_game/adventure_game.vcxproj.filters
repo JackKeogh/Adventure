@@ -193,6 +193,12 @@
     <Filter Include="Source Files\UI\Menus">
       <UniqueIdentifier>{10af2233-94a9-480f-930a-8cab136fa022}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Location\Masks">
+      <UniqueIdentifier>{e12b04ba-df0f-4646-bdfc-8a301234833f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Location\Masks">
+      <UniqueIdentifier>{0a54dd7a-0ebb-4361-b6c8-d39e2393485f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -380,6 +386,9 @@
     </ClCompile>
     <ClCompile Include="PauseMenu.cpp">
       <Filter>Source Files\UI\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Mask.cpp">
+      <Filter>Source Files\Location\Masks</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -619,6 +628,9 @@
     </ClInclude>
     <ClInclude Include="PauseMenu.h">
       <Filter>Header Files\UI\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Mask.h">
+      <Filter>Header Files\Location\Masks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

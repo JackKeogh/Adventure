@@ -35,6 +35,7 @@ D:\Projects\Adventure\Adventure\adventure_game\adventure_game\LittlerootNodeArea
   Location.cpp
   LocationDisplay.cpp
   LocationManager.cpp
+  Mask.cpp
   Menu.cpp
   MovemenSystem.cpp
   MovementComponent.cpp
@@ -49,10 +50,10 @@ D:\Projects\Adventure\Adventure\adventure_game\adventure_game\NodeArea.cpp(14,21
   PauseMenu.cpp
   RenderingSystem.cpp
   Route101.cpp
-  Route101NodeArea.cpp
   Generating Code...
 D:\Projects\Adventure\Adventure\adventure_game\adventure_game\RenderingSystem.cpp(34): warning C4715: 'Renderer::initialise': not all control paths return a value
   Compiling...
+  Route101NodeArea.cpp
   SaveGame.cpp
   SetDynamicObjectPositionCommand.cpp
   Sprite.cpp
@@ -74,6 +75,8 @@ D:\Projects\Adventure\Adventure\adventure_game\adventure_game\Test_Hospital_Node
   WaitCommand.cpp
   WarpEventInside.cpp
   WarpEventOutside.cpp
+  Generating Code...
+  Compiling...
   main.cpp
   Generating Code...
   adventure_game.vcxproj -> D:\Projects\Adventure\Adventure\adventure_game\x64\Debug\adventure_game.exe
