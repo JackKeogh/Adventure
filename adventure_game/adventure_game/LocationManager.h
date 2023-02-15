@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "location_include.h"
 #include "EventCasting.h"
+#include "Mask.h"
 
 class LocationManager
 {
@@ -9,6 +10,8 @@ public:
 	LocationManager(Renderer* r = nullptr, DynamicObject* d = nullptr);
 
 	~LocationManager();
+
+	void loadMasks();
 
 	void update(float dt);
 
@@ -26,5 +29,6 @@ public:
 
 private:
 	Location* m_location;
+	std::map<std::string, Mask*> m_masks;
 };
 

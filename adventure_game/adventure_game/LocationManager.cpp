@@ -5,10 +5,20 @@ LocationManager::LocationManager(Renderer* r, DynamicObject* d)
 	m_location = new LittleRoot(r, d);
 	m_location->addConnection(LocationName::Route101, new Route101(r));
 	m_location->getLocation(LocationName::Route101)->addConnection(m_location->getCurrentLocation(), m_location);
+	
+	m_masks = std::map<std::string, Mask*>();
+	loadMasks();
 }
 
 LocationManager::~LocationManager()
 {
+}
+
+void LocationManager::loadMasks()
+{
+	std::pair<std::string, Mask*> mask(ObjectTag::GRASS, new Mask("assets/Masks/grass_mask.png", { 0,0,16,16 }, { 0,0,32,32 }));
+
+	m_masks.insert(mask);
 }
 
 void LocationManager::update(float dt)
@@ -24,7 +34,7 @@ void LocationManager::updateSubLocation(Event* e)
 
 	if (!m_location->subLocationExist(sll))
 	{
-		std::cout << "SUB LOCATION DOES NOT EXIST" << std::endl;
+		std::cout << Error::ERROR_SUBLOCATION_NOTEXISTS << std::endl;
 	}
 	else
 	{
@@ -49,6 +59,13 @@ void LocationManager::changeLocation(LocationName loc)
 void LocationManager::render()
 {
 	m_location->render();
+
+	std::map<std::string, Mask*>::iterator iter;
+
+	for (iter = m_masks.begin(); iter != m_masks.end(); iter++)
+	{
+		iter->second->render();
+	}
 }
 
 Location* LocationManager::getLocation()
