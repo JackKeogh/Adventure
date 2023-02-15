@@ -189,6 +189,10 @@ void MovementSystem::Move(LocationManager* manager, Node* locNode, Animator* a, 
 				}
 			}
 		}
+		else if (locNode->m_collidable == Collide_Types::GRASS)
+		{
+			std::cout << "Grass" << std::endl;
+		}
 
 		if (a != nullptr)
 		{
