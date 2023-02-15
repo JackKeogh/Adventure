@@ -23,9 +23,13 @@ public:
 
 	void render();
 
+	void renderMask();
+
 	Location* getLocation();
 
 	void displayName();
+
+	Mask* getMask(std::string m);
 
 private:
 	Location* m_location;

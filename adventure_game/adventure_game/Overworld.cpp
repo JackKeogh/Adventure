@@ -97,6 +97,10 @@ void Overworld::render(Renderer* r) {
 		player->render();
 		UI_Controller::render(r);
 	}
+	else
+	{
+		m_locManager->renderMask();
+	}
 
 	LayerRenderer::render(r);
 }

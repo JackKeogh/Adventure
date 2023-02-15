@@ -60,6 +60,11 @@ void LocationManager::render()
 {
 	m_location->render();
 
+	renderMask();
+}
+
+void LocationManager::renderMask()
+{
 	std::map<std::string, Mask*>::iterator iter;
 
 	for (iter = m_masks.begin(); iter != m_masks.end(); iter++)
@@ -76,4 +81,9 @@ Location* LocationManager::getLocation()
 void LocationManager::displayName()
 {
 	std::cout << m_location->getCurrentName() << std::endl;
+}
+
+Mask* LocationManager::getMask(std::string m)
+{
+	return m_masks[m];
 }

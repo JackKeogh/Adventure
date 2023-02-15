@@ -1,6 +1,7 @@
 #include "CollisionSystem.h"
 
 OverworldState CollisionSystem::Warp = OverworldState::null;
+bool CollisionSystem::m_gChecked = false;
 
 void CollisionSystem::Collision(DynamicObject* c, LocationManager* loc)
 {
@@ -35,6 +36,9 @@ void CollisionSystem::Collision(DynamicObject* c, LocationManager* loc)
 		case Collide_Types::WARP:
 			WarpReaction(c, loc, n);
 			break;
+		case Collide_Types::GRASS:
+			GrassReaction(c, loc, n, mc->isMoving());
+			break;
 	}
 }
 
@@ -47,5 +51,27 @@ void CollisionSystem::WarpReaction(DynamicObject* c, LocationManager* loc, Node*
 	else if (n->m_warpID == WarpID::LITTLEROOT_INTERIOR_HOSPITAL_WARP_EXIT)
 	{
 		EventSystem::setEvent(loc->getLocation()->getEvent(WarpID::LITTLEROOT_INTERIOR_HOSPITAL_WARP_EXIT));
+	}
+}
+
+void CollisionSystem::GrassReaction(DynamicObject* c, LocationManager* loc, Node* n, bool isMoving)
+{
+	if (!isMoving)
+	{
+		if (!m_gChecked)
+		{
+			// set the grass mask on the location
+			Mask* m = loc->getMask(ObjectTag::GRASS);
+			SDL_Point p = { (n->m_x * NODE_WIDTH), (n->m_y * NODE_HEIGHT) };
+			m->setPosition(p);
+			m->setEnabled(true);
+
+
+			m_gChecked = true;
+		}
+	}
+	else
+	{
+		m_gChecked = false;
 	}
 }

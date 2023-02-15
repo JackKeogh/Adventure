@@ -14,5 +14,9 @@ public:
 	static OverworldState Warp;
 	static void Collision(DynamicObject* c, LocationManager* loc);
 	static void WarpReaction(DynamicObject* c, LocationManager* loc, Node* n);
+	static void GrassReaction(DynamicObject* c, LocationManager* loc, Node* n, bool isMoving);
+
+private:
+	static bool m_gChecked;
 };
 
