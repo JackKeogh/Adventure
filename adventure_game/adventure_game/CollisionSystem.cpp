@@ -66,6 +66,14 @@ void CollisionSystem::GrassReaction(DynamicObject* c, LocationManager* loc, Node
 			m->setPosition(p);
 			m->setEnabled(true);
 
+			std::random_device rd;
+			std::uniform_int_distribution<int> dist(0, 100);
+			int r = dist(rd);
+
+			if (r > 70)
+			{
+				std::cout << "Battle" << std::endl;
+			}
 
 			m_gChecked = true;
 		}
