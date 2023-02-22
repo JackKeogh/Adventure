@@ -9,6 +9,7 @@ enum class OverworldState {
 	Transition_Outside_ChangeWorld,
 	Transition_FadeIn,
 	Inside,
+	Battle_Load,
 	Battle,
 	Event,
 	Dialog

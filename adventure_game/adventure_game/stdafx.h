@@ -12,6 +12,7 @@
 #include <fstream>
 #include <algorithm>
 #include <random>
+#include <math.h>
 #include "Tags.h"
 #include "Colors.h"
 

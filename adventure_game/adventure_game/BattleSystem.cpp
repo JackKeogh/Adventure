@@ -11,8 +11,9 @@ void BattleSystem::battleSetup(BattleType type, DynamicObject* trainer)
 	if (trainer == nullptr)
 	{
 		// Wild Battle
-		// We need to get a monster to battle
-
+		m_monster = new Monster();
+		
+		std::cout << *m_monster << std::endl;
 	}
 	else
 	{

@@ -7,6 +7,7 @@
 #include "EventSystem.h"
 #include "WarpEventInside.h"
 #include "DynamicObject.h"
+#include "BattleSystem.h"
 
 class CollisionSystem
 {

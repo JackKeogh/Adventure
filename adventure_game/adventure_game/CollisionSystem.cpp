@@ -72,7 +72,7 @@ void CollisionSystem::GrassReaction(DynamicObject* c, LocationManager* loc, Node
 
 			if (r > 70)
 			{
-				std::cout << "Battle" << std::endl;
+				BattleSystem::battleSetup(BattleType::WILD);
 			}
 
 			m_gChecked = true;

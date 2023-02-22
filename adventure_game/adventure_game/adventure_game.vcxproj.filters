@@ -199,6 +199,15 @@
     <Filter Include="Header Files\Location\Masks">
       <UniqueIdentifier>{0a54dd7a-0ebb-4361-b6c8-d39e2393485f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Systems\Battle">
+      <UniqueIdentifier>{295fe2f2-2aca-4b7d-bd44-48c6f132ce87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Monster">
+      <UniqueIdentifier>{bf896130-0085-4bcb-b8a3-8dae3b81359a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Monster">
+      <UniqueIdentifier>{4c318bfb-0fa9-4043-8d6e-5b2941d05d65}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -389,6 +398,30 @@
     </ClCompile>
     <ClCompile Include="Mask.cpp">
       <Filter>Source Files\Location\Masks</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleSystem.cpp">
+      <Filter>Source Files\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Source Files\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterInfo.cpp">
+      <Filter>Source Files\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterStats.cpp">
+      <Filter>Source Files\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Stat.cpp">
+      <Filter>Source Files\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="IV.cpp">
+      <Filter>Source Files\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomNumberGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterIVs.cpp">
+      <Filter>Source Files\Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -631,6 +664,39 @@
     </ClInclude>
     <ClInclude Include="Mask.h">
       <Filter>Header Files\Location\Masks</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleSystem.h">
+      <Filter>Header Files\Systems\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleType.h">
+      <Filter>Header Files\Systems\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterType.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterInfo.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterStats.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Stat.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="IV.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomNumberGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterIVs.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="StatType.h">
+      <Filter>Header Files\Monster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

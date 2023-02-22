@@ -137,6 +137,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="BattleSystem.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ChangeOverworldState.cpp" />
     <ClCompile Include="CollisionSystem.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hospital.cpp" />
+    <ClCompile Include="IV.cpp" />
     <ClCompile Include="jsoncpp.cpp" />
     <ClCompile Include="KeyComponent.cpp" />
     <ClCompile Include="KeyInputSystem.cpp" />
@@ -167,6 +169,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mask.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MonsterInfo.cpp" />
+    <ClCompile Include="MonsterIVs.cpp" />
+    <ClCompile Include="MonsterStats.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeArea.cpp" />
@@ -175,6 +181,7 @@
     <ClCompile Include="Options.cpp" />
     <ClCompile Include="OverworldState.cpp" />
     <ClCompile Include="PauseMenu.cpp" />
+    <ClCompile Include="RandomNumberGenerator.cpp" />
     <ClCompile Include="Route101.cpp" />
     <ClCompile Include="MovemenSystem.cpp" />
     <ClCompile Include="Route101NodeArea.cpp" />
@@ -184,6 +191,7 @@
     <ClCompile Include="RenderingSystem.cpp" />
     <ClCompile Include="Overworld.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="Stat.cpp" />
     <ClCompile Include="StaticObject.cpp" />
     <ClCompile Include="Sublocation.cpp" />
     <ClCompile Include="Test_Hospital_Exterior.cpp" />
@@ -202,6 +210,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h" />
+    <ClInclude Include="BattleSystem.h" />
+    <ClInclude Include="BattleType.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ChangeOverworldState.h" />
     <ClInclude Include="CollisionSystem.h" />
@@ -221,6 +231,7 @@
     <ClInclude Include="Factory.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="IV.h" />
     <ClInclude Include="json-forwards.h" />
     <ClInclude Include="json.h" />
     <ClInclude Include="KeyComponent.h" />
@@ -232,18 +243,26 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuIncludes.h" />
     <ClInclude Include="MenuType.h" />
+    <ClInclude Include="MonsterInfo.h" />
+    <ClInclude Include="MonsterIVs.h" />
+    <ClInclude Include="MonsterStats.h" />
+    <ClInclude Include="MonsterType.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="ObjectCasting.h" />
     <ClInclude Include="ObjectIncludes.h" />
     <ClInclude Include="Options.h" />
     <ClInclude Include="PauseMenu.h" />
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="RandomNumberGenerator.h" />
     <ClInclude Include="RenderLayer.h" />
     <ClInclude Include="Route101NodeArea.h" />
     <ClInclude Include="SaveGame.h" />
     <ClInclude Include="SetDynamicObjectPositionCommand.h" />
     <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="Stat.h" />
     <ClInclude Include="StaticObject.h" />
+    <ClInclude Include="StatType.h" />
     <ClInclude Include="Tags.h" />
     <ClInclude Include="Hospital.h" />
     <ClInclude Include="LayerRenderer.h" />
