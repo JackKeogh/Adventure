@@ -13,11 +13,11 @@ public:
 	MonsterStats(int bh, int ba, int bd, int bsa, int bsd, int bs);
 	~MonsterStats();
 
-	void calculateHealth(MonsterIVs* iv);
+	void calculateHealth(MonsterIVs* iv, int level);
 
-	void calculateStats(MonsterIVs* iv);
+	void calculateStats(MonsterIVs* iv, int level);
 
-	int calculateSingleStat(MonsterIVs* iv, StatType st, int base, int ev, double nature = 1.0);
+	int calculateSingleStat(MonsterIVs* iv, StatType st, int base, int ev, int level, double nature = 1.0);
 
 	friend std::ostream& operator<<(std::ostream& os, const MonsterStats& v);
 

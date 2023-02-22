@@ -37,6 +37,12 @@ MonsterIVs::MonsterIVs()
 
 MonsterIVs::~MonsterIVs()
 {
+	delete m_health;
+	delete m_attack;
+	delete m_defense;
+	delete m_spcAttack;
+	delete m_spcDefense;
+	delete m_speed;
 }
 
 IV* MonsterIVs::getIV(StatType st)

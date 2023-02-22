@@ -4,6 +4,7 @@
 #include "MonsterInfo.h"
 #include "MonsterStats.h"
 #include "MonsterIVs.h"
+#include "MonsterLevel.h"
 
 #ifndef MONSTER_H
 #define MONSTER_H
@@ -26,6 +27,7 @@ private:
 	MonsterInfo m_info;
 	MonsterStats* m_stats;
 	MonsterIVs* m_ivs;
+	MonsterLevel* m_level;
 	MonsterType m_primary;
 	MonsterType m_secondary;
 };

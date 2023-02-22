@@ -5,12 +5,14 @@ Monster::Monster()
 	m_primary = MonsterType::QUESTIONMARK;
 	m_secondary = MonsterType::NONE;
 
+	m_level = new MonsterLevel();
+
 	m_stats = new MonsterStats(55,130,115,50,50,75);
 
 	m_ivs = new MonsterIVs();
 
-	m_stats->calculateHealth(m_ivs);
-	m_stats->calculateStats(m_ivs);
+	m_stats->calculateHealth(m_ivs, m_level->getLevel());
+	m_stats->calculateStats(m_ivs, m_level->getLevel());
 
 	m_info = MonsterInfo();
 }
@@ -36,7 +38,9 @@ MonsterType Monster::getSecondary()
 
 void Monster::levelUp()
 {
-	m_stats->calculateHealth(m_ivs);
+	m_level->levelUp();
+	m_stats->calculateHealth(m_ivs, m_level->getLevel());
+	m_stats->calculateStats(m_ivs, m_level->getLevel());
 }
 
 std::ostream& operator<<(std::ostream& os, const Monster& v)
@@ -49,6 +53,9 @@ std::ostream& operator<<(std::ostream& os, const Monster& v)
 	}
 
 	os << "Monster ID: " << v.m_info.m_id << std::endl;
+
+	os << *v.m_level;
+
 	os << "Typing 1: " << monsterTypeToString(v.m_primary) << std::endl;
 
 	if (v.m_secondary != MonsterType::NONE)
