@@ -56,28 +56,30 @@ MonsterStats::~MonsterStats()
 	delete m_speed;
 }
 
-void MonsterStats::calculateHealth(MonsterIVs* iv, int level)
+void MonsterStats::calculateHealth(MonsterIVs* iv, MonsterEVs* ev, int level)
 {
-	IV* healthiv = iv->getIV(StatType::HEALTH);
-	m_health->m_value = ((2 * m_health->m_base + healthiv->m_value + (255 / 4)) * level);
+	IV* healthIv = iv->getIV(StatType::HEALTH);
+	EffortValue* healthEv = ev->getEV(StatType::HEALTH);
+	m_health->m_value = ((2 * m_health->m_base + healthIv->m_value + (healthEv->m_value / 4)) * level);
 	m_health->m_value = m_health->m_value / 100;
 	m_health->m_value = m_health->m_value + level + 10;
 }
 
-void MonsterStats::calculateStats(MonsterIVs* iv, int level)
+void MonsterStats::calculateStats(MonsterIVs* iv, MonsterEVs* ev, int level)
 {
-	m_attack->m_value = calculateSingleStat(iv, StatType::ATTACK, m_attack->m_base,0, level, 1.1);
-	m_defense->m_value = calculateSingleStat(iv, StatType::DEFENSE, m_defense->m_base,255, level);
-	m_spcAttack->m_value = calculateSingleStat(iv, StatType::SPCATTACK, m_spcAttack->m_base,0, level ,0.9);
-	m_spcDefense->m_value = calculateSingleStat(iv, StatType::SPCDEFENSE, m_spcDefense->m_base,0, level);
-	m_speed->m_value = calculateSingleStat(iv, StatType::SPEED, m_speed->m_base, 0, level);
+	m_attack->m_value = calculateSingleStat(iv, StatType::ATTACK, m_attack->m_base, ev, level, 1.1);
+	m_defense->m_value = calculateSingleStat(iv, StatType::DEFENSE, m_defense->m_base, ev, level);
+	m_spcAttack->m_value = calculateSingleStat(iv, StatType::SPCATTACK, m_spcAttack->m_base, ev, level ,0.9);
+	m_spcDefense->m_value = calculateSingleStat(iv, StatType::SPCDEFENSE, m_spcDefense->m_base, ev, level);
+	m_speed->m_value = calculateSingleStat(iv, StatType::SPEED, m_speed->m_base, ev, level);
 }
 
-int MonsterStats::calculateSingleStat(MonsterIVs* iv, StatType st, int base, int ev, int level, double nature)
+int MonsterStats::calculateSingleStat(MonsterIVs* iv, StatType st, int base, MonsterEVs* ev, int level, double nature)
 {
 	IV* statIV = iv->getIV(st);
+	EffortValue* statEV = ev->getEV(st);
 
-	int value = (2 * base + statIV->m_value + (ev / 4));
+	int value = (2 * base + statIV->m_value + (statEV->m_value / 4));
 	value = value * level;
 	value = std::floor(value / 100);
 	value = value + 5;

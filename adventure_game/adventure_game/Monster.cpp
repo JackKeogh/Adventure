@@ -9,10 +9,12 @@ Monster::Monster()
 
 	m_stats = new MonsterStats(55,130,115,50,50,75);
 
+	m_evs = new MonsterEVs();
+
 	m_ivs = new MonsterIVs();
 
-	m_stats->calculateHealth(m_ivs, m_level->getLevel());
-	m_stats->calculateStats(m_ivs, m_level->getLevel());
+	m_stats->calculateHealth(m_ivs, m_evs, m_level->getLevel());
+	m_stats->calculateStats(m_ivs, m_evs, m_level->getLevel());
 
 	m_info = MonsterInfo();
 }
@@ -39,8 +41,8 @@ MonsterType Monster::getSecondary()
 void Monster::levelUp()
 {
 	m_level->levelUp();
-	m_stats->calculateHealth(m_ivs, m_level->getLevel());
-	m_stats->calculateStats(m_ivs, m_level->getLevel());
+	m_stats->calculateHealth(m_ivs, m_evs, m_level->getLevel());
+	m_stats->calculateStats(m_ivs, m_evs, m_level->getLevel());
 }
 
 std::ostream& operator<<(std::ostream& os, const Monster& v)
@@ -72,6 +74,10 @@ std::ostream& operator<<(std::ostream& os, const Monster& v)
 	os << "Ivs: " << std::endl;
 
 	os << *v.m_ivs << std::endl;
+
+	os << "Evs: " << std::endl;
+
+	os << *v.m_evs << std::endl;
 
 	return os;
 }

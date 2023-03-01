@@ -423,6 +423,15 @@
     <ClCompile Include="MonsterIVs.cpp">
       <Filter>Source Files\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="MonsterLevel.cpp">
+      <Filter>Source Files\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="EffortValue.cpp">
+      <Filter>Source Files\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterEVs.cpp">
+      <Filter>Source Files\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -698,6 +707,15 @@
     <ClInclude Include="StatType.h">
       <Filter>Header Files\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="MonsterLevel.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="EffortValue.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterEVs.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="GameData.json">
@@ -706,5 +724,10 @@
     <None Include="PlayerSave.json">
       <Filter>Resource Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xsd Include="PokemonDatabase.json">
+      <Filter>Resource Files</Filter>
+    </Xsd>
   </ItemGroup>
 </Project>

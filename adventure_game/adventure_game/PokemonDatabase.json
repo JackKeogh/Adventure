@@ -1,0 +1,17 @@
+﻿{
+  "PokemonDatabase": {
+    "Bulbasaur": {
+      "id": 1,
+      "name": "Bulbasaur",
+      "description": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
+      "basestats": {
+        "health": 45,
+        "attack": 49,
+        "defense": 49,
+        "spcAttack": 65,
+        "spcDefense": 65,
+        "speed": 45
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "Stat.h"
 #include "MonsterIVs.h"
+#include "MonsterEVs.h"
 
 #ifndef MONSTERSTATS_H
 #define MONSTERSTATS_H
@@ -13,11 +14,11 @@ public:
 	MonsterStats(int bh, int ba, int bd, int bsa, int bsd, int bs);
 	~MonsterStats();
 
-	void calculateHealth(MonsterIVs* iv, int level);
+	void calculateHealth(MonsterIVs* iv, MonsterEVs* ev, int level);
 
-	void calculateStats(MonsterIVs* iv, int level);
+	void calculateStats(MonsterIVs* iv, MonsterEVs* ev, int level);
 
-	int calculateSingleStat(MonsterIVs* iv, StatType st, int base, int ev, int level, double nature = 1.0);
+	int calculateSingleStat(MonsterIVs* iv, StatType st, int base, MonsterEVs* ev, int level, double nature = 1.0);
 
 	friend std::ostream& operator<<(std::ostream& os, const MonsterStats& v);
 

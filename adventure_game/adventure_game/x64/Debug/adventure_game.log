@@ -1,2 +1,12 @@
-﻿  Monster.cpp
+﻿  BattleSystem.cpp
+  CollisionSystem.cpp
+  Game.cpp
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\Game.cpp(19,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Monster.cpp
+  MonsterStats.cpp
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\MonsterStats.cpp(84,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\Projects\Adventure\Adventure\adventure_game\adventure_game\MonsterStats.cpp(86,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Overworld.cpp
+  main.cpp
+  Generating Code...
   adventure_game.vcxproj -> D:\Projects\Adventure\Adventure\adventure_game\x64\Debug\adventure_game.exe
