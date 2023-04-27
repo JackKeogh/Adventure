@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -171,6 +171,8 @@
     <ClCompile Include="Mask.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MonsterBase.cpp" />
+    <ClCompile Include="MonsterDatabase.cpp" />
     <ClCompile Include="MonsterEVs.cpp" />
     <ClCompile Include="MonsterInfo.cpp" />
     <ClCompile Include="MonsterIVs.cpp" />
@@ -189,6 +191,7 @@
     <ClCompile Include="MovemenSystem.cpp" />
     <ClCompile Include="Route101NodeArea.cpp" />
     <ClCompile Include="SaveGame.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SetDynamicObjectPositionCommand.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="RenderingSystem.cpp" />
@@ -200,6 +203,7 @@
     <ClCompile Include="Test_Hospital_Exterior.cpp" />
     <ClCompile Include="Test_Hospital_Interior.cpp" />
     <ClCompile Include="Test_Hospital_NodeArea.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transitions.cpp" />
     <ClCompile Include="UI_Base.cpp" />
     <ClCompile Include="UI_Button.cpp" />
@@ -213,6 +217,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h" />
+    <ClInclude Include="BattleAnimation.h" />
+    <ClInclude Include="BattleState.h" />
     <ClInclude Include="BattleSystem.h" />
     <ClInclude Include="BattleType.h" />
     <ClInclude Include="Camera.h" />
@@ -235,6 +241,7 @@
     <ClInclude Include="Factory.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="HelperInclude.h" />
     <ClInclude Include="IV.h" />
     <ClInclude Include="json-forwards.h" />
     <ClInclude Include="json.h" />
@@ -247,6 +254,8 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuIncludes.h" />
     <ClInclude Include="MenuType.h" />
+    <ClInclude Include="MonsterBase.h" />
+    <ClInclude Include="MonsterDatabase.h" />
     <ClInclude Include="MonsterEVs.h" />
     <ClInclude Include="MonsterInfo.h" />
     <ClInclude Include="MonsterIVs.h" />
@@ -264,6 +273,8 @@
     <ClInclude Include="RenderLayer.h" />
     <ClInclude Include="Route101NodeArea.h" />
     <ClInclude Include="SaveGame.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneKey.h" />
     <ClInclude Include="SetDynamicObjectPositionCommand.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Stat.h" />
@@ -294,6 +305,7 @@
     <ClInclude Include="Test_Hospital_Exterior.h" />
     <ClInclude Include="Test_Hospital_Interior.h" />
     <ClInclude Include="Test_Hospital_NodeArea.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Transitions.h" />
     <ClInclude Include="UIButtonsInclude.h" />
     <ClInclude Include="UIObjectsInclude.h" />
@@ -309,15 +321,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GameData.json" />
+    <None Include="MonsterList.json" />
     <None Include="PlayerSave.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Xsd Include="PokemonDatabase.json">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </Xsd>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

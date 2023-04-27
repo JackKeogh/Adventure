@@ -20,6 +20,8 @@ public:
 
 	int calculateSingleStat(MonsterIVs* iv, StatType st, int base, MonsterEVs* ev, int level, double nature = 1.0);
 
+	Stat* getStat(StatType st);
+
 	friend std::ostream& operator<<(std::ostream& os, const MonsterStats& v);
 
 private:

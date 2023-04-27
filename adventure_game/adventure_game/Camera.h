@@ -1,6 +1,9 @@
 #pragma once
 #include "stdafx.h"
 
+#ifndef CAMERA_H
+#define CAMERA_H
+
 class Camera
 {
 public:
@@ -9,6 +12,12 @@ public:
 	static void initialise(SDL_Rect p);
 
 	static void update(SDL_Rect p);
+
+	static void setX(int x);
+
+	static void setY(int y);
+
+	static void setCoords(SDL_Point xy);
 
 	static int getX();
 
@@ -20,4 +29,6 @@ private:
 	static SDL_Rect m_camera;
 	static bool m_active;
 };
+
+#endif
 

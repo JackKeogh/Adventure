@@ -87,3 +87,24 @@ int MonsterStats::calculateSingleStat(MonsterIVs* iv, StatType st, int base, Mon
 
 	return value;
 }
+
+Stat* MonsterStats::getStat(StatType st)
+{
+	switch (st)
+	{
+	case StatType::HEALTH:
+		return m_health;
+	case StatType::ATTACK:
+		return m_attack;
+	case StatType::DEFENSE:
+		return m_defense;
+	case StatType::SPCATTACK:
+		return m_spcAttack;
+	case StatType::SPCDEFENSE:
+		return m_spcDefense;
+	case StatType::SPEED:
+		return m_speed;
+	}
+
+	return nullptr;
+}

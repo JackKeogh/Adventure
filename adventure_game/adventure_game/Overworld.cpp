@@ -2,6 +2,7 @@
 
 Overworld::Overworld(Renderer* renderer) {
 	initialise();
+	MonsterDatabase::load();
 }
 
 Overworld::~Overworld() {
@@ -80,6 +81,9 @@ void Overworld::update(float dt) {
 		case OverworldState::Dialog:
 			DialogueSystem::update();
 			break;
+		case OverworldState::Battle:
+			BattleSystem::update();
+			break;
 		case OverworldState::Paused:
 			
 			break;
@@ -96,6 +100,11 @@ void Overworld::render(Renderer* r) {
 		m_locManager->render();
 		player->render();
 		UI_Controller::render(r);
+	}
+	else if (OverworldStateController::getCurrentState() == OverworldState::Battle)
+	{
+		Camera::setCoords({ 0, 0 });
+		BattleSystem::render();
 	}
 	else
 	{

@@ -14,6 +14,7 @@
 #include "DynamicObject.h"
 #include "Factory.h"
 #include "MenuIncludes.h"
+#include "MonsterDatabase.h"
 
 class Overworld {
 public:

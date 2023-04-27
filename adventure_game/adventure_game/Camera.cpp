@@ -26,6 +26,22 @@ void Camera::update(SDL_Rect p)
 	}
 }
 
+void Camera::setX(int x)
+{
+	m_camera.x = x;
+}
+
+void Camera::setY(int y)
+{
+	m_camera.y = y;
+}
+
+void Camera::setCoords(SDL_Point xy)
+{
+	setX(xy.x);
+	setY(xy.y);
+}
+
 int Camera::getX()
 {
 	return m_camera.x;

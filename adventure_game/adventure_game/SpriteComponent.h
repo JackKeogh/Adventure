@@ -9,6 +9,8 @@
 class SpriteComponent : public Sprite, public Component
 {
 public:
+	SpriteComponent();
+
 	SpriteComponent(Renderer* renderer, std::string path, SDL_Rect s = { 0,0,0,0 }, SDL_Rect d = { 0,0,0,0 }, RenderLayer l = RenderLayer::Background);
 
 	SpriteComponent(SDL_Renderer* renderer, std::string path, SDL_Rect s = { 0,0,0,0 }, SDL_Rect d = { 0,0,0,0 }, RenderLayer l = RenderLayer::Background);

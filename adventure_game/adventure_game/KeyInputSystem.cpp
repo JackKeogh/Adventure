@@ -24,7 +24,7 @@ void KeyInputSystem::handleKeyInput(SDL_Event* e, DynamicObject* p, OverworldSta
 				break;
 
 			case OverworldState::Battle:
-				// Handle battle input
+				// handle battle input
 				break;
 
 			case OverworldState::Paused:

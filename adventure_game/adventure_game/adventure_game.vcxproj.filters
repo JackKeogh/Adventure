@@ -208,6 +208,15 @@
     <Filter Include="Source Files\Monster">
       <UniqueIdentifier>{4c318bfb-0fa9-4043-8d6e-5b2941d05d65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Systems\Battle">
+      <UniqueIdentifier>{6b18e27f-9519-4fff-8ce5-372003c8ce95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helper">
+      <UniqueIdentifier>{94ed6ef5-5e95-4d0d-8c53-70045d335ce0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helper">
+      <UniqueIdentifier>{c6e7303f-a8e9-479a-bfad-60122d726977}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -399,9 +408,6 @@
     <ClCompile Include="Mask.cpp">
       <Filter>Source Files\Location\Masks</Filter>
     </ClCompile>
-    <ClCompile Include="BattleSystem.cpp">
-      <Filter>Source Files\Systems</Filter>
-    </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>Source Files\Monster</Filter>
     </ClCompile>
@@ -431,6 +437,21 @@
     </ClCompile>
     <ClCompile Include="MonsterEVs.cpp">
       <Filter>Source Files\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterBase.cpp">
+      <Filter>Source Files\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterDatabase.cpp">
+      <Filter>Source Files\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleSystem.cpp">
+      <Filter>Source Files\Systems\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Systems\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\Helper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -716,6 +737,27 @@
     <ClInclude Include="MonsterEVs.h">
       <Filter>Header Files\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="MonsterBase.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterDatabase.h">
+      <Filter>Header Files\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\Systems\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneKey.h">
+      <Filter>Header Files\Systems\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleState.h">
+      <Filter>Header Files\Systems\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="HelperInclude.h">
+      <Filter>Header Files\Helper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="GameData.json">
@@ -724,10 +766,8 @@
     <None Include="PlayerSave.json">
       <Filter>Resource Files</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Xsd Include="PokemonDatabase.json">
+    <None Include="MonsterList.json">
       <Filter>Resource Files</Filter>
-    </Xsd>
+    </None>
   </ItemGroup>
 </Project>

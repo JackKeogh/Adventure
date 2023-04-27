@@ -15,6 +15,7 @@
 #include <math.h>
 #include "Tags.h"
 #include "Colors.h"
+#include "HelperInclude.h"
 
 #pragma once
 #define ONE_SECOND_MS 1000.f

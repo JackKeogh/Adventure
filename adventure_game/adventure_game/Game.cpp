@@ -88,6 +88,9 @@ Game::Game() {
 	UI_Controller::initialise();
 	UI_Controller::addMenu(m_menu);
 
+	// Initialise Battle System
+	BattleSystem::initialise();
+
 	// Initialise timer
 	m_timer = 0.f;
 }

@@ -1,56 +1,123 @@
 {
-  /*
-		QUESTIONMARK = 0
-		NONE = 1
-		NORMAL = 2
-		FIGHTING = 3
-		FLYING = 4
-		POISON = 5
-		GROUND = 6
-		ROCK = 7
-		BUG = 8
-		GHOST = 9
-		STEEL = 10
-		FIRE = 11
-		WATER = 12
-		GRASS = 13
-		ELECTRIC = 14
-		PSYCHIC = 15
-		ICE = 16
-		DRAGON = 17
-		DARK = 18
-		FAIRY = 19
-  */
-
   "MonsterList": {
-    {
+    "Spheal": {
       "id": 1,
-      "name": "Bulbasaur",
-      "type_01": 13,
-      "type_02": 5,
-      "description": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
+      "name": "Spheal",
+      "type_01": 12,
+      "type_02": 16,
+      "description": "As it drifts among the waves, Spheal probes the sea. As soon as it spots prey, it informs the Walrein in its herd.",
       "basestats": {
-        "health": 45,
-        "attack": 49,
-        "defense": 49,
-        "spcAttack": 65,
-        "spcDefense": 65,
-        "speed": 45
+        "health": 70,
+        "attack": 40,
+        "defense": 50,
+        "spcAttack": 55,
+        "spcDefense": 50,
+        "speed": 25
+      },
+      "sprite": "assets/pokemon/001_Spheal/spheal.png",
+      "enemy_reg_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "enemy_shiny_rect": {
+        "x": 96,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "player_reg_rect": {
+        "x": 0,
+        "y": 96,
+        "w": 96,
+        "h": 96
+      },
+      "player_shiny_rect": {
+        "x": 96,
+        "y": 96,
+        "w": 96,
+        "h": 96
       }
     },
-    {
+    "Sealeo": {
       "id": 2,
-      "name": "Ivysaur",
-      "type_01": 13,
-      "type_02": 5,
-      "description": "To support its bulb, Ivysaur's legs grow sturdy. If it spends more time lying in the sunlight, the bud will soon bloom into a large flower.",
+      "name": "Sealeo",
+      "type_01": 12,
+      "type_02": 16,
+      "description": "Be it Spheal or Poke Ball, it will spin any round object on its nose with the greatest of ease.",
       "basestats": {
-        "health": 60,
-        "attack": 62,
-        "defense": 63,
-        "spcAttack": 80,
-        "spcDefense": 80,
-        "speed": 60
+        "health": 90,
+        "attack": 60,
+        "defense": 70,
+        "spcAttack": 75,
+        "spcDefense": 70,
+        "speed": 45
+      },
+      "sprite": "assets/pokemon/002_Sealeo/sealeo.png",
+      "enemy_reg_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "enemy_shiny_rect": {
+        "x": 96,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "player_reg_rect": {
+        "x": 0,
+        "y": 96,
+        "w": 96,
+        "h": 96
+      },
+      "player_shiny_rect": {
+        "x": 96,
+        "y": 96,
+        "w": 96,
+        "h": 96
+      }
+    },
+    "Walrein": {
+      "id": 3,
+      "name": "Walrein",
+      "type_01": 12,
+      "type_02": 16,
+      "description": "Walrein's two massively developed tusks can totally shatter blocks of ice weighing 10 tons with one blow. This Pokémon's thick coat of blubber insulates it from subzero temperatures.",
+      "basestats": {
+        "health": 110,
+        "attack": 80,
+        "defense": 90,
+        "spcAttack": 95,
+        "spcDefense": 90,
+        "speed": 65
+      },
+      "sprite": "assets/pokemon/003_Walrein/walrein.png",
+      "enemy_reg_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "enemy_shiny_rect": {
+        "x": 96,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "player_reg_rect": {
+        "x": 0,
+        "y": 96,
+        "w": 96,
+        "h": 96
+      },
+      "player_shiny_rect": {
+        "x": 96,
+        "y": 96,
+        "w": 96,
+        "h": 96
       }
     }
   }

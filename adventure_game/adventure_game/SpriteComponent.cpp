@@ -1,5 +1,10 @@
 #include "SpriteComponent.h"
 
+SpriteComponent::SpriteComponent()
+{
+	m_layer = RenderLayer::Transitions;
+}
+
 SpriteComponent::SpriteComponent(Renderer* renderer, std::string path, SDL_Rect s, SDL_Rect d, RenderLayer l) :
 	Sprite(renderer, path, s, d)
 {

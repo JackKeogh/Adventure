@@ -7,7 +7,7 @@
 class MonsterLevel
 {
 public:
-	MonsterLevel(int l = 1);
+	MonsterLevel(int l = 50);
 	~MonsterLevel();
 
 	void levelUp();
